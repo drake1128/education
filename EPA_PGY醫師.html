@@ -673,6 +673,7 @@
 
                 <!-- 按鈕 -->
                 <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="copyFormContent()">📋 複製內容</button>
                     <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ 列印表單</button>
                     <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 重新填寫</button>
                     <button type="submit" class="btn btn-primary">✅ 提交評估</button>
@@ -717,6 +718,91 @@
                 document.getElementById('assessDate').valueAsDate = new Date();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+        }
+
+        function copyFormContent() {
+            // 收集基本資料
+            const studentName = document.getElementById('studentName').value || '(未填寫)';
+            const trainingYear = document.getElementById('trainingYear').value || '(未填寫)';
+            const assessDate = document.getElementById('assessDate').value || '(未填寫)';
+            const assessorName = document.getElementById('assessorName').value || '(未填寫)';
+            const assessorTitle = document.getElementById('assessorTitle').value || '(未填寫)';
+            const department = document.getElementById('department').value || '(未填寫)';
+
+            // 收集EPA評估
+            const epaItems = [
+                { name: '急性病患評估與初步處置', level: 'epa1_level', comment: 'epa1_comment' },
+                { name: '基本生命救治術 (BLS/ACLS)', level: 'epa2_level', comment: 'epa2_comment' },
+                { name: '臨床處置技能', level: 'epa3_level', comment: 'epa3_comment' },
+                { name: '病患交班與溝通', level: 'epa4_level', comment: 'epa4_comment' },
+                { name: '檢驗檢查判讀與臨床決策', level: 'epa5_level', comment: 'epa5_comment' },
+                { name: '團隊合作與跨專業溝通', level: 'epa6_level', comment: 'epa6_comment' }
+            ];
+
+            let epaText = '';
+            epaItems.forEach((item, index) => {
+                const levelElement = document.querySelector(`input[name="${item.level}"]:checked`);
+                const level = levelElement ? `Level ${levelElement.value}` : '(未評估)';
+                const comment = document.getElementById(item.comment).value || '(無)';
+                epaText += `${index + 1}. ${item.name}\n   信任等級：${level}\n   評語：${comment}\n\n`;
+            });
+
+            // 收集整體評估
+            const overallPerformance = document.getElementById('overallPerformance').value || '(未選擇)';
+            const strengths = document.getElementById('strengths').value || '(未填寫)';
+            const improvements = document.getElementById('improvements').value || '(未填寫)';
+            const recommendation = document.getElementById('recommendation').value || '(未選擇)';
+
+            // 組合文字
+            const formText = `
+════════════════════════════════════════
+    EPA評估表 - PGY醫師
+    台大醫院新竹分院 教學部
+════════════════════════════════════════
+
+【基本資料】
+學員姓名：${studentName}
+訓練年度：${trainingYear}
+評估日期：${assessDate}
+評估者：${assessorName}
+評估者職稱：${assessorTitle}
+評估科別：${department}
+
+【EPA評估項目】
+${epaText}
+【整體評估】
+整體表現：${overallPerformance}
+
+優點與具體表現：
+${strengths}
+
+需改進之處與學習建議：
+${improvements}
+
+是否建議進入專科訓練：${recommendation}
+
+────────────────────────────────────────
+評估日期：${new Date().toLocaleString('zh-TW')}
+            `.trim();
+
+            // 複製到剪貼簿
+            navigator.clipboard.writeText(formText).then(() => {
+                alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = formText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+                } catch (err) {
+                    alert('❌ 複製失敗，請手動選取內容複製。');
+                }
+                document.body.removeChild(textArea);
+            });
         }
     </script>
 </body>

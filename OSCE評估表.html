@@ -577,6 +577,7 @@
                 <!-- 按鈕 -->
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" onclick="calculateScore()">📊 計算分數</button>
+                    <button type="button" class="btn btn-secondary" onclick="copyFormContent()">📋 複製內容</button>
                     <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ 列印表單</button>
                     <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 重新填寫</button>
                     <button type="submit" class="btn btn-primary">✅ 提交評估</button>
@@ -797,6 +798,136 @@
                 loadStation();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+        }
+
+        function copyFormContent() {
+            // 收集基本資料
+            const studentName = document.getElementById('studentName').value || '(未填寫)';
+            const studentLevel = document.getElementById('studentLevel').value || '(未填寫)';
+            const examDate = document.getElementById('examDate').value || '(未填寫)';
+            const assessorName = document.getElementById('assessorName').value || '(未填寫)';
+            const stationNumber = document.getElementById('stationNumber').value || '(未填寫)';
+            const examTime = document.getElementById('examTime').value || '(未填寫)';
+            const stationType = document.getElementById('stationType').value;
+            
+            let stationTypeText = '(未選擇)';
+            if (stationType === 'history') stationTypeText = '病史詢問站';
+            else if (stationType === 'physical') stationTypeText = '身體檢查站';
+            else if (stationType === 'communication') stationTypeText = '溝通技巧站';
+            else if (stationType === 'procedure') stationTypeText = '臨床技能站';
+            else if (stationType === 'emergency') stationTypeText = '急救處置站';
+            else if (stationType === 'custom') stationTypeText = '自訂項目';
+
+            // 收集檢核表結果
+            let checklistText = '';
+            if (stationType && stationType !== 'custom' && stationTemplates[stationType]) {
+                const items = stationTemplates[stationType];
+                items.forEach((item, index) => {
+                    const doneCheckbox = document.querySelector(`input[name="check_${index}"][value="done"]`);
+                    const notDoneCheckbox = document.querySelector(`input[name="check_${index}"][value="not_done"]`);
+                    const naCheckbox = document.querySelector(`input[name="check_${index}"][value="na"]`);
+                    
+                    let status = '未勾選';
+                    if (doneCheckbox && doneCheckbox.checked) status = '✓ 完成';
+                    else if (notDoneCheckbox && notDoneCheckbox.checked) status = '✗ 未完成';
+                    else if (naCheckbox && naCheckbox.checked) status = '- 不適用';
+                    
+                    const criticalMark = item.critical ? '⭐ ' : '';
+                    checklistText += `   ${criticalMark}${item.item}: ${status}\n`;
+                });
+            } else {
+                checklistText = '   (無檢核資料或為自訂模式)\n';
+            }
+
+            // 收集全球評量分數
+            const clinicalElement = document.querySelector('input[name="clinical"]:checked');
+            const clinical = clinicalElement ? `${clinicalElement.value}分` : '(未評分)';
+            
+            const communicationElement = document.querySelector('input[name="communication"]:checked');
+            const communication = communicationElement ? `${communicationElement.value}分` : '(未評分)';
+            
+            const professionalismElement = document.querySelector('input[name="professionalism"]:checked');
+            const professionalism = professionalismElement ? `${professionalismElement.value}分` : '(未評分)';
+            
+            const organizationElement = document.querySelector('input[name="organization"]:checked');
+            const organization = organizationElement ? `${organizationElement.value}分` : '(未評分)';
+
+            // 收集回饋
+            const strengths = document.getElementById('strengths').value || '(未填寫)';
+            const improvements = document.getElementById('improvements').value || '(未填寫)';
+            const overallComment = document.getElementById('overallComment').value || '(未填寫)';
+
+            // 收集分數（如果已計算）
+            const checklistScore = document.getElementById('checklistScore').textContent;
+            const globalScore = document.getElementById('globalScore').textContent;
+            const totalScore = document.getElementById('totalScore').textContent;
+            const passStatusElement = document.getElementById('passStatus');
+            const passStatus = passStatusElement.textContent || '(未計算)';
+
+            // 組合文字
+            const formText = `
+════════════════════════════════════════
+    OSCE評估表
+    客觀結構式臨床測驗
+    台大醫院新竹分院 教學部
+════════════════════════════════════════
+
+【基本資料】
+學員姓名：${studentName}
+學員身分：${studentLevel}
+測驗日期：${examDate}
+測驗時間：${examTime}
+評估者：${assessorName}
+站別編號：${stationNumber}
+站別類型：${stationTypeText}
+
+【技能檢核表】
+${checklistText}
+
+【全球評量表】
+1. 整體臨床能力：${clinical}
+2. 溝通技巧：${communication}
+3. 專業態度：${professionalism}
+4. 組織能力與效率：${organization}
+
+【評估回饋】
+學員表現優點：
+${strengths}
+
+需改進之處：
+${improvements}
+
+整體評語：
+${overallComment}
+
+【評估分數】
+檢核表分數：${checklistScore}
+全球評量分數：${globalScore}
+總分：${totalScore}
+結果：${passStatus}
+
+────────────────────────────────────────
+評估日期：${new Date().toLocaleString('zh-TW')}
+            `.trim();
+
+            // 複製到剪貼簿
+            navigator.clipboard.writeText(formText).then(() => {
+                alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = formText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+                } catch (err) {
+                    alert('❌ 複製失敗，請手動選取內容複製。');
+                }
+                document.body.removeChild(textArea);
+            });
         }
 
         // 初始化
