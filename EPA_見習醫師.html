@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPA評估表 - 見習醫師</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 30px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .basic-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .basic-info h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .epa-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .epa-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .epa-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .epa-description {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #1976d2;
+        }
+
+        .entrustment-scale {
+            margin-bottom: 20px;
+        }
+
+        .entrustment-scale h4 {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .scale-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .scale-option {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .scale-option:hover {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .scale-option input[type="radio"] {
+            display: none;
+        }
+
+        .scale-option input[type="radio"]:checked + label {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .scale-option input[type="radio"]:checked ~ .scale-option {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .scale-option label {
+            cursor: pointer;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .scale-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .competency-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .competency-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .competency-select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .summary-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .summary-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .button-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 EPA評估表</h1>
+            <p>Entrustable Professional Activities Assessment</p>
+            <div class="badge">見習醫師 Medical Student</div>
+        </div>
+
+        <div class="info-box">
+            <strong>📌 評估說明：</strong>
+            EPA（可委託專業活動）評估旨在評量學員是否能獨立執行特定臨床工作。請根據學員的實際表現，選擇適當的信任等級。
+        </div>
+
+        <div class="content">
+            <form id="epaForm">
+                <!-- 基本資料 -->
+                <div class="basic-info">
+                    <h3>👤 基本資料</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>學員姓名 *</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>學號</label>
+                            <input type="text" id="studentId">
+                        </div>
+                        <div class="form-group">
+                            <label>評估日期 *</label>
+                            <input type="date" id="assessDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>評估者姓名 *</label>
+                            <input type="text" id="assessorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>評估者職稱</label>
+                            <select id="assessorTitle">
+                                <option value="">請選擇</option>
+                                <option value="主治醫師">主治醫師</option>
+                                <option value="總醫師">總醫師</option>
+                                <option value="住院醫師">住院醫師</option>
+                                <option value="專科護理師">專科護理師</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>評估科別</label>
+                            <select id="department">
+                                <option value="">請選擇</option>
+                                <option value="內科">內科</option>
+                                <option value="外科">外科</option>
+                                <option value="婦產科">婦產科</option>
+                                <option value="小兒科">小兒科</option>
+                                <option value="急診醫學科">急診醫學科</option>
+                                <option value="家庭醫學科">家庭醫學科</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EPA項目評估 -->
+                <div class="section">
+                    <h2>📋 見習醫師核心EPA評估</h2>
+                    
+                    <!-- EPA 1 -->
+                    <div class="epa-item">
+                        <div class="epa-title">
+                            <span class="epa-number">1</span>
+                            完整收集病史
+                        </div>
+                        <div class="epa-description">
+                            能系統性地收集病人的主訴、現在病史、過去病史、家族史、社會史及系統回顧
+                        </div>
+                        
+                        <div class="entrustment-scale">
+                            <h4>信任等級 (Entrustment Level) *</h4>
+                            <div class="scale-options">
+                                <div class="scale-option">
+                                    <input type="radio" id="epa1_l1" name="epa1_level" value="1" required>
+                                    <label for="epa1_l1">Level 1</label>
+                                    <div class="scale-desc">僅能觀察</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa1_l2" name="epa1_level" value="2">
+                                    <label for="epa1_l2">Level 2</label>
+                                    <div class="scale-desc">需直接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa1_l3" name="epa1_level" value="3">
+                                    <label for="epa1_l3">Level 3</label>
+                                    <div class="scale-desc">需間接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa1_l4" name="epa1_level" value="4">
+                                    <label for="epa1_l4">Level 4</label>
+                                    <div class="scale-desc">可獨立執行</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa1_l5" name="epa1_level" value="5">
+                                    <label for="epa1_l5">Level 5</label>
+                                    <div class="scale-desc">可督導他人</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>觀察評語</label>
+                            <textarea id="epa1_comment" rows="3" placeholder="請描述學員的表現優點或需改進之處"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- EPA 2 -->
+                    <div class="epa-item">
+                        <div class="epa-title">
+                            <span class="epa-number">2</span>
+                            執行身體檢查
+                        </div>
+                        <div class="epa-description">
+                            能依據病史進行相關的身體檢查，包含一般檢查、各系統理學檢查及特殊檢查技巧
+                        </div>
+                        
+                        <div class="entrustment-scale">
+                            <h4>信任等級 (Entrustment Level) *</h4>
+                            <div class="scale-options">
+                                <div class="scale-option">
+                                    <input type="radio" id="epa2_l1" name="epa2_level" value="1" required>
+                                    <label for="epa2_l1">Level 1</label>
+                                    <div class="scale-desc">僅能觀察</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa2_l2" name="epa2_level" value="2">
+                                    <label for="epa2_l2">Level 2</label>
+                                    <div class="scale-desc">需直接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa2_l3" name="epa2_level" value="3">
+                                    <label for="epa2_l3">Level 3</label>
+                                    <div class="scale-desc">需間接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa2_l4" name="epa2_level" value="4">
+                                    <label for="epa2_l4">Level 4</label>
+                                    <div class="scale-desc">可獨立執行</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa2_l5" name="epa2_level" value="5">
+                                    <label for="epa2_l5">Level 5</label>
+                                    <div class="scale-desc">可督導他人</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>觀察評語</label>
+                            <textarea id="epa2_comment" rows="3" placeholder="請描述學員的表現優點或需改進之處"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- EPA 3 -->
+                    <div class="epa-item">
+                        <div class="epa-title">
+                            <span class="epa-number">3</span>
+                            提出鑑別診斷
+                        </div>
+                        <div class="epa-description">
+                            能根據病史和身體檢查結果，提出合理的鑑別診斷清單，並說明理由
+                        </div>
+                        
+                        <div class="entrustment-scale">
+                            <h4>信任等級 (Entrustment Level) *</h4>
+                            <div class="scale-options">
+                                <div class="scale-option">
+                                    <input type="radio" id="epa3_l1" name="epa3_level" value="1" required>
+                                    <label for="epa3_l1">Level 1</label>
+                                    <div class="scale-desc">僅能觀察</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa3_l2" name="epa3_level" value="2">
+                                    <label for="epa3_l2">Level 2</label>
+                                    <div class="scale-desc">需直接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa3_l3" name="epa3_level" value="3">
+                                    <label for="epa3_l3">Level 3</label>
+                                    <div class="scale-desc">需間接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa3_l4" name="epa3_level" value="4">
+                                    <label for="epa3_l4">Level 4</label>
+                                    <div class="scale-desc">可獨立執行</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa3_l5" name="epa3_level" value="5">
+                                    <label for="epa3_l5">Level 5</label>
+                                    <div class="scale-desc">可督導他人</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>觀察評語</label>
+                            <textarea id="epa3_comment" rows="3" placeholder="請描述學員的表現優點或需改進之處"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- EPA 4 -->
+                    <div class="epa-item">
+                        <div class="epa-title">
+                            <span class="epa-number">4</span>
+                            醫病溝通與衛教
+                        </div>
+                        <div class="epa-description">
+                            能以病人能理解的方式說明病情、檢查或治療計畫，並回應病人疑問
+                        </div>
+                        
+                        <div class="entrustment-scale">
+                            <h4>信任等級 (Entrustment Level) *</h4>
+                            <div class="scale-options">
+                                <div class="scale-option">
+                                    <input type="radio" id="epa4_l1" name="epa4_level" value="1" required>
+                                    <label for="epa4_l1">Level 1</label>
+                                    <div class="scale-desc">僅能觀察</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa4_l2" name="epa4_level" value="2">
+                                    <label for="epa4_l2">Level 2</label>
+                                    <div class="scale-desc">需直接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa4_l3" name="epa4_level" value="3">
+                                    <label for="epa4_l3">Level 3</label>
+                                    <div class="scale-desc">需間接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa4_l4" name="epa4_level" value="4">
+                                    <label for="epa4_l4">Level 4</label>
+                                    <div class="scale-desc">可獨立執行</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa4_l5" name="epa4_level" value="5">
+                                    <label for="epa4_l5">Level 5</label>
+                                    <div class="scale-desc">可督導他人</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>觀察評語</label>
+                            <textarea id="epa4_comment" rows="3" placeholder="請描述學員的表現優點或需改進之處"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- EPA 5 -->
+                    <div class="epa-item">
+                        <div class="epa-title">
+                            <span class="epa-number">5</span>
+                            撰寫病歷紀錄
+                        </div>
+                        <div class="epa-description">
+                            能完整、正確地撰寫病歷紀錄，包含SOAP格式的病程紀錄和出院摘要
+                        </div>
+                        
+                        <div class="entrustment-scale">
+                            <h4>信任等級 (Entrustment Level) *</h4>
+                            <div class="scale-options">
+                                <div class="scale-option">
+                                    <input type="radio" id="epa5_l1" name="epa5_level" value="1" required>
+                                    <label for="epa5_l1">Level 1</label>
+                                    <div class="scale-desc">僅能觀察</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa5_l2" name="epa5_level" value="2">
+                                    <label for="epa5_l2">Level 2</label>
+                                    <div class="scale-desc">需直接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa5_l3" name="epa5_level" value="3">
+                                    <label for="epa5_l3">Level 3</label>
+                                    <div class="scale-desc">需間接督導</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa5_l4" name="epa5_level" value="4">
+                                    <label for="epa5_l4">Level 4</label>
+                                    <div class="scale-desc">可獨立執行</div>
+                                </div>
+                                <div class="scale-option">
+                                    <input type="radio" id="epa5_l5" name="epa5_level" value="5">
+                                    <label for="epa5_l5">Level 5</label>
+                                    <div class="scale-desc">可督導他人</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>觀察評語</label>
+                            <textarea id="epa5_comment" rows="3" placeholder="請描述學員的表現優點或需改進之處"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 整體評估 -->
+                <div class="summary-section">
+                    <h3>📊 整體評估與回饋</h3>
+                    <div class="form-group">
+                        <label>整體表現評估</label>
+                        <select id="overallPerformance">
+                            <option value="">請選擇</option>
+                            <option value="優秀">優秀 (Excellent)</option>
+                            <option value="良好">良好 (Good)</option>
+                            <option value="尚可">尚可 (Satisfactory)</option>
+                            <option value="需改進">需改進 (Needs Improvement)</option>
+                            <option value="不及格">不及格 (Unsatisfactory)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>學員優點與具體表現</label>
+                        <textarea id="strengths" rows="3" placeholder="請具體描述學員的優秀表現"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>需改進之處與學習建議</label>
+                        <textarea id="improvements" rows="3" placeholder="請提供具體、可行的改進建議"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>是否建議進入下階段訓練</label>
+                        <select id="recommendation">
+                            <option value="">請選擇</option>
+                            <option value="強烈推薦">強烈推薦</option>
+                            <option value="推薦">推薦</option>
+                            <option value="保留">保留</option>
+                            <option value="不推薦">不推薦</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 按鈕 -->
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ 列印表單</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 重新填寫</button>
+                    <button type="submit" class="btn btn-primary">✅ 提交評估</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>台大醫院新竹分院 教學部 © 2025</p>
+            <p>EPA評估表 - 見習醫師版本 v1.0</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('epaForm');
+
+        // 設定今天日期為預設值
+        document.getElementById('assessDate').valueAsDate = new Date();
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 檢查必填欄位
+            if (!document.getElementById('studentName').value) {
+                alert('請填寫學員姓名');
+                return;
+            }
+
+            // 檢查是否所有EPA都有評分
+            const epaLevels = ['epa1_level', 'epa2_level', 'epa3_level', 'epa4_level', 'epa5_level'];
+            for (let epa of epaLevels) {
+                if (!document.querySelector(`input[name="${epa}"]:checked`)) {
+                    alert('請完成所有EPA項目的評估');
+                    return;
+                }
+            }
+
+            if (confirm('確認提交此評估表嗎？')) {
+                alert('✅ 評估表已提交！\n\n實際應用時，此處會將資料傳送至後端系統。');
+                // 這裡可以加入實際的資料提交邏輯
+            }
+        });
+
+        function resetForm() {
+            if (confirm('確定要重新填寫評估表嗎？所有資料將會清除。')) {
+                form.reset();
+                document.getElementById('assessDate').valueAsDate = new Date();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
