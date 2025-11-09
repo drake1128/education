@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troponin Kinetics in Index Cases</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            background: linear-gradient(to bottom right, #eff6ff, #faf5ff);
+            padding: 32px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            padding: 32px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin-bottom: 32px;
+        }
+        .info-section {
+            margin-top: 32px;
+            padding: 24px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+        }
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .info-card {
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .card-myocarditis {
+            background-color: #fff7ed;
+            border-left: 4px solid #ff9800;
+        }
+        .card-chf {
+            background-color: #fce7f3;
+            border-left: 4px solid #e91e63;
+        }
+        .card-mi {
+            background-color: #fee2e2;
+            border-left: 4px solid #f44336;
+        }
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .title-myocarditis { color: #ea580c; }
+        .title-chf { color: #be185d; }
+        .title-mi { color: #b91c1c; }
+        .card-text {
+            font-size: 14px;
+            color: #374151;
+        }
+        .cutoff-info {
+            padding: 16px;
+            background-color: #dbeafe;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Troponin Kinetics in Index Cases</h1>
+        <p class="subtitle">Plasma cardiac troponin I (cTnI) values over time</p>
+        
+        <div class="chart-container">
+            <canvas id="troponinChart"></canvas>
+        </div>
+
+        <div class="info-section">
+            <h2 class="info-title">臨床意義解讀：</h2>
+            <div class="info-grid">
+                <div class="info-card card-myocarditis">
+                    <h3 class="card-title title-myocarditis">🟠 心肌炎 (Myocarditis)</h3>
+                    <p class="card-text">cTnI輕微升高，峰值約200-800 ng/L，呈現緩慢上升後逐漸下降的模式</p>
+                </div>
+                
+                <div class="info-card card-chf">
+                    <h3 class="card-title title-chf">🟣 心衰竭 (CHF)</h3>
+                    <p class="card-text">cTnI持續在低水平(~50-100 ng/L)，接近cutoff值，無明顯動態變化</p>
+                </div>
+                
+                <div class="info-card card-mi">
+                    <h3 class="card-title title-mi">🔴 心肌梗塞 (MI)</h3>
+                    <p class="card-text">cTnI急劇升高，在24小時內達到高峰(50,000-80,000 ng/L)，然後逐漸下降</p>
+                </div>
+            </div>
+            
+            <div class="cutoff-info">
+                <p class="card-text">
+                    <strong>Cutoff值 (40 ng/L)：</strong> 虛線表示正常上限，超過此值提示心肌損傷。
+                    心肌梗塞的cTnI升高幅度遠大於心肌炎和心衰竭，且有典型的「升高-下降」動態變化模式。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 生成數據
+        function generateData() {
+            const timePoints = [0, 0.3, 0.6, 1, 1.5, 2, 2.5, 3];
+            const myocarditisData = [];
+            const chfData = [];
+            const miData = [];
+            
+            timePoints.forEach(time => {
+                // 心肌炎 - 輕微升高
+                let myocarditis;
+                if (time === 0) myocarditis = 0.05;
+                else if (time <= 0.6) myocarditis = 0.05 + (time / 0.6) * 0.15;
+                else if (time <= 1) myocarditis = 0.2 + (time - 0.6) / 0.4 * 0.6;
+                else myocarditis = 0.8 * Math.exp(-0.8 * (time - 1));
+                
+                // CHF - 持平在低水平
+                const chf = 0.05 + 0.03 * Math.sin(time * 2);
+                
+                // 心肌梗塞 - 急劇升高
+                let mi;
+                if (time === 0) mi = 0.05;
+                else if (time <= 0.3) mi = 0.05 + (time / 0.3) * 3.5;
+                else if (time <= 1) mi = 3.5 + (time - 0.3) / 0.7 * 60;
+                else mi = 63.5 * Math.exp(-0.6 * (time - 1)) + 3;
+                
+                myocarditisData.push({x: time, y: Math.max(0.01, myocarditis) * 1000});
+                chfData.push({x: time, y: Math.max(0.01, chf) * 1000});
+                miData.push({x: time, y: Math.max(0.01, mi) * 1000});
+            });
+            
+            return { myocarditisData, chfData, miData, timePoints };
+        }
+
+        const data = generateData();
+
+        // 創建圖表
+        const ctx = document.getElementById('troponinChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: '#1 Myocarditis',
+                        data: data.myocarditisData,
+                        borderColor: '#ff9800',
+                        backgroundColor: '#ff9800',
+                        borderWidth: 3,
+                        pointRadius: 6,
+                        pointBackgroundColor: '#ff9800',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        tension: 0.4
+                    },
+                    {
+                        label: '#2 CHF',
+                        data: data.chfData,
+                        borderColor: '#e91e63',
+                        backgroundColor: '#e91e63',
+                        borderWidth: 3,
+                        borderDash: [5, 5],
+                        pointRadius: 6,
+                        pointBackgroundColor: '#e91e63',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        tension: 0.4
+                    },
+                    {
+                        label: '#3 Myocardial infarction',
+                        data: data.miData,
+                        borderColor: '#f44336',
+                        backgroundColor: '#f44336',
+                        borderWidth: 3,
+                        pointRadius: 6,
+                        pointBackgroundColor: '#f44336',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed.y.toFixed(1) + ' ng/L';
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Time (days)',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 0,
+                        max: 3,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        title: {
+                            display: true,
+                            text: 'cTn (ng/L)',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 10,
+                        max: 100000,
+                        ticks: {
+                            callback: function(value) {
+                                if (value >= 1000) {
+                                    return (value / 1000) + 'k';
+                                }
+                                return value;
+                            }
+                        },
+                        afterBuildTicks: function(axis) {
+                            axis.ticks = [
+                                {value: 10},
+                                {value: 100},
+                                {value: 1000},
+                                {value: 10000},
+                                {value: 100000}
+                            ];
+                        }
+                    }
+                }
+            }
+        });
+
+        // 添加cutoff線（手動繪製）
+        const originalDraw = chart.draw;
+        chart.draw = function() {
+            originalDraw.apply(this, arguments);
+            
+            const ctx = this.ctx;
+            const yAxis = this.scales.y;
+            const xAxis = this.scales.x;
+            
+            // 繪製cutoff線
+            const cutoffY = yAxis.getPixelForValue(40);
+            
+            ctx.save();
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = '#999';
+            ctx.lineWidth = 2;
+            ctx.moveTo(xAxis.left, cutoffY);
+            ctx.lineTo(xAxis.right, cutoffY);
+            ctx.stroke();
+            ctx.restore();
+            
+            // 繪製cutoff標籤
+            ctx.save();
+            ctx.fillStyle = '#666';
+            ctx.font = '12px sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText('Cutoff (40 ng/L)', xAxis.right - 5, cutoffY - 5);
+            ctx.restore();
+        };
+    </script>
+</body>
+</html>
