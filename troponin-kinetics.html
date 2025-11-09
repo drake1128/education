@@ -15,7 +15,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
                 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
                 sans-serif;
-            background: linear-gradient(to bottom right, #eff6ff, #faf5ff);
+            background: linear-gradient(to bottom right, #e3f2fd, #f3e5f5);
             padding: 32px;
             min-height: 100vh;
         }
@@ -67,31 +67,31 @@
             border-radius: 8px;
         }
         .card-myocarditis {
-            background-color: #fff7ed;
-            border-left: 4px solid #ff9800;
+            background-color: #fff3e0;
+            border-left: 4px solid #fb8c00;
         }
         .card-chf {
-            background-color: #fce7f3;
-            border-left: 4px solid #e91e63;
+            background-color: #fce4ec;
+            border-left: 4px solid #d81b60;
         }
         .card-mi {
-            background-color: #fee2e2;
-            border-left: 4px solid #f44336;
+            background-color: #ffebee;
+            border-left: 4px solid #e53935;
         }
         .card-title {
             font-weight: bold;
             margin-bottom: 8px;
         }
-        .title-myocarditis { color: #ea580c; }
-        .title-chf { color: #be185d; }
-        .title-mi { color: #b91c1c; }
+        .title-myocarditis { color: #e65100; }
+        .title-chf { color: #ad1457; }
+        .title-mi { color: #c62828; }
         .card-text {
             font-size: 14px;
             color: #374151;
         }
         .cutoff-info {
             padding: 16px;
-            background-color: #dbeafe;
+            background-color: #e1f5fe;
             border-radius: 8px;
         }
     </style>
@@ -99,7 +99,7 @@
 <body>
     <div class="container">
         <h1>Troponin Kinetics in Index Cases</h1>
-        <p class="subtitle">Plasma cardiac troponin I (cTnI) values over time</p>
+        <p class="subtitle">Temporal patterns of cardiac troponin I (cTnI) in different cardiac conditions</p>
         
         <div class="chart-container">
             <canvas id="troponinChart"></canvas>
@@ -109,25 +109,26 @@
             <h2 class="info-title">臨床意義解讀：</h2>
             <div class="info-grid">
                 <div class="info-card card-myocarditis">
-                    <h3 class="card-title title-myocarditis">🟠 心肌炎 (Myocarditis)</h3>
-                    <p class="card-text">cTnI輕微升高，峰值約200-800 ng/L，呈現緩慢上升後逐漸下降的模式</p>
+                    <h3 class="card-title title-myocarditis">● 心肌炎 (Myocarditis)</h3>
+                    <p class="card-text">cTnI輕微升高，峰值約150-600 ng/L，呈現緩慢上升後逐漸下降的模式</p>
                 </div>
                 
                 <div class="info-card card-chf">
-                    <h3 class="card-title title-chf">🟣 心衰竭 (CHF)</h3>
-                    <p class="card-text">cTnI持續在低水平(~50-100 ng/L)，接近cutoff值，無明顯動態變化</p>
+                    <h3 class="card-title title-chf">● 心衰竭 (CHF)</h3>
+                    <p class="card-text">cTnI持續在低水平(~35-85 ng/L)，接近cutoff值，無明顯動態變化</p>
                 </div>
                 
                 <div class="info-card card-mi">
-                    <h3 class="card-title title-mi">🔴 心肌梗塞 (MI)</h3>
-                    <p class="card-text">cTnI急劇升高，在24小時內達到高峰(50,000-80,000 ng/L)，然後逐漸下降</p>
+                    <h3 class="card-title title-mi">● 心肌梗塞 (MI)</h3>
+                    <p class="card-text">cTnI急劇升高，在24-30小時內達到高峰(約55,000 ng/L)，然後逐漸下降</p>
                 </div>
             </div>
             
             <div class="cutoff-info">
                 <p class="card-text">
-                    <strong>Cutoff值 (40 ng/L)：</strong> 虛線表示正常上限，超過此值提示心肌損傷。
-                    心肌梗塞的cTnI升高幅度遠大於心肌炎和心衰竭，且有典型的「升高-下降」動態變化模式。
+                    <strong>Cutoff值 (40 ng/L)：</strong> 虛線表示診斷閾值，超過此值提示可能的心肌損傷。
+                    三種疾病的cTnI動態變化模式具有明顯差異：心肌梗塞呈現急劇升高後緩慢下降的典型模式（峰值約55,000 ng/L），
+                    心肌炎表現為輕度升高（峰值約600 ng/L），而心衰竭則維持在較低水平持續波動。
                 </p>
             </div>
         </div>
@@ -136,28 +137,28 @@
     <script>
         // 生成數據
         function generateData() {
-            const timePoints = [0, 0.3, 0.6, 1, 1.5, 2, 2.5, 3];
+            const timePoints = [0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 3.0];
             const myocarditisData = [];
             const chfData = [];
             const miData = [];
             
             timePoints.forEach(time => {
-                // 心肌炎 - 輕微升高
+                // 心肌炎 - 輕微升高（調整後的模式）
                 let myocarditis;
-                if (time === 0) myocarditis = 0.05;
-                else if (time <= 0.6) myocarditis = 0.05 + (time / 0.6) * 0.15;
-                else if (time <= 1) myocarditis = 0.2 + (time - 0.6) / 0.4 * 0.6;
-                else myocarditis = 0.8 * Math.exp(-0.8 * (time - 1));
+                if (time === 0) myocarditis = 0.04;
+                else if (time <= 0.8) myocarditis = 0.04 + (time / 0.8) * 0.25;
+                else if (time <= 1.2) myocarditis = 0.29 + (time - 0.8) / 0.4 * 0.31;
+                else myocarditis = 0.6 * Math.exp(-0.7 * (time - 1.2));
                 
-                // CHF - 持平在低水平
-                const chf = 0.05 + 0.03 * Math.sin(time * 2);
+                // CHF - 持平在低水平（調整後的波動）
+                const chf = 0.06 + 0.025 * Math.sin(time * 1.8);
                 
-                // 心肌梗塞 - 急劇升高
+                // 心肌梗塞 - 急劇升高（調整後的峰值和時間）
                 let mi;
-                if (time === 0) mi = 0.05;
-                else if (time <= 0.3) mi = 0.05 + (time / 0.3) * 3.5;
-                else if (time <= 1) mi = 3.5 + (time - 0.3) / 0.7 * 60;
-                else mi = 63.5 * Math.exp(-0.6 * (time - 1)) + 3;
+                if (time === 0) mi = 0.04;
+                else if (time <= 0.4) mi = 0.04 + (time / 0.4) * 4.5;
+                else if (time <= 1.2) mi = 4.54 + (time - 0.4) / 0.8 * 50;
+                else mi = 54.54 * Math.exp(-0.55 * (time - 1.2)) + 2.5;
                 
                 myocarditisData.push({x: time, y: Math.max(0.01, myocarditis) * 1000});
                 chfData.push({x: time, y: Math.max(0.01, chf) * 1000});
@@ -178,39 +179,39 @@
                     {
                         label: '#1 Myocarditis',
                         data: data.myocarditisData,
-                        borderColor: '#ff9800',
-                        backgroundColor: '#ff9800',
-                        borderWidth: 3,
-                        pointRadius: 6,
-                        pointBackgroundColor: '#ff9800',
+                        borderColor: '#fb8c00',
+                        backgroundColor: '#fb8c00',
+                        borderWidth: 2.5,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#fb8c00',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
-                        tension: 0.4
+                        tension: 0.35
                     },
                     {
                         label: '#2 CHF',
                         data: data.chfData,
-                        borderColor: '#e91e63',
-                        backgroundColor: '#e91e63',
-                        borderWidth: 3,
-                        borderDash: [5, 5],
-                        pointRadius: 6,
-                        pointBackgroundColor: '#e91e63',
+                        borderColor: '#d81b60',
+                        backgroundColor: '#d81b60',
+                        borderWidth: 2.5,
+                        borderDash: [6, 4],
+                        pointRadius: 5,
+                        pointBackgroundColor: '#d81b60',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
-                        tension: 0.4
+                        tension: 0.35
                     },
                     {
                         label: '#3 Myocardial infarction',
                         data: data.miData,
-                        borderColor: '#f44336',
-                        backgroundColor: '#f44336',
-                        borderWidth: 3,
-                        pointRadius: 6,
-                        pointBackgroundColor: '#f44336',
+                        borderColor: '#e53935',
+                        backgroundColor: '#e53935',
+                        borderWidth: 2.5,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#e53935',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
-                        tension: 0.4
+                        tension: 0.35
                     }
                 ]
             },
@@ -308,9 +309,9 @@
             
             ctx.save();
             ctx.beginPath();
-            ctx.setLineDash([5, 5]);
-            ctx.strokeStyle = '#999';
-            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 4]);
+            ctx.strokeStyle = '#757575';
+            ctx.lineWidth = 2.5;
             ctx.moveTo(xAxis.left, cutoffY);
             ctx.lineTo(xAxis.right, cutoffY);
             ctx.stroke();
@@ -318,8 +319,8 @@
             
             // 繪製cutoff標籤
             ctx.save();
-            ctx.fillStyle = '#666';
-            ctx.font = '12px sans-serif';
+            ctx.fillStyle = '#424242';
+            ctx.font = '11px sans-serif';
             ctx.textAlign = 'right';
             ctx.fillText('Cutoff (40 ng/L)', xAxis.right - 5, cutoffY - 5);
             ctx.restore();
