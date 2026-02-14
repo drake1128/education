@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫學教育評估表單系統 - 台大醫院新竹分院</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .card-features li {
+            padding: 8px 0;
+            font-size: 13px;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .card-features li:last-child {
+            border-bottom: none;
+        }
+
+        .card-features li::before {
+            content: "✓ ";
+            color: inherit;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .card-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .card:hover .card-button {
+            transform: scale(1.05);
+        }
+
+        /* 不同卡片的配色 */
+        .card-purple .card-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-purple .card-features li::before {
+            color: #667eea;
+        }
+
+        .card-green .card-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .card-green .card-features li::before {
+            color: #11998e;
+        }
+
+        .card-green .card-button {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .card-pink .card-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .card-pink .card-features li::before {
+            color: #f5576c;
+        }
+
+        .card-pink .card-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .card-blue .card-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .card-blue .card-features li::before {
+            color: #0d6efd;
+        }
+
+        .card-blue .card-button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .card-orange .card-icon {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .card-orange .card-features li::before {
+            color: #fa709a;
+        }
+
+        .card-orange .card-button {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .info-section p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .info-section ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-section ul li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-section ul li::before {
+            content: "📌 ";
+            margin-right: 8px;
+        }
+
+        .footer {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頁首 -->
+        <div class="header">
+            <h1>🏥 醫學教育評估表單系統</h1>
+            <h2>Medical Education Assessment System</h2>
+            <p>台大醫院新竹分院 教學部</p>
+            <div class="badge">NTUH Hsinchu Branch Education Department</div>
+        </div>
+
+        <!-- EPA評估表區域 -->
+        <h2 class="section-title">📋 EPA 評估表單</h2>
+        <p style="text-align: center; color: white; margin-bottom: 20px; font-size: 14px;">
+            Entrustable Professional Activities - 可委託專業活動評估
+        </p>
+        
+        <div class="cards-container">
+            <!-- 見習醫師 -->
+            <a href="EPA_見習醫師.html" class="card card-purple">
+                <div class="card-header">
+                    <div class="card-icon">🎓</div>
+                    <div>
+                        <div class="card-title">見習醫師</div>
+                        <div class="card-subtitle">Medical Student</div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    適用於醫學系五、六年級見習醫師，評估基礎臨床技能與醫學知識應用能力。
+                </div>
+                <ul class="card-features">
+                    <li>完整收集病史</li>
+                    <li>執行身體檢查</li>
+                    <li>提出鑑別診斷</li>
+                    <li>醫病溝通與衛教</li>
+                    <li>撰寫病歷紀錄</li>
+                </ul>
+                <div class="card-button">開始評估 →</div>
+            </a>
+
+            <!-- PGY醫師 -->
+            <a href="EPA_PGY醫師.html" class="card card-green">
+                <div class="card-header">
+                    <div class="card-icon">🏥</div>
+                    <div>
+                        <div class="card-title">PGY醫師</div>
+                        <div class="card-subtitle">Post-Graduate Year</div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    適用於畢業後一般醫學訓練醫師，評估一般臨床處置與急救能力。
+                </div>
+                <ul class="card-features">
+                    <li>急性病患評估與初步處置</li>
+                    <li>基本生命救治術 (BLS/ACLS)</li>
+                    <li>臨床處置技能</li>
+                    <li>病患交班與溝通</li>
+                    <li>檢驗檢查判讀與臨床決策</li>
+                    <li>團隊合作與跨專業溝通</li>
+                </ul>
+                <div class="card-button">開始評估 →</div>
+            </a>
+
+            <!-- 住院醫師 -->
+            <a href="EPA_住院醫師.html" class="card card-pink">
+                <div class="card-header">
+                    <div class="card-icon">👨‍⚕️</div>
+                    <div>
+                        <div class="card-title">住院醫師</div>
+                        <div class="card-subtitle">Resident</div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    適用於專科住院醫師訓練，評估進階臨床能力與專科技能。
+                </div>
+                <ul class="card-features">
+                    <li>複雜病患的獨立照護</li>
+                    <li>專科特定處置與技術</li>
+                    <li>急重症處理與危機管理</li>
+                    <li>實證醫學與臨床研究</li>
+                    <li>教學與督導能力</li>
+                    <li>病人安全與品質改善</li>
+                    <li>專業素養與倫理決策</li>
+                </ul>
+                <div class="card-button">開始評估 →</div>
+            </a>
+
+            <!-- NP專科護理師 -->
+            <a href="EPA_NP專科護理師.html" class="card card-blue">
+                <div class="card-header">
+                    <div class="card-icon">💼</div>
+                    <div>
+                        <div class="card-title">NP專科護理師</div>
+                        <div class="card-subtitle">Nurse Practitioner</div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    適用於專科護理師培訓與評估，強調進階護理評估與獨立執業能力。
+                </div>
+                <ul class="card-features">
+                    <li>進階健康評估</li>
+                    <li>診斷推理與臨床決策</li>
+                    <li>藥物處方與管理</li>
+                    <li>專科護理處置技能</li>
+                    <li>病患及家屬衛教</li>
+                    <li>跨專業團隊協作</li>
+                    <li>實證護理與品質改善</li>
+                </ul>
+                <div class="card-button">開始評估 →</div>
+            </a>
+        </div>
+
+        <!-- OSCE評估表區域 -->
+        <h2 class="section-title">🎯 OSCE 評估表單</h2>
+        <p style="text-align: center; color: white; margin-bottom: 20px; font-size: 14px;">
+            Objective Structured Clinical Examination - 客觀結構式臨床測驗
+        </p>
+        
+        <div class="cards-container">
+            <!-- OSCE -->
+            <a href="OSCE評估表.html" class="card card-orange" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <div>
+                        <div class="card-title">OSCE 客觀結構式臨床測驗</div>
+                        <div class="card-subtitle">適用於所有層級學員</div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    標準化臨床技能測驗，包含5種預設站別模板與自訂功能，具備雙重評分系統與自動計算。
+                </div>
+                <ul class="card-features">
+                    <li>病史詢問站 - 系統性病史收集能力評估</li>
+                    <li>身體檢查站 - 理學檢查技巧與流暢度</li>
+                    <li>溝通技巧站 - 醫病溝通與同理心展現</li>
+                    <li>臨床技能站 - 特定處置技術執行能力</li>
+                    <li>急救處置站 - 緊急狀況處理與團隊合作</li>
+                    <li>自訂模式 - 彈性設計專屬評估項目</li>
+                </ul>
+                <div class="card-button">開始評估 →</div>
+            </a>
+        </div>
+
+        <!-- 使用說明 -->
+        <div class="info-section">
+            <h3>📖 使用說明</h3>
+            <p><strong>EPA評估表</strong>用於日常臨床工作中的能力評估，採用5級信任量表，評估學員是否能被委託獨立執行特定臨床活動。建議每次教學後即時評估1-2項EPA。</p>
+            <p><strong>OSCE評估表</strong>用於標準化技能測驗，適合期中期末考核或能力認證。提供結構化評分標準，確保評估的客觀性與一致性。</p>
+            
+            <h3 style="margin-top: 25px;">💡 評估建議</h3>
+            <ul>
+                <li>評估應基於直接觀察，而非推測或印象</li>
+                <li>評語要具體明確，避免空泛描述</li>
+                <li>評估後應立即與學員討論並給予回饋</li>
+                <li>定期累積評估數據，追蹤學習進展</li>
+                <li>結合多種評估方式，全面了解學員能力</li>
+            </ul>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="footer">
+            <p><strong>台大醫院新竹分院 教學部</strong></p>
+            <p>NTUH Hsinchu Branch Education Department</p>
+            <p style="margin-top: 10px; font-size: 12px;">© 2025 Medical Education Assessment System v1.0</p>
+        </div>
+    </div>
+</body>
+</html>

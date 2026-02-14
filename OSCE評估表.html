@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSCE評估表 - 客觀結構式臨床測驗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", Arial, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .timer-box {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 30px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .basic-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .basic-info h3 {
+            color: #fa709a;
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #fa709a;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #fa709a;
+        }
+
+        .section h2 {
+            color: #fa709a;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .checklist-table thead {
+            background: #fa709a;
+            color: white;
+        }
+
+        .checklist-table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .checklist-table th:last-child {
+            text-align: center;
+            width: 150px;
+        }
+
+        .checklist-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .checklist-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .checklist-table td {
+            padding: 12px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #fa709a;
+        }
+
+        .critical-item {
+            background: #fff3cd !important;
+            border-left: 3px solid #ffc107;
+        }
+
+        .global-rating {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .global-rating h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .rating-scale {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .rating-option {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .rating-option:hover {
+            background: #fff0f5;
+            border-color: #fa709a;
+        }
+
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+
+        .rating-option input[type="radio"]:checked + label {
+            color: #fa709a;
+            font-weight: 600;
+        }
+
+        .rating-option label {
+            cursor: pointer;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .rating-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .score-summary {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(250, 112, 154, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .station-selector {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .station-selector label {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .station-selector select {
+            padding: 8px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .button-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 OSCE評估表</h1>
+            <p>Objective Structured Clinical Examination</p>
+            <div class="timer-box">⏱️ 建議時間：8分鐘</div>
+        </div>
+
+        <div class="info-box">
+            <strong>📌 評估說明：</strong>
+            OSCE採標準化評估方式，請依據學員實際表現勾選各項目。關鍵項目（標示⭐）為必須通過項目。
+        </div>
+
+        <div class="content">
+            <form id="osceForm">
+                <!-- 基本資料 -->
+                <div class="basic-info">
+                    <h3>👤 基本資料</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>學員姓名 *</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>學員身分</label>
+                            <select id="studentLevel">
+                                <option value="">請選擇</option>
+                                <option value="見習醫師">見習醫師</option>
+                                <option value="PGY">PGY</option>
+                                <option value="住院醫師">住院醫師</option>
+                                <option value="NP專科護理師">NP專科護理師</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>測驗日期 *</label>
+                            <input type="date" id="examDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>評估者姓名 *</label>
+                            <input type="text" id="assessorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>站別編號</label>
+                            <input type="text" id="stationNumber" placeholder="例如：Station 1">
+                        </div>
+                        <div class="form-group">
+                            <label>測驗時間</label>
+                            <input type="time" id="examTime">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 站別選擇 -->
+                <div class="station-selector">
+                    <label>測驗站別類型：</label>
+                    <select id="stationType" onchange="loadStation()">
+                        <option value="">請選擇站別</option>
+                        <option value="history">病史詢問站</option>
+                        <option value="physical">身體檢查站</option>
+                        <option value="communication">溝通技巧站</option>
+                        <option value="procedure">臨床技能站</option>
+                        <option value="emergency">急救處置站</option>
+                        <option value="custom">自訂項目</option>
+                    </select>
+                </div>
+
+                <!-- 檢核表 -->
+                <div class="section">
+                    <h2>✅ 技能檢核表 (Checklist)</h2>
+                    
+                    <table class="checklist-table">
+                        <thead>
+                            <tr>
+                                <th>評估項目</th>
+                                <th>表現評分</th>
+                            </tr>
+                        </thead>
+                        <tbody id="checklistBody">
+                            <!-- 動態載入檢核項目 -->
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 5px;">
+                        <strong>⭐ 標示為關鍵項目：</strong>未完成關鍵項目可能導致不通過
+                    </div>
+                </div>
+
+                <!-- 全球評量表 -->
+                <div class="section">
+                    <h2>🌟 全球評量表 (Global Rating Scale)</h2>
+                    
+                    <div class="global-rating">
+                        <h4>1. 整體臨床能力</h4>
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="clinical1" name="clinical" value="1" required>
+                                <label for="clinical1">1分</label>
+                                <div class="rating-desc">不及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="clinical2" name="clinical" value="2">
+                                <label for="clinical2">2分</label>
+                                <div class="rating-desc">邊緣</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="clinical3" name="clinical" value="3">
+                                <label for="clinical3">3分</label>
+                                <div class="rating-desc">及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="clinical4" name="clinical" value="4">
+                                <label for="clinical4">4分</label>
+                                <div class="rating-desc">良好</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="clinical5" name="clinical" value="5">
+                                <label for="clinical5">5分</label>
+                                <div class="rating-desc">優秀</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="global-rating">
+                        <h4>2. 溝通技巧</h4>
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="communication1" name="communication" value="1" required>
+                                <label for="communication1">1分</label>
+                                <div class="rating-desc">不及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="communication2" name="communication" value="2">
+                                <label for="communication2">2分</label>
+                                <div class="rating-desc">邊緣</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="communication3" name="communication" value="3">
+                                <label for="communication3">3分</label>
+                                <div class="rating-desc">及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="communication4" name="communication" value="4">
+                                <label for="communication4">4分</label>
+                                <div class="rating-desc">良好</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="communication5" name="communication" value="5">
+                                <label for="communication5">5分</label>
+                                <div class="rating-desc">優秀</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="global-rating">
+                        <h4>3. 專業態度</h4>
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="professionalism1" name="professionalism" value="1" required>
+                                <label for="professionalism1">1分</label>
+                                <div class="rating-desc">不及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="professionalism2" name="professionalism" value="2">
+                                <label for="professionalism2">2分</label>
+                                <div class="rating-desc">邊緣</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="professionalism3" name="professionalism" value="3">
+                                <label for="professionalism3">3分</label>
+                                <div class="rating-desc">及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="professionalism4" name="professionalism" value="4">
+                                <label for="professionalism4">4分</label>
+                                <div class="rating-desc">良好</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="professionalism5" name="professionalism" value="5">
+                                <label for="professionalism5">5分</label>
+                                <div class="rating-desc">優秀</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="global-rating">
+                        <h4>4. 組織能力與效率</h4>
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="organization1" name="organization" value="1" required>
+                                <label for="organization1">1分</label>
+                                <div class="rating-desc">不及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="organization2" name="organization" value="2">
+                                <label for="organization2">2分</label>
+                                <div class="rating-desc">邊緣</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="organization3" name="organization" value="3">
+                                <label for="organization3">3分</label>
+                                <div class="rating-desc">及格</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="organization4" name="organization" value="4">
+                                <label for="organization4">4分</label>
+                                <div class="rating-desc">良好</div>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="organization5" name="organization" value="5">
+                                <label for="organization5">5分</label>
+                                <div class="rating-desc">優秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 回饋區 -->
+                <div class="section">
+                    <h2>💬 評估回饋</h2>
+                    <div class="form-group">
+                        <label>學員表現優點</label>
+                        <textarea id="strengths" rows="3" placeholder="請具體描述學員的優秀表現"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>需改進之處</label>
+                        <textarea id="improvements" rows="3" placeholder="請提供具體、可行的改進建議"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>整體評語</label>
+                        <textarea id="overallComment" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- 分數顯示 -->
+                <div class="score-summary" id="scoreSummary" style="display:none;">
+                    <h3>📊 評估結果</h3>
+                    <div class="score-display" id="totalScore">--</div>
+                    <p>檢核表分數：<span id="checklistScore">--</span> / 全球評量：<span id="globalScore">--</span></p>
+                    <p id="passStatus"></p>
+                </div>
+
+                <!-- 按鈕 -->
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="calculateScore()">📊 計算分數</button>
+                    <button type="button" class="btn btn-secondary" onclick="copyFormContent()">📋 複製內容</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ 列印表單</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 重新填寫</button>
+                    <button type="submit" class="btn btn-primary">✅ 提交評估</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>台大醫院新竹分院 教學部 © 2025</p>
+            <p>OSCE評估表 v1.0</p>
+        </div>
+    </div>
+
+    <script>
+        // 預設檢核項目模板
+        const stationTemplates = {
+            history: [
+                { item: '自我介紹並確認病人身分', critical: true },
+                { item: '以開放式問題開始詢問', critical: false },
+                { item: '收集主訴與現在病史 (OPQRST)', critical: true },
+                { item: '詢問過去病史與用藥史', critical: false },
+                { item: '詢問家族史', critical: false },
+                { item: '詢問社會史與職業', critical: false },
+                { item: '進行系統回顧', critical: false },
+                { item: '摘要病史並確認理解正確', critical: true },
+                { item: '給予病人提問機會', critical: false },
+                { item: '適當結束會談並表達關懷', critical: false }
+            ],
+            physical: [
+                { item: '洗手或消毒雙手', critical: true },
+                { item: '說明檢查內容並取得同意', critical: true },
+                { item: '注意病人隱私與舒適度', critical: true },
+                { item: '正確執行視診', critical: false },
+                { item: '正確執行觸診', critical: false },
+                { item: '正確執行叩診', critical: false },
+                { item: '正確執行聽診', critical: false },
+                { item: '檢查手法流暢且有系統', critical: false },
+                { item: '能辨識異常發現', critical: true },
+                { item: '檢查後協助病人恢復衣著', critical: false }
+            ],
+            communication: [
+                { item: '建立良好關係與信任', critical: true },
+                { item: '使用病人能理解的語言', critical: true },
+                { item: '展現同理心與關懷', critical: false },
+                { item: '提供清楚的資訊說明', critical: true },
+                { item: '確認病人理解程度', critical: true },
+                { item: '鼓勵病人提問', critical: false },
+                { item: '處理病人情緒與擔憂', critical: false },
+                { item: '共同決策並尊重病人意願', critical: true },
+                { item: '提供書面資料或衛教', critical: false },
+                { item: '安排後續追蹤計畫', critical: false }
+            ],
+            procedure: [
+                { item: '核對病人身分與處置項目', critical: true },
+                { item: '說明處置並取得同意', critical: true },
+                { item: '準備所需器材與用物', critical: true },
+                { item: '執行手部衛生', critical: true },
+                { item: '遵守無菌技術原則', critical: true },
+                { item: '正確執行處置步驟', critical: true },
+                { item: '注意病人安全與舒適', critical: true },
+                { item: '處理使用過的器材', critical: true },
+                { item: '記錄處置過程與結果', critical: false },
+                { item: '給予病人後續照護指導', critical: false }
+            ],
+            emergency: [
+                { item: '評估現場安全', critical: true },
+                { item: '確認病人意識與呼吸', critical: true },
+                { item: '啟動急救系統', critical: true },
+                { item: '正確執行CPR', critical: true },
+                { item: '正確使用AED', critical: true },
+                { item: '建立呼吸道', critical: true },
+                { item: '團隊溝通與協調', critical: false },
+                { item: '持續監測生命徵象', critical: true },
+                { item: '正確給予急救藥物', critical: true },
+                { item: '適時重新評估與調整', critical: true }
+            ]
+        };
+
+        const form = document.getElementById('osceForm');
+        document.getElementById('examDate').valueAsDate = new Date();
+
+        function loadStation() {
+            const stationType = document.getElementById('stationType').value;
+            const checklistBody = document.getElementById('checklistBody');
+            
+            if (!stationType) {
+                checklistBody.innerHTML = '<tr><td colspan="2" style="text-align:center; padding:20px;">請選擇測驗站別</td></tr>';
+                return;
+            }
+
+            if (stationType === 'custom') {
+                checklistBody.innerHTML = `
+                    <tr>
+                        <td colspan="2" style="text-align:center; padding:20px;">
+                            <p style="margin-bottom:10px;">自訂模式：請手動添加評估項目</p>
+                            <button type="button" class="btn btn-secondary" onclick="addCustomItem()">➕ 新增項目</button>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const items = stationTemplates[stationType];
+            let html = '';
+            items.forEach((item, index) => {
+                const criticalClass = item.critical ? 'critical-item' : '';
+                const criticalMark = item.critical ? '⭐ ' : '';
+                html += `
+                    <tr class="${criticalClass}">
+                        <td>${criticalMark}${item.item}</td>
+                        <td>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="check_${index}" value="done">
+                                    <span>完成</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="check_${index}" value="not_done">
+                                    <span>未完成</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="check_${index}" value="na">
+                                    <span>不適用</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            checklistBody.innerHTML = html;
+        }
+
+        function calculateScore() {
+            const stationType = document.getElementById('stationType').value;
+            if (!stationType || stationType === 'custom') {
+                alert('請先選擇標準站別類型才能計算分數');
+                return;
+            }
+
+            // 計算檢核表分數
+            const items = stationTemplates[stationType];
+            let checklistTotal = 0;
+            let checklistScore = 0;
+            
+            items.forEach((item, index) => {
+                const doneCheckbox = document.querySelector(`input[name="check_${index}"][value="done"]`);
+                const naCheckbox = document.querySelector(`input[name="check_${index}"][value="na"]`);
+                
+                if (!naCheckbox || !naCheckbox.checked) {
+                    checklistTotal++;
+                    if (doneCheckbox && doneCheckbox.checked) {
+                        checklistScore++;
+                    }
+                }
+            });
+
+            const checklistPercent = checklistTotal > 0 ? (checklistScore / checklistTotal * 100).toFixed(1) : 0;
+
+            // 計算全球評量分數
+            const clinical = parseInt(document.querySelector('input[name="clinical"]:checked')?.value || 0);
+            const communication = parseInt(document.querySelector('input[name="communication"]:checked')?.value || 0);
+            const professionalism = parseInt(document.querySelector('input[name="professionalism"]:checked')?.value || 0);
+            const organization = parseInt(document.querySelector('input[name="organization"]:checked')?.value || 0);
+
+            if (!clinical || !communication || !professionalism || !organization) {
+                alert('請完成所有全球評量項目');
+                return;
+            }
+
+            const globalScore = ((clinical + communication + professionalism + organization) / 20 * 100).toFixed(1);
+            const totalScore = ((parseFloat(checklistPercent) + parseFloat(globalScore)) / 2).toFixed(1);
+
+            // 顯示結果
+            document.getElementById('checklistScore').textContent = checklistPercent + '%';
+            document.getElementById('globalScore').textContent = globalScore + '%';
+            document.getElementById('totalScore').textContent = totalScore + '%';
+            
+            const passStatus = document.getElementById('passStatus');
+            if (totalScore >= 70) {
+                passStatus.innerHTML = '✅ <strong>通過</strong>';
+                passStatus.style.color = '#28a745';
+            } else if (totalScore >= 60) {
+                passStatus.innerHTML = '⚠️ <strong>邊緣通過</strong>';
+                passStatus.style.color = '#ffc107';
+            } else {
+                passStatus.innerHTML = '❌ <strong>未通過</strong>';
+                passStatus.style.color = '#dc3545';
+            }
+
+            document.getElementById('scoreSummary').style.display = 'block';
+            document.getElementById('scoreSummary').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('studentName').value) {
+                alert('請填寫學員姓名');
+                return;
+            }
+
+            const stationType = document.getElementById('stationType').value;
+            if (!stationType) {
+                alert('請選擇測驗站別');
+                return;
+            }
+
+            if (confirm('確認提交此評估表嗎？')) {
+                alert('✅ 評估表已提交！');
+            }
+        });
+
+        function resetForm() {
+            if (confirm('確定要重新填寫評估表嗎？所有資料將會清除。')) {
+                form.reset();
+                document.getElementById('examDate').valueAsDate = new Date();
+                document.getElementById('scoreSummary').style.display = 'none';
+                loadStation();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function copyFormContent() {
+            // 收集基本資料
+            const studentName = document.getElementById('studentName').value || '(未填寫)';
+            const studentLevel = document.getElementById('studentLevel').value || '(未填寫)';
+            const examDate = document.getElementById('examDate').value || '(未填寫)';
+            const assessorName = document.getElementById('assessorName').value || '(未填寫)';
+            const stationNumber = document.getElementById('stationNumber').value || '(未填寫)';
+            const examTime = document.getElementById('examTime').value || '(未填寫)';
+            const stationType = document.getElementById('stationType').value;
+            
+            let stationTypeText = '(未選擇)';
+            if (stationType === 'history') stationTypeText = '病史詢問站';
+            else if (stationType === 'physical') stationTypeText = '身體檢查站';
+            else if (stationType === 'communication') stationTypeText = '溝通技巧站';
+            else if (stationType === 'procedure') stationTypeText = '臨床技能站';
+            else if (stationType === 'emergency') stationTypeText = '急救處置站';
+            else if (stationType === 'custom') stationTypeText = '自訂項目';
+
+            // 收集檢核表結果
+            let checklistText = '';
+            if (stationType && stationType !== 'custom' && stationTemplates[stationType]) {
+                const items = stationTemplates[stationType];
+                items.forEach((item, index) => {
+                    const doneCheckbox = document.querySelector(`input[name="check_${index}"][value="done"]`);
+                    const notDoneCheckbox = document.querySelector(`input[name="check_${index}"][value="not_done"]`);
+                    const naCheckbox = document.querySelector(`input[name="check_${index}"][value="na"]`);
+                    
+                    let status = '未勾選';
+                    if (doneCheckbox && doneCheckbox.checked) status = '✓ 完成';
+                    else if (notDoneCheckbox && notDoneCheckbox.checked) status = '✗ 未完成';
+                    else if (naCheckbox && naCheckbox.checked) status = '- 不適用';
+                    
+                    const criticalMark = item.critical ? '⭐ ' : '';
+                    checklistText += `   ${criticalMark}${item.item}: ${status}\n`;
+                });
+            } else {
+                checklistText = '   (無檢核資料或為自訂模式)\n';
+            }
+
+            // 收集全球評量分數
+            const clinicalElement = document.querySelector('input[name="clinical"]:checked');
+            const clinical = clinicalElement ? `${clinicalElement.value}分` : '(未評分)';
+            
+            const communicationElement = document.querySelector('input[name="communication"]:checked');
+            const communication = communicationElement ? `${communicationElement.value}分` : '(未評分)';
+            
+            const professionalismElement = document.querySelector('input[name="professionalism"]:checked');
+            const professionalism = professionalismElement ? `${professionalismElement.value}分` : '(未評分)';
+            
+            const organizationElement = document.querySelector('input[name="organization"]:checked');
+            const organization = organizationElement ? `${organizationElement.value}分` : '(未評分)';
+
+            // 收集回饋
+            const strengths = document.getElementById('strengths').value || '(未填寫)';
+            const improvements = document.getElementById('improvements').value || '(未填寫)';
+            const overallComment = document.getElementById('overallComment').value || '(未填寫)';
+
+            // 收集分數（如果已計算）
+            const checklistScore = document.getElementById('checklistScore').textContent;
+            const globalScore = document.getElementById('globalScore').textContent;
+            const totalScore = document.getElementById('totalScore').textContent;
+            const passStatusElement = document.getElementById('passStatus');
+            const passStatus = passStatusElement.textContent || '(未計算)';
+
+            // 組合文字
+            const formText = `
+════════════════════════════════════════
+    OSCE評估表
+    客觀結構式臨床測驗
+    台大醫院新竹分院 教學部
+════════════════════════════════════════
+
+【基本資料】
+學員姓名：${studentName}
+學員身分：${studentLevel}
+測驗日期：${examDate}
+測驗時間：${examTime}
+評估者：${assessorName}
+站別編號：${stationNumber}
+站別類型：${stationTypeText}
+
+【技能檢核表】
+${checklistText}
+
+【全球評量表】
+1. 整體臨床能力：${clinical}
+2. 溝通技巧：${communication}
+3. 專業態度：${professionalism}
+4. 組織能力與效率：${organization}
+
+【評估回饋】
+學員表現優點：
+${strengths}
+
+需改進之處：
+${improvements}
+
+整體評語：
+${overallComment}
+
+【評估分數】
+檢核表分數：${checklistScore}
+全球評量分數：${globalScore}
+總分：${totalScore}
+結果：${passStatus}
+
+────────────────────────────────────────
+評估日期：${new Date().toLocaleString('zh-TW')}
+            `.trim();
+
+            // 複製到剪貼簿
+            navigator.clipboard.writeText(formText).then(() => {
+                alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = formText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('✅ 評估內容已複製到剪貼簿！\n\n您現在可以貼到郵件、Word或其他軟體中。');
+                } catch (err) {
+                    alert('❌ 複製失敗，請手動選取內容複製。');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // 初始化
+        loadStation();
+    </script>
+</body>
+</html>
