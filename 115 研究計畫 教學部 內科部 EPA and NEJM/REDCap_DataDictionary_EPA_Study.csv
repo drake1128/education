@@ -1,0 +1,60 @@
+Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+record_id,trainee_enrollment,學員基本資料,text,Record ID,,自動生成,,,,,,y,,,,,@HIDDEN-SURVEY @DEFAULT='[record-auto-number]'
+trainee_name,trainee_enrollment,,text,學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50
+trainee_id,trainee_enrollment,,text,學號/員工編號,,,,,,,,y,,,,,@CHARLIMIT=20
+trainee_type,trainee_enrollment,,radio,學員類別,"1, PGY醫師 | 2, 見習醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,y,,,,,@DEFAULT='1'
+department,trainee_enrollment,,dropdown,輪訓科別,"1, 內科 | 2, 外科 | 3, 婦產科 | 4, 兒科",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+enrollment_date,trainee_enrollment,,text,收案日期,,,date_ymd,,,,,y,,,,,@TODAY
+training_start,trainee_enrollment,,text,訓練開始日期,,,date_ymd,,,,,,,,,,@KEEP-MODEL-DEFAULT
+training_end,trainee_enrollment,,text,預計訓練結束日期,,,date_ymd,,,,,,,,,,@KEEP-MODEL-DEFAULT
+ai_material_group,trainee_enrollment,研究分組,radio,是否使用AI教學講義,"1, 有使用AI教學講義 | 0, 未使用AI教學講義",,,,,,,y,,,,,@DEFAULT='1'
+consent_signed,trainee_enrollment,,yesno,知情同意書已簽署,,,,,,,,y,,,,,@DEFAULT='1'
+enrollment_complete,trainee_enrollment,,dropdown,表單完成狀態,"0, Incomplete | 1, Unverified | 2, Complete",,,,,,,,RH,,,,,@HIDDEN-SURVEY
+assessment_id,epa_assessment,EPA評估紀錄,text,評估ID,,自動生成,,,,,,y,,,,,@HIDDEN @CALCTEXT([record_id]&'-'&[redcap_repeat_instance])
+assess_date,epa_assessment,,text,評估日期,,,date_ymd,,,,,y,,,,,@TODAY
+assessor_name,epa_assessment,評估者資訊,text,評估者姓名,,,,,,,,y,,,,,@CHARLIMIT=50
+assessor_title,epa_assessment,,dropdown,評估者職稱,"1, 主治醫師 | 2, 住院醫師(R4以上) | 3, 護理長 | 4, 專科護理師 | 5, 其他",,,,,,,y,,,,,@DEFAULT='1'
+assess_dept,epa_assessment,,dropdown,評估科別,"1, 內科 | 2, 外科 | 3, 婦產科 | 4, 兒科",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+assess_subdept,epa_assessment,,dropdown,次專科(內科適用),"1, 胸腔內科 | 2, 心臟內科 | 3, 腸胃內科 | 4, 腎臟內科 | 5, 內分泌科 | 6, 血液腫瘤科 | 7, 感染科 | 8, 風濕免疫科 | 9, 神經內科 | 10, 不適用",,,,,,[assess_dept]='1',,,,,,@DEFAULT='10'
+observation_setting,epa_assessment,評估情境,dropdown,觀察場域,"1, 病房 | 2, 門診 | 3, 急診 | 4, 加護病房 | 5, 手術室 | 6, 其他",,,,,,,,,,,,@DEFAULT='1'
+epa1_level,epa_assessment,核心EPA評估,radio,EPA 1: 急性病患評估與初步處置,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能快速評估急性病患的嚴重度，執行初步穩定措施，並決定後續處置方向,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa1_comment,epa_assessment,,notes,EPA 1 評語,,請提供具體觀察與建議,,,,,,,,,,,@CHARLIMIT=500
+epa2_level,epa_assessment,,radio,EPA 2: 基本生命救治術 (BLS/ACLS),"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能執行高品質CPR、使用AED、建立呼吸道及執行ACLS流程,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa2_comment,epa_assessment,,notes,EPA 2 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa3_level,epa_assessment,,radio,EPA 3: 臨床處置技能,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能安全執行常見臨床處置(如靜脈注射、動脈穿刺、導尿等),,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa3_comment,epa_assessment,,notes,EPA 3 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa4_level,epa_assessment,,radio,EPA 4: 病患交班與溝通,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能使用SBAR或其他結構化方式進行清楚、有效的病患交班,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa4_comment,epa_assessment,,notes,EPA 4 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa5_level,epa_assessment,,radio,EPA 5: 檢驗檢查判讀與臨床決策,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能獨立判讀常見檢驗報告，並做出適當的臨床決策,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa5_comment,epa_assessment,,notes,EPA 5 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa6_level,epa_assessment,,radio,EPA 6: 病歷撰寫與文件記錄,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能撰寫完整、準確的病歷紀錄及出院摘要,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa6_comment,epa_assessment,,notes,EPA 6 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa7_level,epa_assessment,,radio,EPA 7: 醫病溝通與衛教,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能有效與病患及家屬溝通，提供適當的衛生教育,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa7_comment,epa_assessment,,notes,EPA 7 評語,,,,,,,,,,,,,@CHARLIMIT=500
+epa8_level,epa_assessment,,radio,EPA 8: 團隊合作與跨專業協調,"1, Level 1 (僅能觀察) | 2, Level 2 (需直接監督) | 3, Level 3 (需間接監督) | 4, Level 4 (可獨立執行) | 5, Level 5 (可監督他人) | 0, 未評估",能有效參與醫療團隊運作，進行跨專業協調,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa8_comment,epa_assessment,,notes,EPA 8 評語,,,,,,,,,,,,,@CHARLIMIT=500
+overall_performance,epa_assessment,整體評估,radio,整體表現,"1, 優秀 | 2, 良好 | 3, 尚可 | 4, 需加強 | 5, 不通過",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+overall_comment,epa_assessment,,notes,整體評語與建議,,,,,,,,,,,,,@CHARLIMIT=1000
+recommend_advance,epa_assessment,,radio,是否建議進入下階段訓練,"1, 建議進入 | 2, 保留 | 3, 不建議",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa_assess_status,epa_assessment,,dropdown,表單完成狀態,"0, Incomplete | 1, Unverified | 2, Complete",,,,,,,,RH,,,,,@HIDDEN-SURVEY
+survey_date,satisfaction_survey,滿意度調查,text,填寫日期,,,date_ymd,,,,,y,,,,,@TODAY
+ai_usage_freq,satisfaction_survey,AI教學講義使用情形,radio,使用AI教學講義頻率,"1, 每天使用 | 2, 每週3-4次 | 3, 每週1-2次 | 4, 偶爾使用 | 5, 從未使用",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+ai_useful,satisfaction_survey,,radio,AI教學講義對學習的幫助程度,"1, 非常有幫助 | 2, 有幫助 | 3, 普通 | 4, 幫助不大 | 5, 完全沒幫助",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+ai_content_quality,satisfaction_survey,,radio,AI教學講義內容品質,"1, 非常好 | 2, 好 | 3, 普通 | 4, 差 | 5, 非常差",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+ai_accuracy,satisfaction_survey,,radio,AI教學講義內容正確性,"1, 非常正確 | 2, 大致正確 | 3, 普通 | 4, 有些錯誤 | 5, 錯誤很多",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+ai_recommend,satisfaction_survey,,radio,是否推薦使用AI教學講義,"1, 非常推薦 | 2, 推薦 | 3, 普通 | 4, 不推薦 | 5, 非常不推薦",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+epa_system_useful,satisfaction_survey,EPA評估系統,radio,EPA評估對訓練的幫助程度,"1, 非常有幫助 | 2, 有幫助 | 3, 普通 | 4, 幫助不大 | 5, 完全沒幫助",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+feedback_quality,satisfaction_survey,,radio,評估者回饋的品質,"1, 非常好 | 2, 好 | 3, 普通 | 4, 差 | 5, 非常差",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+feedback_helpful,satisfaction_survey,,radio,評估者回饋對進步的幫助,"1, 非常有幫助 | 2, 有幫助 | 3, 普通 | 4, 幫助不大 | 5, 完全沒幫助",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+overall_training_sat,satisfaction_survey,整體滿意度,radio,整體訓練滿意度,"1, 非常滿意 | 2, 滿意 | 3, 普通 | 4, 不滿意 | 5, 非常不滿意",,,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+suggestions,satisfaction_survey,,notes,改善建議與其他意見,,,,,,,,,,,,,@CHARLIMIT=2000
+satisfy_status,satisfaction_survey,,dropdown,表單完成狀態,"0, Incomplete | 1, Unverified | 2, Complete",,,,,,,,RH,,,,,@HIDDEN-SURVEY
+pretest_date,pre_post_assessment,前後測評估,text,前測日期,,,date_ymd,,,,,y,,,,,@KEEP-MODEL-DEFAULT
+pretest_score,pre_post_assessment,,text,前測知識測驗分數,,0-100分,number,0,100,,,y,,,,,
+pretest_epa_avg,pre_post_assessment,,text,前測EPA平均等級,,1-5分,number_1dp,1,5,,,,,,,,
+posttest_date,pre_post_assessment,,text,後測日期,,,date_ymd,,,,,,,,,,@KEEP-MODEL-DEFAULT
+posttest_score,pre_post_assessment,,text,後測知識測驗分數,,0-100分,number,0,100,,,,,,,,
+posttest_epa_avg,pre_post_assessment,,text,後測EPA平均等級,,1-5分,number_1dp,1,5,,,,,,,,
+score_change,pre_post_assessment,,calc,知識測驗分數變化,[posttest_score]-[pretest_score],,,,,,,,,,,,@KEEP-MODEL-DEFAULT
+epa_change,pre_post_assessment,,calc,EPA等級變化,[posttest_epa_avg]-[pretest_epa_avg],,,,,,,,,,,,@KEEP-MODEL-DEFAULT
+prepost_status,pre_post_assessment,,dropdown,表單完成狀態,"0, Incomplete | 1, Unverified | 2, Complete",,,,,,,,RH,,,,,@HIDDEN-SURVEY

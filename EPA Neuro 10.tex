@@ -1,0 +1,661 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=neuro_blue,
+    citecolor=neuro_blue,
+    urlcolor=neuro_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Neurology themed colors)
+\definecolor{neuro_blue}{RGB}{25,25,112}
+\definecolor{neuro_silver}{RGB}{70,130,180}
+\definecolor{neuro_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{neuro_blue}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{neuro_silver}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{neuro_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=neuro_blue,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=neuro_silver!5!white,
+        colframe=neuro_silver,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{neuro_blue}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{neuro_silver}{神經科EPAs}}
+\fancyfoot[C]{\textcolor{neuro_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{neuro_blue}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{neuro_blue}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 神經科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{neuro_silver}{\textit{Neurology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=neuro_silver!5!white,
+        colframe=neuro_silver,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    神經科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 神經部 陳凱翔主任 \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{神經科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。神經科EPAs涵蓋了神經系統疾病診斷、治療與照護的核心能力,是所有神經科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+神經科EPAs評量著重於能否安全、穩定地執行完整的神經疾病診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的神經學病史與檢查,到複雜的腦中風處置、癲癇管理與神經重症照護,提供完整的神經疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成神經科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行神經學病史詢問與完整神經學檢查。
+    \item 判讀神經影像學檢查(腦部CT與MRI)。
+    \item 診斷與處置急性缺血性腦中風。
+    \item 診斷與管理癲癇發作與癲癇症候群。
+    \item 評估與處理頭痛疾患。
+    \item 執行腰椎穿刺與腦脊髓液分析。
+    \item 判讀神經電生理檢查。
+    \item 診斷與處理神經肌肉疾病。
+    \item 管理神經重症與意識障礙。
+    \item 協調神經疾病患者跨科部整合照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{神經科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{神經科EPAs完整架構} \\
+\hline
+\rowcolor{neuro_silver!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{neuro_silver!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 神經學病史詢問與完整神經學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行神經疾病相關的完整病史詢問與系統性神經學檢查,包括意識、腦神經、運動、感覺、協調、步態評估,並能定位病灶。} \\
+\hline
+\textbf{核心能力} & 主訴分析 & 頭痛、暈眩、無力、麻木、意識改變詳細詢問 \\
+\cline{2-3}
+& 時序建立 & 發作時間、進展速度、波動性評估 \\
+\cline{2-3}
+& 意識評估 & GCS、E4V5M6評分、意識內容vs清醒度 \\
+\cline{2-3}
+& 腦神經檢查 & CN I-XII完整檢查、腦幹功能評估 \\
+\cline{2-3}
+& 運動系統 & 肌力分級、肌張力、反射、病理反射 \\
+\cline{2-3}
+& 感覺系統 & 痛覺、溫覺、本體感覺、皮節分布 \\
+\cline{2-3}
+& 協調步態 & 小腦功能、步態分析、Romberg test \\
+\cline{2-3}
+& 病灶定位 & 整合檢查發現進行神經解剖定位 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本神經症狀,執行簡單神經檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成神經學檢查,識別明顯異常 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成完整神經學檢查,進行初步定位 \\
+\hline
+\textbf{Level 4} & Proficient & 能精確執行神經學檢查,準確病灶定位 \\
+\hline
+\textbf{Level 5} & Expert & 成為神經學檢查專家,能教導複雜技巧 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 神經影像學判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀腦部CT與MRI影像,識別正常解剖結構,辨識常見病變,包括出血、梗塞、腫瘤,並整合臨床資訊。} \\
+\hline
+\textbf{核心能力} & 腦部CT判讀 & 灰白質對比、腦室系統、出血判讀 \\
+\cline{2-3}
+& 急性中風影像 & 早期梗塞徵象、ASPECTS評分、出血鑑別 \\
+\cline{2-3}
+& MRI序列理解 & T1/T2/FLAIR/DWI/ADC/SWI判讀 \\
+\cline{2-3}
+& 血管影像 & CTA/MRA判讀、血管狹窄、動脈瘤 \\
+\cline{2-3}
+& 病變識別 & 腫瘤、發炎、脫髓鞘、退化性病變 \\
+\cline{2-3}
+& 臨床關聯 & 影像發現與臨床症狀相關性分析 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本腦部CT結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別明顯出血與梗塞,判讀基本MRI \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀常見神經影像異常 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜影像,識別早期與細微病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為神經影像專家,能教導進階判讀 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 急性缺血性腦中風診斷與處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別急性缺血性腦中風,執行NIHSS評估,評估靜脈溶栓與動脈取栓適應症,並協調急性處置與後續照護。} \\
+\hline
+\textbf{核心能力} & 快速評估 & FAST評估、到院時間、發作時間確認 \\
+\cline{2-3}
+& NIHSS評分 & 完整NIHSS評估、嚴重度分級 \\
+\cline{2-3}
+& 影像判讀 & 急性期CT/MRI、出血排除、早期梗塞徵象 \\
+\cline{2-3}
+& 溶栓評估 & rt-PA適應症、禁忌症、時間窗評估 \\
+\cline{2-3}
+& 動脈取栓 & EVT適應症、血管評估、團隊協調 \\
+\cline{2-3}
+& 併發症監測 & 出血轉化、腦水腫、再灌流傷害 \\
+\cline{2-3}
+& 二級預防 & 危險因子控制、抗血小板、抗凝治療 \\
+\hline
+\textbf{Level 1} & Novice & 能識別中風症狀,了解基本處置流程 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行NIHSS,評估溶栓適應症 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理急性中風,協調治療團隊 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜中風,快速決策與執行 \\
+\hline
+\textbf{Level 5} & Expert & 成為中風專家,領導中風團隊 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 癲癇發作診斷與管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷癲癇發作,區分癲癇與非癲癇性事件,選擇適當抗癲癇藥物,監測藥物濃度,並處理癲癇重積狀態。} \\
+\hline
+\textbf{核心能力} & 發作分類 & 局部vs全面性、有無意識喪失分類 \\
+\cline{2-3}
+& 鑑別診斷 & 癲癇vs暈厥vs心因性非癲癇發作 \\
+\cline{2-3}
+& 病因評估 & 結構性、遺傳性、感染性、代謝性 \\
+\cline{2-3}
+& 藥物選擇 & 依發作型態選擇第一線AED \\
+\cline{2-3}
+& 藥物監測 & 血中濃度、副作用、藥物交互作用 \\
+\cline{2-3}
+& 癲癇重積 & 快速識別、階梯式治療、ICU照護 \\
+\cline{2-3}
+& 長期管理 & 發作控制、生活品質、停藥評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別癲癇發作,了解基本AED \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能分類癲癇,開始單一AED治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理癲癇,調整藥物治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性癲癇,多重藥物管理 \\
+\hline
+\textbf{Level 5} & Expert & 成為癲癇專家,評估手術適應症 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 頭痛疾患評估與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠系統性評估頭痛,區分原發性與次發性頭痛,識別危險訊號,診斷偏頭痛與緊張型頭痛,並制定治療計畫。} \\
+\hline
+\textbf{核心能力} & 頭痛特徵 & OPQRST評估、時間型態、伴隨症狀 \\
+\cline{2-3}
+& 危險訊號 & 雷擊頭痛、神經學症狀、系統性症狀 \\
+\cline{2-3}
+& 偏頭痛診斷 & ICHD-3診斷標準、前兆識別 \\
+\cline{2-3}
+& 緊張型頭痛 & 診斷標準、誘發因子評估 \\
+\cline{2-3}
+& 急性治療 & NSAIDs、Triptans、止吐劑使用 \\
+\cline{2-3}
+& 預防治療 & Beta-blockers、抗癲癇藥、CGRP單抗 \\
+\cline{2-3}
+& 次發性頭痛 & SAH、腦膜炎、顱內壓異常鑑別 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問頭痛病史,識別危險訊號 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷常見原發性頭痛,開始治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估與治療頭痛,區分次發性 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜頭痛,整合預防治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為頭痛專家,管理難治性頭痛 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 腰椎穿刺與腦脊髓液分析}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行腰椎穿刺術,包括適應症評估、解剖定位、無菌技術、壓力測量,並能判讀腦脊髓液檢查結果。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 感染、SAH、脫髓鞘、癌症腦膜炎 \\
+\cline{2-3}
+& 禁忌症識別 & 顱內壓升高、凝血異常、局部感染 \\
+\cline{2-3}
+& 解剖定位 & L3-4/L4-5間隙、Tuffier's line定位 \\
+\cline{2-3}
+& 穿刺技術 & 局部麻醉、中線vs旁正中入針 \\
+\cline{2-3}
+& CSF分析 & 外觀、細胞計數、生化、微生物 \\
+\cline{2-3}
+& 特殊檢查 & 寡株帶、細胞學、PCR、培養 \\
+\cline{2-3}
+& 併發症處理 & 頭痛、出血、感染預防與處理 \\
+\hline
+\textbf{Level 1} & Novice & 能協助腰椎穿刺,了解基本解剖 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行腰椎穿刺 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行腰椎穿刺,判讀CSF \\
+\hline
+\textbf{Level 4} & Proficient & 能執行困難穿刺,處理併發症 \\
+\hline
+\textbf{Level 5} & Expert & 成為腰椎穿刺專家,能教導技術 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 神經電生理檢查判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠判讀神經電生理檢查,包括肌電圖(EMG)、神經傳導(NCV)、腦波(EEG),並整合臨床資訊提出診斷。} \\
+\hline
+\textbf{核心能力} & NCV判讀 & 運動vs感覺傳導、潛伏期、振幅、速度 \\
+\cline{2-3}
+& EMG判讀 & 自發性活動、運動單位、募集型態 \\
+\cline{2-3}
+& 病變定位 & 神經根vs神經叢vs周邊神經vs肌肉 \\
+\cline{2-3}
+& 病理分類 & 軸突vs脫髓鞘、急性vs慢性 \\
+\cline{2-3}
+& EEG判讀 & 正常背景、癲癇波、局部異常 \\
+\cline{2-3}
+& 臨床應用 & 周邊神經病變、肌病、癲癇診斷 \\
+\hline
+\textbf{Level 1} & Novice & 能了解電生理基本概念 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀基本NCV/EMG異常 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀電生理,整合臨床診斷 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜電生理,精確病變定位 \\
+\hline
+\textbf{Level 5} & Expert & 成為電生理專家,能教導判讀 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 神經肌肉疾病診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷神經肌肉疾病,包括周邊神經病變、肌無力、肌病,執行系統性評估,並制定治療計畫。} \\
+\hline
+\textbf{核心能力} & 臨床表現 & 無力分布、感覺異常、肌肉萎縮 \\
+\cline{2-3}
+& 周邊神經病變 & GBS、CIDP、糖尿病神經病變診斷 \\
+\cline{2-3}
+& 肌無力症 & 重症肌無力、Lambert-Eaton診斷 \\
+\cline{2-3}
+& 肌病 & 發炎性、代謝性、遺傳性肌病鑑別 \\
+\cline{2-3}
+& 診斷工具 & EMG/NCV、肌肉切片、血清學 \\
+\cline{2-3}
+& 治療策略 & 免疫治療、症狀治療、復健 \\
+\hline
+\textbf{Level 1} & Novice & 能識別神經肌肉疾病可能性 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷常見神經肌肉疾病 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估與治療神經肌肉疾病 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜病例,整合多項檢查 \\
+\hline
+\textbf{Level 5} & Expert & 成為神經肌肉專家,診斷罕見疾病 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 神經重症與意識障礙管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠管理神經重症,包括意識障礙評估、顱內壓監測、癲癇重積處理、神經重症照護,並協調ICU團隊。} \\
+\hline
+\textbf{核心能力} & 意識評估 & GCS評估、昏迷原因鑑別、腦死判定 \\
+\cline{2-3}
+& 顱內壓管理 & ICP監測、滲透壓治療、手術時機 \\
+\cline{2-3}
+& 癲癇重積 & 持續性癲癇處理、EEG監測 \\
+\cline{2-3}
+& 腦出血處理 & 血壓控制、凝血矯正、手術評估 \\
+\cline{2-3}
+& 神經監測 & 瞳孔、GCS、ICP、神經影像追蹤 \\
+\cline{2-3}
+& ICU協調 & 呼吸器、感染控制、營養支持 \\
+\cline{2-3}
+& 預後評估 & 功能預後、復健需求、倫理決策 \\
+\hline
+\textbf{Level 1} & Novice & 能識別神經重症,了解基本處理 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行意識評估,協助重症照護 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理神經重症,協調ICU團隊 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜重症,快速決策與調整 \\
+\hline
+\textbf{Level 5} & Expert & 成為神經重症專家,領導團隊照護 \\
+\hline
+
+\rowcolor{neuro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 神經疾病跨科部整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調神經疾病患者的整體照護,包括復健安排、長期照護規劃、跨科會診,並能有效溝通與教育病患及家屬。} \\
+\hline
+\textbf{核心能力} & 復健協調 & 物理治療、職能治療、語言治療安排 \\
+\cline{2-3}
+& 會診協調 & 神經外科、復健科、精神科會診 \\
+\cline{2-3}
+& 長期照護 & 失能評估、居家照護、安養機構 \\
+\cline{2-3}
+& 中風後照護 & 二級預防、功能恢復、併發症預防 \\
+\cline{2-3}
+& 病患教育 & 疾病衛教、藥物遵從性、生活調整 \\
+\cline{2-3}
+& 家屬支持 & 照護指導、心理支持、資源連結 \\
+\cline{2-3}
+& 倫理考量 & 醫療決策、預立醫囑、安寧照護 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護,了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診,安排復健治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護,制定長期計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜多科照護,領導團隊討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家,改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本神經科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 神經科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。神經學檢查是神經科的基石,需要大量練習才能精熟。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 6) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 3, 4, 5, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        神經學檢查類 & DOPS & 標準化病人、OSCE \\
+        (EPA 1) & Neurological Exam Assessment & 影片回顧、同儕觀察 \\
+        \midrule
+        影像判讀類 & 影像判讀評量 & 線上測驗、定期考核 \\
+        (EPA 2, 7) & Image/Report Interpretation & 病例討論、peer review \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 神經學檢查與影像判讀 \\
+        第2個月 & EPA 3 & 急性中風處置 \\
+        第3個月 & EPA 4, 5 & 癲癇與頭痛管理 \\
+        第4個月 & EPA 6, 7 & 腰椎穿刺與電生理判讀 \\
+        第5個月 & EPA 8, 9 & 神經肌肉疾病與重症 \\
+        第6個月 & EPA 10 & 整合照護與協調能力 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item Adams and Victor's Principles of Neurology. 12th edition.
+    \item Bradley and Daroff's Neurology in Clinical Practice. 8th edition.
+    \item Harrison's Neurology in Clinical Medicine. 4th edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item AHA/ASA Guidelines for Acute Ischemic Stroke Management
+    \item AAN Practice Guidelines for Epilepsy Management
+    \item International Headache Society Classification (ICHD-3)
+    \item EAN Guidelines for Guillain-Barré Syndrome
+    \item AAN Guidelines for Parkinson's Disease Management
+\end{itemize}
+
+\textbf{線上資源:}
+\begin{itemize}
+    \item AAN Continuum
+    \item Neurology.org Educational Resources
+    \item UpToDate Neurology Section
+    \item NEJM Videos in Clinical Medicine (Neurologic Examination)
+    \item Radiopaedia (神經影像)
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 練習神經學檢查至熟練
+    \item 建立個人影像判讀資料庫
+    \item 參與中風團隊會議
+    \item 建立個人學習檔案
+    \item 參與神經科個案討論會
+    \item 定期複習腰椎穿刺技能
+    \item 觀摩電生理檢查
+\end{itemize}
+
+\section{總結}
+
+神經科EPAs涵蓋了神經疾病診療的完整核心能力,從基礎的神經學病史與檢查,到複雜的急性中風處置、癲癇管理、神經重症照護,以及整合性的跨科部協調照護。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 神經科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表神經科醫師必須具備的基礎診療能力。神經學檢查是神經科的基石,需要反復練習與細膩的技巧。急性腦中風是時間競賽,需要快速評估與決策能力。神經影像判讀能力對診斷至關重要。腰椎穿刺是重要侵入性技術,需要在監督下反復練習。神經重症照護需要整合多項監測與治療技術。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{ropper2023}
+Ropper, A. H., et al. (2023). \textit{Adams and Victor's Principles of Neurology}. 12th edition. McGraw-Hill Education.
+
+\bibitem{daroff2021}
+Jankovic, J., et al. (2021). \textit{Bradley and Daroff's Neurology in Clinical Practice}. 8th edition. Elsevier.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{powers2019}
+Powers, W. J., et al. (2019). Guidelines for the Early Management of Patients With Acute Ischemic Stroke. \textit{Stroke}, 50(12), e344-e418.
+
+\bibitem{ichd2018}
+Headache Classification Committee of the International Headache Society. (2018). The International Classification of Headache Disorders, 3rd edition. \textit{Cephalalgia}, 38(1), 1-211.
+
+\bibitem{glauser2016}
+Glauser, T., et al. (2016). Updated ILAE evidence review of antiepileptic drug efficacy and effectiveness as initial monotherapy for epileptic seizures and syndromes. \textit{Epilepsia}, 57(8), 1264-1277.
+
+\bibitem{willison2016}
+Willison, H. J., et al. (2016). Guillain-Barré syndrome. \textit{The Lancet}, 388(10045), 717-727.
+
+\end{thebibliography}
+
+\end{document}

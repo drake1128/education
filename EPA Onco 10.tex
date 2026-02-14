@@ -1,0 +1,646 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=onco_teal,
+    citecolor=onco_teal,
+    urlcolor=onco_teal,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Oncology themed colors)
+\definecolor{onco_teal}{RGB}{0,128,128}
+\definecolor{onco_gold}{RGB}{218,165,32}
+\definecolor{onco_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{onco_teal}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{onco_gold}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{onco_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=onco_teal,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=onco_gold!5!white,
+        colframe=onco_gold,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{onco_teal}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{onco_gold}{腫瘤科EPAs}}
+\fancyfoot[C]{\textcolor{onco_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{onco_teal}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{onco_teal}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 腫瘤科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{onco_gold}{\textit{Oncology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=onco_gold!5!white,
+        colframe=onco_gold,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    腫瘤科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 腫瘤科 \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{腫瘤科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。腫瘤科EPAs涵蓋了癌症診斷、治療與照護的核心能力,是所有腫瘤科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+腫瘤科EPAs評量著重於能否安全、穩定地執行完整的癌症診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的腫瘤學病史與病理判讀,到複雜的化療管理、標靶治療與緩和照護,提供完整的腫瘤疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成腫瘤科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行腫瘤學病史詢問與理學檢查。
+    \item 判讀病理報告與分子標記。
+    \item 執行癌症分期與預後評估。
+    \item 選擇與執行化學治療方案。
+    \item 使用標靶治療與免疫治療。
+    \item 評估放射治療適應症與協調。
+    \item 診斷與處理腫瘤急症。
+    \item 管理化療副作用與支持性照護。
+    \item 執行癌症疼痛控制與緩和醫療。
+    \item 協調腫瘤病患跨科部整合照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{腫瘤科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{腫瘤科EPAs完整架構} \\
+\hline
+\rowcolor{onco_gold!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{onco_gold!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 腫瘤學病史詢問與理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行癌症相關的完整病史詢問與理學檢查,包括B症狀評估、腫瘤家族史、環境暴露史,並能初步評估疾病範圍與功能狀態。} \\
+\hline
+\textbf{核心能力} & 警示症狀 & 體重減輕、不明發燒、盜汗、腫塊、出血 \\
+\cline{2-3}
+& 器官特定症狀 & 咳血、吞嚥困難、腸阻塞、黃疸評估 \\
+\cline{2-3}
+& 家族史 & 遺傳性癌症症候群、家族癌症史 \\
+\cline{2-3}
+& 環境暴露 & 吸菸、職業暴露、放射線、致癌物接觸 \\
+\cline{2-3}
+& 理學檢查 & 淋巴結、腫塊、肝脾、神經學檢查 \\
+\cline{2-3}
+& 功能評估 & ECOG PS、Karnofsky score評估 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本腫瘤症狀,需要監導者引導完成 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成腫瘤病史詢問,執行基本理學檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問,整合症狀進行初步診斷 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史,識別罕見癌症表現 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問,建立系統性評估流程 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 病理報告與分子標記判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀病理報告,理解組織型態、分化程度、侵犯範圍,並能判讀分子標記,整合資訊提出治療建議。} \\
+\hline
+\textbf{核心能力} & 病理診斷 & 組織型態、分化程度、特殊染色 \\
+\cline{2-3}
+& 腫瘤分級 & WHO分級、Gleason score、Nottingham grade \\
+\cline{2-3}
+& 侵犯評估 & 深度、血管侵犯、淋巴侵犯、切緣評估 \\
+\cline{2-3}
+& 免疫組化 & ER/PR/HER2、PD-L1、Ki-67判讀 \\
+\cline{2-3}
+& 分子檢測 & EGFR、ALK、KRAS、MSI、TMB判讀 \\
+\cline{2-3}
+& 治療意義 & 標記與治療選擇關聯性 \\
+\hline
+\textbf{Level 1} & Novice & 能閱讀基本病理報告,理解診斷名稱 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀常見病理資訊,理解分級意義 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀病理報告,整合分子標記 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜病理,評估預後與治療意義 \\
+\hline
+\textbf{Level 5} & Expert & 成為病理判讀專家,能教導複雜判讀 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 癌症分期與預後評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行癌症分期評估,選擇適當檢查,判讀分期影像,應用TNM系統,並能評估預後因子與制定治療策略。} \\
+\hline
+\textbf{核心能力} & TNM分期 & AJCC分期系統應用、版本差異理解 \\
+\cline{2-3}
+& 影像評估 & CT、MRI、PET-CT在分期的應用 \\
+\cline{2-3}
+& 分期檢查 & 依癌別選擇適當分期檢查組合 \\
+\cline{2-3}
+& 預後評估 & 腫瘤大小、分化、轉移、分子標記整合 \\
+\cline{2-3}
+& 分期會議 & MDT討論、分期資訊呈現 \\
+\cline{2-3}
+& 治療決策 & 依分期選擇治療目標與策略 \\
+\hline
+\textbf{Level 1} & Novice & 能理解基本TNM概念,知道常見檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行標準分期評估,應用TNM分期 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成分期評估,制定檢查計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜分期,整合多重預後因子 \\
+\hline
+\textbf{Level 5} & Expert & 成為分期專家,領導MDT討論 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 化學治療方案選擇與執行}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠依據癌症類型、分期、病人狀況選擇適當化療方案,計算劑量,執行前評估,並監測治療反應。} \\
+\hline
+\textbf{核心能力} & 方案選擇 & 依癌別、分期選擇標準化療方案 \\
+\cline{2-3}
+& 劑量計算 & BSA計算、器官功能調整、老年劑量 \\
+\cline{2-3}
+& 治療前評估 & 血球、肝腎功能、心肺功能評估 \\
+\cline{2-3}
+& 給藥順序 & 藥物順序、時間間隔、水化需求 \\
+\cline{2-3}
+& 反應評估 & RECIST criteria、療效評估時機 \\
+\cline{2-3}
+& 療程調整 & 劑量減量、延遲、中止決策 \\
+\hline
+\textbf{Level 1} & Novice & 能了解化療基本概念,知道常見方案 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行標準化療方案,計算基本劑量 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立選擇與執行化療,監測反應 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜情況,調整化療策略 \\
+\hline
+\textbf{Level 5} & Expert & 成為化療專家,設計個人化方案 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 標靶治療與免疫治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估標靶治療與免疫治療適應症,選擇適當藥物,監測療效與特殊副作用,並能處理免疫相關不良反應。} \\
+\hline
+\textbf{核心能力} & 標靶藥物 & EGFR-TKI、ALK-i、HER2-i等適應症 \\
+\cline{2-3}
+& 生物標記 & 標靶治療生物標記檢測與判讀 \\
+\cline{2-3}
+& 免疫治療 & PD-1/PD-L1抑制劑、CTLA-4抑制劑 \\
+\cline{2-3}
+& irAE識別 & 免疫相關肺炎、腸炎、肝炎、內分泌 \\
+\cline{2-3}
+& irAE處理 & 類固醇使用、免疫抑制劑、停藥決策 \\
+\cline{2-3}
+& 抗藥性 & 抗藥機轉、後線治療選擇 \\
+\hline
+\textbf{Level 1} & Novice & 能了解標靶與免疫治療基本概念 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行標準標靶治療,識別常見irAE \\
+\hline
+\textbf{Level 3} & Competent & 能獨立使用標靶與免疫治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜irAE,選擇後線治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為標靶免疫專家,參與臨床試驗 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 放射治療適應症評估與協調}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估放射治療適應症,與放射腫瘤科協調治療計畫,理解放療技術,監測急慢性副作用。} \\
+\hline
+\textbf{核心能力} & 治療適應症 & 根治性、輔助性、緩和性放療決策 \\
+\cline{2-3}
+& 放療技術 & IMRT、SBRT、質子治療適應症理解 \\
+\cline{2-3}
+& 放化併用 & 同步vs序列放化療、藥物選擇 \\
+\cline{2-3}
+& 會診協調 & 與放射腫瘤科溝通、治療計畫整合 \\
+\cline{2-3}
+& 急性副作用 & 放射性皮膚炎、食道炎、腸炎處理 \\
+\cline{2-3}
+& 慢性副作用 & 纖維化、放射性肺炎、骨髓抑制 \\
+\hline
+\textbf{Level 1} & Novice & 能了解放療基本適應症 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估基本放療需求,協調會診 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估放療適應症,管理副作用 \\
+\hline
+\textbf{Level 4} & Proficient & 能協調複雜放化療,處理嚴重副作用 \\
+\hline
+\textbf{Level 5} & Expert & 成為放療協調專家,整合多模式治療 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 腫瘤急症診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別腫瘤急症,執行緊急評估與處置,包括SVCS、脊髓壓迫、高血鈣、TLS等,並能協調多科照護。} \\
+\hline
+\textbf{核心能力} & SVCS診斷處理 & 快速診斷、放療/支架決策 \\
+\cline{2-3}
+& 脊髓壓迫 & MRI評估、類固醇、放療/手術時機 \\
+\cline{2-3}
+& 高血鈣危象 & 快速識別、水化、雙磷酸鹽使用 \\
+\cline{2-3}
+& 腫瘤溶解症候群 & 預防、監測、Rasburicase使用 \\
+\cline{2-3}
+& 嗜中性白血球低下發燒 & 評估、經驗性抗生素、G-CSF使用 \\
+\cline{2-3}
+& 惡性腦壓 & 識別、類固醇、滲透壓治療 \\
+\hline
+\textbf{Level 1} & Novice & 能識別腫瘤急症症狀,知道基本處理 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行初步評估,開始緊急處置 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理腫瘤急症,協調多科照護 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜急症,快速決策與執行 \\
+\hline
+\textbf{Level 5} & Expert & 成為腫瘤急症專家,建立處理流程 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 化療副作用管理與支持性照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠預測、監測與處理化療副作用,執行支持性照護,包括止吐、G-CSF使用、黏膜炎處理、營養支持。} \\
+\hline
+\textbf{核心能力} & 噁心嘔吐 & 致吐風險評估、預防性止吐、救援治療 \\
+\cline{2-3}
+& 骨髓抑制 & 白血球、血小板低下監測與處理 \\
+\cline{2-3}
+& G-CSF使用 & 一級vs二級預防、使用時機 \\
+\cline{2-3}
+& 黏膜炎 & 口腔黏膜炎、腸道黏膜炎處理 \\
+\cline{2-3}
+& 周邊神經病變 & 評估、劑量調整、症狀緩解 \\
+\cline{2-3}
+& 營養支持 & 惡病質評估、營養介入、食慾促進劑 \\
+\hline
+\textbf{Level 1} & Novice & 能識別常見化療副作用 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能處理常見副作用,執行支持治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理化療副作用,預防性處置 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理嚴重副作用,整合支持照護 \\
+\hline
+\textbf{Level 5} & Expert & 成為支持照護專家,改善副作用管理 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 癌症疼痛控制與緩和醫療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估癌症疼痛,使用WHO三階梯止痛,處理難治性疼痛,執行症狀控制,並能提供全人緩和照護。} \\
+\hline
+\textbf{核心能力} & 疼痛評估 & VAS/NRS評分、疼痛特性、突發痛 \\
+\cline{2-3}
+& 鴉片類藥物 & 嗎啡、吩坦尼、羥考酮使用與轉換 \\
+\cline{2-3}
+& 輔助止痛 & 類固醇、抗痙攣藥、抗憂鬱劑 \\
+\cline{2-3}
+& 副作用管理 & 便秘、噁心、嗜睡處理 \\
+\cline{2-3}
+& 症狀控制 & 呼吸困難、譫妄、cachexia管理 \\
+\cline{2-3}
+& 心理社會支持 & 焦慮憂鬱、靈性照護、家屬支持 \\
+\cline{2-3}
+& 善終照護 & DNR討論、臨終症狀、哀傷輔導 \\
+\hline
+\textbf{Level 1} & Novice & 能評估基本疼痛,了解WHO階梯 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用鴉片類藥物,處理常見副作用 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理癌症疼痛,執行症狀控制 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性疼痛,提供全人照護 \\
+\hline
+\textbf{Level 5} & Expert & 成為緩和醫療專家,領導團隊照護 \\
+\hline
+
+\rowcolor{onco_teal!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 腫瘤病患跨科部整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調腫瘤病患的整體照護,包括MDT討論、跨科會診、臨床試驗評估、存活者照護,並能有效溝通與共同決策。} \\
+\hline
+\textbf{核心能力} & MDT參與 & 多專科團隊會議、治療計畫整合 \\
+\cline{2-3}
+& 會診協調 & 外科、放射、病理、影像科協調 \\
+\cline{2-3}
+& 臨床試驗 & 適應症評估、試驗選擇、納入標準 \\
+\cline{2-3}
+& 存活者照護 & 追蹤計畫、晚期效應、復發監測 \\
+\cline{2-3}
+& 病患溝通 & 壞消息告知、預後討論、共同決策 \\
+\cline{2-3}
+& 家屬支持 & 病情解釋、照護指導、資源連結 \\
+\cline{2-3}
+& 品質改善 & 照護品質監測、指標追蹤、改善方案 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護,了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診,參與MDT討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護,進行有效溝通 \\
+\hline
+\textbf{Level 4} & Proficient & 能領導MDT討論,執行共同決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家,改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本腫瘤科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 腫瘤科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。腫瘤學需要整合多學科知識,包括病理、影像、藥理、緩和醫療等。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 3, 4, 5, 6, 7, 8) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        報告判讀類 & 判讀評量 & 線上測驗、定期考核 \\
+        (EPA 2) & Report Interpretation Assessment & 病例討論、peer review \\
+        \midrule
+        緩和照護類 & OSCE/模擬病人 & 溝通技巧評量 \\
+        (EPA 9) & Communication Skills Assessment & 360度回饋、錄影回顧 \\
+        \midrule
+        整合照護類 & Multi-source Feedback & MDT參與評量 \\
+        (EPA 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 基礎評估與病理判讀 \\
+        第2個月 & EPA 3, 6 & 分期評估與放療協調 \\
+        第3個月 & EPA 4, 8 & 化療執行與副作用管理 \\
+        第4個月 & EPA 5 & 標靶與免疫治療 \\
+        第5個月 & EPA 7, 9 & 急症處理與疼痛控制 \\
+        第6個月 & EPA 10 & 整合照護與溝通能力 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item DeVita, Hellman, and Rosenberg's Cancer: Principles \& Practice of Oncology. 11th edition.
+    \item Abeloff's Clinical Oncology. 6th edition.
+    \item Oxford Textbook of Oncology. 3rd edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item NCCN Clinical Practice Guidelines in Oncology
+    \item ASCO Clinical Practice Guidelines
+    \item ESMO Clinical Practice Guidelines
+    \item WHO Guidelines for Cancer Pain Management
+    \item MASCC Guidelines for Antiemetic Use
+\end{itemize}
+
+\textbf{線上資源:}
+\begin{itemize}
+    \item ASCO University
+    \item ESMO e-Learning Platform
+    \item UpToDate Oncology Section
+    \item CancerNetwork
+    \item Medscape Oncology
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 建立個人病理報告判讀資料庫
+    \item 參與MDT討論會
+    \item 練習RECIST criteria判讀
+    \item 建立個人學習檔案
+    \item 參與腫瘤個案討論會
+    \item 定期複習化療方案與劑量
+    \item 練習壞消息告知技巧
+\end{itemize}
+
+\section{總結}
+
+腫瘤科EPAs涵蓋了癌症診療的完整核心能力,從基礎的病史詢問與病理判讀,到複雜的化療管理、標靶免疫治療、腫瘤急症處理,以及全人化的緩和照護與跨科協調。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 腫瘤科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表腫瘤科醫師必須具備的基礎診療能力。腫瘤學需要整合病理、影像、藥理、緩和醫療等多學科知識。化療與標靶免疫治療需要精確評估適應症與監測副作用。緩和醫療與溝通技巧是腫瘤科醫師的核心能力,需要持續練習與反思。MDT討論與跨科協調能力對提供最佳癌症照護至關重要。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{devita2019}
+DeVita, V. T., Lawrence, T. S., \& Rosenberg, S. A. (2019). \textit{DeVita, Hellman, and Rosenberg's Cancer: Principles \& Practice of Oncology}. 11th edition. Wolters Kluwer.
+
+\bibitem{abeloff2020}
+Niederhuber, J. E., et al. (2020). \textit{Abeloff's Clinical Oncology}. 6th edition. Elsevier.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{who2018pain}
+World Health Organization. (2018). \textit{WHO Guidelines for the Pharmacological and Radiotherapeutic Management of Cancer Pain in Adults and Adolescents}. WHO.
+
+\bibitem{eisenhauer2009}
+Eisenhauer, E. A., et al. (2009). New response evaluation criteria in solid tumours: revised RECIST guideline (version 1.1). \textit{European Journal of Cancer}, 45(2), 228-247.
+
+\bibitem{roila2016}
+Roila, F., et al. (2016). 2016 MASCC and ESMO guideline update for the prevention of chemotherapy- and radiotherapy-induced nausea and vomiting. \textit{Annals of Oncology}, 27(suppl 5), v119-v133.
+
+\bibitem{brahmer2018}
+Brahmer, J. R., et al. (2018). Management of immune-related adverse events in patients treated with immune checkpoint inhibitor therapy. \textit{Journal of Clinical Oncology}, 36(17), 1714-1768.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,457 @@
+% 設定文件並引入必要套件
+\documentclass[12pt,a4paper]{article}
+
+% 中文支援套件
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% 其他必要套件
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=brazil_green,
+    citecolor=brazil_green,
+    urlcolor=brazil_blue,
+    pdfborder={0 0 0}
+}
+
+% 頁面設定
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% 顏色定義
+\definecolor{brazil_green}{RGB}{0,156,59}
+\definecolor{brazil_blue}{RGB}{0,39,118}
+\definecolor{brazil_yellow}{RGB}{255,223,0}
+\definecolor{critical_red}{RGB}{220,20,60}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% 標題格式設定
+\titleformat{\section}[block]{\Large\bfseries\color{brazil_green}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{brazil_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{critical_red}}{\thesubsubsection}{6pt}{}
+
+% 自定義環境
+\newmdenv[
+    linecolor=brazil_green,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=brazil_blue!5!white,
+        colframe=brazil_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% 頁眉頁腳設定
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{brazil_green}{教學部教學文件}}
+\fancyhead[R]{\textcolor{brazil_blue}{巴西批判教育學與醫學教育}}
+\fancyfoot[C]{\textcolor{critical_red}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{brazil_green}\leaders\hrule height \headrulewidth\hfill}}
+
+% 日期格式
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% 文件開始
+\begin{document}
+
+% 標題頁與目錄合併
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{brazil_green}{\textbf{教學部教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 巴西批判教育學與醫學教育連結教學法\\Paulo Freire Critical Pedagogy and Pedagogy of Connection\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{brazil_blue}{\textit{Brazilian Critical Pedagogy and Medical Education: A Framework for Social Justice}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=brazil_blue!5!white,
+        colframe=brazil_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    教學部同仁、住院醫師及醫學教育者\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 教學部副主任\\謝慕揚, MD, PhD, FESC\\
+    整理製表 with assistance by AI: Claude\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% 主要內容
+\section{自學方案}
+本文件整理巴西批判教育學理論及其在醫學教育中的應用，特別著重於連結教育法（Pedagogy of Connection, POC）的核心概念與實施策略。透過分析巴西醫學教育的歷史發展與社會正義導向，為醫學教育改革提供創新視角。請配合相關文獻資料進行深度學習。
+
+\section{Paulo Freire批判教育學理論基礎}
+
+\subsection{Paulo Freire (1921-1997) 背景}
+Paulo Freire是巴西教育家和哲學家，其工作徹底改變了全球教育思想。他出生於巴西東北部的中產階級家庭，從小體驗貧困和飢餓。1964年巴西軍事政變後被流放16年，在智利的經驗深刻影響了他的教育理論。
+
+\vspace{0.5cm}
+\note{
+Freire在流亡期間完成了《被壓迫者教育學》，這本書成為批判教育學的奠基之作。
+}
+
+\subsection{批判教育學的核心概念}
+
+\subsubsection{批判意識 (Critical Consciousness / Conscientização)}
+批判意識是Freire理論的核心，指個人能夠識別、分析並行動改變壓迫性社會結構的能力。
+
+\textbf{批判意識的三個層次：}
+\begin{itemize}[nosep]
+    \item \textbf{神奇意識}：被動接受現實，認為問題是命運
+    \item \textbf{素樸意識}：開始質疑，但缺乏系統性分析
+    \item \textbf{批判意識}：能夠分析社會結構，採取行動改變
+\end{itemize}
+
+\subsubsection{銀行式教育 vs 提問式教育}
+
+\begin{longtable}{p{7cm}|p{7cm}}
+    \toprule
+    \textbf{銀行式教育 (Banking Education)} & \textbf{提問式教育 (Problem-Posing Education)} \\
+    \midrule
+    \endhead
+    教師存入知識，學生被動接收 & 教師和學生共同探索現實 \\
+    垂直關係：教師權威，學生服從 & 水平關係：相互尊重和學習 \\
+    知識被視為禮物，由有知者給予無知者 & 知識在對話中共同創造 \\
+    促進適應現狀，阻礙批判思考 & 促進行動和變革 \\
+    \bottomrule
+\end{longtable}
+
+\subsubsection{沉默文化 (Culture of Silence)}
+不平等的社會關係創造了一種「沉默文化」，使被壓迫者產生消極、被動和被壓抑的自我形象。學習者必須發展批判意識以認識到這種沉默文化是為了壓迫而創造的。
+
+\subsubsection{對話 (Dialogue) 的重要性}
+- 不是辯論或討論，而是真正的相互交流
+- 基於愛、謙遜、信任和批判思考
+- 目標是共同理解和改變現實
+
+\subsection{教育哲學的核心原則}
+
+\begin{itemize}[nosep]
+    \item \textbf{教育即政治行為}：沒有中性的教育，教育要麼服務於統治階級的整合，要麼成為自由的實踐
+    \item \textbf{教育即愛的行為}：「教育必須是愛的行為，因此也是勇氣的行為」
+    \item \textbf{實踐 (Praxis) 的重要性}：反思與行動的結合，不僅要理解世界，更要改變世界
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+Freire強調：「希望不僅是教育實踐，它關乎社會變革和集體鬥爭。希望本質上是社會性的。」
+}
+
+\section{巴西醫學教育的歷史脈絡}
+
+\subsection{社會背景與衛生改革運動}
+巴西擁有350年奴隸制度歷史，造成深層社會不平等。1988年重新民主化後建立統一公共醫療體系(SUS)，其核心原則包括：
+\begin{itemize}[nosep]
+    \item 普遍性 (Universality)
+    \item 完整性 (Integrality)
+    \item 公平性 (Equity)
+    \item 社區參與 (Community Participation)
+    \item 政治行政分權 (Political and Administrative Decentralisation)
+    \item 層級化和區域化 (Hierarchisation and Regionalisation)
+\end{itemize}
+
+\subsection{醫學教育與社會正義的結合}
+巴西醫學教育從第一週開始就讓學生接觸公共衛生和家庭醫學實務。學生學習SUS核心原則，理解醫學專業的社會責任。
+
+\subsubsection{巴西醫學教育三大治理面向}
+\begin{enumerate}
+    \item \textbf{健康照護關注}：學生需關注健康社會決定因素，採用全人照護方式
+    \item \textbf{醫療管理}：理解SUS作為社會正義工具，參與公共衛生活動
+    \item \textbf{醫療教育}：培養獨立、反思性和批判性的終身學習者
+\end{enumerate}
+
+\subsection{平權招生政策}
+自2012年起，所有公立大學醫學院必須：
+\begin{itemize}[nosep]
+    \item 保留50\%名額給公立高中學生
+    \item 其中25\%給黑人學生
+    \item 特定名額給原住民
+\end{itemize}
+
+這些政策明確以反映社會人口結構為目標，將教育公平視為社會正義實現。
+
+\section{連結教育法 (Pedagogy of Connection, POC)}
+
+\subsection{POC的理論基礎}
+連結教育法源自巴西醫學教育經驗，整合了批判教育學、SUS原則和社會正義導向。這種教育法強調醫學教育與醫療體系、社會的深度整合。
+
+\subsection{POC的五個連結面向}
+
+\begin{longtable}{p{3cm}|p{11cm}}
+    \toprule
+    \textbf{連結面向} & \textbf{具體內容} \\
+    \midrule
+    \endhead
+    與醫療體系和社會的連結 & 
+    理解體系為可變的社會機制，學生成為體系改變的推動者，發展責任感和能動性。學生早期接觸醫療體系，了解其歷史發展、結構和挑戰。 \\
+    \midrule
+    與社區的連結 & 
+    體認醫學工作的意義和影響，建立服務意識。醫學是團結的專業，服務於需要幫助的社區。在資源不足的環境中，這種目標感餵養學生的動機。 \\
+    \midrule
+    與專業的連結 & 
+    建立專業認同和支持網絡。參與社會變革需要團體支持，醫學院需要創造團結文化，增強韌性，讓變革參與變得更容易。 \\
+    \midrule
+    與患者的連結 & 
+    從患者身上學習實用智慧，體驗人類經驗的全光譜。患者重新發明自己的生活，醫學生不僅是旁觀者，更是這些敘事的積極參與者。 \\
+    \midrule
+    與自我的連結 & 
+    整合個人和專業認同，學習關於什麼是重要、正確和美好的事物。沒有加入這個了解自己的旅程，醫學生難以整合個人和專業身份。 \\
+    \bottomrule
+\end{longtable}
+
+\subsection{臨床「在場」(Presence)的重要性}
+POC強調「在場」的概念，定義為：連結的承諾、對他人的開放、身心的警覺、專注當下，以及對時間的自覺運用。
+
+\textbf{在場的具體表現：}
+\begin{itemize}[nosep]
+    \item 學生注意力完全投入在患者身上
+    \item 情感和理性協作，為患者創造舒適空間
+    \item 每次醫療會面都被視為獨特且具治療性的
+    \item 學習與患者建立情感連結
+\end{itemize}
+
+\section{巴西與台灣醫學教育比較}
+
+\begin{longtable}{p{4cm}|p{5.5cm}|p{5.5cm}}
+    \toprule
+    \textbf{比較面向} & \textbf{巴西醫學教育} & \textbf{台灣醫學教育} \\
+    \midrule
+    \endhead
+    醫療體系基礎 & 
+    統一公共醫療體系(SUS)：政府主導的全民健保，強調社會正義和健康平等 & 
+    全民健康保險制度：混合模式，以效率和可及性為主要目標 \\
+    \midrule
+    課程設計理念 & 
+    第一週開始社區實務，35\%臨床經驗在初級照護，強調全人照護和社區連結 & 
+    傳統生醫科學基礎較強，偏重醫院內臨床訓練，社區醫學比重相對較低 \\
+    \midrule
+    招生政策 & 
+    強制性平權政策：50\%名額保留給公立高中學生，25\%給黑人學生 & 
+    主要以學業成績為標準，近年推動繁星計畫照顧偏鄉學生 \\
+    \midrule
+    教育哲學 & 
+    批判教育學導向，培養批判意識和社會變革能力，重視連結性 & 
+    技術能力導向，重視專業能力和醫療品質，近年開始重視人文素養 \\
+    \midrule
+    對社會責任的強調 & 
+    醫師被期待成為社會變革推動者，強調對弱勢群體的責任 & 
+    主要強調專業責任和醫療品質，社會責任多為個人選擇 \\
+    \bottomrule
+\end{longtable}
+
+\section{POC在醫學教育中的實施策略}
+
+\subsection{建立民主對話環境}
+\begin{itemize}[nosep]
+    \item 師生關係建立在好奇心和對他人開放的基礎上
+    \item 教育相遇必須對學生和教師都有意義
+    \item 雙方都受到彼此存在的影響
+    \item 採用水平關係而非傳統階層關係
+\end{itemize}
+
+\subsection{情境化學習}
+\begin{itemize}[nosep]
+    \item 教育發生在真實世界中（醫療體系）
+    \item 學生需要識別和反思社會過程
+    \item 採取行動改善體系，朝向社會正義
+    \item 將醫學教育視為社會改革工具
+\end{itemize}
+
+\subsection{賦權取向}
+\begin{itemize}[nosep]
+    \item 培養學生成為體系改變的推動者
+    \item 發展責任感和能動性
+    \item 準備下一代醫師改善醫療體系
+    \item 強調學生的主動參與和共同製作
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+POC的民主對話關係類似醫病關係中的共同製作（coproduction），促進學習與醫療品質。
+}
+
+\section{去殖民化醫學教育的啟示}
+
+\subsection{多元知識體系的價值}
+巴西的POC經驗提醒我們：
+\begin{itemize}[nosep]
+    \item 醫學教育知識生產超越學術論文
+    \item 世界各地存在豐富的智慧和經驗
+    \item 強調口語傳統和社區實踐的價值
+    \item 避免知識殖民化的危險
+\end{itemize}
+
+\subsection{保護教育多樣性}
+如同巴西原住民語言從1175種減少到不到180種，我們必須保護和學習不同的醫學教育模式，避免單一化的教育標準扼殺創新和多元性。
+
+\section{實施挑戰與解決方案}
+
+\subsection{主要挑戰}
+\begin{itemize}[nosep]
+    \item \textbf{文化適應性}：不能直接複製巴西模式，需考慮當地文化和醫療傳統
+    \item \textbf{結構性障礙}：需要醫療體系和教育體系的同步改革
+    \item \textbf{資源需求}：需要長期投入和政策支持
+    \item \textbf{觀念轉變}：從技術導向轉向社會正義導向需要時間
+\end{itemize}
+
+\subsection{解決策略}
+\begin{itemize}[nosep]
+    \item \textbf{漸進式改革}：從小規模試點開始，逐步擴展
+    \item \textbf{教師發展}：提供批判教育學培訓
+    \item \textbf{制度支持}：建立支持POC的政策框架
+    \item \textbf{社區合作}：建立與社區的長期夥伴關係
+\end{itemize}
+
+\section{對台灣醫學教育的具體建議}
+
+\subsection{短期目標 (1-2年)}
+\begin{itemize}[nosep]
+    \item 增加社區醫學和公共衛生實習比重
+    \item 讓學生更早接觸實際醫療環境
+    \item 在課程中納入健康不平等和社會決定因素
+    \item 舉辦批判教育學工作坊
+\end{itemize}
+
+\subsection{中期目標 (3-5年)}
+\begin{itemize}[nosep]
+    \item 檢討招生政策的社會正義考量
+    \item 建立醫學教育與健保制度的連結
+    \item 發展台灣版本的連結教育法
+    \item 培養批判意識導向的醫學教育者
+\end{itemize}
+
+\subsection{長期目標 (5-10年)}
+\begin{itemize}[nosep]
+    \item 建立以社會正義為導向的醫學教育體系
+    \item 培養具有社會變革能力的醫師
+    \item 促進醫療公平性和可及性
+    \item 建立國際批判醫學教育網絡
+\end{itemize}
+
+\section{考題}
+
+以下為重點概念的反思與應用題目：
+
+\begin{enumerate}
+    \item Paulo Freire批判教育學的核心概念「批判意識」包含哪三個層次？請說明各層次的特徵。
+    
+    \item 比較「銀行式教育」與「提問式教育」的差異，並舉例說明在醫學教育中的應用。
+    
+    \item 巴西醫學教育的三大治理面向為何？各面向如何體現社會正義原則？
+    
+    \item 連結教育法(POC)的五個連結面向分別為何？請選擇其中一個面向詳細說明其在醫學教育中的實施方式。
+    
+    \item 「在場」(Presence)在POC中的重要性為何？如何在臨床教學中培養學生的「在場」能力？
+    
+    \item 比較巴西與台灣醫學教育的主要差異，並提出台灣可借鑒的具體做法。
+    
+    \item 去殖民化醫學教育的意義為何？如何在全球化時代保護教育多樣性？
+    
+    \item 若要在台灣實施POC，可能面臨哪些挑戰？請提出具體的解決策略。
+\end{enumerate}
+
+\section{重要知識點總結}
+
+\begin{importantbox}
+\textbf{核心概念回顧：}
+\begin{itemize}[nosep]
+    \item \textbf{批判意識}：識別、分析並行動改變壓迫性社會結構的能力
+    \item \textbf{對話式教育}：師生共同探索現實，知識在對話中共同創造
+    \item \textbf{連結教育法}：強調與體系、社區、專業、患者、自我的五重連結
+    \item \textbf{社會正義導向}：醫學教育作為社會改革工具，培養變革推動者
+    \item \textbf{在場}：專注當下、情感連結、治療性關係的建立
+    \item \textbf{去殖民化}：保護教育多樣性，避免單一化標準
+\end{itemize}
+\end{importantbox}
+
+\vspace{0.5cm}
+\note{
+POC不僅是教學方法的改變，而是整個醫學教育哲學的根本轉型，需要系統性和持續性的努力。關鍵差異：巴西著重培養「社會變革的醫師」，台灣著重培養「專業技術的醫師」。
+}
+
+\section{延伸閱讀}
+
+\subsection{核心文獻}
+\begin{itemize}[nosep]
+    \item Freire, P. (1970). \textit{Pedagogy of the Oppressed}. New York: Continuum.
+    \item de Carvalho Filho, M. A., \& Hafferty, F. W. (2025). Adopting a pedagogy of connection for medical education. \textit{Medical Education}, 59(1), 37-45.
+    \item Freire, P. (2001). \textit{Pedagogy of Freedom: Ethics, Democracy, and Civic Courage}. Rowman \& Littlefield.
+\end{itemize}
+
+\subsection{相關資源}
+\begin{itemize}[nosep]
+    \item Paulo Freire Institute: \url{https://www.freire.org}
+    \item Critical Pedagogy研究網絡
+    \item 巴西醫學教育改革相關文獻
+    \item 社會正義導向醫學教育案例研究
+\end{itemize}
+
+\end{document}

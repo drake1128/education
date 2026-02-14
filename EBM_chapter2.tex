@@ -1,0 +1,76 @@
+% 第二章檔案：chapter2.tex
+% 這是第二章的獨立內容，可直接 \include 到主檔案的 \chapter{醫療問題的制定} 之後
+% 假設主檔案中已有 \chapter{醫療問題的制定}，本檔案從 section 開始
+
+\section{PICO框架（Patient, Intervention, Comparison, Outcome）}
+
+PICO框架是實證醫學中用於制定清晰、可回答臨床問題的核心工具，由Richardson等人於1995年提出，後經Sackett等人在實證醫學教學中廣泛應用。該框架將臨床問題結構化為四個主要組成部分，有助於精準定義問題並指導後續文獻搜尋。
+
+PICO各元件定義如下：
+\begin{itemize}
+    \item \textbf{P（Patient/Population/Problem）}：描述目標患者或人群，包括疾病、年齡、性別、共病或其他相關特徵。例如：「65歲以上社區居住的老年人」或「患有2型糖尿病的成人」。
+    \item \textbf{I（Intervention）}：指主要介入措施，例如治療、診斷測試、暴露因素或預防策略。例如：「有氧運動訓練」或「低劑量阿斯匹靈」。
+    \item \textbf{C（Comparison）}：對照組或替代介入，包括標準治療、安慰劑或無介入。例如：「標準藥物治療」或「無運動介入」。
+    \item \textbf{O（Outcome）}：預期測量的結果，包括主要終點（如死亡率、症狀改善）與次要終點（如生活品質、副作用）。例如：「心血管事件發生率」或「糖化血色素（HbA1c）下降幅度」。
+\end{itemize}
+
+PICO框架的應用可依臨床問題類型調整，例如診斷性問題可改為PICO的變體（Patient, Index test, Comparator test, Outcome），預後問題則可能省略I與C，聚焦於P與O。
+
+透過PICO框架，模糊的臨床疑問可轉化為具體、可搜尋的問題，例如：
+\begin{quote}
+    非結構化問題：「運動對糖尿病患者有幫助嗎？」\\
+    PICO結構化問題：「在患有2型糖尿病的成人患者（P）中，有氧運動（I）相較於標準藥物治療（C），是否能有效降低心血管事件風險（O）？」
+\end{quote}
+
+此框架不僅提升問題明確性，也直接對應搜尋策略的關鍵詞選擇。
+
+\section{臨床問題的分類}
+
+臨床問題依其性質可分為幾大類別，每類別對應不同的研究設計與證據類型。常見分類包括背景性問題（background questions）與前景性問題（foreground questions），後者更適用於實證醫學實踐。
+
+主要臨床問題類型如下：
+\begin{itemize}
+    \item \textbf{治療/介入（Therapy/Intervention）}：探討某介入措施的有效性與安全性。典型問題：「哪種治療對某疾病最有效？」最適研究設計：隨機對照試驗（RCT）與系統回顧。
+    \item \textbf{診斷（Diagnosis）}：評估診斷測試的準確性與可靠性。典型問題：「哪種測試最能準確診斷某疾病？」最適研究設計：橫斷面研究或診斷準確性研究。
+    \item \textbf{預後（Prognosis）}：預測疾病的自然病程或長期結果。典型問題：「某疾病患者的長期存活率如何？」最適研究設計：縱向隊列研究（cohort study）。
+    \item \textbf{病因/危害（Etiology/Harm）}：探討暴露因素與不良結果的因果關係。典型問題：「某暴露是否增加疾病風險？」最適研究設計：隊列研究或病例對照研究。
+    \item \textbf{預防（Prevention）}：評估預防措施的有效性。可視為治療類型的延伸。
+    \item \textbf{其他類型}：包括成本效益、患者體驗（質性研究）與流行頻率（prevalence）。
+\end{itemize}
+
+正確分類臨床問題有助於選擇適當的PICO變體與證據來源，例如治療問題強調RCT，而診斷問題則需敏感度與特異度等指標。
+
+\section{問題轉化為可搜尋的查詢}
+
+將結構化臨床問題轉化為高效的文獻搜尋查詢是實證醫學實踐的關鍵步驟。良好的查詢需平衡敏感度（召回率）與特異度（精準度）。
+
+轉化步驟如下：
+\begin{enumerate}
+    \item 從PICO元件提取關鍵詞與同義詞。例如，P：「2型糖尿病」可擴展為「type 2 diabetes mellitus」或「NIDDM」。
+    \item 使用醫學主題詞（MeSH）與自由文字詞結合。在PubMed等資料庫中，MeSH詞可提升檢索效率。
+    \item 運用布林運算子（AND、OR、NOT）組合關鍵詞：
+    \begin{itemize}
+        \item OR：用於同義詞或相關概念（擴大範圍）。
+        \item AND：用於不同PICO元件（縮小範圍）。
+        \item NOT：排除不相關概念。
+    \end{itemize}
+    \item 加入限制條件（如出版年限、語言、研究類型）與過濾器（filter），例如PubMed的「Systematic Reviews」或「Randomized Controlled Trial」。
+\end{enumerate}
+
+範例查詢（PubMed格式）：
+\begin{verbatim}
+("Diabetes Mellitus, Type 2"[MeSH] OR "type 2 diabetes") 
+AND ("Exercise"[MeSH] OR "aerobic exercise" OR "physical activity") 
+AND ("Cardiovascular Diseases"[MeSH] OR "cardiovascular events" OR "myocardial infarction") 
+AND ("Randomized Controlled Trial"[ptyp])
+\end{verbatim}
+
+此查詢對應前述PICO範例，結合MeSH詞、自由文字與研究類型過濾，可有效檢索相關高品質證據。
+
+實務上，建議從敏感度高的廣泛搜尋開始，逐步精煉以獲得可管理的結果數量。熟悉資料庫介面與進階功能將顯著提升搜尋效率。
+
+% 可在此新增表格（如PICO範例表）、圖示或習題
+% \bibliographystyle{plain}
+% \bibliography{references} % 若需參考文獻，請建立references.bib檔案
+
+\end{document}

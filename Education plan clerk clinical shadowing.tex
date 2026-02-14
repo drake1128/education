@@ -1,0 +1,1023 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+\usepackage{rotating}
+\usepackage{adjustbox}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+\definecolor{light_blue}{RGB}{173,216,230}
+\definecolor{light_green}{RGB}{144,238,144}
+\definecolor{light_orange}{RGB}{255,218,185}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{心血管中心教學計畫}}
+\fancyhead[R]{\textcolor{emergency_blue}{Clinical  Program}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{心血管中心教學計畫}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 見習醫學生心臟內科臨床跟隨計畫\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Clinical Shadowing Program in Cardiology}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{計畫期間}\par}
+    \vspace{0.3cm}
+    2025年9月1日 - 2025年9月12日\\
+    （共兩週完整臨床見習）\\
+    \vspace{0.5cm}
+    {\large\textbf{指導醫師}\par}
+    \vspace{0.3cm}
+    謝慕揚醫師\\
+    Mu-Yang Hsieh, MD, PhD, FESC\\
+    \vspace{0.5cm}
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    見習醫學生（Clinical Years）
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 心血管中心\\ 發布日期：\mydate}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{計畫概述}
+
+\subsection{計畫目標}
+本臨床跟隨計畫旨在讓見習醫學生深入了解心臟內科的臨床實務，透過直接參與臨床工作，獲得寶貴的實際經驗。
+
+\textbf{主要學習目標：}
+\begin{itemize}[nosep]
+    \item 熟悉心臟內科門診流程和病患評估
+    \item 學習心導管手術的基本操作和觀察
+    \item 掌握心血管超音波檢查技術
+    \item 了解住院病患的照護流程
+    \item 培養臨床思維和醫病溝通技巧
+    \item 學習電子病歷系統操作
+\end{itemize}
+
+\subsection{計畫特色}
+參考國外頂尖醫學中心（Mayo Clinic、Cleveland Clinic、Johns Hopkins）的clinical shadowing模式，結合本院實際臨床環境設計：
+
+\begin{itemize}[nosep]
+    \item \textbf{全方位體驗}：涵蓋門診、病房、導管室、超音波室
+    \item \textbf{實作學習}：親自操作超音波、參與穿刺技術
+    \item \textbf{急診待命}：參與STEMI緊急處置
+    \item \textbf{系統學習}：學習醫院資訊系統操作
+    \item \textbf{個人指導}：一對一mentoring模式
+\end{itemize}
+
+\begin{importantbox}
+\textbf{重要提醒：}本計畫要求學生具備基本醫學知識，並已完成基礎臨床技能訓練。學生需嚴格遵守醫院感染控制規範和患者隱私保護政策。
+\end{importantbox}
+
+\section{預習準備事項}
+
+\subsection{必要預習內容}
+開始臨床跟隨前，學生需完成以下預習：
+
+\subsubsection{Portal電腦系統操作}
+\begin{itemize}[nosep]
+    \item 電子病歷（EMR）基本操作
+    \item 醫囑輸入系統（CPOE）使用方法
+    \item 檢查報告查詢系統
+    \item 影像檢視系統（PACS）
+    \item 藥物處方系統
+    \item 實驗室結果查詢
+\end{itemize}
+
+\subsubsection{心導管影像判讀基礎}
+\begin{itemize}[nosep]
+    \item 冠狀動脈解剖學
+    \item 基本造影角度認識
+    \item 常見病灶判讀
+    \item 血管內超音波（IVUS）基礎
+    \item 光學同調斷層掃描（OCT）介紹
+\end{itemize}
+
+\subsubsection{臨床基礎知識}
+\begin{itemize}[nosep]
+    \item 常見心血管疾病診斷標準
+    \item 心電圖判讀基礎
+    \item 實驗室數據解讀
+    \item 心血管藥物分類和作用機轉
+    \item 心臟衰竭分級和治療指引
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+建議學生在計畫開始前一週完成相關預習，並準備筆記本記錄學習心得。
+}
+
+\section{第一週詳細時程表}
+
+\subsection{週一（9月1日）- 門診見習 + 病房迴診}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{時間} & \textbf{活動內容} & \textbf{學習重點} & \textbf{評估方式} \\
+\hline
+08:00-08:30 & 
+\begin{itemize}[nosep]
+\item 報到和orientation
+\item Portal系統登入練習
+\item 門診流程介紹
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 醫院規範了解
+\item 系統操作熟悉
+\item 專業態度建立
+\end{itemize} & 
+口頭問答 \\
+\hline
+08:30-12:00 & 
+\begin{itemize}[nosep]
+\item 跟隨門診看診
+\item 觀察病史詢問技巧
+\item 學習理學檢查
+\item 協助輸入病歷
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 醫病溝通技巧
+\item 症狀評估方法
+\item 診斷思維過程
+\item EMR系統使用
+\end{itemize} & 
+實際操作觀察 \\
+\hline
+12:00-13:00 & 午餐時間 & 與指導醫師討論上午案例 & 案例討論 \\
+\hline
+13:00-15:00 & 
+\begin{itemize}[nosep]
+\item 繼續門診見習
+\item 學習診斷決策
+\item 練習開立檢查
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 鑑別診斷思考
+\item 檢查適應症
+\item 治療計畫制定
+\end{itemize} & 
+病例分析 \\
+\hline
+15:00-18:00 & 
+\begin{itemize}[nosep]
+\item 病房迴診
+\item 學習床邊評估
+\item 觀察住院醫療流程
+\item 參與team meeting
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 住院病患照護
+\item 團隊合作模式
+\item 病情追蹤方法
+\item 多專科會診
+\end{itemize} & 
+團隊討論參與 \\
+\hline
+18:00-22:00 & 
+\begin{itemize}[nosep]
+\item 晚餐休息
+\item 準備值班
+\item 複習白天學習內容
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 自主學習能力
+\item 知識整合
+\item 準備急診待命
+\end{itemize} & 
+學習心得記錄 \\
+\hline
+22:00-08:00 & 
+\textcolor{emergency_red}{\textbf{STEMI值班待命}} & 
+\begin{itemize}[nosep]
+\item 急診處置流程
+\item 緊急導管手術
+\item 危重病患照護
+\end{itemize} & 
+急診案例參與 \\
+\hline
+\end{longtable}
+
+\subsection{週二（9月2日）- 導管室實習 + 病房接診}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_green}
+\textbf{時間} & \textbf{活動內容} & \textbf{學習重點} & \textbf{評估方式} \\
+\hline
+08:00-08:30 & 
+\begin{itemize}[nosep]
+\item 導管室orientation
+\item 感染控制訓練
+\item 輻射防護講解
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 無菌技術概念
+\item 安全防護措施
+\item 導管室規範
+\end{itemize} & 
+安全規範測驗 \\
+\hline
+08:30-12:00 & 
+\begin{itemize}[nosep]
+\item 上台刷手練習
+\item 觀察動脈穿刺技術
+\item 學習導管操作
+\item 參與冠狀動脈造影
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 無菌操作技術
+\item 血管穿刺方法
+\item 導管選擇原則
+\item 造影技術應用
+\end{itemize} & 
+實際操作評分 \\
+\hline
+12:00-13:00 & 午餐時間 & 討論導管案例 & 案例分析 \\
+\hline
+13:00-15:00 & 
+\begin{itemize}[nosep]
+\item 繼續導管手術觀摩
+\item 學習支架置放
+\item 觀察併發症處理
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 介入治療技術
+\item 器材選擇考量
+\item 風險評估能力
+\end{itemize} & 
+技術理解測驗 \\
+\hline
+15:00-18:00 & 
+\begin{itemize}[nosep]
+\item 病房接新病人
+\item 學習病史收集
+\item 練習理學檢查
+\item 協助安排檢查
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 入院評估流程
+\item 檢查優先順序
+\item 初步診斷能力
+\item 醫療團隊溝通
+\end{itemize} & 
+病史收集評估 \\
+\hline
+22:00-08:00 & 
+\textcolor{emergency_red}{\textbf{STEMI值班待命}} & 
+急診心導管處置 & 
+緊急處置參與 \\
+\hline
+\end{longtable}
+
+\subsection{週三（9月3日）- 門診見習 + 病房迴診}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_orange}
+\textbf{時間} & \textbf{活動內容} & \textbf{學習重點} & \textbf{評估方式} \\
+\hline
+08:00-12:00 & 
+\begin{itemize}[nosep]
+\item 獨立協助門診
+\item 預先評估病患
+\item 準備病歷摘要
+\item 學習臨床決策
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 獨立思考能力
+\item 時間管理技巧
+\item 優先順序判斷
+\item 效率提升方法
+\end{itemize} & 
+獨立作業評估 \\
+\hline
+12:00-13:00 & 午餐時間 & 複習前兩天學習內容 & 綜合討論 \\
+\hline
+13:00-15:00 & 
+\begin{itemize}[nosep]
+\item 慢性病追蹤門診
+\item 學習長期照護
+\item 觀察藥物調整
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 慢性病管理
+\item 藥物治療監測
+\item 生活品質評估
+\end{itemize} & 
+慢病管理討論 \\
+\hline
+15:00-18:00 & 
+\begin{itemize}[nosep]
+\item 專責病房迴診
+\item 學習病程記錄
+\item 參與出院規劃
+\item 家屬衛教觀摩
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 病程追蹤技巧
+\item 出院準備流程
+\item 衛教溝通方法
+\item 後續追蹤安排
+\end{itemize} & 
+病程記錄練習 \\
+\hline
+22:00-08:00 & 
+\textcolor{emergency_red}{\textbf{STEMI值班待命}} & 
+急診處置流程 & 
+急診能力評估 \\
+\hline
+\end{longtable}
+
+\subsection{週四（9月4日）- 導管室進階實習}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{時間} & \textbf{活動內容} & \textbf{學習重點} & \textbf{評估方式} \\
+\hline
+08:00-12:00 & 
+\begin{itemize}[nosep]
+\item 複雜案例觀摩
+\item 學習靜脈穿刺
+\item 右心導管檢查
+\item 暫時性節律器置放
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 高難度技術觀摩
+\item 靜脈穿刺技巧
+\item 血流動力學評估
+\item 緊急處置能力
+\end{itemize} & 
+技術操作評估 \\
+\hline
+12:00-13:00 & 午餐時間 & 導管技術討論 & 技術問答 \\
+\hline
+13:00-17:00 & 
+\begin{itemize}[nosep]
+\item 週四下午門診
+\item 導管術後追蹤
+\item 學習併發症評估
+\item 討論治療計畫
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 術後照護流程
+\item 併發症識別
+\item 長期追蹤規劃
+\item 生活型態諮詢
+\end{itemize} & 
+術後評估練習 \\
+\hline
+17:00-18:00 & 
+\begin{itemize}[nosep]
+\item 第一週總結
+\item 學習心得分享
+\item 問題討論解答
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 自我反思能力
+\item 學習成效評估
+\item 改進方向確認
+\end{itemize} & 
+週總結報告 \\
+\hline
+22:00-08:00 & 
+\textcolor{emergency_red}{\textbf{STEMI值班待命}} & 
+綜合急診能力 & 
+急診處置評估 \\
+\hline
+\end{longtable}
+
+\subsection{週五（9月5日）- 超音波實習 + 床邊超音波}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_green}
+\textbf{時間} & \textbf{活動內容} & \textbf{學習重點} & \textbf{評估方式} \\
+\hline
+08:00-12:00 & 
+\begin{itemize}[nosep]
+\item 心血管超音波室
+\item 學習Echo標準切面
+\item 練習Apical 4C view
+\item 練習PLAX view
+\item 觀摩完整檢查
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 超音波操作技術
+\item 標準切面獲取
+\item 影像品質控制
+\item 基本測量方法
+\item 異常發現識別
+\end{itemize} & 
+實際操作評分 \\
+\hline
+12:00-13:00 & 午餐時間 & 超音波影像判讀討論 & 影像判讀測驗 \\
+\hline
+13:00-15:00 & 
+\begin{itemize}[nosep]
+\item 週邊血管超音波
+\item 學習PAOD評估
+\item 學習DVT檢查
+\item 動靜脈血流評估
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 血管超音波技術
+\item 都卜勒應用
+\item 病理診斷標準
+\item 血流評估方法
+\end{itemize} & 
+血管超音波操作 \\
+\hline
+15:00-18:00 & 
+\begin{itemize}[nosep]
+\item 病房床邊超音波
+\item 學習便攜式設備
+\item 緊急超音波應用
+\item 實際病患檢查
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 床邊診斷技術
+\item 急診超音波應用
+\item 快速評估能力
+\item 臨床整合思維
+\end{itemize} & 
+床邊技能評估 \\
+\hline
+22:00-08:00 & 
+\textcolor{emergency_red}{\textbf{STEMI值班待命}} & 
+急診超音波應用 & 
+緊急診斷能力 \\
+\hline
+\end{longtable}
+
+\section{第二週詳細時程表}
+
+第二週將重複第一週的模式，但增加更多獨立操作機會和進階技能學習：
+
+\begin{importantbox}
+\textbf{第二週重點：}
+\begin{itemize}[nosep]
+\item 增加學生獨立操作時間
+\item 進階導管技術觀摩
+\item 複雜病例討論
+\item 研究方法介紹
+\item 專題報告準備
+\item 職涯規劃討論
+\end{itemize}
+\end{importantbox}
+
+\subsection{進階學習目標}
+\begin{itemize}[nosep]
+    \item 獨立完成基本echo檢查
+    \item 協助簡單導管操作
+    \item 參與疑難病例討論
+    \item 學習研究方法和統計分析
+    \item 準備案例報告presentation
+    \item 討論心臟科專科訓練路徑
+\end{itemize}
+
+\section{學習評估方式}
+
+\subsection{日常評估}
+\begin{itemize}[nosep]
+    \item \textbf{直接觀察評估（Direct Observation）}：每日實際操作評分
+    \item \textbf{案例基礎討論（Case-based Discussion）}：病例分析能力
+    \item \textbf{多來源回饋（Multi-source Feedback）}：團隊成員評價
+    \item \textbf{學習歷程記錄（Portfolio）}：學習心得和反思
+\end{itemize}
+
+\subsection{評估工具}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{評估項目} & \textbf{評估方法} & \textbf{評估標準} & \textbf{權重} \\
+\hline
+臨床技能 & 
+\begin{itemize}[nosep]
+\item 超音波操作
+\item 導管技術觀摩
+\item 穿刺技術練習
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 操作熟練度
+\item 安全意識
+\item 學習態度
+\end{itemize} & 
+30\% \\
+\hline
+知識應用 & 
+\begin{itemize}[nosep]
+\item 病例討論
+\item 診斷推理
+\item 治療計畫
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 知識整合能力
+\item 臨床思維邏輯
+\item 決策合理性
+\end{itemize} & 
+25\% \\
+\hline
+溝通技巧 & 
+\begin{itemize}[nosep]
+\item 醫病溝通
+\item 團隊合作
+\item 家屬衛教
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 溝通效果
+\item 同理心表現
+\item 專業態度
+\end{itemize} & 
+20\% \\
+\hline
+學習態度 & 
+\begin{itemize}[nosep]
+\item 主動學習
+\item 問題提出
+\item 反思能力
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 學習積極性
+\item 自我改進
+\item 成長軌跡
+\end{itemize} & 
+15\% \\
+\hline
+系統操作 & 
+\begin{itemize}[nosep]
+\item EMR使用
+\item PACS操作
+\item 資料查詢
+\end{itemize} & 
+\begin{itemize}[nosep]
+\item 操作熟練度
+\item 效率表現
+\item 準確性
+\end{itemize} & 
+10\% \\
+\hline
+\end{longtable}
+
+\section{安全規範和注意事項}
+
+\subsection{感染控制}
+\begin{itemize}[nosep]
+    \item 嚴格遵守手部衛生規範
+    \item 正確使用個人防護設備
+    \item 了解隔離預防措施
+    \item 遵守無菌技術原則
+\end{itemize}
+
+\subsection{輻射防護}
+\begin{itemize}[nosep]
+    \item 導管室內必須穿著鉛衣
+    \item 佩戴輻射劑量監測章
+    \item 保持安全距離
+    \item 了解輻射防護三原則
+\end{itemize}
+
+\subsection{患者隱私保護}
+\begin{itemize}[nosep]
+    \item 嚴格遵守醫療隱私法規
+    \item 不得洩露患者資訊
+    \item 適當的討論場所選擇
+    \item 尊重患者權益
+\end{itemize}
+
+\subsection{緊急應變}
+\begin{itemize}[nosep]
+    \item 熟悉緊急聯絡方式
+    \item 了解急救設備位置
+    \item 知曉緊急撤離路線
+    \item 掌握基本急救技能
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+學生在任何情況下都不得單獨進行侵入性操作，必須在指導醫師直接監督下學習。
+}
+
+\section{技能學習檢核表}
+
+\subsection{超音波技能檢核}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{技能項目} & \textbf{第1週} & \textbf{第2週} & \textbf{達成} & \textbf{備註} \\
+\hline
+心臟超音波基本操作 & $\square$ & $\square$ & $\square$ & 包含機器調整、探頭使用 \\
+\hline
+Apical 4-chamber view & $\square$ & $\square$ & $\square$ & 標準切面獲取 \\
+\hline
+Parasternal long axis view & $\square$ & $\square$ & $\square$ & 影像最佳化 \\
+\hline
+Parasternal short axis view & $\square$ & $\square$ & $\square$ & 多層面掃描 \\
+\hline
+Subcostal view & $\square$ & $\square$ & $\square$ & 下腔靜脈評估 \\
+\hline
+彩色都卜勒應用 & $\square$ & $\square$ & $\square$ & 血流評估技術 \\
+\hline
+週邊血管超音波 & $\square$ & $\square$ & $\square$ & 頸動脈、下肢血管 \\
+\hline
+DVT檢查技術 & $\square$ & $\square$ & $\square$ & 壓迫試驗 \\
+\hline
+PAOD評估 & $\square$ & $\square$ & $\square$ & ABI測量 \\
+\hline
+床邊緊急超音波 & $\square$ & $\square$ & $\square$ & RUSH protocol \\
+\hline
+\end{longtable}
+
+\subsection{導管室技能檢核}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_green}
+\textbf{技能項目} & \textbf{第1週} & \textbf{第2週} & \textbf{達成} & \textbf{備註} \\
+\hline
+無菌技術操作 & $\square$ & $\square$ & $\square$ & 刷手、穿無菌衣 \\
+\hline
+動脈穿刺觀摩 & $\square$ & $\square$ & $\square$ & 橈動脈、股動脈 \\
+\hline
+靜脈穿刺練習 & $\square$ & $\square$ & $\square$ & 中心靜脈穿刺 \\
+\hline
+導管操作基礎 & $\square$ & $\square$ & $\square$ & 導絲、導管選擇 \\
+\hline
+造影技術理解 & $\square$ & $\square$ & $\square$ & 角度選擇、對比劑 \\
+\hline
+血流動力學監測 & $\square$ & $\square$ & $\square$ & 壓力測量、心輸出量 \\
+\hline
+IVUS/OCT操作觀摩 & $\square$ & $\square$ & $\square$ & 血管內影像 \\
+\hline
+併發症識別 & $\square$ & $\square$ & $\square$ & 穿刺併發症、對比劑反應 \\
+\hline
+術後照護 & $\square$ & $\square$ & $\square$ & 止血、監測 \\
+\hline
+緊急處置參與 & $\square$ & $\square$ & $\square$ & STEMI處理流程 \\
+\hline
+\end{longtable}
+
+\section{每日學習記錄表}
+
+\subsection{學習日誌格式}
+學生需每日完成以下學習記錄：
+
+\begin{tcolorbox}[
+    colback=emergency_blue!5!white,
+    colframe=emergency_blue,
+    title=\textbf{每日學習記錄範本},
+    fonttitle=\bfseries,
+    boxrule=0.5pt,
+    arc=3pt
+]
+\textbf{日期：}\_\_\_\_\_\_\_\_\_\_ \textbf{星期：}\_\_\_\_\_\_
+
+\textbf{今日主要活動：}
+\begin{itemize}[nosep]
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+\textbf{新學到的技能/知識：}
+\begin{itemize}[nosep]
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+\textbf{印象深刻的病例：}
+\begin{itemize}[nosep]
+    \item 病例描述：
+    \item 學習重點：
+    \item 反思思考：
+\end{itemize}
+
+\textbf{今日困難/疑問：}
+\begin{itemize}[nosep]
+    \item 
+    \item 
+\end{itemize}
+
+\textbf{明日學習目標：}
+\begin{itemize}[nosep]
+    \item 
+    \item 
+\end{itemize}
+
+\textbf{指導醫師回饋：}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{自我評分（1-5分）：}\_\_\_\_\_\_
+\end{tcolorbox}
+
+\section{專業發展規劃}
+
+\subsection{心臟科專科訓練路徑介紹}
+\begin{itemize}[nosep]
+    \item \textbf{內科專科醫師訓練}：4年住院醫師訓練
+    \item \textbf{心臟內科次專科}：3年心臟科fellow訓練
+    \item \textbf{進階次專科選擇}：
+    \begin{itemize}[nosep]
+        \item 介入性心臟學（Interventional Cardiology）
+        \item 心臟電生理學（Cardiac Electrophysiology）
+        \item 心臟影像學（Cardiac Imaging）
+        \item 心臟衰竭與移植（Heart Failure \& Transplant）
+        \item 先天性心臟病（Adult Congenital Heart Disease）
+    \end{itemize}
+\end{itemize}
+
+\subsection{研究機會介紹}
+\begin{itemize}[nosep]
+    \item 臨床研究參與機會
+    \item 基礎科學研究合作
+    \item 國際會議發表經驗
+    \item 學術論文撰寫指導
+    \item 研究經費申請經驗
+\end{itemize}
+
+\subsection{國際交流機會}
+\begin{itemize}[nosep]
+    \item 海外fellow訓練機會
+    \item 國際醫學中心見習
+    \item 國際會議參與
+    \item 跨國研究合作項目
+\end{itemize}
+
+\section{最終評估和認證}
+
+\subsection{綜合能力評估}
+計畫結束時將進行綜合評估：
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\rowcolor{light_orange}
+\textbf{評估項目} & \textbf{評估內容} & \textbf{評估方式} \\
+\hline
+病例報告 & 
+\begin{itemize}[nosep]
+\item 選擇印象深刻病例
+\item 完整病例分析
+\item 文獻回顧整合
+\item 學習心得分享
+\end{itemize} & 
+15分鐘口頭報告 + Q\&A \\
+\hline
+技能示範 & 
+\begin{itemize}[nosep]
+\item 超音波操作示範
+\item 影像判讀能力
+\item 臨床整合思維
+\end{itemize} & 
+實際操作評估 \\
+\hline
+知識測驗 & 
+\begin{itemize}[nosep]
+\item 心血管基礎知識
+\item 臨床決策能力
+\item 指引熟悉程度
+\end{itemize} & 
+筆試 + 口試 \\
+\hline
+360度評估 & 
+\begin{itemize}[nosep]
+\item 指導醫師評價
+\item 同儕回饋
+\item 護理師評價
+\item 自我評估
+\end{itemize} & 
+多來源回饋表單 \\
+\hline
+\end{longtable}
+
+\subsection{認證標準}
+\begin{itemize}[nosep]
+    \item \textbf{優秀（Excellent）}：總分90分以上
+    \item \textbf{良好（Good）}：總分80-89分
+    \item \textbf{合格（Satisfactory）}：總分70-79分
+    \item \textbf{需改進（Needs Improvement）}：總分60-69分
+    \item \textbf{不合格（Unsatisfactory）}：總分60分以下
+\end{itemize}
+
+\subsection{認證證書}
+完成計畫並通過評估的學生將獲得：
+\begin{itemize}[nosep]
+    \item 心血管中心臨床見習完成證書
+    \item 指導醫師推薦信
+    \item 詳細學習成果報告
+    \item 未來申請推薦支持
+\end{itemize}
+
+\begin{importantbox}
+\textbf{計畫完成後支持：}
+\begin{itemize}[nosep]
+\item 提供住院醫師申請推薦信
+\item 協助安排額外學習機會
+\item 研究合作機會媒合
+\item 專業發展諮詢服務
+\item 持續mentor關係維持
+\end{itemize}
+\end{importantbox}
+
+\section{聯絡資訊和緊急聯絡}
+
+\subsection{主要聯絡人}
+\begin{itemize}[nosep]
+    \item \textbf{指導醫師}：謝慕揚醫師
+    \item \textbf{辦公室電話}：（03）5326151 分機 522009, 522010
+    \item \textbf{行動電話}：0972-654046
+    \item \textbf{電子郵件}：G11135@hch.gov.tw
+\end{itemize}
+
+\subsection{緊急聯絡}
+\begin{itemize}[nosep]
+    %\item \textbf{值班醫師}：（03）XXX-XXXX 分機XXXX
+    \item \textbf{護理站}：（03）5326151 分機525022, 525002
+    %\item \textbf{保全室}：（03）XXX-XXXX 分機XXXX
+    \item \textbf{總機}：（03）5326151 分機9
+\end{itemize}
+
+\subsection{重要地點}
+\begin{itemize}[nosep]
+    \item \textbf{心臟內科門診}：醫療大樓1樓
+    \item \textbf{心導管室}：醫療大樓2F
+    \item \textbf{心血管病房}：醫療大樓2F樓2B ward
+    \item \textbf{超音波室}：醫療大樓6樓
+    \item \textbf{急診部}：醫療大樓1樓
+\end{itemize}
+
+\section{附錄}
+
+\subsection{推薦閱讀清單}
+\textbf{教科書：}
+\begin{itemize}[nosep]
+    \item Braunwald's Heart Disease: A Textbook of Cardiovascular Medicine
+    \item Hurst's The Heart Manual of Cardiology
+    \item The ESC Textbook of Cardiovascular Medicine
+\end{itemize}
+
+\textbf{臨床指引：}
+\begin{itemize}[nosep]
+    \item AHA/ACC Guideline for the Management of Patients with STEMI
+    \item ESC Guidelines for acute and chronic coronary syndromes
+    \item Taiwan Society of Cardiology Guidelines
+\end{itemize}
+
+\textbf{線上資源：}
+\begin{itemize}[nosep]
+    \item American College of Cardiology (ACC.org)
+    \item European Society of Cardiology (ESCardio.org)
+    \item Taiwan Society of Cardiology (TSOC.org.tw)
+\end{itemize}
+
+\subsection{學習APP推薦}
+\begin{itemize}[nosep]
+    \item \textbf{ECG學習}：ECG Guide by QxMD
+    \item \textbf{心臟解剖}：3D Heart Anatomy
+    \item \textbf{藥物查詢}：Epocrates, Micromedex
+    \item \textbf{計算工具}：CardioSmart, AHA eCards
+\end{itemize}
+
+\note{
+本計畫將依據實際臨床狀況彈性調整，確保學生獲得最佳學習體驗。
+}
+
+% References section
+\newpage
+\section{參考文獻}
+\begin{thebibliography}{9}
+
+\bibitem{aamc2019}
+Association of American Medical Colleges. (2019). Core Entrustable Professional Activities for Entering Residency: Curriculum Developers' Guide. Washington, DC: AAMC.
+
+\bibitem{mayo2020}
+Mayo Clinic. (2020). Clinical Shadowing Program Guidelines. Mayo Clinic Medical Education.
+
+\bibitem{cleveland2021}
+Cleveland Clinic. (2021). Cardiovascular Medicine Training Program. Cleveland Clinic Academy.
+
+\bibitem{hopkins2020}
+Johns Hopkins Medicine. (2020). Clinical Skills and Simulation Center Training Modules. Johns Hopkins University School of Medicine.
+
+\bibitem{acc2019}
+American College of Cardiology. (2019). COCATS 4 Task Force: Training Statement for Cardiovascular Medicine. Journal of the American College of Cardiology, 73(17), 2202-2230.
+
+\end{thebibliography}
+
+\end{document}

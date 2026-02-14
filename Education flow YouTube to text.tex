@@ -1,0 +1,615 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\geometry{margin=2.5cm}
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 設定程式碼樣式
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\input{Drake_preamble.tex}
+
+
+\title{\textbf{YouTube視頻轉文字稿生成講義系統}}
+\author{自動化教學內容生產流程}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{系統概述}
+
+本系統提供多種方法將YouTube視頻轉換為高品質的文字稿，並透過AI處理生成結構化的教學講義。適用於線上課程、研討會、講座等教育內容的快速整理。
+
+\section{方法比較表}
+
+\begin{longtable}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|}
+\hline
+\textbf{方法} & \textbf{優點} & \textbf{缺點} & \textbf{適用場景} & \textbf{成本} \\
+\hline
+YouTube自動字幕 & 免費、快速 & 準確度有限 & 英文內容較佳 & 免費 \\
+\hline
+Whisper AI & 高準確度、多語言 & 需技術設定 & 所有語言 & 免費 \\
+\hline
+商業工具 & 操作簡單、功能完整 & 需要付費 & 專業使用 & 付費 \\
+\hline
+手動+AI輔助 & 最高品質 & 時間較長 & 重要內容 & 中等 \\
+\hline
+\end{longtable}
+
+\section{完整實施流程}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.5cm, auto]
+    % 定義節點樣式
+    \tikzstyle{process} = [rectangle, rounded corners, minimum width=3.5cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
+    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!20]
+    \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!20]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+
+    % 流程節點
+    \node (start) [io] {YouTube視頻URL};
+    \node (extract) [process, below of=start] {音頻提取\\(yt-dlp)};
+    \node (transcribe) [process, below of=extract] {語音轉文字\\(Whisper AI)};
+    \node (clean) [process, below of=transcribe] {文字清理\\格式化};
+    \node (ai) [process, below of=clean] {AI內容整理\\結構化};
+    \node (latex) [process, below of=ai] {LaTeX講義\\生成};
+    \node (output) [io, below of=latex] {PDF講義\\完成};
+
+    % 流程箭頭
+    \draw [arrow] (start) -- (extract);
+    \draw [arrow] (extract) -- (transcribe);
+    \draw [arrow] (transcribe) -- (clean);
+    \draw [arrow] (clean) -- (ai);
+    \draw [arrow] (ai) -- (latex);
+    \draw [arrow] (latex) -- (output);
+\end{tikzpicture}
+\end{center}
+
+\section{方法一：使用Whisper AI（推薦）}
+
+\subsection{環境設置}
+
+\begin{lstlisting}[language=bash, caption=安裝必要工具]
+# 安裝Python套件
+pip install openai-whisper
+pip install yt-dlp
+pip install pydub
+
+# 安裝FFmpeg（Windows用戶）
+# 下載並安裝 https://ffmpeg.org/download.html
+
+# 安裝FFmpeg（Mac用戶）
+brew install ffmpeg
+
+# 安裝FFmpeg（Linux用戶）
+sudo apt update
+sudo apt install ffmpeg
+\end{lstlisting}
+
+\subsection{自動化腳本}
+
+\begin{lstlisting}[language=python, caption=YouTube轉文字完整腳本]
+import whisper
+import yt_dlp
+import os
+import re
+from datetime import datetime
+
+class YouTubeToTranscript:
+    def __init__(self):
+        # 載入Whisper模型（medium模型平衡速度和準確度）
+        self.model = whisper.load_model("medium")
+    
+    def download_audio(self, youtube_url, output_path="temp_audio"):
+        """下載YouTube音頻"""
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'outtmpl': f'{output_path}.%(ext)s',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'wav',
+                'preferredquality': '192',
+            }],
+        }
+        
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            # 獲取視頻資訊
+            info = ydl.extract_info(youtube_url, download=False)
+            title = info.get('title', 'Unknown')
+            duration = info.get('duration', 0)
+            
+            print(f"正在下載：{title}")
+            print(f"時長：{duration//3600:02d}:{(duration%3600)//60:02d}:{duration%60:02d}")
+            
+            # 下載音頻
+            ydl.download([youtube_url])
+        
+        return f"{output_path}.wav", title
+    
+    def transcribe_audio(self, audio_path, language="zh"):
+        """使用Whisper轉錄音頻"""
+        print("正在進行語音識別...")
+        result = self.model.transcribe(
+            audio_path, 
+            language=language,
+            task="transcribe",
+            word_timestamps=True
+        )
+        return result
+    
+    def format_transcript(self, result):
+        """格式化轉錄結果"""
+        transcript = ""
+        
+        for segment in result["segments"]:
+            start_time = self.seconds_to_timestamp(segment["start"])
+            text = segment["text"].strip()
+            transcript += f"[{start_time}] {text}\n\n"
+        
+        return transcript
+    
+    def seconds_to_timestamp(self, seconds):
+        """將秒數轉換為時間戳"""
+        hours = int(seconds // 3600)
+        minutes = int((seconds % 3600) // 60)
+        seconds = int(seconds % 60)
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    
+    def clean_transcript(self, transcript):
+        """清理和優化文字稿"""
+        # 移除重複的語氣詞
+        cleaned = re.sub(r'\b(呃|嗯|那個|這個|就是說)\b', '', transcript)
+        # 合併短句
+        cleaned = re.sub(r'\n\n(?=\[[0-9]{2}:[0-9]{2}:[0-9]{2}\])', '\n', cleaned)
+        # 整理標點符號
+        cleaned = re.sub(r'([。！？])\s*', r'\1\n\n', cleaned)
+        
+        return cleaned
+    
+    def process_youtube_video(self, youtube_url, language="zh", output_file=None):
+        """處理YouTube視頻的主要流程"""
+        try:
+            # 1. 下載音頻
+            audio_path, title = self.download_audio(youtube_url)
+            
+            # 2. 語音轉文字
+            result = self.transcribe_audio(audio_path, language)
+            
+            # 3. 格式化文字稿
+            transcript = self.format_transcript(result)
+            
+            # 4. 清理文字稿
+            cleaned_transcript = self.clean_transcript(transcript)
+            
+            # 5. 保存結果
+            if output_file is None:
+                output_file = f"{re.sub(r'[<>:\"/\\|?*]', '_', title)}_transcript.txt"
+            
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(f"視頻標題：{title}\n")
+                f.write(f"轉錄時間：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write("="*50 + "\n\n")
+                f.write(cleaned_transcript)
+            
+            # 6. 清理臨時檔案
+            if os.path.exists(audio_path):
+                os.remove(audio_path)
+            
+            print(f"轉錄完成！文字稿已保存至：{output_file}")
+            return output_file, title, cleaned_transcript
+            
+        except Exception as e:
+            print(f"處理過程中發生錯誤：{str(e)}")
+            return None, None, None
+
+# 使用範例
+if __name__ == "__main__":
+    converter = YouTubeToTranscript()
+    
+    # 輸入YouTube URL
+    url = input("請輸入YouTube視頻URL：")
+    language = input("請輸入語言代碼（zh=中文, en=英文, auto=自動檢測）：") or "auto"
+    
+    # 處理視頻
+    output_file, title, transcript = converter.process_youtube_video(url, language)
+    
+    if output_file:
+        print(f"\n成功生成文字稿：{output_file}")
+    else:
+        print("轉錄失敗，請檢查URL或網路連接")
+\end{lstlisting}
+
+\section{方法二：使用現有字幕}
+
+\subsection{提取YouTube字幕}
+
+\begin{lstlisting}[language=python, caption=提取YouTube自動字幕]
+import yt_dlp
+import json
+
+def extract_youtube_subtitles(youtube_url, lang='zh-TW'):
+    """提取YouTube自動生成的字幕"""
+    ydl_opts = {
+        'writesubtitles': True,
+        'writeautomaticsub': True,
+        'subtitleslangs': [lang, 'zh', 'en'],
+        'skip_download': True,
+        'subtitlesformat': 'vtt',
+    }
+    
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        try:
+            info = ydl.extract_info(youtube_url, download=False)
+            title = info.get('title', 'Unknown')
+            
+            # 檢查是否有字幕
+            subtitles = info.get('subtitles', {})
+            auto_subtitles = info.get('automatic_captions', {})
+            
+            available_subs = {**subtitles, **auto_subtitles}
+            
+            if available_subs:
+                print(f"找到字幕語言：{list(available_subs.keys())}")
+                
+                # 下載字幕
+                ydl.download([youtube_url])
+                return title, True
+            else:
+                print("未找到可用字幕")
+                return title, False
+                
+        except Exception as e:
+            print(f"提取字幕時發生錯誤：{str(e)}")
+            return None, False
+
+# 使用範例
+url = "YOUR_YOUTUBE_URL"
+title, has_subtitles = extract_youtube_subtitles(url)
+\end{lstlisting}
+
+\section{AI處理生成講義}
+
+\subsection{ChatGPT/Claude處理提示詞}
+
+\begin{lstlisting}[caption=AI整理提示詞範例]
+請將以下YouTube視頻文字稿整理成結構化的教學講義，要求：
+
+1. **內容結構化**：
+   - 提取主要主題和子主題
+   - 按邏輯順序重新組織內容
+   - 生成清楚的章節標題
+
+2. **重點摘要**：
+   - 識別關鍵概念和定義
+   - 提取重要的實例和案例
+   - 整理數據和統計資訊
+
+3. **LaTeX格式輸出**：
+   - 使用適當的章節結構
+   - 包含數學公式（如有）
+   - 添加圖表說明（如提到）
+   - 生成參考文獻格式
+
+4. **學習輔助**：
+   - 生成學習目標
+   - 添加重點提示框
+   - 創建思考問題
+   - 製作摘要表格
+
+文字稿內容：
+[在此貼上轉錄的文字稿]
+
+請輸出完整的LaTeX代碼，可直接在Overleaf中編譯。
+\end{lstlisting}
+
+\subsection{Python自動化AI處理}
+
+\begin{lstlisting}[language=python, caption=自動AI處理腳本]
+import openai
+import anthropic
+from typing import Optional
+
+class TranscriptToNotes:
+    def __init__(self, api_key: str, service: str = "openai"):
+        self.service = service
+        if service == "openai":
+            openai.api_key = api_key
+        elif service == "anthropic":
+            self.client = anthropic.Anthropic(api_key=api_key)
+    
+    def process_with_ai(self, transcript: str, topic: str = "") -> str:
+        """使用AI處理文字稿生成講義"""
+        
+        prompt = f"""
+請將以下關於「{topic}」的視頻文字稿整理成專業的教學講義。
+
+要求：
+1. 生成LaTeX格式的完整文件
+2. 包含：標題、摘要、章節、重點、結論
+3. 提取關鍵概念並加以解釋
+4. 整理實例和案例研究
+5. 生成學習檢核清單
+
+文字稿：
+{transcript}
+
+請輸出可直接編譯的LaTeX代碼：
+        """
+        
+        if self.service == "openai":
+            response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "你是一位專業的教學設計師，擅長將原始內容轉換為結構化的教學材料。"},
+                    {"role": "user", "content": prompt}
+                ],
+                max_tokens=4000,
+                temperature=0.7
+            )
+            return response.choices[0].message.content
+            
+        elif self.service == "anthropic":
+            response = self.client.messages.create(
+                model="claude-3-sonnet-20240229",
+                max_tokens=4000,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return response.content[0].text
+    
+    def generate_notes(self, transcript_file: str, topic: str = "", output_file: str = None):
+        """從文字稿檔案生成講義"""
+        # 讀取文字稿
+        with open(transcript_file, 'r', encoding='utf-8') as f:
+            transcript = f.read()
+        
+        # AI處理
+        latex_content = self.process_with_ai(transcript, topic)
+        
+        # 保存結果
+        if output_file is None:
+            output_file = transcript_file.replace('.txt', '_notes.tex')
+        
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(latex_content)
+        
+        print(f"講義已生成：{output_file}")
+        return output_file
+
+# 使用範例
+processor = TranscriptToNotes("YOUR_API_KEY", "openai")
+notes_file = processor.generate_notes("transcript.txt", "機器學習基礎")
+\end{lstlisting}
+
+\section{LaTeX講義模板}
+
+\begin{lstlisting}[language=TeX, caption=YouTube講義LaTeX模板]
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\geometry{margin=2.5cm}
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 定義特殊框架
+\newtcolorbox{keypoint}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=重點提示
+}
+
+\newtcolorbox{example}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=實例說明
+}
+
+\title{[視頻標題] - 學習講義}
+\author{基於YouTube視頻自動生成}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{課程資訊}
+\begin{itemize}
+    \item \textbf{原始視頻}：[YouTube URL]
+    \item \textbf{時長}：[視頻時長]
+    \item \textbf{生成時間}：\today
+\end{itemize}
+
+\tableofcontents
+\newpage
+
+\section{學習目標}
+完成本講義學習後，您將能夠：
+\begin{enumerate}
+    \item [AI生成的學習目標1]
+    \item [AI生成的學習目標2]
+    \item [AI生成的學習目標3]
+\end{enumerate}
+
+\section{內容摘要}
+[AI生成的內容摘要]
+
+\section{主要內容}
+
+\subsection{[主題1]}
+[AI整理的內容]
+
+\begin{keypoint}
+[重點提示內容]
+\end{keypoint}
+
+\begin{example}
+[實例說明內容]
+\end{example}
+
+\subsection{[主題2]}
+[AI整理的內容]
+
+\section{關鍵概念表}
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{概念} & \textbf{定義} \\
+\midrule
+[概念1] & [定義1] \\
+[概念2] & [定義2] \\
+\bottomrule
+\end{tabular}
+\caption{重要概念整理}
+\end{table}
+
+\section{學習檢核}
+\begin{enumerate}
+    \item [檢核問題1]
+    \item [檢核問題2]
+    \item [檢核問題3]
+\end{enumerate}
+
+\section{延伸資源}
+\begin{itemize}
+    \item 原始視頻：\href{[YouTube URL]}{[視頻標題]}
+    \item 相關閱讀：[AI建議的參考資料]
+\end{itemize}
+
+\end{document}
+\end{lstlisting}
+
+\section{商業工具推薦}
+
+\subsection{線上服務}
+\begin{itemize}
+    \item \textbf{Otter.ai}：專業轉錄服務，支援即時轉錄
+    \item \textbf{Rev.com}：高品質人工+AI轉錄
+    \item \textbf{Trint}：多語言轉錄和編輯平台
+    \item \textbf{Sonix}：自動轉錄和翻譯服務
+\end{itemize}
+
+\subsection{桌面軟體}
+\begin{itemize}
+    \item \textbf{Adobe Premiere Pro}：內建語音轉文字功能
+    \item \textbf{DaVinci Resolve}：免費影音編輯軟體，含轉錄功能
+    \item \textbf{Descript}：音頻編輯和轉錄一體化工具
+\end{itemize}
+
+\section{品質優化建議}
+
+\subsection{轉錄品質提升}
+\begin{enumerate}
+    \item \textbf{音頻品質}：選擇高品質音頻（192kbps以上）
+    \item \textbf{語速適中}：避免過快或過慢的語速
+    \item \textbf{清楚發音}：確保講者發音清晰
+    \item \textbf{背景降噪}：使用音頻處理軟體降低背景雜音
+\end{enumerate}
+
+\subsection{AI處理優化}
+\begin{enumerate}
+    \item \textbf{分段處理}：長視頻分段處理以提高準確度
+    \item \textbf{上下文提供}：給AI提供課程背景和領域資訊
+    \item \textbf{術語詞典}：建立專業術語詞典供AI參考
+    \item \textbf{人工校對}：AI處理後進行人工校對和修正
+\end{enumerate}
+
+\section{完整自動化腳本}
+
+\begin{lstlisting}[language=python, caption=YouTube轉講義完整自動化]
+#!/usr/bin/env python3
+"""
+YouTube視頻轉講義完整自動化系統
+"""
+
+import argparse
+import os
+from youtube_to_transcript import YouTubeToTranscript
+from transcript_to_notes import TranscriptToNotes
+
+def main():
+    parser = argparse.ArgumentParser(description='YouTube視頻轉講義')
+    parser.add_argument('url', help='YouTube視頻URL')
+    parser.add_argument('--topic', help='課程主題', default='')
+    parser.add_argument('--language', help='語言代碼', default='zh')
+    parser.add_argument('--api-key', help='AI API密鑰', required=True)
+    parser.add_argument('--service', help='AI服務', choices=['openai', 'anthropic'], default='openai')
+    
+    args = parser.parse_args()
+    
+    print("=== YouTube視頻轉講義系統 ===")
+    print(f"視頻URL: {args.url}")
+    print(f"主題: {args.topic}")
+    print(f"語言: {args.language}")
+    
+    # 步驟1：轉錄視頻
+    print("\n[1/3] 正在轉錄視頻...")
+    converter = YouTubeToTranscript()
+    transcript_file, title, transcript = converter.process_youtube_video(
+        args.url, args.language
+    )
+    
+    if not transcript_file:
+        print("轉錄失敗，程序結束")
+        return
+    
+    # 步驟2：AI處理生成講義
+    print("\n[2/3] 正在生成講義...")
+    processor = TranscriptToNotes(args.api_key, args.service)
+    topic = args.topic or title
+    notes_file = processor.generate_notes(transcript_file, topic)
+    
+    # 步驟3：完成
+    print(f"\n[3/3] 完成！")
+    print(f"文字稿: {transcript_file}")
+    print(f"講義: {notes_file}")
+    print(f"可在Overleaf中編譯LaTeX文件")
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\section{結論}
+
+透過本系統，您可以：
+
+\begin{itemize}
+    \item \textbf{快速轉錄}：10分鐘視頻約需2-3分鐘完成轉錄
+    \item \textbf{高品質輸出}：AI整理生成結構化講義
+    \item \textbf{多語言支援}：支援中文、英文等多種語言
+    \item \textbf{自動化流程}：一鍵完成從視頻到講義的轉換
+    \item \textbf{可定制化}：可根據需求調整模板和處理邏輯
+\end{itemize}
+
+建議根據您的具體需求選擇合適的方法，並逐步建立自己的自動化工作流程。
+
+\end{document}

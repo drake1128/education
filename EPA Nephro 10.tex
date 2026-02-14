@@ -1,0 +1,621 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib} % For bibliography
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=nephro_blue,
+    citecolor=nephro_blue,
+    urlcolor=nephro_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Nephrology themed colors)
+\definecolor{nephro_blue}{RGB}{0,102,204}
+\definecolor{nephro_cyan}{RGB}{0,153,204}
+\definecolor{nephro_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{nephro_blue}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{nephro_cyan}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{nephro_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=nephro_blue,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=nephro_cyan!5!white,
+        colframe=nephro_cyan,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{nephro_blue}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{nephro_cyan}{腎臟內科EPAs}}
+\fancyfoot[C]{\textcolor{nephro_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{nephro_blue}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{nephro_blue}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 腎臟內科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{nephro_cyan}{\textit{Nephrology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=nephro_cyan!5!white,
+        colframe=nephro_cyan,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    腎臟內科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 腎臟內科 陳長江醫師\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{腎臟內科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。腎臟內科EPAs涵蓋了腎臟疾病診斷、治療與照護的核心能力,是所有腎臟內科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+腎臟內科EPAs評量著重於能否安全、穩定地執行完整的腎臟疾病診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的病史詢問與身體檢查,到複雜的腎臟替代療法與跨科部協調,提供完整的腎臟疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成腎臟內科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行腎臟疾病病史詢問與風險評估。
+    \item 準確執行腎臟泌尿系統身體檢查。
+    \item 熟悉腎臟超音波基礎操作與判讀。
+    \item 獨立判讀酸鹼及電解質檢驗報告。
+    \item 診斷與處理急性腎損傷。
+    \item 診斷與管理慢性腎臟疾病。
+    \item 處置體液及電解質不平衡。
+    \item 認識並評估腎臟替代療法。
+    \item 評估腎臟切片檢查適應症及風險。
+    \item 協調末期腎病病人跨科部整合照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{腎臟內科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{腎臟內科EPAs完整架構} \\
+\hline
+\rowcolor{nephro_cyan!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{nephro_cyan!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 腎臟疾病病史詢問與風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行腎臟疾病相關的完整病史詢問,包括症狀評估、危險因子識別、用藥史調查,並能初步評估腎臟疾病風險。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 尿量變化、水腫、血尿、泡沫尿、腰痛的詳細詢問 \\
+\cline{2-3}
+& 危險因子識別 & 高血壓、糖尿病、自體免疫疾病、藥物史 \\
+\cline{2-3}
+& 功能狀態評估 & 尿毒症狀、體液平衡、電解質症狀評估 \\
+\cline{2-3}
+& 藥物史 & 腎毒性藥物使用史、過敏史、順從性評估 \\
+\cline{2-3}
+& 家族史 & 多囊性腎病、遺傳性腎病、腎結石家族史 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本腎臟疾病症狀,需要監導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成腎臟病史詢問,使用適當的症狀評估工具 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問,整合症狀與危險因子進行初步風險分層 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史,整合多重共病資訊 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問,識別罕見症狀表現 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 腎臟泌尿系統身體檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練且準確地進行腎臟泌尿系統的完整身體檢查,包括腎臟觸診、膀胱檢查、水腫評估,並能正確解讀檢查發現。} \\
+\hline
+\textbf{核心能力} & 腎臟觸診 & 腎臟大小、壓痛、多囊腎觸診 \\
+\cline{2-3}
+& 水腫評估 & 下肢水腫、腹水、肺水腫評估 \\
+\cline{2-3}
+& 血壓測量 & 標準測量技術、姿勢性血壓變化 \\
+\cline{2-3}
+& 體液狀態 & 脫水徵象、體液過多徵象評估 \\
+\cline{2-3}
+& 特殊檢查 & 肋脊角壓痛、膀胱叩診 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本腎臟觸診,識別明顯水腫 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見異常身體發現,進行系統性腎臟檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能區分各種異常身體發現,準確評估體液狀態,整合多項檢查發現 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別複雜身體發現特徵,檢查技術精準且有效率 \\
+\hline
+\textbf{Level 5} & Expert & 能偵測細微的異常發現,整合檢查發現與臨床表現 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 腎臟超音波基礎操作與判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠進行基礎腎臟超音波檢查,包括設備操作、解剖定位、基本測量與主要結構評估,並能識別重要的病理發現。} \\
+\hline
+\textbf{核心能力} & 檢查操作 & 超音波操作、病患指導、品質確保 \\
+\cline{2-3}
+& 基本測量 & 腎臟大小、皮質厚度、輸尿管擴張 \\
+\cline{2-3}
+& 結構評估 & 腎實質、集尿系統、血流評估 \\
+\cline{2-3}
+& 病變識別 & 囊腫、結石、水腎、實質病變 \\
+\cline{2-3}
+& 臨床關聯 & 超音波發現與疾病嚴重度關聯 \\
+\hline
+\textbf{Level 1} & Novice & 能協助進行基本超音波檢查,了解基本解剖結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能獨立操作標準腎臟超音波檢查,進行基本判讀 \\
+\hline
+\textbf{Level 3} & Competent & 能完成標準腎臟超音波檢查,準確識別常見病變 \\
+\hline
+\textbf{Level 4} & Proficient & 能進行進階超音波技術,準確定量評估 \\
+\hline
+\textbf{Level 5} & Expert & 成為超音波技術專家,能教導複雜技術 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 酸鹼及電解質檢驗報告判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀酸鹼及電解質檢驗報告,包括動脈血液氣體分析、血清電解質,識別正常與異常變化,並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & 酸鹼判讀 & pH、HCO3、PaCO2解讀,代償機轉判斷 \\
+\cline{2-3}
+& 電解質異常 & 鈉、鉀、鈣、磷、鎂異常識別 \\
+\cline{2-3}
+& 病因分析 & 酸鹼及電解質異常病因推理 \\
+\cline{2-3}
+& 嚴重度評估 & 緊急處置需求評估 \\
+\cline{2-3}
+& 治療指引 & 矯正策略建議 \\
+\hline
+\textbf{Level 1} & Novice & 能識別明顯異常數值,知道基本正常範圍 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀常見酸鹼電解質異常,使用系統性判讀流程 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀複雜酸鹼電解質異常,整合臨床表現 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜混合性酸鹼異常,準確推理病因 \\
+\hline
+\textbf{Level 5} & Expert & 成為酸鹼電解質判讀專家,能教導複雜判讀 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 急性腎損傷診斷與處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別急性腎損傷,進行適當的診斷性檢查,評估嚴重度分級,並執行初步治療措施,包括體液管理與腎毒性藥物調整。} \\
+\hline
+\textbf{核心能力} & 快速識別 & AKI定義、KDIGO分期應用 \\
+\cline{2-3}
+& 診斷策略 & 腎前、腎性、腎後性AKI區分 \\
+\cline{2-3}
+& 嚴重度分級 & RIFLE、AKIN、KDIGO分級系統 \\
+\cline{2-3}
+& 體液管理 & 容積狀態評估、液體復甦策略 \\
+\cline{2-3}
+& 處置決策 & 腎毒性藥物停用、劑量調整、RRT評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別典型AKI症狀,知道基本檢查項目 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準診斷流程,進行基本嚴重度評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷AKI,適當選擇治療策略 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜AKI情況,整合多重因素做決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為AKI專家,能指導複雜個案處理 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 慢性腎臟疾病診斷與管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷慢性腎臟疾病,評估腎功能損傷程度,制定個別化治療計畫,包括藥物調整與非藥物治療,並監測疾病進展。} \\
+\hline
+\textbf{核心能力} & 診斷評估 & eGFR計算、蛋白尿評估、CKD分期 \\
+\cline{2-3}
+& 病因識別 & 糖尿病腎病變、高血壓腎病變等區分 \\
+\cline{2-3}
+& 功能評估 & 腎絲球濾過率、蛋白尿程度評估 \\
+\cline{2-3}
+& 藥物治療 & ACEI/ARB、降磷劑、貧血治療 \\
+\cline{2-3}
+& 整合照護 & 併發症預防、營養、疫苗接種建議 \\
+\hline
+\textbf{Level 1} & Novice & 能識別CKD症狀徵象,知道基本分期 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準治療指引,進行基本藥物調整 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理穩定CKD,調整藥物治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜CKD,評估進階治療選項 \\
+\hline
+\textbf{Level 5} & Expert & 成為CKD專家,發展個人化治療策略 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 體液及電解質不平衡處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種體液及電解質不平衡,評估嚴重度,制定矯正策略,監測治療效果與副作用,並提供適當的體液電解質管理。} \\
+\hline
+\textbf{核心能力} & 臨床評估 & 體液過多/不足、電解質異常症狀 \\
+\cline{2-3}
+& 病因分析 & 低血鈉、高血鉀等病因推理 \\
+\cline{2-3}
+& 嚴重度評估 & 緊急處置需求判斷 \\
+\cline{2-3}
+& 矯正策略 & 輸液種類選擇、矯正速率計算 \\
+\cline{2-3}
+& 監測管理 & 治療反應評估、併發症預防 \\
+\hline
+\textbf{Level 1} & Novice & 能識別明顯體液電解質異常,知道基本處理原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能處理常見體液電解質異常,使用標準矯正公式 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理大部分體液電解質異常,制定矯正計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜混合性異常,整合多重因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為體液電解質專家,發展個人化處置策略 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 腎臟替代療法認識與評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠認識各種腎臟替代療法,包括血液透析、腹膜透析、腎臟移植,評估適應症,提供病患諮詢,並協助治療模式選擇。} \\
+\hline
+\textbf{核心能力} & 治療模式 & 血液透析、腹膜透析、腎臟移植認識 \\
+\cline{2-3}
+& 適應症評估 & RRT啟動時機、緊急透析適應症 \\
+\cline{2-3}
+& 血管通路 & 動靜脈瘻管、導管、腹膜透析導管 \\
+\cline{2-3}
+& 病患諮詢 & 治療選項說明、預期結果討論 \\
+\cline{2-3}
+& 併發症管理 & 透析相關併發症識別與處理 \\
+\hline
+\textbf{Level 1} & Novice & 能了解RRT基本概念,識別透析適應症 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估RRT需求,提供基本病患諮詢 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估RRT適應症,協助模式選擇 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜RRT評估,整合多重考量因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為RRT專家,提供個人化治療建議 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 腎臟切片檢查適應症及風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估腎臟切片檢查適應症,識別禁忌症,進行風險評估,提供病患諮詢,並了解檢查前後的管理原則。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 診斷性vs治療性切片決策 \\
+\cline{2-3}
+& 禁忌症識別 & 絕對與相對禁忌症判斷 \\
+\cline{2-3}
+& 風險評估 & 出血、感染、其他併發症風險 \\
+\cline{2-3}
+& 病患諮詢 & 檢查必要性、風險說明、同意書取得 \\
+\cline{2-3}
+& 術後管理 & 併發症監測、病理報告解讀 \\
+\hline
+\textbf{Level 1} & Novice & 能了解腎切片基本適應症,識別常見禁忌症 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估基本適應症,進行初步風險評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估腎切片適應症,完整風險評估 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜評估情況,整合多重風險因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為腎切片評估專家,處理高風險個案 \\
+\hline
+
+\rowcolor{nephro_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 末期腎病病人跨科部整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調末期腎病病人的整體照護,包括跨科部會診、多專科團隊合作、透析安排,並能有效溝通與教育病患及家屬。} \\
+\hline
+\textbf{核心能力} & 會診協調 & 心臟科、內分泌科、外科會診安排 \\
+\cline{2-3}
+& 團隊合作 & 多專科團隊會議參與、治療計畫整合 \\
+\cline{2-3}
+& 透析安排 & RRT模式選擇、血管通路安排 \\
+\cline{2-3}
+& 病患教育 & 疾病衛教、生活型態調整指導 \\
+\cline{2-3}
+& 品質改善 & 照護品質監測、改善方案執行 \\
+\cline{2-3}
+& 家屬溝通 & 病情解釋、治療選項討論 \\
+\cline{2-3}
+& 倫理考量 & 醫療倫理、安寧照護決策 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護,了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診,參與團隊討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護,制定整合計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜多科照護,領導團隊討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家,改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本腎臟內科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 腎臟內科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 3, 9) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 4, 5, 6, 7, 8) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        身體檢查類 & DOPS & 標準化病人、技能測驗 \\
+        (EPA 2) & (Direct Observation of Procedural Skills) & 影片回顧、同儕觀察 \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+腎臟內科EPAs的學習是一個持續的過程。建議住院醫師建立個人學習檔案,記錄每次評量結果與改善計畫。主治醫師應提供及時具體的回饋,協助學習者達到下一個里程碑。
+}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 基礎評估技能建立 \\
+        第2個月 & EPA 3, 4 & 影像與檢驗判讀能力 \\
+        第3個月 & EPA 5, 6 & 急慢性腎病處理 \\
+        第4個月 & EPA 7 & 體液電解質管理 \\
+        第5個月 & EPA 8, 9 & 進階治療評估 \\
+        第6個月 & EPA 10 & 整合照護與協調能力 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item Brenner \& Rector's The Kidney. 11th edition.
+    \item Oxford Textbook of Clinical Nephrology. 4th edition.
+    \item Comprehensive Clinical Nephrology. 6th edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item KDIGO Clinical Practice Guidelines for Acute Kidney Injury
+    \item KDIGO Clinical Practice Guidelines for CKD Evaluation and Management
+    \item KDOQI Clinical Practice Guidelines for Nutrition in CKD
+    \item KDIGO Clinical Practice Guidelines for Anemia in CKD
+    \item KDIGO Clinical Practice Guidelines for CKD-MBD
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋(主治醫師、護理師、病人)
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+    \item 參與多專科團隊會議
+    \item 定期檢視腎臟超音波技能
+\end{itemize}
+
+\section{總結}
+
+腎臟內科EPAs涵蓋了腎臟疾病診療的完整核心能力,從基礎的病史詢問與身體檢查,到複雜的腎臟替代療法評估、腎切片風險評估,以及整合性的跨科部協調照護。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 腎臟內科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表腎臟內科醫師必須具備的基礎診療能力。當您能夠安全、獨立地執行各項腎臟疾病診療活動,並做出合理的臨床決策時,就達到了相對應EPA的目標。記住,每一次的臨床實務都是學習的機會,透過持續的實作、反思與改進,才能成為一位優秀的腎臟內科醫師。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{brenner2019}
+Yu, A. S. L., et al. (2019). \textit{Brenner \& Rector's The Kidney}. 11th edition. Elsevier.
+
+\bibitem{oxford2015}
+Turner, N., et al. (2015). \textit{Oxford Textbook of Clinical Nephrology}. 4th edition. Oxford University Press.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{kdigo2012aki}
+KDIGO AKI Work Group. (2012). KDIGO Clinical Practice Guideline for Acute Kidney Injury. \textit{Kidney International Supplements}, 2(1), 1-138.
+
+\bibitem{kdigo2024ckd}
+KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. \textit{Kidney International}, 105(4S), S117-S314.
+
+\bibitem{kdoqi2020nutrition}
+Ikizler, T. A., et al. (2020). KDOQI Clinical Practice Guideline for Nutrition in CKD: 2020 Update. \textit{American Journal of Kidney Diseases}, 76(3 Suppl 1), S1-S107.
+
+\bibitem{johnson2018}
+Johnson, R. J., Floege, J., \& Feehally, J. (2018). \textit{Comprehensive Clinical Nephrology}. 6th edition. Elsevier.
+
+\end{thebibliography}
+
+\end{document}

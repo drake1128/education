@@ -1,0 +1,775 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{longtable}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% 設定中文字體
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 頁面設定
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% 代碼設定
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    showstringspaces=false
+}
+
+% 標題設定
+\title{\textbf{AI 輔助教學文件製作指南}}
+\author{謝慕揚 MD, PhD, FESC\\教學部副主任\\心血管中心主任 }
+\date{\today, Version 2.0}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{前言}
+
+本指南旨在分享使用 AI 工具（如 Claude, ChatGPT, Grok 3 等）協助更新教學文件的完整流程，包含提示詞設計、文件修正技巧，以及如何將生成的內容整合到 Overleaf 平台中。透過系統化的方法，教師可以大幅提升教學文件的製作效率與品質。
+
+教學案例，教學材料的準備在過去一直是教師們的活動重點，然而隨著很多時代與工具的演進，傳統投影片被電腦簡報取代，教師的黑板消失，教師們的手繪美術，邊繪圖邊講解的教學技巧與行為漸漸消失與失傳。很多舊制的電腦投影片，在時代演進下，也漸漸不符合美學或美工的最低門檻，隨著老師的退休，很多精采的教材因為沒有人力維持而也跟著失傳。
+
+現在有了AI，同時AI具備極強的圖像理解能力，光使用手機翻拍，上傳電腦後，就可以提示AI:"提取文字，重新生成表格"。一瞬間，過去塵封的投影片與教學照片，又重新可以由單一一位教師，憑著意志完成，不再需要一個專業的五人編輯小組才能作到。
+
+在2024-11月時，我在德國進修，開始有時間接觸AI, 第一件事就是將自己2004年當實習醫師編寫的文件更新。在更新時，學習運用AI進行校稿，編修美工，改善排版，我反而能有更多時間構思教案，編寫文件的深入內容。這份文件是在2025-05-23完成，在短短七個月內，AI的文字辨識能力與理解力已經大幅躍進。因為已經可以確保內容完整，同時可以讓教師能夠有更充份的時間兼顧臨床工作與研究，決定將心得與作法呈現在文件中，請大家再多多於教學部的教師交流會議中分享。
+
+期待老師們可以擁有更多與學生還有家人相處的時間，也期待老師能夠有與自己對話的時間。
+
+\section{AI 輔助教學文件製作流程}
+
+\subsection{第一階段：需求分析與規劃}
+
+在開始使用 AI 生成教學文件前，需要明確以下要素：
+
+\begin{itemize}
+    \item \textbf{教學目標}：明確定義學習者完成本文件後應達成的能力
+    \item \textbf{目標受眾}：學生程度、背景知識、學習需求
+    \item \textbf{文件類型}：講義、作業、考試、實驗指導等
+    \item \textbf{內容範圍}：涵蓋的主題與深度
+    \item \textbf{格式要求}：LaTeX 樣式、頁面配置、特殊需求
+\end{itemize}
+
+\subsection{第二階段：初始提示詞設計}
+
+\subsubsection{基礎提示詞範本}
+
+\begin{lstlisting}[language=bash]
+請協助我製作一份 [科目名稱] 的 [文件類型]，主題為「[具體主題]」
+
+目標受眾：[學生程度與背景]
+教學目標：[具體學習目標]
+文件長度：約 [頁數] 頁
+格式要求：LaTeX 格式，需包含 [特定元素]
+
+請包含以下內容：
+1. [具體內容要求 1]
+2. [具體內容要求 2]
+3. [具體內容要求 3]
+
+請以 LaTeX 代碼形式輸出，並確保代碼可以直接在 Overleaf 中編譯。
+\end{lstlisting}
+
+\subsubsection{進階提示詞技巧}
+
+\begin{enumerate}
+    \item \textbf{分段生成策略}
+    \begin{lstlisting}[language=bash]
+請先生成文件大綱，確認結構後再逐段生成內容。
+首先請提供：
+- 章節標題與簡述
+- 每章節預計內容
+- 建議的教學時間分配
+    \end{lstlisting}
+
+    \item \textbf{樣式客製化}
+    \begin{lstlisting}[language=bash]
+請使用以下 LaTeX 設定：
+- 使用 article 文檔類別
+- 中文支援使用 xeCJK
+- 代碼區塊使用 listings 套件
+- 數學公式使用 amsmath
+- 圖表使用 booktabs 和 graphicx
+    \end{lstlisting}
+
+    \item \textbf{內容品質控制}
+    \begin{lstlisting}[language=bash]
+請確保內容：
+- 符合教學大綱要求
+- 難度適中，循序漸進
+- 包含實際範例與練習
+- 提供清楚的解釋與步驟
+    \end{lstlisting}
+\end{enumerate}
+
+\section{常見問題與修正策略}
+
+\subsection{內容相關問題}
+
+\subsubsection{問題：內容過於基礎或過於進階}
+
+\textbf{修正提示詞：}
+\begin{lstlisting}[language=bash]
+目前內容對 [目標學生] 來說過於 [基礎/進階]，
+請調整到適合 [具體程度描述] 的學生。
+可以參考 [具體教材或標準] 的難度設定。
+\end{lstlisting}
+
+\subsubsection{問題：缺乏實際範例}
+
+\textbf{修正提示詞：}
+\begin{lstlisting}[language=bash]
+請為每個概念添加 2-3 個具體範例，
+包含：
+- 基礎範例（展示基本應用）
+- 進階範例（展示實際應用情境）
+- 錯誤範例（說明常見錯誤）
+\end{lstlisting}
+
+\subsection{格式相關問題}
+
+\subsubsection{問題：LaTeX 代碼無法編譯}
+
+\textbf{常見原因與解決方案：}
+
+\begin{enumerate}
+    \item \textbf{套件缺失}
+    \begin{lstlisting}[language=latex]
+% 確保包含必要套件
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+    \end{lstlisting}
+
+    \item \textbf{中文字體問題}
+    \begin{lstlisting}[language=latex]
+% 設定中文字體
+\setCJKmainfont{Noto Sans CJK TC}
+% 或使用系統預設
+\setCJKmainfont{Microsoft JhengHei}
+    \end{lstlisting}
+
+    \item \textbf{特殊字符處理}
+    \begin{lstlisting}[language=bash]
+請將所有特殊字符進行適當轉義：
+- & 改為 \&
+- % 改為 \%
+- $ 改為 \$
+- _ 改為 \_
+    \end{lstlisting}
+\end{enumerate}
+
+\section{Overleaf 整合指南}
+
+\subsection{建立新專案}
+
+\begin{enumerate}
+    \item 登入 Overleaf 帳號
+    \item 點擊「New Project」→「Blank Project」
+    \item 輸入專案名稱
+    \item 選擇適當的編譯器（建議使用 XeLaTeX 支援中文）
+\end{enumerate}
+
+\subsection{貼入 AI 生成內容}
+
+\subsubsection{完整文件貼入}
+
+\begin{enumerate}
+    \item 刪除 Overleaf 預設的 main.tex 內容
+    \item 將 AI 生成的完整 LaTeX 代碼貼入
+    \item 點擊「Recompile」進行編譯
+    \item 檢查編譯結果與錯誤訊息
+\end{enumerate}
+
+\subsubsection{分段貼入策略}
+
+當文件較長時，建議採用分段貼入：
+
+\begin{enumerate}
+    \item 先貼入文檔前導（documentclass 到 begin\{document\}）
+    \item 逐段貼入內容並測試編譯
+    \item 遇到錯誤時立即修正
+    \item 完成後進行整體檢查
+\end{enumerate}
+
+\subsection{編譯問題排除}
+
+\subsubsection{常見編譯錯誤}
+
+\begin{enumerate}
+    \item \textbf{字體錯誤}
+    \begin{lstlisting}[language=bash]
+錯誤訊息：Font not found
+解決方案：更換為 Overleaf 支援的字體
+\setCJKmainfont{Noto Sans CJK SC}
+    \end{lstlisting}
+
+    \item \textbf{套件錯誤}
+    \begin{lstlisting}[language=bash]
+錯誤訊息：Package not found
+解決方案：檢查套件名稱拼寫，或使用替代套件
+    \end{lstlisting}
+
+    \item \textbf{編碼問題}
+    \begin{lstlisting}[language=bash]
+錯誤訊息：Invalid UTF-8
+解決方案：確保編譯器設定為 XeLaTeX 或 LuaLaTeX
+    \end{lstlisting}
+\end{enumerate}
+
+\section{最佳實踐建議}
+
+\subsection{提示詞優化技巧}
+
+\begin{enumerate}
+    \item \textbf{具體化描述}：避免使用模糊詞彙，提供具體的要求與範例
+    \item \textbf{分階段生成}：複雜文件建議分段生成，逐步完善
+    \item \textbf{範例導向}：提供期望輸出的範例格式
+    \item \textbf{迭代改進}：透過多輪對話優化內容品質
+\end{enumerate}
+
+\subsection{品質控制檢查清單}
+
+\subsubsection{內容檢查}
+\begin{itemize}
+    \item[$\square$] 教學目標明確且可達成
+    \item[$\square$] 內容邏輯清晰，結構完整
+    \item[$\square$] 難度適合目標學生
+    \item[$\square$] 包含足夠的範例與練習
+    \item[$\square$] 專業術語使用正確
+\end{itemize}
+
+\subsubsection{格式檢查}
+\begin{itemize}
+    \item[$\square$] LaTeX 代碼可正常編譯
+    \item[$\square$] 中文字體顯示正確
+    \item[$\square$] 數學公式格式正確
+    \item[$\square$] 圖表編號與引用正確
+    \item[$\square$] 參考文獻格式統一
+\end{itemize}
+
+\section{進階應用技巧}
+
+\subsection{多媒體整合}
+
+\subsubsection{插入圖片}
+
+\begin{lstlisting}[language=bash]
+請為 [特定概念] 生成 TikZ 圖表代碼，
+要求：
+- 清楚標示關鍵元素
+- 使用適當的顏色區分
+- 包含必要的說明文字
+\end{lstlisting}
+
+\subsubsection{表格設計}
+
+\begin{lstlisting}[language=bash]
+請設計一個比較表格，展示 [概念A] 與 [概念B] 的差異，
+使用 booktabs 套件，確保表格美觀易讀。
+\end{lstlisting}
+
+\subsection{互動元素設計}
+
+\subsubsection{練習題生成}
+
+\begin{lstlisting}[language=bash]
+請為每個章節設計 3-5 道練習題：
+- 1-2 道基礎應用題
+- 2-3 道綜合應用題
+- 包含詳細解答與解題步驟
+\end{lstlisting}
+
+\subsubsection{自我檢測清單}
+
+\begin{lstlisting}[language=bash]
+請為每個學習單元設計自我檢測清單，
+幫助學生評估學習成效。
+\end{lstlisting}
+
+\section{協作與分享}
+
+\subsection{版本控制}
+
+\begin{enumerate}
+    \item 在 Overleaf 中啟用歷史記錄功能
+    \item 重要修改前建立版本標籤
+    \item 記錄主要修改內容與原因
+\end{enumerate}
+
+\subsection{團隊協作}
+
+\begin{enumerate}
+    \item 邀請其他教師加入專案
+    \item 設定適當的編輯權限
+    \item 使用註解功能進行討論
+    \item 建立修改標準與流程
+\end{enumerate}
+
+\section{About MCQ design}
+本講義旨在為講師提供撰寫有效多選題（Multiple-Choice Questions, MCQs）的指導，本講義之編寫為參考加拿大滑鐵盧大學教學卓越中心的建議。良好的多選題能有效評估學員對ACLS協議的理解與應用能力，尤其在緊急心血管情境中的決策能力。本講義將介紹設計原則、提供ACLS相關示例，並指出常見錯誤。
+
+\subsection{多選題設計原則}
+根據滑鐵盧大學的建議，設計多選題時應遵循以下原則：
+
+\begin{enumerate}
+    \item \textbf{題幹清晰且具體}：題幹應清楚說明問題，避免歧義，並聚焦於單一概念。ACLS題目應模擬真實臨床情境。
+    \item \textbf{選項合理且具鑑別度}：正確答案應明確，錯誤選項（干擾項）應合理且具挑戰性，避免明顯錯誤。
+    \item \textbf{避免誤導或陷阱}：題目不應故意誤導學員，應專注於評估知識而非閱讀技巧。
+    \item \textbf{適當評估高階思維}：ACLS題目應測試應用、分析能力，而非僅記憶。例如，學員需根據症狀選擇正確的治療方案。
+    \item \textbf{語言簡潔}：避免冗長或不必要的細節，確保題目易於理解。
+\end{enumerate}
+
+\subsection{ACLS多選題示例}
+以下為針對ACLS課程設計的多選題示例，展示如何應用上述原則。
+
+\subsubsection{示例1：心臟驟停處置}
+\textbf{題幹}：一名55歲男性在購物中心突然倒地，無反應且無脈搏。旁觀者已開始CPR。你作為ACLS團隊領隊到達現場，確認患者處於心室纖顫（VF）。根據AHA 2020指引，下一步最佳行動是什麼？
+
+\begin{enumerate}[label=\Alph*.]
+    \item 立即給予腎上腺素1毫克靜脈注射
+    \item 進行雙相波除顫，能量200焦耳
+    \item 檢查氣道並插入氣管內管
+    \item 給予amiodarone 300毫克靜脈推注
+\end{enumerate}
+
+\textbf{正確答案}：B \\
+\textbf{解析}：對於心室纖顫，首要治療是立即除顫（AHA指引）。選項A、C、D均為後續步驟，干擾項設計基於ACLS流程中的其他行動，具合理性但優先級低。
+
+\subsubsection{示例2：藥物劑量決策}
+\textbf{題幹}：一名患者在心臟驟停後恢復自發循環（ROSC），但隨後出現不穩定心動過速 (unstable tachycardia, NOT VT/VF)。你決定給予amiodarone。首次靜脈推注的正確劑量是多少？
+
+\begin{enumerate}[label=\Alph*.]
+    \item 150毫克，10分鐘內緩慢推注
+    \item 300毫克，快速推注
+    \item 1毫克/公斤，5分鐘內推注
+    \item 50毫克，立即推注
+\end{enumerate}
+
+\textbf{正確答案}：A \\
+\textbf{解析}：AHA指引建議不穩定心動過速的amiodarone劑量為150毫克，10分鐘內緩慢推注。干擾項包含常見劑量錯誤或混淆其他藥物（如腎上腺素），考驗學員對劑量的精確記憶與應用。
+
+\subsection{常見錯誤與規避方法}
+以下為設計ACLS多選題時常見的錯誤，以及如何避免：
+
+\begin{itemize}
+    \item \textbf{題幹過於複雜}：例如，加入不必要的患者背景資料。解決方法：僅包含與決策相關的資訊。
+    \item \textbf{題幹過於簡短}：題幹過於簡短，導致選項內容過於複雜，對於學員答題會造成干擾，建議題幹即包含必要的訊息，選項並應簡潔易懂。
+    \item \textbf{干擾項不合理}：例如，選項明顯錯誤，降低挑戰性。解決方法：設計與正確答案相近的干擾項，如不同劑量或次佳行動。
+    \item \textbf{使用「以上皆非」}：這類選項可能掩蓋題目設計缺陷。解決方法：確保每個選項都有明確依據，避免模糊選項。
+    \item \textbf{文化或語言偏見}：避免使用不熟悉的俚語或非醫療術語。解決方法：使用標準醫療術語，確保題目適用於所有學員。
+\end{itemize}
+
+\subsection{一般策略與錯誤範例}
+以下為設計多選題時的一般策略，以及三個錯誤的出題範例，展示如何避免常見問題。
+
+\subsubsection{一般策略}
+\begin{enumerate}
+    \item \textbf{分階段撰寫題目}：多選題考試設計耗時且具挑戰性。建議每週撰寫幾道題目，特別是在講課後，當課程內容仍記憶猶新時。
+    \item \textbf{要求選擇「最佳答案」}：指示學員選擇「最佳答案」而非「正確答案」，以承認干擾項可能包含部分正確性，避免學員爭辯答案的正確性。
+    \item \textbf{使用熟悉的語言}：題目應使用課程中出現的術語，避免陌生表達或外語詞彙，除非測試語言知識是題目目標。學員可能因不熟悉的術語而排除錯誤選項。
+    \item \textbf{避免題幹與正確答案的語詞關聯}：若正確答案使用與題幹高度相似的詞彙，學員可能因語詞關聯而選擇它，降低題目鑑別度。
+    \item \textbf{避免陷阱題}：題目應讓熟悉材料的學員能選出正確答案，避免通過誤導性措辭或強調不重要的細節引導學員選錯。
+    \item \textbf{避免負面措辭}：負面措辭（如「不是」或「非」）易被學員忽略，導致混淆。即使熟悉材料的學員也可能因負面措辭而出錯。應避免在題幹或選項中使用負面詞，若必須使用，則需強調關鍵詞，例如使用大寫、粗體或下劃線。
+\end{enumerate}
+
+\subsection{錯誤出題範例}
+以下為三道針對ACLS課程的錯誤多選題，展示常見設計缺陷。
+
+\subsubsection{範例1：過於簡短且負面措辭}
+\textbf{題幹}：關於心臟驟停，下列何選項\textbf{為非}？
+
+\begin{enumerate}[label=\Alph*.]
+    \item 立即進行除顫
+    \item 給予腎上腺素
+    \item 進行胸外按壓
+    \item 靜脈注射葡萄糖
+\end{enumerate}
+
+\textbf{正確答案}：D \\
+\textbf{錯誤分析}：題幹過於簡短，缺乏具體情境，無法明確測試知識點。負面措辭「為非」易被忽略，導致混淆。選項均為廣泛的ACLS行動，除D外均可能正確，降低鑑別度。
+
+\subsubsection{範例2：陷阱題與誤導細節}
+\textbf{題幹}：一名患者因心臟驟停接受CPR，隊員報告患者穿著藍色襯衫。應採取何種行動？
+
+\begin{enumerate}[label=\Alph*.]
+    \item 檢查患者衣物顏色
+    \item 立即進行除顫
+    \item 給予阿米奧達龍
+    \item 停止CPR檢查脈搏
+\end{enumerate}
+
+\textbf{正確答案}：B \\
+\textbf{錯誤分析}：題幹提及「藍色襯衫」為無關細節，誤導學員專注於無意義資訊，違反避免陷阱題的原則。題目未提供足夠臨床資訊（如心律），使正確答案難以判斷。
+
+\subsubsection{範例3：題幹與答案語詞關聯}
+\textbf{題幹}：心室纖顫的首要治療是什麼？
+
+\begin{enumerate}[label=\Alph*.]
+    \item 心室纖顫除顫
+    \item 腎上腺素注射
+    \item 氣道管理
+    \item 阿米奧達龍推注
+\end{enumerate}
+
+\textbf{正確答案}：A \\
+\textbf{錯誤分析}：正確答案「心室纖顫除顫」直接重複題幹中的「心室纖顫」，提供明顯語詞線索，使學員無需深入思考即可選出，降低題目挑戰性。
+
+% \section{結論}
+% 設計有效的ACLS多選題需要清晰的題幹、合理的選項，並專注於測試學員在緊急情境中的決策能力。講師應遵循設計原則，參考AHA指引，並避免常見錯誤。本講義提供的示例可作為模板，幫助講師創建高質量的考題。
+
+\section{以AI進行教案協作}
+本文件記錄了如何利用Grok（由xAI開發的人工智慧模型）以及使用者的提示詞（prompts），合作生成一系列醫學教案，涵蓋心血管內科、高血壓管理及卵巢殞地症候群等主題。教案設計針對醫學系六年級學生、住院醫師及婦產科教學需求，強調實證醫學（evidence-based medicine）、全人醫療（whole person care）及臨床技能培養。Grok 3 的強大語言處理能力，結合精確的提示詞指引，使教案內容結構化、科學化且符合最新指南。
+
+\vspace{0.5cm}
+\note{
+Grok 3 的記憶功能與實時資訊檢索能力，確保教案內容與最新文獻（如2023 AHA/ACC指南）保持一致，提升教學實用性。
+}
+
+\subsection{Grok的功能}
+Grok 3 作為xAI開發的進階AI模型，具有以下功能，支援教案生成：
+\begin{itemize}[nosep]
+    \item \textbf{語言生成}：生成流暢的繁體中文教案，符合學術格式及醫療專業術語。
+    \item \textbf{記憶功能}：記錄先前對話（如教案模板、格式要求），確保內容一致性。
+    \item \textbf{實時資訊檢索}：參考最新指南（如2024 ESC STEMI Guideline）及文獻（如NEJM Case 8-2024）。
+    \item \textbf{文件分析}：解析PDF（如新竹台大分院教學計畫）及OCR內容，提取關鍵資訊。
+    \item \textbf{LaTeX 編碼}：生成符合指定格式的LaTeX文件，包含表格、考題及筆記。
+\end{itemize}
+
+\subsection{提示詞的角色}
+使用者的提示詞是教案生成的核心指引，具體要求包括：
+\begin{itemize}[nosep]
+    \item \textbf{內容範圍}：聚焦心血管內科（急性冠心症、心房顫動）、高血壓管理及婦產科（卵巢殞地症候群）。
+    \item \textbf{格式規範}：使用特定LaTeX模板（\texttt{xeCJK}、\texttt{fancyhdr}等），包含顏色定義（\texttt{emergency_red}、\texttt{emergency_blue}）及\verb|\note{}|環境。
+    \item \textbf{術語標準}：保留英文術語（如\texttt{mycotic aneurysm}翻譯為「感染性動脈瘤」），納入omalizumab筆記。
+    \item \textbf{更新要求}：整合最新指南（如2023 AHA/ACC Afib Guideline），新增急性高血壓管理。
+    \item \textbf{教學設計}：包含考題（10題選擇題）、詳解及教學建議，強調實證醫學。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+提示詞明確指定教案結構（如病例概述、比較表格、考題），確保Grok 3 生成的內容符合教學目標及學術規範。
+}
+
+\subsection{合作流程}
+
+\subsection{步驟一：需求分析}
+使用者提供原始文件（如「新竹台大分院心血管內科教學計畫」PDF、「NEJM Case 48-1979」）及先前教案範例，明確需求：
+\begin{itemize}[nosep]
+    \item 針對醫學系六年級學生及婦產科住院醫師。
+    \item 納入2025年最新指南及文獻。
+    \item 統一LaTeX格式，包含\verb|longtable|、考題及\verb|\note{}|。
+\end{itemize}
+
+\subsection{步驟二：提示詞設計}
+使用者設計結構化提示詞，例如：
+\begin{itemize}[nosep]
+    \item 「重新整理PDF，更新至2025年，納入最新ESC指南，格式與先前教案一致。」
+    \item 「生成卵巢殞地症候群教案，比較1979與2025年診斷處置，包含10題選擇題。」
+    \item 「新增急性高血壓管理，參考NEJM 2019，推薦amlodipine。」
+\end{itemize}
+
+\subsection{步驟三：Grok 3 生成初稿}
+Grok 3 根據提示詞生成初稿，包含：
+\begin{itemize}[nosep]
+    \item \textbf{內容}：病例概述、比較表格（如1979 vs. 2025）、課程表、考題及詳解。
+    \item \textbf{格式}：LaTeX文件，採用指定套件及顏色定義。
+    \item \textbf{文獻}：引用最新指南（如2023 AHA/ACC Afib Guideline）及NEJM文章。
+\end{itemize}
+
+\subsection{步驟四：反饋與修訂}
+使用者審查初稿，提出修訂要求，例如：
+\begin{itemize}[nosep]
+    \item 修正LaTeX語法錯誤（如\verb|\itemize[...]|改為\verb|\itemize{...}|）。
+    \item 更新日期格式（\verb|\DTMsetdatestyle{iso}|）。
+    \item 增強教學建議（如模擬訓練、病例討論）。
+\end{itemize}
+Grok 3 根據反饋生成修訂版，確保內容精確、格式一致。
+
+\subsection{步驟五：最終交付}
+最終教案包含：
+\begin{itemize}[nosep]
+    \item \textbf{心血管內科}：涵蓋Afib、ACS、高血壓管理，參考2023 AHA/ACC及2024 ESC指南。
+    \item \textbf{卵巢殞地症候群}：比較1979與2025年診斷處置，強調微創手術及荷爾蒙管理。
+    \item \textbf{考題與教學建議}：10題選擇題、詳解及課堂應用（如ECG模擬、導管室觀摩）。
+\end{itemize}
+
+\subsection{教案生成成果}
+以下表格總結生成的教案及其特色：
+
+\begin{longtable}{|p{3cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{教案主題} & \textbf{文件依據} & \textbf{主要內容} & \textbf{特色} \\
+\hline
+\endhead
+心血管內科訓練計畫 & 新竹台大分院PDF & 課程表（Afib、ACS）、急性高血壓管理、考題 & 納入2023 AHA/ACC、2024 ESC指南，強調模擬訓練 \\
+高血壓初始治療 & NEJM 2018 & 病例情境、1979 vs. 2025比較、急性高血壓管理 & 推薦amlodipine，參考NEJM 2019 \\
+卵巢殞地症候群 & NEJM Case 48-1979 & 1979 vs. 2025診斷處置、黃體囊腫病理、考題 & 強調微創手術及荷爾蒙管理 \\
+\bottomrule
+\caption{教案生成成果總覽}
+\end{longtable}
+
+\vspace{0.5cm}
+\note{
+教案結合Grok 3 的語言生成與使用者的精確提示，確保內容科學嚴謹、格式統一，適用於醫學教育。
+}
+
+\subsection{挑戰與解決方案}
+\begin{itemize}[nosep]
+    \item \textbf{挑戰一：格式錯誤}：初始LaTeX文件出現語法錯誤（如datetime2格式、\verb|\itemize|括號）。
+    \item \textbf{解決方案}：使用者提供錯誤日誌，Grok 3 修正為\verb|\DTMsetdatestyle{iso}|及\verb|\itemize{...}|。
+    \item \textbf{挑戰二：內容更新}：原PDF資料過時，缺乏2025年指南。
+    \item \textbf{解決方案}：Grok 3 檢索最新文獻（如2024 ESC STEMI Guideline），確保內容前沿。
+    \item \textbf{挑戰三：一致性}：多份教案需統一格式及術語。
+    \item \textbf{解決方案}：Grok 3 利用記憶功能，參考先前教案模板，保留omalizumab筆記及術語標準。
+\end{itemize}
+
+\subsection{未來展望}
+未來合作可進一步優化：
+\begin{itemize}[nosep]
+    \item \textbf{數位化}：將教案整合至e-learning平台，支援互動式ECG訓練。
+    \item \textbf{跨領域}：納入AI輔助診斷（如Grok 3分析ECG數據）教學模組。
+    \item \textbf{國際化}：與新加坡國立心臟中心等機構合作，開發雙語教案。
+\end{itemize}
+
+
+\clearpage
+\section{參考資料}
+\begin{itemize}
+    \item Cheser-Jacobs, L., \& Chase, C.L. (1992). \textit{Developing and Using Tests Effectively: A Guide for Faculty}. 1st ed. Jossey-Bass Publishers; San Francisco, CA. \href{https://eric.ed.gov/?id=ED351948}{Developing and Using Tests Effectively. A Guide for Faculty}
+    \item Dirks, C., Wenderoth, M.P., \& Withers, M. (2014). \textit{Assessment in the College Classroom}. 1st ed. W.H. Freeman and Company; New York, NY. \href{https://www.books.com.tw/products/F013353822?loc=M_0005_002&srsltid=AfmBOoq6NkUq70He3PkzFfURGA8XTWOpK-GnO9Lnjru3e7wZgJJfRXQN}{Assessment in the College Science Classroom}
+    \item Kar, S.S., Lakshminarayanan, S., \& Mahalakshmy, T. (2015). Basic principles of constructing multiple choice questions. \textit{Indian Journal of Community and Family Medicine}, 1(2):65-69. \href{https://journals.lww.com/ijcf/abstract/2015/01020/basic_principles_of_constructing_multiple_choice.15.aspx}{DOI:10.4103/2395-2113.251640}
+    \item Towns, M.H. (2014). Guide to developing high-quality, reliable, and valid multiple-choice assessments. \textit{Journal of Chemical Education}, 91(9):1426-1431. \href{https://pubs.acs.org/doi/10.1021/ed500076x}{DOI:10.1021/ed500076x}
+    \item University of Waterloo Centre for Teaching Excellence. (n.d.). Designing Multiple-Choice Questions. \href{https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/designing-multiple-choice-questions}{Available at University of Waterloo}
+\end{itemize}
+
+\section{結語}
+
+AI 輔助教學文件製作能大幅提升教師的工作效率，但關鍵在於掌握正確的使用方法。透過精心設計的提示詞、系統化的修正流程，以及熟練的技術整合，教師可以快速產出高品質的教學資源。
+
+建議教師在使用過程中：
+\begin{itemize}
+    \item 保持對 AI 生成內容的批判性思考
+    \item 根據實際教學經驗調整內容
+    \item 與同事分享經驗，共同改進
+    \item 持續學習新的 AI 工具與技巧
+\end{itemize}
+
+希望本指南能協助更多教師善用 AI 工具，創造更好的教學體驗。
+
+
+\newpage
+\section{Latex範例}
+
+\begin{lstlisting}[language=bash]
+
+%https://eurointervention.pcronline.com/article/predictors-of-late-lumen-enlargement-after-drug-coated-balloon-angioplasty-for-de-novo-coronary-lesions
+
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib} % For bibliography
+
+% Hyperlink settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment for important box
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Custom note environment
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{心血管研究文獻整理}}
+\fancyhead[R]{\textcolor{emergency_blue}{藥物塗層球囊與晚期管腔擴大}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{心血管研究文獻整理}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 藥物塗層球囊血管成形術後晚期管腔擴大的預測因子\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Predictors of Late Lumen Enlargement after DCB Angioplasty}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    心血管中心醫師與研究人員\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 心血管中心 \\
+    謝慕揚醫師\\
+    林炆輝放射師整理\\ Based on study by Yamamoto et al \citep{yamamoto2024}\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{研究背景}
+
+\subsection{研究目標}
+本研究旨在探討藥物塗層球囊（DCB）用於初發冠狀動脈病變（de novo coronary lesions）後，晚期管腔擴大（Late Lumen Enlargement, LLE）的預測病灶特徵，採用光學頻域成像（OFDI）進行序列分析。請參考文獻 \href{https://eurointervention.pcronline.com/article/predictors-of-late-lumen-enlargement-after-drug-coated-balloon-angioplasty-for-de-novo-coronary-lesions}{Predictors of late lumen enlargement after drug-coated balloon angioplasty for de novo coronary lesions}. 
+
+\subsection{LLE 定義與重要性}
+\begin{itemize}[nosep]
+    \item \textbf{定義}：隨訪時管腔體積相較於介入術後即刻增加 $\geq 10\%$，為正向重塑現象，有助於降低再狹窄率。
+    \item \textbf{臨床意義}：
+\end{itemize}
+
+\begin{importantbox}
+\textbf{重要提醒：} LLE 是 DCB 治療的核心優勢，理解其預測因子有助於優化病灶選擇與治療策略。
+\end{importantbox}
+
+\section{研究方法}
+
+\subsection{研究設計與對象}
+\begin{itemize}[nosep]
+    \item \textbf{設計}：單中心、回顧性、觀察性研究，於日本東京國立全球健康與醫學中心進行（2016年8月至2019年12月）。
+\end{itemize}
+
+\end{document}
+
+\end{lstlisting}
+
+\end{document}

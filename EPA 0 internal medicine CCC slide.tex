@@ -1,0 +1,510 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+
+% 中文支援
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+
+% 其他套件
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% Beamer主題設定
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% 自訂顏色
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{light_blue}{RGB}{173,216,230}
+\definecolor{light_green}{RGB}{144,238,144}
+
+\setbeamercolor{structure}{fg=emergency_blue}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{block title}{bg=emergency_blue,fg=white}
+\setbeamercolor{block body}{bg=light_blue!30}
+
+% 標題資訊
+\title[CCC委員會章程]{內科部臨床能力委員會工作計畫章程}
+\subtitle{Clinical Competency Committee Charter}
+\author{○○醫院內科部}
+\date{版本 1.4 \\ \today}
+\institute{內科部教學委員會}
+
+\begin{document}
+
+% 標題頁
+\begin{frame}
+\titlepage
+\end{frame}
+
+% 目錄
+\begin{frame}{簡報大綱}
+\tableofcontents
+\end{frame}
+
+\section{章程總則}
+
+\begin{frame}{設立依據}
+\begin{block}{法規基礎}
+本臨床能力委員會（CCC）依據以下法規設立：
+\end{block}
+\begin{itemize}
+    \item 衛生福利部「專科醫師訓練課程基準」
+    \item 「畢業後一般醫學訓練計畫基準」
+    \item 醫院評鑑暨醫療品質策進會相關標準
+    \item 本院醫學教育委員會授權
+    \item 內科部教學訓練規章
+    \item 「住院醫師勞動權益保障及工作時間指引」
+\end{itemize}
+\end{frame}
+
+\begin{frame}{委員會宗旨}
+\begin{alertblock}{核心理念}
+因應住院醫師納入勞基法後工時縮減的挑戰，建立以勝任能力為本（CBME）的系統性教學評量機制
+\end{alertblock}
+
+\begin{block}{教育模式轉型}
+\begin{itemize}
+    \item 從「以時間為本」轉向「以能力為本」
+    \item 確保各層級醫事人員達到專業標準
+    \item 維護醫療品質與病患安全
+    \item 善盡醫學教育之社會責任
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{適用範圍}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\begin{block}{主要對象}
+\begin{itemize}
+    \item 醫學系學生
+    \item PGY醫師
+    \item 住院醫師（R1-R3）
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{block}{其他對象}
+\begin{itemize}
+    \item 專科護理師
+    \item 總住院醫師
+    \item 其他經委員會決議納入評核之醫事人員
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{核心理念}
+\begin{block}{ACGME NAS架構}
+本委員會採用美國ACGME「下一代評鑑系統」結合台灣本土特色
+\end{block}
+
+\begin{itemize}
+    \item \textbf{結構嚴謹}：標準化評核流程與決議程序
+    \item \textbf{證據導向}：多元評量工具整合運用
+    \item \textbf{階段發展}：依訓練階段設定能力里程碑
+    \item \textbf{核心勝任能力}：以ACGME六大核心能力為架構
+    \item \textbf{完善回饋}：即時性、明確性、個人化回饋
+\end{itemize}
+\end{frame}
+
+\begin{frame}{委員會功能定位}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\begin{block}{能力發展模型 ✓}
+\begin{itemize}
+    \item 系統性詮釋評量工具
+    \item 里程碑評量地圖
+    \item 整合多項評量資料
+    \item 形成性回饋
+    \item 個人化學習指引
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{alertblock}{避免問題辨認模型 ✗}
+\begin{itemize}
+    \item 避免「舉紅旗」模式
+    \item 不僅識別困境者
+    \item 為每位受訓者提供建設性指導
+\end{itemize}
+\end{alertblock}
+\end{columns}
+\end{frame}
+
+\section{委員會組織架構}
+
+\begin{frame}{委員會組成}
+\begin{block}{委員總數}
+15-20名委員，確保代表性與專業性
+\end{block}
+
+\begin{table}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+\textbf{委員類別} & \textbf{人數} & \textbf{任期} \\
+\midrule
+委員會主席 & 1名 & 2年 \\
+次專科主任代表 & 6-8名 & 1年 \\
+醫事人員代表 & 4-6名 & 1年 \\
+外部委員 & 1-2名 & 2年 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{委員資格}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\begin{block}{基本資格}
+\begin{itemize}
+    \item 相關專科證書
+    \item 本院服務滿2年
+    \item 教學或管理經驗
+    \item 無重大糾紛記錄
+    \item 完成CCC培訓
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{block}{專業資格}
+\begin{itemize}
+    \item 主治醫師：教學年資3年以上
+    \item 醫事人員：年資5年以上
+    \item 外部委員：資深或教育專家
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{利益迴避原則}
+\begin{alertblock}{應迴避情形}
+\begin{itemize}
+    \item 受評核者為其直接指導學生
+    \item 與受評核者有直系血親、姻親關係
+    \item 與受評核者有重大利益關係
+    \item 其他可能影響公正性之情形
+\end{itemize}
+\end{alertblock}
+
+\begin{exampleblock}{重點提醒}
+指導老師在評核其直接指導學生時，可提供意見但不得參與表決
+\end{exampleblock}
+\end{frame}
+
+\section{委員會職責與權限}
+
+\begin{frame}{主要職責（1/2）}
+\begin{block}{能力評核認定}
+\begin{itemize}
+    \item 制定並修訂臨床能力評核標準
+    \item 執行定期能力評核作業
+    \item 審核學員能力進階申請
+    \item 認定學員是否達到畢業標準
+\end{itemize}
+\end{block}
+
+\begin{block}{品質監控}
+\begin{itemize}
+    \item 監控教學訓練品質
+    \item 分析學員表現趨勢
+    \item 識別訓練課程缺失
+    \item 提出改善建議方案
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{主要職責（2/2）}
+\begin{block}{政策制定}
+\begin{itemize}
+    \item 制定內科部教學政策
+    \item 修訂訓練課程基準
+    \item 建立評核作業流程
+    \item 訂定獎懲標準
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{評核對象與標準：醫學生}
+\begin{block}{評核週期}
+每1-3週評核一次
+\end{block}
+
+\begin{itemize}
+    \item \textbf{第1次評核（1週）}：基本知識與臨床技能
+    \item \textbf{第2次評核（2-3週）}：臨床判斷能力
+\end{itemize}
+
+\begin{exampleblock}{重點能力}
+\begin{itemize}
+    \item 病史詢問與理學檢查
+    \item 臨床推理能力
+    \item 醫病溝通技巧
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{評核對象與標準：PGY醫師}
+\begin{block}{評核週期}
+每3個月評核一次，共4次評核
+\end{block}
+
+\begin{table}
+\footnotesize
+\begin{tabular}{ll}
+\toprule
+\textbf{評核時程} & \textbf{評核重點} \\
+\midrule
+第1次（3個月） & 基礎臨床能力 \\
+第2次（6個月） & 獨立處置能力 \\
+第3次（9個月） & 複雜病例處理 \\
+第4次（12個月） & 整合能力評估 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{評核對象與標準：住院醫師}
+\begin{block}{評核週期}
+每3-6個月評核一次
+\end{block}
+
+\begin{description}
+    \item[R1] 基礎臨床照護能力、團隊合作
+    \item[R2] 獨立診療能力、進階處置技能
+    \item[R3] 次專科訓練、教學能力、領導能力
+\end{description}
+
+\vspace{0.5em}
+\begin{alertblock}{畢業標準}
+須達到所有核心EPA的Level 4（獨立執行）水準
+\end{alertblock}
+\end{frame}
+
+\section{評核流程與機制}
+
+\begin{frame}{會議召開規範}
+\begin{block}{定期會議}
+\begin{itemize}
+    \item 每季召開一次（每3個月）
+    \item 至少提前7日通知
+    \item 應有2/3以上委員出席
+\end{itemize}
+\end{block}
+
+\begin{block}{臨時會議}
+\begin{itemize}
+    \item 主席或1/3以上委員提議
+    \item 處理緊急或重大案件
+    \item 應有1/2以上委員出席
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{評核程序（1/3）}
+\begin{enumerate}
+    \item \textbf{資料準備階段}
+    \begin{itemize}
+        \item 秘書彙整評量資料
+        \item 製作評核摘要報告
+        \item 提前3日提供委員
+    \end{itemize}
+    
+    \item \textbf{會議評核階段}
+    \begin{itemize}
+        \item 主席主持會議
+        \item 報告評核案件
+        \item 委員審查討論
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{評核程序（2/3）}
+\begin{enumerate}
+\setcounter{enumi}{2}
+    \item \textbf{決議表決階段}
+    \begin{itemize}
+        \item 委員投票表決
+        \item 需2/3以上同意通過
+        \item 記錄決議結果
+    \end{itemize}
+    
+    \item \textbf{回饋通知階段}
+    \begin{itemize}
+        \item 3個工作天內通知
+        \item 提供書面回饋
+        \item 安排面談說明
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{評核程序（3/3）}
+\begin{enumerate}
+\setcounter{enumi}{4}
+    \item \textbf{追蹤執行階段}
+    \begin{itemize}
+        \item 監督改善計畫執行
+        \item 定期檢視進度
+        \item 必要時調整計畫
+    \end{itemize}
+\end{enumerate}
+
+\begin{alertblock}{重要原則}
+整個流程應遵循保密原則、公平原則、及時原則
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{評量工具整合}
+\begin{block}{多元評量來源}
+\begin{itemize}
+    \item Mini-CEX（臨床技能評估）
+    \item DOPS（操作型評量）
+    \item CbD（病例討論）
+    \item 360度評估（多面向回饋）
+    \item 工作量統計
+    \item 臨床表現記錄
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{決議機制}
+\begin{block}{表決方式}
+\begin{itemize}
+    \item 一般決議：出席委員1/2以上同意
+    \item 重大決議：出席委員2/3以上同意
+    \item 主席有最終決定權
+\end{itemize}
+\end{block}
+
+\begin{exampleblock}{重大決議包括}
+\begin{itemize}
+    \item 延長訓練期
+    \item 不予晉級
+    \item 建議退訓
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{評核結果分類}
+\begin{table}
+\footnotesize
+\begin{tabular}{lp{7cm}}
+\toprule
+\textbf{結果} & \textbf{說明} \\
+\midrule
+通過 & 達到該階段能力標準，可繼續訓練 \\
+有條件通過 & 大致達標但需加強特定項目 \\
+需改善 & 未達標準，須執行改善計畫並重新評核 \\
+不通過 & 嚴重未達標準，需延長訓練或其他處置 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\section{申訴與救濟程序}
+
+\begin{frame}{申訴權利}
+\begin{alertblock}{申訴期限}
+受評核者對評核結果不服時，得於收到通知後\textbf{15日內}提出申訴
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{申訴程序}
+\begin{block}{第一階段：內部申訴}
+\begin{enumerate}
+    \item 向委員會秘書提出書面申訴
+    \item 委員會於30日內重新審查
+    \item 申訴人得要求列席說明
+    \item 委員會作成決議並書面回覆
+\end{enumerate}
+\end{block}
+
+\begin{block}{第二階段：院級申訴}
+\begin{enumerate}
+    \item 對第一階段結果不服，向院級申訴委員會申訴
+    \item 院級申訴委員會於45日內作成最終決議
+    \item 申訴結果為最終決議，不得再行申訴
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{申訴期間權益保障}
+\begin{exampleblock}{受保障權益}
+\begin{itemize}
+    \item 申訴期間得繼續原訓練計畫
+    \item 不得因申訴而受到不當對待
+    \item 申訴資料保密處理
+    \item 提供適當的法律諮詢協助
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\section{爭議處理}
+
+\begin{frame}{爭議處理程序}
+\begin{block}{內部爭議處理}
+\begin{enumerate}
+    \item 委員間意見分歧：主席協調，必要時表決
+    \item 評估結果爭議：重新檢視證據，再次討論
+    \item 程序問題：參照章程規定，法制組諮詢
+    \item 倫理疑慮：醫學倫理委員會介入處理
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{外部申訴處理}
+\begin{block}{處理原則}
+\begin{enumerate}
+    \item 受訓者申訴：啟動正式申訴程序
+    \item 指導老師質疑：提供詳細說明和證據
+    \item 外部關切：透明化處理過程和結果
+    \item 媒體關注：統一由發言人對外說明
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\section{總結}
+
+\begin{frame}{重要原則回顧}
+\begin{block}{核心價值}
+\begin{itemize}
+    \item 以能力發展為導向，非問題識別
+    \item 提供每位受訓者個人化回饋
+    \item 建立系統性、證據導向的評核機制
+    \item 確保評核的公平性與客觀性
+    \item 維護受訓者權益與申訴管道
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{章程效力}
+\begin{alertblock}{法律效力}
+本章程經內科部主任指導，由內科部修訂、經教學部同意備查，所有相關人員均須遵守。違反者將依相關規定處理。
+\end{alertblock}
+
+\vspace{1em}
+
+\begin{center}
+\textbf{版本 1.4}\\
+生效日期：\today
+\end{center}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{center}
+\Huge 謝謝聆聽\\[1em]
+\Large 敬請指教
+\end{center}
+\end{frame}
+
+\end{document}

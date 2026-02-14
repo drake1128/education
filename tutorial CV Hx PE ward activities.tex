@@ -1,0 +1,1293 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+\definecolor{warning_orange}{RGB}{255,165,0}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+\newcommand{\warning}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=warning_orange!5!white,
+        colframe=warning_orange,
+        title=\textbf{緊急通報},
+        fonttitle=\bfseries,
+        boxrule=1pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{內科住院醫師與專科護理師教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{病史詢問與理學檢查指引}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{內科部教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 病史詢問與理學檢查EPA講義\par}
+    \vspace{0.3cm}
+    {\huge\bfseries 暨Portal系統檢查報告判讀指南\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{History Taking, Physical Examination EPA \& Report Reading Guide}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科住院醫師R1-R3, 內科部專科護理師, PGY, 醫學生\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第2.0版（整合版）\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 心臟內科 \\謝慕揚 MD, PhD, FESC\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{EPA概述與學習目標}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可獨立委託給住院醫師執行的專業活動單元。病史詢問與理學檢查是內科住院醫師必須精熟的核心技能,為所有臨床決策的基礎。
+
+\vspace{0.5cm}
+\note{
+EPA評量著重於能否安全、獨立地執行完整的病史詢問與理學檢查,並能整合資訊做出初步臨床判斷。
+}
+
+\subsection{學習目標}
+完成本EPA後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 進行專業且有效率的自我介紹。
+    \item 系統性地收集完整且相關的病史資訊。
+    \item 執行準確且適當的理學檢查。
+    \item 系統性回顧病患過往病歷記錄與檢查資料。
+    \item 正確判讀Portal系統中的各項檢查報告。
+    \item 整合病史、理學檢查與過往資料,形成初步臨床印象。
+    \item 與病人建立良好的醫病關係。
+    \item 記錄完整且結構化的病歷。
+    \item 有效協調跨科室醫療服務安排。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{專業自我介紹與工作規劃}
+
+\subsection{有效自我介紹的重要性}
+專業的自我介紹是建立醫病關係的第一步,也是展現醫療團隊專業素養的關鍵時刻。住院醫師必須學會在每次接觸病人前進行適當的自我介紹,並清楚說明即將執行的工作內容與責任範圍。
+
+\vspace{0.5cm}
+\note{
+自我介紹不僅是禮貌,更是建立信任、減少醫療糾紛的重要預防措施。清楚的角色定位與工作說明能幫助病患理解醫療流程。
+}
+
+\subsection{自我介紹的標準架構}
+\begin{enumerate}[nosep]
+    \item \textbf{身份識別}:姓名、職位、所屬科別
+    \item \textbf{工作內容說明}:今日預計執行的檢查或治療項目
+    \item \textbf{責任範圍clarification}:能提供的協助與限制
+    \item \textbf{後續安排說明}:依據門診記錄Plan的住院活動規劃
+    \item \textbf{溝通管道}:如何聯繫與提問
+\end{enumerate}
+
+\subsection{住院後活動規劃原則}
+基於門診記錄Plan安排住院活動時,應遵循以下優先順序:
+\begin{itemize}[nosep]
+    \item \textbf{生命安全優先}:緊急處置 > 常規治療
+    \item \textbf{資源協調}:先與相關科室溝通 > 再與病患協調
+    \item \textbf{時程安排}:洗腎時間調整 (先作好),依據心導管時間協調
+    \item \textbf{家屬溝通}:重要決策需家屬參與討論
+\end{itemize}
+
+\begin{importantbox}
+\textbf{重要原則}:涉及跨科室協調時(如洗腎+心導管),應先與相關科室(洗腎室)溝通時間調整,確認可行性後再與病患家屬協調最終安排。
+\end{importantbox}
+
+\subsection{自我介紹對話範例}
+
+\subsubsection{良好範例}
+\textbf{情境:心衰竭病人住院,需安排洗腎與心導管檢查}
+
+\begin{tcolorbox}[
+    colback=emergency_blue!5!white,
+    colframe=emergency_blue,
+    title=\textbf{良好的自我介紹範例},
+    fonttitle=\bfseries
+]
+「林先生您好,我是心臟內科的住院醫師王醫師。我今天會負責您住院期間的照護,包括抽血檢查、理學檢查,以及協調後續的治療安排。
+
+根據門診醫師的安排,您這次住院需要進行兩個重要檢查:定期洗腎以及心導管檢查。我已經先與洗腎室協調,將您原本週三的洗腎時間調整到週二晚上,這樣週三上午就可以安排心導管檢查,避免時間衝突。
+
+關於治療的重大決策,我會先與主治醫師討論後再向您說明。如果您有任何不舒服或疑問,可以隨時按呼叫鈴找護理師,護理師會聯繫我們醫療團隊。您還有什麼問題嗎?」
+\end{tcolorbox}
+
+\subsubsection{不當範例}
+\begin{tcolorbox}[
+    colback=emergency_red!5!white,
+    colframe=emergency_red,
+    title=\textbf{不當的自我介紹範例},
+    fonttitle=\bfseries
+]
+「我是王醫師,等一下要幫您檢查。您的洗腎和心導管可能會有時間衝突,到時候再看看怎麼辦。有問題再說。」
+
+\textbf{問題分析:}
+\begin{itemize}[nosep]
+    \item 身份不明確(科別、職級)
+    \item 工作內容模糊
+    \item 未提及責任範圍
+    \item 未主動處理已知問題
+    \item 溝通態度消極
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{特殊情況處理範例}
+
+\subsubsection{範例一:洗腎與心導管時程衝突}
+\textbf{正確處理流程:}
+\begin{enumerate}[nosep]
+    \item 先查看門診Plan與住院醫囑
+    \item 聯繫洗腎室確認可調整時段
+    \item 聯繫心導管室確認檢查時段
+    \item 向病患說明調整後的時間安排
+    \item 記錄協調結果於病歷中
+\end{enumerate}
+
+\begin{tcolorbox}[
+    colback=highlight_yellow,
+    colframe=emergency_gray,
+    title=\textbf{協調對話範例}
+]
+「林先生,經過我與洗腎室和心導管室的協調,我們將您週三上午的洗腎調整到週二下午3點,這樣週三上午9點就可以順利進行心導管檢查,避免時間衝突。調整後您週二會比較忙一點,但能確保兩個重要治療都不延誤。這樣的安排您覺得可以嗎?」
+\end{tcolorbox}
+
+\subsubsection{範例二:家屬詢問治療決策}
+\begin{tcolorbox}[
+    colback=highlight_yellow,
+    colframe=emergency_gray,
+    title=\textbf{適當的回應範例}
+]
+「關於治療方針的重大決策,我需要先與主治醫師討論您父親的完整檢查結果後,才能給您最準確的建議。我會安排明天上午主治醫師查房時,請他詳細向您們說明。在此之前,如果有照護上的問題,我都可以協助處理。」
+\end{tcolorbox}
+
+\subsection{自我介紹評核標準}
+\begin{table}[h]
+    \centering
+    \caption{專業自我介紹評核項目}
+    \begin{tabular}{p{4cm} p{10cm}}
+        \toprule
+        \textbf{評核項目} & \textbf{評核標準} \\
+        \midrule
+        身份識別清楚 & 明確說明姓名、職位、科別 \\
+        工作內容說明 & 清楚解釋今日預計執行的項目 \\
+        責任範圍界定 & 明確說明能協助的範圍與限制 \\
+        計畫安排能力 & 能依據門診Plan規劃住院活動 \\
+        協調溝通技巧 & 能有效協調跨科室時間安排 \\
+        專業態度 & 展現同理心與專業素養 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{系統性病史詢問}
+
+\subsection{病史詢問架構}
+完成專業自我介紹後,病史詢問應遵循系統性方法,確保資訊收集的完整性與一致性:
+
+\subsubsection{主訴 (Chief Complaint)}
+\begin{itemize}[nosep]
+    \item 用病人的話語記錄主要症狀。
+    \item 包含症狀持續時間。
+    \item 應簡潔明確,避免醫學術語。
+\end{itemize}
+
+\subsubsection{現病史 (History of Present Illness)}
+採用SOCRATES方法系統性詢問:
+\begin{itemize}[nosep]
+    \item \textbf{S}ite:症狀位置
+    \item \textbf{O}nset:發作方式(急性/慢性/間歇性)
+    \item \textbf{C}haracter:症狀性質與特徵
+    \item \textbf{R}adiation:是否有放射或轉移
+    \item \textbf{A}ssociated symptoms:伴隨症狀
+    \item \textbf{T}ime course:時間進程
+    \item \textbf{E}xacerbating/Relieving factors:惡化或緩解因子
+    \item \textbf{S}everity:嚴重程度(1-10分量表)
+\end{itemize}
+
+\subsubsection{系統性回顧 (Review of Systems)}
+按系統詢問相關症狀:
+\begin{multicols}{2}
+\begin{itemize}[nosep]
+    \item 一般症狀(體重變化、發燒、疲倦)
+    \item 心血管系統
+    \item 呼吸系統
+    \item 消化系統
+    \item 泌尿生殖系統
+    \item 神經系統
+    \item 肌肉骨骼系統
+    \item 皮膚系統
+\end{itemize}
+\end{multicols}
+
+\begin{importantbox}
+\textbf{重要提醒:} 系統性回顧不需每次都問完所有系統,應根據主訴與現病史重點詢問相關系統。
+\end{importantbox}
+
+\subsection{病史詢問技巧}
+\subsubsection{開放式與封閉式問題}
+\begin{itemize}[nosep]
+    \item \textbf{開放式問題}:「請告訴我您的症狀如何開始的?」
+    \item \textbf{封閉式問題}:「疼痛是刺痛還是悶痛?」
+    \item 先用開放式問題了解大致情況,再用封閉式問題確認細節。
+\end{itemize}
+
+\subsubsection{溝通技巧}
+\begin{itemize}[nosep]
+    \item 保持眼神接觸,展現同理心。
+    \item 避免打斷病人敘述。
+    \item 使用病人能理解的語言。
+    \item 適時總結與確認理解。
+\end{itemize}
+
+\section{系統性理學檢查}
+
+\subsection{理學檢查架構}
+理學檢查應按照系統性順序進行,確保檢查的完整性:
+
+\subsubsection{生命徵象}
+\begin{itemize}[nosep]
+    \item 體溫、脈搏、呼吸、血壓
+    \item 血氧飽和度
+    \item 疼痛指數
+    \item 身高、體重、BMI
+\end{itemize}
+
+\subsubsection{一般外觀}
+\begin{itemize}[nosep]
+    \item 整體外觀與營養狀態
+    \item 意識狀態與精神狀況
+    \item 皮膚顏色與完整性
+    \item 呼吸型態與費力程度
+\end{itemize}
+
+\subsection{系統性檢查}
+\subsubsection{頭頸部檢查}
+\begin{table}[h]
+    \centering
+    \caption{頭頸部檢查要點}
+    \begin{tabular}{p{3cm} p{11cm}}
+        \toprule
+        \textbf{檢查項目} & \textbf{檢查要點} \\
+        \midrule
+        頭部 & 頭型、外傷痕跡、頭髮分布 \\
+        眼部 & 結膜、鞏膜、瞳孔反應、眼瞼水腫 \\
+        耳鼻喉 & 耳道、鼓膜、鼻腔、咽喉發炎 \\
+        頸部 & 淋巴結、甲狀腺、頸靜脈怒張、頸部僵硬 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{胸部檢查}
+心肺檢查是內科理學檢查的重點:
+\begin{itemize}[nosep]
+    \item \textbf{肺部檢查}:視診(胸廓對稱性)、觸診(震顫)、叩診(共鳴音)、聽診(呼吸音、雜音)
+    \item \textbf{心臟檢查}:視診(心尖搏動)、觸診(心尖搏動點)、聽診(心音、心雜音)
+\end{itemize}
+
+\subsubsection{腹部檢查}
+\begin{itemize}[nosep]
+    \item 視診:腹部對稱性、皮膚變化、腹部起伏
+    \item 聽診:腸音、血管雜音(注意:聽診應在觸診前進行)
+    \item 觸診:淺層與深層觸診、肝脾觸診、壓痛點
+    \item 叩診:肝濁音界、脾濁音、腹水檢查
+\end{itemize}
+
+\begin{importantbox}
+\textbf{重要提醒:} 腹部檢查順序為視診→聽診→觸診→叩診,避免觸診影響腸音聽診。
+\end{importantbox}
+
+\subsubsection{四肢與神經學檢查}
+\begin{itemize}[nosep]
+    \item 四肢水腫、脈搏、皮膚溫度
+    \item 關節活動度與肌力評估
+    \item 神經反射檢查
+    \item 步態評估
+\end{itemize}
+
+\section{病歷資料系統性回顧與Portal系統操作}
+
+\subsection{過往病歷回顧的重要性}
+完整的病歷資料回顧是優質醫療照護的基石,特別對於心血管疾病患者,過往的檢查資料、用藥記錄與生命徵象變化,都是評估病情進展與調整治療策略的重要依據。住院醫師必須養成系統性回顧病歷的習慣。
+
+\vspace{0.5cm}
+\note{
+所有影像資料必須親自在PACS系統 (pacs.hch.gov.tw) 上檢視原始影像,不可僅依賴報告摘要。
+}
+
+\subsection{新竹台大分院Portal系統操作指南}
+查房前的資料收集是住院醫師必備技能,以下提供Portal系統的系統性使用方法:
+
+\subsubsection{系統登入與基本設定}
+\begin{enumerate}[nosep]
+    \item 登入系統後,下拉選單\textbf{務必選擇「新竹醫院」}
+    \item 確認帳號開頭為「H」(例如:H11135)
+    \item 選擇「診間病房」→「病房作業」進入病歷查詢畫面
+\end{enumerate}
+
+\subsubsection{病患資料查詢策略}
+\begin{table}[h]
+    \centering
+    \caption{Portal系統查詢方法比較}
+    \begin{tabular}{p{3cm} p{5cm} p{6cm}}
+        \toprule
+        \textbf{查詢方式} & \textbf{操作方法} & \textbf{適用情況} \\
+        \midrule
+        依使用者查詢 & 輸入主治醫師H開頭帳號 & 快速查詢該主治醫師所有病患(不分樓層) \\
+        依樓層病房查詢 & 選擇特定樓層或病房 & 適合負責特定病房的住院醫師 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{importantbox}
+\textbf{建議作法:}依使用者查詢通常比依樓層查詢更快速有效,特別適合醫學生和PGY住院醫師快速掌握clinical shadowing的醫師所有病患概況。
+\end{importantbox}
+
+\subsubsection{電子病歷 (EMR) 使用技巧}
+\begin{itemize}[nosep]
+    \item 點擊「EMR」進入整合畫面(載入時間約1-2分鐘)
+    \item EMR整合:門診、住院、實驗室、影像及文字報告
+    \item \textbf{快速查看檢驗報告}:直接進入HTML畫面查看腎功能報告和心電圖報告
+    \item 左上角有選單,可切換不同病患,減少載入時間
+\end{itemize}
+
+\subsubsection{完整病史追溯方法}
+系統性了解病患來龍去脈的步驟:
+\begin{enumerate}[nosep]
+    \item 透過左側選項查看:「門診」、「急診」、「住院」記錄
+    \item 重點追溯最近半年內出入急診、門診的記錄
+    \item 關注重點:
+        \begin{itemize}[nosep]
+            \item 主要問題與主訴變化
+            \item 緊急處置與治療反應
+            \item 病情評估與進展
+        \end{itemize}
+    \item 急診記錄:查看最近一次急診主訴
+    \item 門診記錄:查看最後一次醫師門診記錄
+\end{enumerate}
+
+\subsection{病歷資料回顧檢查表}
+以下為住院醫師必須完成的病歷回顧項目檢查表:
+
+\begin{longtable}{|p{1cm}|p{4.5cm}|p{8.5cm}|}
+\caption{病歷資料系統性回顧檢查表} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{項目} & \textbf{檢查內容} & \textbf{重點關注事項} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{項目} & \textbf{檢查內容} & \textbf{重點關注事項} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+1 & \textbf{門診病歷記錄回顧} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 主訴變化趨勢
+    \item 症狀進展情況
+    \item 醫師評估與診斷
+    \item 治療反應
+    \item \textbf{門診Plan執行狀況確認}
+\end{itemize} \\
+\hline
+
+2 & \textbf{生命徵象追蹤} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 體重變化(每次門診)
+    \item 心跳變化趨勢
+    \item 血壓控制情況
+    \item 呼吸頻率記錄
+    \item \textbf{體重變化>2kg/週為異常}
+\end{itemize} \\
+\hline
+
+3 & \textbf{用藥記錄回顧} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 心血管用藥調整歷程
+    \item 藥物劑量變化
+    \item 副作用記錄
+    \item 藥物遵從性評估
+    \item \textbf{藥物過敏史確認}
+\end{itemize} \\
+\hline
+
+4 & \textbf{心電圖系列比較} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 心律變化(竇性心律/心房顫動)
+    \item QRS波形變化
+    \item ST-T波缺血性變化
+    \item QT間距延長評估
+    \item 房室傳導阻滯
+    \item \textbf{與前次心電圖比較變化}
+\end{itemize} \\
+\hline
+
+5 & \textbf{心臟超音波追蹤} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item LVEF變化趨勢
+    \item LVIDD測量值
+    \item 左心房大小
+    \item 主動脈瓣最大流速
+    \item 二尖瓣最大流速
+    \item 三尖瓣逆流壓力梯度
+    \item 區域性壁運動異常
+    \item \textbf{LVEF下降>10\%為重要變化}
+\end{itemize} \\
+\hline
+
+6 & \textbf{頸動脈超音波} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 頸動脈內中膜厚度
+    \item 動脈硬化斑塊
+    \item 血管狹窄程度
+    \item 血流速度測定
+    \item \textbf{須於PACS系統檢視原始影像}
+\end{itemize} \\
+\hline
+
+7 & \textbf{腹部血管超音波} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 腹主動脈直徑
+    \item 腎動脈狹窄評估
+    \item 下腔靜脈塌陷度
+    \item 門靜脈血流
+    \item \textbf{須於PACS系統檢視原始影像}
+\end{itemize} \\
+\hline
+
+8 & \textbf{下肢血管超音波} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item ABI測定值
+    \item 深部靜脈血栓
+    \item 動脈硬化程度
+    \item 血管通暢性
+    \item \textbf{須於PACS系統檢視原始影像}
+\end{itemize} \\
+\hline
+
+9 & \textbf{胸部X光系列比較} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 心胸比變化(CTR)
+    \item 肺血管充血程度
+    \item 肺水腫進展
+    \item 胸腔積液量
+    \item 心臟輪廓改變
+    \item \textbf{須於PACS系統檢視原始影像}
+\end{itemize} \\
+\hline
+
+10 & \textbf{心導管影像資料} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 冠狀動脈狹窄程度
+    \item 側支循環發展
+    \item 支架置放位置與通暢性
+    \item 左心室造影LVEF
+    \item 血流動力學數據
+    \item \textbf{須親自檢視原始影像,非僅紙本報告}
+\end{itemize} \\
+\hline
+
+11 & \textbf{實驗室數據趨勢} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item BNP/NT-proBNP變化
+    \item 腎功能指標(Cr, eGFR)
+    \item 電解質平衡
+    \item 肝功能指標
+    \item 血脂肪控制
+    \item 血糖控制(HbA1c)
+\end{itemize} \\
+\hline
+
+12 & \textbf{其他影像檢查} & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item 電腦斷層檢查
+    \item 核磁共振檢查
+    \item 核醫心肌灌注檢查
+    \item 運動心電圖
+    \item \textbf{須於PACS系統檢視原始影像}
+\end{itemize} \\
+\hline
+
+\end{longtable}
+
+\begin{importantbox}
+\textbf{特別提醒:} 對於心衰竭患者,體重變化是評估體液平衡的重要指標,每日體重記錄對於利尿劑調整極為重要。血壓與心跳的變化趨勢能反映藥物治療效果與疾病進展。
+\end{importantbox}
+
+\subsection{PACS系統操作要點}
+\begin{itemize}[nosep]
+    \item 登入 pacs.hch.gov.tw 系統
+    \item \textbf{初次進入不用特別勾選單筆檢查},進入後可以在選單選: US (看所有超音波影像), XA (看所有導管影像), CT (看所有電腦斷層影像)
+    \item 檢索病人歷次檢查記錄
+    \item 使用比較功能對照前後影像變化
+    \item 測量工具使用(距離、面積、密度)
+    \item 影像調整(對比度、亮度、放大)
+    \item 重要發現截圖存檔
+\end{itemize}
+
+\subsection{資料整合與臨床決策}
+完成系統性病歷回顧後,應能夠:
+\begin{itemize}[nosep]
+    \item 建立疾病進展時間軸
+    \item 評估治療介入效果
+    \item 識別惡化風險因子
+    \item 調整治療策略
+    \item 預測疾病預後
+\end{itemize}
+
+\section{Portal系統檢查報告詳細判讀}
+
+\subsection{心血管檢查報告判讀}
+
+\subsubsection{心導管檢查報告}
+心導管檢查是診斷冠心病的黃金標準,住院醫師必須能正確判讀報告。
+
+\begin{table}[h]
+    \centering
+    \caption{冠狀動脈病變嚴重程度分類}
+    \begin{tabular}{p{4cm} p{3cm} p{7cm}}
+        \toprule
+        \textbf{報告術語} & \textbf{狹窄程度} & \textbf{臨床意義} \\
+        \midrule
+        Normal coronaries & 0\% & 冠狀動脈正常,無明顯病變 \\
+        Mild disease & <50\% & 輕度病變,通常藥物治療 \\
+        CAD 1VD & 1條血管≥50\% & 單支血管疾病,可考慮介入治療 \\
+        CAD 2VD & 2條血管≥50\% & 雙支血管疾病,建議介入治療 \\
+        CAD 3VD & 3條血管≥50\% & 三支血管疾病,可能需要繞道手術 \\
+        LM disease & 左主幹≥50\% & \textcolor{emergency_red}{\textbf{立即通報主治醫師}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\warning{
+左主幹疾病 (Left Main Disease) 為高危險病變,一旦發現必須立即通報主治醫師,以便進行預後溝通,心臟外科照會,或是轉至CCU監測 (monitor)。
+}
+
+\textbf{常見報告術語解釋:}
+\begin{itemize}[nosep]
+    \item \textbf{LAD}:左前降支動脈 (Left Anterior Descending)
+    \item \textbf{LCX}:左迴旋支動脈 (Left Circumflex)
+    \item \textbf{RCA}:右冠狀動脈 (Right Coronary Artery)
+    \item \textbf{PCI}:經皮冠狀動脈介入治療
+    \item \textbf{DES}:塗藥支架 (Drug-Eluting Stent)
+    \item \textbf{TIMI flow}:TIMI血流分級 (0-3級,3級為正常)
+\end{itemize}
+
+\subsubsection{心臟超音波報告}
+
+\begin{table}[h]
+    \centering
+    \caption{左心室射出分率 (LVEF) 分級}
+    \begin{tabular}{p{3cm} p{3cm} p{8cm}}
+        \toprule
+        \textbf{LVEF範圍} & \textbf{功能分級} & \textbf{臨床意義與處置} \\
+        \midrule
+        ≥55\% & 正常 & 心臟收縮功能正常 \\
+        45-54\% & 輕度下降 & 需密切追蹤,考慮心衰用藥 \\
+        35-44\% & 中度下降 & 心衰竭治療,ACE-I/ARB + Beta-blocker \\
+        <35\% & 嚴重下降 & \textcolor{emergency_red}{\textbf{積極心衰治療,急救後患者考慮ICD植入}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{瓣膜疾病嚴重程度與處置}
+    \begin{tabular}{p{4cm} p{3cm} p{7cm}}
+        \toprule
+        \textbf{瓣膜病變} & \textbf{嚴重程度} & \textbf{處置建議} \\
+        \midrule
+        Mild AS/MR/AR/TR & 輕度 & 定期追蹤,通常無需手術 \\
+        Moderate AS/MR/AR/TR & 中度 & 每6-12月追蹤,評估症狀 \\
+        Severe AS & 重度主動脈狹窄 & \textcolor{emergency_red}{\textbf{立即通報,評估手術}} \\
+        Severe MR & 重度二尖瓣逆流 & \textcolor{emergency_red}{\textbf{立即通報,評估手術}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\warning{
+發現 vegetations on valve (瓣膜贅生物) 時,高度懷疑感染性心內膜炎,必須立即通報主治醫師並安排血液培養。
+}
+
+\textbf{其他重要參數:}
+\begin{itemize}[nosep]
+    \item \textbf{LVIDD}:左心室舒張末期內徑 (正常: 男性<5.9cm, 女性<5.3cm)
+    \item \textbf{LVIDS}:左心室收縮末期內徑 (正常: 男性<4.0cm, 女性<3.6cm)
+    \item \textbf{LA size}:左心房大小 (正常: <4.0cm)
+    \item \textbf{E/e'}:舒張功能評估指標 (>15提示舒張功能異常)
+\end{itemize}
+
+\subsection{實驗室檢查數據判讀}
+
+\subsubsection{心臟衰竭相關標記}
+\begin{table}[h]
+    \centering
+    \caption{BNP/NT-proBNP判讀標準}
+    \begin{tabular}{p{4cm} p{3cm} p{7cm}}
+        \toprule
+        \textbf{檢查項目} & \textbf{正常範圍} & \textbf{異常意義} \\
+        \midrule
+        BNP & <100 pg/mL & >400 pg/mL提示心衰竭 \\
+        NT-proBNP & <125 pg/mL & >900 pg/mL (50-75歲) 提示心衰竭 \\
+        & & >1800 pg/mL (>75歲) 提示心衰竭 \\
+        Troponin-I & <0.04 ng/mL & 升高: >50 ng/mL提示心肌損傷 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{腎功能指標}
+\begin{table}[h]
+    \centering
+    \caption{腎功能分級 (CKD-EPI eGFR)}
+    \begin{tabular}{p{3cm} p{4cm} p{7cm}}
+        \toprule
+        \textbf{CKD分期} & \textbf{eGFR範圍} & \textbf{臨床意義} \\
+        \midrule
+        Stage 1 & ≥90 & 腎功能正常或輕微下降 \\
+        Stage 2 & 60-89 & 輕度腎功能下降 \\
+        Stage 3a & 45-59 & 輕至中度腎功能下降 \\
+        Stage 3b & 30-44 & 中至重度腎功能下降 \\
+        Stage 4 & 15-29 & 重度腎功能下降 \\
+        Stage 5 & <15 & \textcolor{emergency_red}{\textbf{腎衰竭,準備透析}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\note{
+eGFR <30 時,許多心血管用藥需要調整劑量,包括ACE inhibitors、ARBs、利尿劑等。
+}
+
+\subsection{心電圖異常判讀}
+
+\subsubsection{心律異常}
+\begin{table}[h]
+    \centering
+    \caption{常見心律異常及處置}
+    \begin{tabular}{p{4cm} p{4cm} p{6cm}}
+        \toprule
+        \textbf{心律異常} & \textbf{心率範圍} & \textbf{處置建議} \\
+        \midrule
+        Sinus bradycardia & <50 bpm & 評估症狀,必要時暫停beta-blocker \\
+        Sinus tachycardia & >110 bpm & 找出潛在原因 (發燒、脫水、疼痛) \\
+        Atrial fibrillation & 不規律 & \textcolor{emergency_red}{\textbf{評估抗凝需求,通報}} \\
+        Ventricular tachycardia & >150 bpm & \textcolor{emergency_red}{\textbf{緊急通報處置}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{缺血性變化}
+\begin{itemize}[nosep]
+    \item \textbf{ST elevation (STEMI)}:急性心肌梗塞,需緊急通報
+    \item \textbf{ST depression}:心肌缺血,需進一步評估
+    \item \textbf{T wave inversion}:可能心肌缺血或舊的心肌梗塞
+    \item \textbf{Q wave}:通常提示舊的心肌梗塞
+\end{itemize}
+
+\warning{
+發現急性ST elevation時,不應該再等待抽血檢查,必須立即通報主治醫師,並立刻聯絡導管室,告知有病患有STEMI的評估正在被進行中,要準備緊急心導管治療。
+}
+
+\subsection{影像檢查判讀}
+
+\subsubsection{胸部X光檢查}
+\textbf{心臟大小評估:}
+\begin{itemize}[nosep]
+    \item \textbf{心胸比 (CTR)}:正常<50\%
+    \item \textbf{心臟擴大}:CTR >50\% 提示心臟肥大
+    \item \textbf{左心房擴大}:雙心房影 (double atrial shadow)
+    \item \textbf{左心室擴大}:心尖部向左下延伸
+\end{itemize}
+
+\textbf{肺水腫分級:}
+\begin{table}[h]
+    \centering
+    \caption{肺水腫X光表現分級}
+    \begin{tabular}{p{2cm} p{5cm} p{7cm}}
+        \toprule
+        \textbf{分級} & \textbf{X光表現} & \textbf{臨床意義} \\
+        \midrule
+        Stage 1 & 肺血管重新分布 & 早期心衰,肺靜脈壓輕度上升 \\
+        Stage 2 & 間質性肺水腫 (Kerley B lines) & 中度心衰,需加強利尿 \\
+        Stage 3 & 肺泡性肺水腫 & 急性心衰,需緊急處置 \\
+        Stage 4 & 蝴蝶翼狀肺水腫 & \textcolor{emergency_red}{\textbf{嚴重心衰,ICU治療}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{血管超音波檢查}
+\textbf{頸動脈超音波:}
+\begin{itemize}[nosep]
+    \item \textbf{IMT}:內中膜厚度 (正常<0.9mm)
+    \item \textbf{Plaque}:動脈硬化斑塊 (記錄位置與大小)
+    \item \textbf{Stenosis}:血管狹窄程度 (>70\%考慮手術)
+    \item \textbf{Peak systolic velocity}:內頸動脈斑塊,造成的血管狹窄是否造成血流動力學異常,若PSV > 230 cm/sec, 應考慮angiography
+\end{itemize}
+
+\textbf{下肢血管超音波:}
+\begin{itemize}[nosep]
+    \item \textbf{ABI}:踝臂血壓指數 (正常0.9-1.3)
+    \item \textbf{DVT}:深部靜脈血栓 (需抗凝治療)
+    \item \textbf{PAD}:週邊動脈疾病 (ABI<0.9)
+\end{itemize}
+
+\subsection{緊急通報標準}
+
+\begin{table}[h]
+    \centering
+    \caption{緊急通報標準檢查表}
+    \begin{tabular}{p{5cm} p{9cm}}
+        \toprule
+        \textbf{檢查項目} & \textbf{緊急通報標準} \\
+        \midrule
+        理學檢查 & 打擊穿刺處出血或血腫, puncture site hematoma \\
+        心導管檢查 & Left main disease, STEMI, 心因性休克 \\
+        心臟超音波 & Severe AS/MR, Vegetations, LVEF<35\% \\
+        心電圖 & 新發心房顫動, VT/VF, Complete heart block \\
+        實驗室檢查 & Troponin急劇上升, K+<3.0 或 >5.5, eGFR<15 \\
+        胸部X光 & 急性肺水腫, 氣胸, 大量胸腔積液 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\warning{
+以上任一情況發現時,必須在10分鐘內通報主治醫師,不可延誤。
+}
+
+\section{心血管中心工作手冊}
+
+\subsection{心導管術前準備與護理照護}
+心導管檢查是診斷和治療冠狀動脈疾病的重要手段,護理人員必須熟悉標準化術前準備流程。
+
+\subsubsection{住院當天心導管準備}
+\begin{table}[h]
+    \centering
+    \caption{心導管術前準備檢查表}
+    \begin{tabular}{p{4cm} p{8cm} p{4cm}}
+        \toprule
+        \textbf{準備項目} & \textbf{具體要求} & \textbf{注意事項} \\
+        \midrule
+        禁食時間 & 下午導管:10AM後禁食;隔天上午:0AM開始禁食 & 緊急情況可豁免 \\
+        同意書簽署 & 心導管同意書、支架自費說明書、ICU同意書 & 家屬須充分了解風險 \\
+        靜脈通路 & On IC(注意左右手選擇) & 避開禁治療側肢體 \\
+        手圈配戴 & 配戴於On IC側 & 便於識別注射部位 \\
+        檢體採集 & U/A、Stool routine & Stool未留出不勉強 \\
+        術前用藥 & DAPT藥物必須服用 & Bokey/Plavix/Brilinta/Prasugrel \\
+        術前準備 & 換手術衣、排空膀胱 & 減少術中不適 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{術前檢查確認}
+\begin{itemize}[nosep]
+    \item 抽血報告檢視:Creatinine是否異常→需要Hydration(洗腎除外)
+    \item Hb檢查:是否過低→可能潛在出血風險
+    \item CXR檢查:確認無異常(腫塊或積水)
+    \item 凝血功能:INR、aPTT確認正常範圍
+\end{itemize}
+
+\subsection{心導管術後照護標準}
+\subsubsection{生命徵象監測時程}
+\begin{table}[h]
+    \centering
+    \caption{術後監測時程表}
+    \begin{tabular}{p{3cm} p{5cm} p{6cm}}
+        \toprule
+        \textbf{時間點} & \textbf{監測頻率} & \textbf{注意事項} \\
+        \midrule
+        術後即刻 & Q30min × 2次 & 密切觀察生命徵象變化 \\
+        術後1-2小時 & Q1hr × 1次 & 評估穿刺部位狀況 \\
+        術後2-4小時 & Q2hr × 1次 & 逐步延長監測間隔 \\
+        術後4小時後 & Ward routine & 返回常規護理 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{穿刺部位照護}
+\begin{itemize}[nosep]
+    \item \textbf{手部穿刺}:依手上標示加壓時間+30分鐘(注意6P症狀)
+    \item \textbf{鼠蹊部穿刺}:
+    \begin{itemize}
+        \item 無Sheath:2kg沙袋加壓4小時,平躺2小時
+        \item 有Sheath:測ACT time >150後移除,2kg沙袋加壓4小時,平躺2小時
+    \end{itemize}
+\end{itemize}
+
+\warning{
+加壓過程中務必密切注意傷口滲血或血腫形成。發現任何異常立即通報主治醫師。
+}
+
+\subsection{心律調節器植入術}
+\subsubsection{PPM/ICD/CRT術前準備}
+\begin{table}[h]
+    \centering
+    \caption{心律調節器植入術前準備}
+    \begin{tabular}{p{4cm} p{8cm} p{4cm}}
+        \toprule
+        \textbf{準備項目} & \textbf{具體要求} & \textbf{特殊注意} \\
+        \midrule
+        同意書 & PPM電子同意書+紙本型號說明書 & 確保家屬理解設備 \\
+        靜脈通路 & IC置於PPM同側,手圈戴非IC手 & 避開禁治療肢體 \\
+        禁食 & 當天下午:10AM後;隔天上午:0AM開始 & 同心導管標準 \\
+        用藥調整 & DAPT當天可服用;NOAC需詢問醫師 & 評估出血風險 \\
+        預防感染 & 術前30分鐘Cefa 1g IV,術後Q8h使用一天 & 預防植入物感染 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{PPM術後照護}
+\begin{itemize}[nosep]
+    \item 平躺至隔天上午照CXR(起身時需床旁協助,不可使用PPM側手臂支撐)
+    \item 術後當天EKG stat,注意PPM wound hematoma或bleeding
+    \item 隔天CXR(PA+left lateral view),務必站立照射
+    \item 抗生素使用:Cefa 1g IV Q8h × 1天,Acetal PRN
+    \item 出院前確認主治醫師已檢視CXR
+\end{itemize}
+
+\subsection{出院病摘書寫標準}
+\subsubsection{診斷書寫格式要求}
+出院診斷必須清晰易讀,便於急診或下班同事快速掌握病情。
+
+\begin{table}[h]
+    \centering
+    \caption{出院診斷書寫標準}
+    \begin{tabular}{p{4cm} p{10cm}}
+        \toprule
+        \textbf{格式要求} & \textbf{具體說明} \\
+        \midrule
+        使用縮寫 & 在診斷格最下方附上縮寫對照表 \\
+        編號格式 & 1.\_(數字、句點、空一格)再寫診斷 \\
+        分行縮排 & 診斷與處置以換行鍵換行,空白鍵縮排 \\
+        術式記錄 & 導管報告診斷都需有縮排與換行 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\note{
+適當的分行、縮排與縮寫使用,可大幅提高病歷可讀性,有助於醫療團隊快速掌握診斷與治療過程。
+}
+
+\subsection{特殊患者管理}
+\subsubsection{CKD患者導管前準備}
+對於慢性腎臟病患者(Cre >1.4 mg/dL或eGFR <50 ml/hour),需要特殊的預防性處置:
+
+\begin{itemize}[nosep]
+    \item 使用CKD risk calculator計算對比劑腎病變風險
+    \item 預防性水化:N/S 1000ml以pump方式,1 ml/kg/hour速度給予
+    \item 範例:65kg患者,Cre 1.8 mg/dL,給予N/S 1000ml IV pump run 65 ml/hour
+    \item 總時間約15小時,需前一晚開始pump給予
+\end{itemize}
+
+\subsubsection{謝慕揚醫師患者特殊規定}
+\begin{itemize}[nosep]
+    \item 門診常規手術(CAG、PAOD angio)患者均不需NPO
+    \item 病房患者不需NPO,僅限謝醫師患者
+    \item 其他醫師患者仍須遵循標準NPO規定
+    \item 加護病房患者NPO需3小時
+    \item 患者飢餓或口渴可給予2.5\% G/S 500ml IV drip once
+\end{itemize}
+
+\subsection{出院前查核清單}
+確保患者安全出院,所有項目均須確認完成:
+
+\begin{table}[h]
+    \centering
+    \caption{出院前必要查核項目}
+    \begin{tabular}{p{4cm} p{8cm} p{4cm}}
+        \toprule
+        \textbf{查核項目} & \textbf{確認標準} & \textbf{異常處理} \\
+        \midrule
+        住院用藥確認 & 確認是否帶到DAPT & 補充遺漏藥物 \\
+        穿刺傷口 & clean、no hematoma、能站立 & 延後出院觀察 \\
+        生命徵象 & 體溫<39°C、SBP>110mmHg & 評估感染或低血壓 \\
+        體重與尿量 & 記錄完整、無明顯異常 & 評估心衰狀況 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{患者與家屬衛教}
+\subsubsection{出院衛教重點}
+\begin{itemize}[nosep]
+    \item 教導患者及家屬辨別各種抗血小板藥物(Bokey/Plavix/Brilinta/Prasugrel)
+    \item 強調不可自行停用DAPT,手術或拔牙前須諮詢心臟科醫師
+    \item 告知基層醫師目前使用DAPT
+    \item 規則返診的重要性,注意出血情形
+    \item 術後活動限制與傷口照護
+\end{itemize}
+
+\note{
+完整的患者衛教是確保治療成功的關鍵環節。護理人員應確實執行衛教內容,必要時可播放衛教影片加強效果。
+}
+
+\section{臨床推理與整合}
+
+\subsection{資料整合}
+收集完病史、理學檢查與病歷回顧後,需要進行系統性整合:
+\begin{itemize}[nosep]
+    \item 識別關鍵症狀與徵象
+    \item 建立症狀群組與系統關聯
+    \item 考慮年齡、性別、風險因子
+    \item 評估症狀嚴重程度與急迫性
+    \item 整合過往病史與檢查資料
+\end{itemize}
+
+\subsection{鑑別診斷思考}
+\begin{itemize}[nosep]
+    \item 列出可能診斷(至少3-5個)
+    \item 依據可能性與嚴重程度排序
+    \item 識別不可錯失的診斷(Can't miss diagnosis)
+    \item 規劃進一步檢查策略
+    \item 考量過往檢查結果的影響
+\end{itemize}
+
+\note{
+良好的臨床推理需要將病史、理學檢查、過往病歷資料與基礎醫學知識結合,形成合理的診斷假設。
+}
+
+\section{病歷記錄}
+
+\subsection{病歷撰寫原則}
+\begin{itemize}[nosep]
+    \item 客觀、準確、完整
+    \item 使用標準醫學術語
+    \item 避免主觀判斷與推測
+    \item 記錄陰性發現的重要性
+\end{itemize}
+
+\subsection{SOAP格式}
+\begin{itemize}[nosep]
+    \item \textbf{S}ubjective:病人主觀敘述的症狀
+    \item \textbf{O}bjective:客觀的理學檢查與檢驗結果
+    \item \textbf{A}ssessment:臨床評估與診斷
+    \item \textbf{P}lan:治療與追蹤計畫
+\end{itemize}
+
+\section{常見錯誤與注意事項}
+
+\begin{table}[h]
+    \centering
+    \caption{病史詢問與理學檢查常見錯誤}
+    \begin{tabular}{p{4cm} p{5cm} p{5cm}}
+        \toprule
+        \textbf{錯誤類型} & \textbf{常見表現} & \textbf{改善方法} \\
+        \midrule
+        病史不完整 & 遺漏重要症狀、未詢問系統回顧 & 使用檢查表確認完整性 \\
+        理學檢查不確實 & 聽診時間太短、未按順序檢查 & 標準化檢查流程訓練 \\
+        溝通技巧不佳 & 過度使用醫學術語、缺乏同理心 & 溝通技巧訓練與反思 \\
+        資料整合不足 & 無法連結症狀與徵象 & 加強臨床推理訓練 \\
+        病歷記錄不當 & 記錄不完整、主觀判斷過多 & 病歷寫作規範訓練 \\
+        報告判讀錯誤 & 未檢視原始影像、忽略趨勢 & 系統性回顧訓練 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Portal系統使用常見錯誤}
+\begin{table}[h]
+    \centering
+    \caption{Portal系統使用常見錯誤與改善方法}
+    \begin{tabular}{p{4cm} p{5cm} p{5cm}}
+        \toprule
+        \textbf{錯誤類型} & \textbf{常見表現} & \textbf{改善方法} \\
+        \midrule
+        查詢範圍不足 & 只看最新報告,忽略趨勢 & 查詢至少6個月歷史 \\
+        數據判讀錯誤 & 不了解正常範圍 & 熟記重要正常值 \\
+        緊急狀況延誤 & 未及時通報異常 & 建立標準化通報流程 \\
+        影像未親自查看 & 只看文字報告 & 必須登入PACS檢視 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{報告判讀注意事項}
+\begin{itemize}[nosep]
+    \item 數值變化比絕對值更重要
+    \item 必須結合臨床症狀判斷
+    \item 不同實驗室的正常範圍可能不同
+    \item 藥物對檢查結果的影響
+    \item 病人年齡、性別對正常值的影響
+\end{itemize}
+
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本EPA採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\subsection{評量標準}
+\begin{table}[h]
+    \centering
+    \caption{EPA評量標準}
+    \begin{tabular}{p{3cm} p{5cm} p{6cm}}
+        \toprule
+        \textbf{評量面向} & \textbf{評量要點} & \textbf{卓越表現標準} \\
+        \midrule
+        專業自我介紹 & 身份識別、工作說明、責任範圍 & 能有效建立醫病關係,清楚說明工作內容 \\
+        病史詢問 & 系統性、完整性、相關性 & 能有效引導對話,獲得關鍵資訊 \\
+        理學檢查 & 技術正確性、系統性 & 檢查技巧熟練,能發現細微徵象 \\
+        病歷資料回顧 & 完整性、系統性、原始資料檢視 & 能系統性回顧所有相關資料,親自檢視影像 \\
+        報告判讀 & 準確性、趨勢分析、緊急識別 & 能正確判讀並識別需緊急處理的異常 \\
+        臨床推理 & 資料整合、診斷思考 & 能建立合理鑑別診斷與檢查計畫 \\
+        溝通技巧 & 醫病關係、同理心 & 能建立良好關係,獲得病人信任 \\
+        專業態度 & 責任感、學習態度 & 主動學習,接受回饋並改進 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量工具}
+\begin{itemize}[nosep]
+    \item 直接觀察評估表
+    \item 病歷品質評核
+    \item 360度回饋問卷
+    \item 學習歷程記錄
+    \item 反思報告
+\end{itemize}
+
+\note{
+評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。
+}
+
+\section{學習資源與建議}
+
+\subsection{推薦閱讀}
+學員可參考以下文獻深入學習:
+\begin{itemize}
+    \item Bickley, L. S., \& Szilagyi, P. G. (2017). \textit{Bates' Guide to Physical Examination and History Taking}. 12th edition.
+    \item McGee, S. (2018). \textit{Evidence-Based Physical Diagnosis}. 4th edition.
+    \item Sapira, J. D., \& Orient, J. M. (2010). \textit{Sapira's Art \& Science of Bedside Diagnosis}. 4th edition.
+\end{itemize}
+
+\subsection{實習建議}
+\begin{itemize}[nosep]
+    \item 每日至少完成2-3位新病人的完整病史詢問與理學檢查
+    \item 每日系統性回顧至少5位病患的完整檢查報告
+    \item 定期與主治醫師討論病例,獲得回饋
+    \item 參與教學查房,學習資深醫師的臨床推理過程
+    \item 練習標準化病人案例
+    \item 參與跨團隊討論,了解不同觀點
+    \item 定期參加影像判讀教學會議
+\end{itemize}
+
+\subsection{自我評估}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋(主治醫師、護理師、病人)
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+\end{itemize}
+
+\subsection{進階學習資源}
+\begin{itemize}[nosep]
+    \item 心臟學會影像判讀指引
+    \item 國際心電圖標準判讀準則
+    \item 醫院內部教學資料庫
+    \item 線上影像判讀訓練平台
+\end{itemize}
+
+\section{總結}
+
+病史詢問、理學檢查與檢查報告判讀是內科醫師的基本功,需要透過反覆練習與持續改進來精進。本EPA的目標是培養住院醫師具備:
+
+\begin{importantbox}
+\textbf{關鍵要點}:
+\begin{itemize}[nosep]
+    \item 系統性且完整的資料收集能力
+    \item 準確的理學檢查技巧
+    \item 完整的病歷資料回顧能力
+    \item 正確的檢查報告判讀能力
+    \item 良好的醫病溝通技巧
+    \item 合理的臨床推理能力
+    \item 專業的病歷記錄能力
+    \item 有效的跨科室協調能力
+\end{itemize}
+\end{importantbox}
+
+記住,每一次的病史詢問、理學檢查與病歷回顧都是學習的機會,透過持續的實作、反思與改進,才能成為一位優秀的內科醫師。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} EPA的核心在於「可委託性」- 當您能夠安全、獨立地執行完整的病史詢問、理學檢查、病歷資料回顧與報告判讀,並做出合理的臨床判斷時,就達到了這個EPA的目標。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{9}
+
+\bibitem{bickley2017}
+Bickley, L. S., \& Szilagyi, P. G. (2017). \textit{Bates' Guide to Physical Examination and History Taking}. 12th edition. Wolters Kluwer.
+
+\bibitem{mcgee2018}
+McGee, S. (2018). \textit{Evidence-Based Physical Diagnosis}. 4th edition. Elsevier.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{acc2019}
+American College of Cardiology. (2019). \textit{2019 AHA/ACC Guideline on the Primary Prevention of Cardiovascular Disease}.
+
+\bibitem{esc2021}
+European Society of Cardiology. (2021). \textit{2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure}.
+
+\bibitem{aha2020}
+American Heart Association. (2020). \textit{Echocardiography Guidelines for Clinical Practice}.
+
+\end{thebibliography}
+
+\end{document}

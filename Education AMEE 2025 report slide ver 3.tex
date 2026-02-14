@@ -1,0 +1,918 @@
+% Defining a comprehensive LaTeX preamble
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+
+% Setting Chinese font
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% 全域字體大小調整參數 - 可以統一調整整份投影片的字體大小
+\newcommand{\globalscale}{0.9}  % 調整這個數值來統一放大或縮小字體 (0.8=80%, 0.9=90%, 1.0=100%)
+
+% 定義統一的字體大小命令
+\newcommand{\contentsize}{\fontsize{9pt}{11pt}\selectfont}
+\newcommand{\tablesize}{\fontsize{7.5pt}{9pt}\selectfont}
+\newcommand{\smalltablesize}{\fontsize{6.5pt}{8pt}\selectfont}
+
+% Theme setup
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Custom colors
+\definecolor{ameeblue}{RGB}{0,114,188}
+\definecolor{ameered}{RGB}{186,24,27}
+\definecolor{ameegray}{RGB}{120,120,120}
+\definecolor{lightblue}{RGB}{230,240,250}
+\definecolor{lightred}{RGB}{255,240,240}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+% 徹底移除所有黑色背景
+\setbeamercolor{structure}{fg=ameeblue}
+\setbeamercolor{frametitle}{bg=ameeblue,fg=white}
+\setbeamercolor{title}{bg=ameeblue,fg=white}
+\setbeamercolor{titlelike}{bg=ameeblue,fg=white}
+
+% 調色盤設定
+\setbeamercolor{palette primary}{bg=ameeblue,fg=white}
+\setbeamercolor{palette secondary}{bg=ameeblue!80,fg=white}
+\setbeamercolor{palette tertiary}{bg=ameeblue!60,fg=white}
+\setbeamercolor{palette quaternary}{bg=ameeblue!40,fg=black}
+
+% 標題頁設定
+\setbeamercolor{title page}{fg=white}
+\setbeamercolor{author in head/foot}{fg=white}
+\setbeamercolor{title in head/foot}{fg=white}
+\setbeamercolor{institute in head/foot}{fg=white}
+\setbeamercolor{date in head/foot}{fg=white}
+
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black}
+\setbeamercolor{date}{fg=black}
+
+% 背景設定為白色
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=black,bg=white}
+
+% 設定 block 的背景和邊框顏色，避免黑色背景遮擋文字
+\setbeamercolor{block title}{bg=ameeblue!80,fg=white}
+\setbeamercolor{block body}{bg=lightblue,fg=black}
+\setbeamercolor{block title alerted}{bg=ameered!80,fg=white}
+\setbeamercolor{block body alerted}{bg=lightred,fg=black}
+\setbeamercolor{block title example}{bg=ameegray!60,fg=white}
+\setbeamercolor{block body example}{bg=lightgray,fg=black}
+
+% 移除 beamer 模板中的陰影效果
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+% 調整 beamer 字體大小
+\setbeamerfont{normal text}{size=\fontsize{10pt}{12pt}}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{title}{size=\Large}
+
+\title{AMEE 2025 Conference Highlights}
+\subtitle{Barcelona, Spain}
+\author{謝慕揚, MD, PhD, FESC}
+\institute{台大醫院新竹分院教學部副主任}
+\date{2025年8月23-27日}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{目錄}
+\tableofcontents
+\end{frame}
+
+% 會議簡介
+\section{會議簡介}
+
+\begin{frame}{AMEE 2025概述}
+\frametitle{AMEE 2025概述}
+
+\textbf{會議基本資訊：}
+\begin{itemize}
+    \item \textbf{會議名稱}：An International Association for Medical Education
+    \item \textbf{地點}：Barcelona, Spain
+    \item \textbf{時間}：2025年8月23-27日
+    \item \textbf{性質}：全球最重要的醫學教育年會之一
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{會議特色：}
+\begin{itemize}
+    \item 來自世界各地的醫學教育工作者齊聚
+    \item 分享最新教育理念、研究成果與實務經驗
+    \item 涵蓋從教育理論到實務應用的各個面向
+    \item 從評估方法到教師發展的完整內容
+\end{itemize}
+\end{frame}
+
+% Workshop執行方式
+\section{Workshop執行模式}
+
+\begin{frame}{AMEE Workshop特色}
+\frametitle{AMEE Workshop特色}
+
+\textbf{基本架構：}
+\begin{itemize}
+    \item \textbf{時間長度}：每場Workshop為三個小時
+    \item \textbf{分組形式}：所有參與者分組進行,每組有自己的桌次
+    \item \textbf{師資配置}：每個Workshop由三位老師共同主持
+    \item \textbf{演講時間}：每位老師約有15到20分鐘的演講時間
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{三位老師的協作模式：}
+\begin{enumerate}
+    \item \textbf{共同主持}：三個老師都一起主持,共同分擔主持工作
+    \item \textbf{角色分工}：
+    \begin{itemize}
+        \item 其中一個老師會走到學生桌子裡面去鼓勵學生參與啟發問題
+        \item 台上有兩個老師會負責交替發言提供討論
+    \end{itemize}
+    \item \textbf{互動模式}：大家都會互相打斷,然後很客氣地跟大家一起說自己怎麼想
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Workshop的獨特學習氛圍}
+\frametitle{Workshop的獨特學習氛圍}
+
+\begin{block}{Workshop的獨特學習氛圍}
+\begin{itemize}
+    \item 這個會議很有趣,全部都是經驗老道的老師
+    \item 鼓勵其他學生（這些學生其實本身也都是經驗豐富的老師）
+    \item 很多發言,都很有哲理
+    \item 每隔幾分鐘就有很精彩的對話可以被聽到
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\textbf{學習收穫：}
+\begin{itemize}
+    \item 體驗經驗豐富的教育者如何進行對話
+    \item 觀察如何在教學中鼓勵參與和批判性思考
+    \item 學習如何建立包容性的學習環境
+    \item 理解協作式教學的真正意涵
+\end{itemize}
+\end{frame}
+
+% 核心教育理念
+\section{核心教育理念}
+
+\begin{frame}{Constructive Alignment（建構式配合）}
+\frametitle{Constructive Alignment（建構式配合）}
+\contentsize
+
+\textbf{核心概念：}由澳洲教育學者John Biggs提出,強調教學系統中各個要素之間的一致性和協調性。
+
+\vspace{0.3cm}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{2.8cm}p{8.5cm}}
+\toprule
+\textbf{要素} & \textbf{說明} \\
+\midrule
+學習目標 & 明確定義學生應該學會什麼,使用具體、可測量的行為動詞,通常採用Bloom's Taxonomy分類 \\
+\midrule
+教學活動 & 設計能夠幫助學生達成學習目標的學習經驗,提供適當的學習機會和練習,促進學生主動參與和深度學習 \\
+\midrule
+評量方法 & 評量方式必須能夠測量學生是否達成學習目標,評量標準與學習目標保持一致,包括形成性評量和總結性評量 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{實施原則：}
+\begin{enumerate}
+    \item \textbf{向後設計（Backward Design）}：先確定學習目標,再設計評量方式,最後規劃教學活動
+    \item \textbf{一致性（Consistency）}：三個要素之間必須彼此呼應,避免教學內容與評量方式脫節
+    \item \textbf{透明度（Transparency）}：學習目標對學生清楚明確,評量標準公開透明
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Career Trajectory（職涯軌跡）}
+\frametitle{Career Trajectory（職涯軌跡）}
+\contentsize
+
+\textbf{定義與特徵：}
+Career Trajectory是指個人在職業生涯中所經歷的路徑、發展階段和變化過程。
+
+\vspace{0.3cm}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{3.5cm}p{7.5cm}}
+\toprule
+\textbf{類型} & \textbf{特徵與範例} \\
+\midrule
+傳統線性軌跡 & 在同一領域或組織內逐步晉升,具有清晰的階層結構。例：醫師從住院醫師→主治醫師→科主任→院長 \\
+\midrule
+螺旋式軌跡 & 跨領域但相關的職業轉換,技能和經驗可相互轉移。例：從臨床醫師→醫學教育→醫院管理 \\
+\midrule
+過渡式軌跡 & 頻繁變換不同領域的工作,追求多元經驗和技能。例：醫師兼作家、顧問、創業家 \\
+\midrule
+專家式軌跡 & 在特定領域深度發展,成為該領域的權威專家。例：專精某種手術技術的外科醫師 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{職涯發展階段：}探索期 → 建立期 → 維持期 → 轉換期 → 傳承期
+\end{frame}
+
+% 專業主義議題
+\section{專業主義議題}
+
+\begin{frame}{Weaponized Professionalism（武器化專業主義）}
+\frametitle{Weaponized Professionalism（武器化專業主義）}
+\contentsize
+
+\textbf{核心概念：}將專業主義的標準和規範作為工具,用來排斥、控制或壓制某些群體,特別是邊緣化群體的現象。
+
+\vspace{0.3cm}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{3.5cm}p{7.5cm}}
+\toprule
+\textbf{表現形式} & \textbf{具體例子} \\
+\midrule
+外觀和行為標準 & 對髮型、服裝的嚴格規定（如禁止某些文化髮型）,要求「標準」的溝通方式（往往反映主流文化） \\
+\midrule
+語言和溝通 & 將口音或方言視為「不專業」,要求特定的溝通風格,忽視文化差異對溝通方式的影響 \\
+\midrule
+評量和考核 & 使用帶有文化偏見的評量標準,對來自不同背景學生的雙重標準,主觀評量中的隱性偏見 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{應對策略：}
+\begin{itemize}
+    \item \textcolor{ameered}{重新定義專業主義}：將重點放在核心價值而非表面行為
+    \item \textcolor{ameered}{教育和培訓}：提高對隱性偏見的認識,培養文化勝任力
+    \item \textcolor{ameered}{政策改革}：檢視現有的專業標準和評量方式
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Professionalism as Conversation（對話式專業主義）}
+\frametitle{Professionalism as Conversation（對話式專業主義）}
+
+\textbf{核心理念：}「Professionalism is not a prescription but should be a conversation」
+
+\vspace{0.5cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{傳統處方式專業主義}
+\begin{itemize}
+    \item 提供固定的行為準則和標準
+    \item 強調遵循既定規範
+    \item 採用「一刀切」的方式
+    \item 缺乏彈性和脈絡考量
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{對話式專業主義}
+\begin{itemize}
+    \item 鼓勵開放性討論和反思
+    \item 考慮不同觀點和經驗
+    \item 適應不同文化和情境
+    \item 促進批判性思考
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+
+\textbf{為什麼需要對話？}
+\begin{enumerate}
+    \item \textbf{複雜性與脈絡性}：專業情境往往複雜且獨特,需要考量文化、社會、個人因素
+    \item \textbf{多元性與包容性}：不同背景的人對專業的理解不同,避免單一文化霸權
+    \item \textbf{發展性與學習性}：專業主義是持續發展的過程,透過對話促進深度學習
+\end{enumerate}
+\end{frame}
+
+% 評估相關議題
+\section{評估相關議題}
+
+\begin{frame}{Contrast Effect（對比效應）}
+\frametitle{Contrast Effect（對比效應）}
+
+\textbf{定義：}在評估或判斷時,前面經歷的刺激會影響對後續刺激的感知和評價的現象。
+
+\vspace{0.5cm}
+
+\textbf{在Multiple Mini-Interview (MMI)情境中的表現：}
+
+\begin{block}{MMI（Multiple Mini Interview,多站迷你面試）}
+\begin{itemize}
+    \item 考生需要通過多個獨立的面試站點（通常6-10個站）
+    \item 每站時間較短（通常5-10分鐘）
+    \item 每站由不同的面試官評分
+    \item 每站評估不同的能力或情境（溝通能力、批判思考、倫理判斷等）
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+
+\textbf{評分者角度：}
+\begin{itemize}
+    \item 如果評審員剛評完一個表現優秀的考生,可能會對下一個普通表現的考生評分偏低
+    \item 相反地,在評完表現較差的考生後,可能會對接下來普通表現的考生給予較高評分
+\end{itemize}
+\end{frame}
+
+\begin{frame}{減少Contrast Effect的策略}
+\frametitle{減少Contrast Effect的策略}
+
+\begin{enumerate}
+    \item \textbf{標準化評分標準}：使用詳細的評分量表和具體行為指標
+    
+    \item \textbf{評審員訓練}：讓評審員認識這種偏誤並學習如何避免
+    
+    \item \textbf{休息時間}：在站點間給評審員短暫的重置時間
+    
+    \item \textbf{多重評審}：同一站點由多位評審員評分
+    
+    \item \textbf{評分校準}：定期進行評審員間的一致性訓練
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\begin{alertblock}{重要提醒}
+這在臨床教育評估設計中是很重要的考量因素。設計MMI時必須考慮到對比效應對評分公平性的影響。
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{CCC架構（臨床能力評估委員會）}
+\frametitle{CCC架構（臨床能力評估委員會）}
+\contentsize
+
+\textbf{委員會組成：}
+\begin{itemize}
+    \item 臨床醫師代表、醫學教育專家、基礎醫學教授
+    \item 住院醫師代表、外部專家（如醫學會代表）、學生代表
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{主要職責：}
+\begin{itemize}
+    \item 評估醫學生臨床能力、制定能力評估標準
+    \item 監督實習醫師表現、處理學習困難個案、決定升級或留級
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{table}[h]
+\centering
+\smalltablesize
+\begin{tabular}{p{2.3cm}p{2.8cm}p{4.2cm}}
+\toprule
+\textbf{衝突類型} & \textbf{情況} & \textbf{緩解措施} \\
+\midrule
+師生關係衝突 & 委員曾是被評估學生的指導教師 & 主動揭露師生關係,完全迴避該學生評估 \\
+醫院利益衝突 & 委員所屬醫院與學生實習醫院有合作或競爭關係 & 採用匿名化評估資料,引入中立醫院專家意見 \\
+家族關係衝突 & 委員與學生有親屬關係 & 絕對迴避原則,完全退出評估程序 \\
+經濟利益衝突 & 委員在醫學教育相關企業有投資 & 年度財務利益揭露,涉及相關產品評估時迴避 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+% 研究方法
+\section{研究方法}
+
+\begin{frame}{Cook (2008) 研究方法框架}
+\frametitle{Cook (2008) 研究方法框架}
+
+\textbf{教育研究的三個目的：}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{1.8cm}p{2.3cm}p{1.8cm}p{4.2cm}}
+\toprule
+\textbf{目的} & \textbf{解決的問題} & \textbf{焦點} & \textbf{理由} \\
+\midrule
+描述 & 做了什麼？ & 活動/事件的說明 & 可重複性、透明度,讓其他人能夠重複、理解或基於既有成果進一步發展 \\
+\midrule
+證成 & 有效嗎？ & 評估效果 & 效能證據,提供證據證明特定過程或方法是有益的或達到預期目的 \\
+\midrule
+闡明 & 為什麼/如何有效？ & 機制、理論 & 指導理論、實務,深化理解、指導未來實務,並透過闡述基本原理幫助跨情境的知識轉移 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{研究現況：}
+\begin{itemize}
+    \item \textcolor{ameered}{\textbf{證成}}研究最為常見（72\%）
+    \item 其次是\textbf{描述}（16\%）
+    \item \textcolor{ameered}{\textbf{闡明}}研究最少見（12\%）
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{重要提醒}
+理想上應努力進行更多闡明型研究以建立更強的理論基礎。
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Post-positivist與Constructivist研究典範}
+\frametitle{Post-positivist與Constructivist研究典範}
+\begin{table}[h]
+\centering
+\smalltablesize
+\begin{tabular}{p{2.2cm}p{4.3cm}p{4.3cm}}
+\toprule
+\textbf{面向} & \textbf{Post-positivist（後實證主義）} & \textbf{Constructivist（建構主義）} \\
+\midrule
+本體論（現實觀） & 相信存在客觀的現實,但認為我們只能不完美地理解它。現實是「可能真實的」(probably true),而非絕對確定 & 現實是社會建構的,存在多重的、主觀建構的現實。沒有單一的「真實」現實,而是多個同等有效的現實詮釋 \\
+\midrule
+認識論（知識觀） & 追求客觀性,但承認完全客觀是不可能的。強調透過嚴謹的方法控制偏誤和錯誤,相信透過多重驗證可以逼近真理 & 知識是透過研究者與被研究者的互動建構出來的。價值觀念(values)不可避免地影響研究過程 \\
+\midrule
+方法論 & 主要使用量化方法,但也接納質性方法作為補充。重視實驗設計、隨機對照試驗,強調信度、效度、可重複性 & 主要使用質性方法（民族誌、現象學、敘事分析等）。重視脈絡、主觀經驗和意義建構 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{在MMI研究中的應用：}
+\begin{itemize}
+    \item \textbf{Post-positivist取向}：MMI分數與客觀結果的相關性（統計分析、信度研究、預測效度驗證）
+    \item \textbf{Constructivist取向}：面試官如何在社會脈絡中建構判斷（參與觀察、深度訪談、主題分析）
+\end{itemize}
+\end{frame}
+
+% AI與教育工具
+\section{AI與教育工具}
+
+\begin{frame}{AI與醫學教育工具}
+\frametitle{AI與醫學教育工具}
+
+\textbf{現場示範：ChatGPT生成考試題目}
+\begin{itemize}
+    \item 快速產生多樣化的評估題目
+    \item 根據學習目標調整難度
+    \item 提供不同形式的評量方式
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{重要的AI教育工具：}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{3.8cm}p{6.8cm}}
+\toprule
+\textbf{工具名稱} & \textbf{功能與特色} \\
+\midrule
+Affinity Learning & 免費平台,透過互動式情境模擬真實世界經驗 \\
+& \url{https://affinitylearning.ca} \\
+\midrule
+IU Bloomington Simulation Scenario Builder Tool & 協助模擬教育工作者建立醫療保健模擬案例,免費提供 \\
+& \url{https://chatgpt.com/g/g-mw2EfdWEj} \\
+\midrule
+AI Patient Actor App (Dartmouth) & 讓醫療學員練習臨床推理和溝通技巧,提供即時回饋 \\
+& \url{https://geiselmed.dartmouth.edu/thesen/patient-actor-app/} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{其他創新教育工具}
+\frametitle{其他創新教育工具}
+
+\textbf{Paper-based Simulation：}
+\begin{itemize}
+    \item 會議中討論了紙本模擬的應用
+    \item 展示了不依賴高科技設備也能進行有效的臨床情境訓練
+    \item 成本低、易於實施、適合資源有限的環境
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Standardized Patient的專業化：}
+\begin{itemize}
+    \item 芬蘭同學分享他們的經驗：
+    \begin{itemize}
+        \item 聘請專業演員擔任standardized patient
+        \item 提供專業的表演課程訓練
+        \item 提升模擬訓練的真實性和教育效果
+    \end{itemize}
+    \item 台大醫院的SP也有上專業的表演課程訓練,顯示這已成為國際趨勢
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{重要啟發}
+科技工具與傳統方法的結合,創造更豐富的學習體驗。重視人文關懷和批判思考。
+\end{alertblock}
+\end{frame}
+
+% 其他重要議題
+\section{其他重要議題}
+
+\begin{frame}{其他重要研究議題}
+\frametitle{其他重要研究議題}
+
+\textbf{Failure to Fail研究：}
+\begin{itemize}
+    \item \textbf{研究問題}：什麼時候我們會讓該被當掉的學生通過？
+    \item 探討評估者為何難以給予不及格評分
+    \item 影響評分決策的因素
+    \item 如何建立公平且嚴謹的評估機制
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Visual Thinking Strategies (VTS)：}
+\begin{itemize}
+    \item 基於證據的教學方法,透過藝術分析和結構化探究
+    \item 培養觀察能力、發展批判性思考
+    \item 提升溝通技巧、促進團隊討論
+    \item 參考文獻：\url{https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-025-06642-9}
+\end{itemize}
+
+\vspace{0.5cm}
+\tiny
+\textbf{Simulation Scenario Development：}
+\begin{itemize}
+    \item 使用Simulation Scenario Evaluation Tool (SSET)評估情境品質
+    \item 參考：\url{https://pmc.ncbi.nlm.nih.gov/articles/PMC8936988/}
+    \item 確保情境設計符合學習目標,提供真實的臨床挑戰
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Discourse（話語/論述）}
+\frametitle{Discourse（話語/論述）}
+
+\textbf{多層面的意義：}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{語言學/溝通學意義}
+\begin{itemize}
+    \item 超越單句的語言使用
+    \item 包含完整的對話、文章或演說
+    \item 有連貫性、結構性的語言表達
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{社會學/哲學意義}
+\begin{itemize}
+    \item 特定社群或領域的話語體系和思維模式
+    \item 反映權力關係、社會價值觀和知識結構
+    \item 例：醫學discourse、法律discourse
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{傅柯(Foucault)的Discourse理論}
+\begin{itemize}
+    \item discourse不只是語言,更是權力和知識的載體
+    \item 塑造我們如何理解世界和自我
+    \item 例如：
+    \begin{itemize}
+        \item 醫學discourse如何定義「正常」與「病態」
+        \item 教育discourse如何建構「好學生」標準
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{在醫學教育中的應用}
+\begin{itemize}
+    \item 專業discourse：醫學術語和表達方式
+    \item 教學discourse：臨床教學的話語框架
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{block}{簡單說}
+discourse就是「特定領域的說話和思考方式」,它不只是語言表面,更深層影響我們如何理解和建構專業知識。
+\end{block}
+\end{frame}
+
+% 本院同仁發表成果
+\section{本院同仁發表成果}
+
+\begin{frame}{本院同仁於AMEE 2025發表成果}
+\frametitle{本院同仁於AMEE 2025發表成果}
+\vspace{-0.3cm}
+
+\begin{table}[h]
+\centering
+\fontsize{6pt}{7.5pt}\selectfont
+\begin{tabular}{p{1.3cm}p{1.8cm}p{5.2cm}p{2.2cm}}
+\toprule
+\textbf{發表者} & \textbf{單位職類} & \textbf{發表主題} & \textbf{發表形式} \\
+\midrule
+廖士程 & 精神醫學部醫師 & Innovative Integration of Resilience Training in Medical Education: Addressing Difficult Doctor-Patient Encounters & Short Communication \\
+\midrule
+黃沅羚 & 急診醫學部醫師 & Video-Based Assessment as an Alternative to On-Site Evaluation Using the Team Emergency Assessment Measure (TEAM) Questionnaire: An In-Situ Simulation Study & e-Poster \\
+\midrule
+張家豪 & 急診醫學部醫師 & Enhancing In Situ Simulation as a Tool for Interprofessional Continuing Professional Development & e-Poster (In Person) \\
+\midrule
+陳湘欣 & 護理部護理師 & Empowering Emergency Confidence through Technology: A Study on the Effectiveness of 3D Vista VR Training for New Emergency Nurses & Short Communication \\
+\midrule
+黃詩婷 & 護理部護理師 & Innovative Teaching of Digital Situation Escape Game for Nursing Assessment & Short Communication (Online) \\
+\midrule
+劉珮芳 & 藥劑部藥師 & Mastering PharmGKB: A Multimodal Learning Approach to Precision Medicine for Busy Pharmacists & e-Poster \\
+\midrule
+于心怡 & 檢驗醫學部檢驗師 & Healing and Empathy: Exploring Innovative Approaches to Holistic Medical Education Through Film Appreciation & e-Poster \\
+\midrule
+侯采辰 & 教學部行政 & Achieving Comparable Competency Through Structured POCUS Training: Insights from an EPA-Based Evaluation & Short Communication \\
+\midrule
+廖佳怡 & 教學部行政 & Improving quality of medical education by innovative teaching contest & Short Communication (Online) \\
+\midrule
+黃國良 & 教學部行政 & From preparation to performance: A comparative analysis of team success on evidence-based medicine contest & e-Poster \\
+\bottomrule
+\end{tabular}
+\end{table}
+\vspace{0.2cm}
+\textbf{註：}本表僅列出AMEE會議發表成果，另有台灣醫學教育年會發表1篇。
+\end{frame}
+
+\begin{frame}{本院同仁於台灣醫學教育年會發表成果}
+\frametitle{本院同仁於台灣醫學教育年會發表成果}
+
+\begin{table}[h]
+\centering
+\tablesize
+\begin{tabular}{p{1.5cm}p{2.5cm}p{6cm}p{1.5cm}}
+\toprule
+\textbf{發表者} & \textbf{單位職類} & \textbf{發表主題} & \textbf{發表形式} \\
+\midrule
+曾紀萍 & 復健部物理治療師 & Enhancing Physical Therapy Trainee Assessment: A Comparison of New and Existing Entrustable Professional Activities Forms & Poster \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{block}{本院同仁發表成果總結}
+\begin{itemize}
+    \item \textbf{AMEE 2025}：共10篇發表
+    \begin{itemize}
+        \item Short Communication：5篇（3篇現場、2篇線上）
+        \item e-Poster：5篇（4篇線上、1篇現場）
+    \end{itemize}
+    \item \textbf{台灣醫學教育年會}：共1篇發表
+    \item \textbf{跨領域參與}：涵蓋醫師、護理師、藥師、檢驗師、物理治療師及行政人員
+\end{itemize}
+\end{block}
+\end{frame}
+
+% 會議心得
+\section{會議心得與反思}
+
+\begin{frame}{教育理念的多元性}
+\frametitle{教育理念的多元性}
+
+AMEE 2025展現了醫學教育理論與實務的豐富多樣性：
+
+\begin{itemize}
+    \item \textbf{從建構式配合到對話式專業主義}
+    \begin{itemize}
+        \item 強調學習者中心的教育設計
+        \item 重視系統性思維和整體性規劃
+    \end{itemize}
+    
+    \item \textbf{從武器化專業主義的批判到包容性教育的倡議}
+    \begin{itemize}
+        \item 彰顯社會正義導向
+        \item 警惕專業標準可能帶來的排他性
+    \end{itemize}
+    
+    \item \textbf{從傳統研究典範到多元研究方法}
+    \begin{itemize}
+        \item 鼓勵理論創新
+        \item 整合量化與質性研究取向
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{alertblock}{核心訊息}
+醫學教育需要多元視角、批判思考和持續創新,避免單一標準的僵化思維。
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{科技與教育的融合}
+\frametitle{科技與教育的融合}
+
+AI工具的快速發展為醫學教育帶來新機會：
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{AI帶來的優勢：}
+\begin{itemize}
+    \item 模擬情境建構更加便捷
+    \item 個人化學習成為可能
+    \item 評估方式更加多元
+    \item 即時回饋提升學習效果
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{需要注意的事項：}
+\begin{itemize}
+    \item 仍需重視人文關懷
+    \item 培養批判思考能力
+    \item 避免過度依賴科技
+    \item 保持教育的溫度
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+
+\textbf{實用工具推薦：}
+\begin{itemize}
+    \item Affinity Learning - 免費互動式模擬平台
+    \item IU Bloomington Simulation Builder - 情境建構工具
+    \item AI Patient Actor App - 臨床溝通練習
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{block}{平衡觀點}
+善用科技工具提升教學效能,但不忘教育的人文本質和社會責任。
+\end{block}
+\end{frame}
+
+\begin{frame}{評估公平性的重要性}
+\frametitle{評估公平性的重要性}
+
+從對比效應到利益衝突管理,會議強調：
+
+\begin{enumerate}
+    \item \textbf{評估過程中的偏誤識別與控制}
+    \begin{itemize}
+        \item 認識對比效應、光環效應等評估偏誤
+        \item 建立標準化評分機制
+        \item 進行評審員訓練和校準
+    \end{itemize}
+    
+    \item \textbf{建立透明且公平的評估機制}
+    \begin{itemize}
+        \item 明確評估標準和程序
+        \item 多元評估方法的運用
+        \item 提供申訴和複核機制
+    \end{itemize}
+    
+    \item \textbf{重視多元觀點和文化敏感度}
+    \begin{itemize}
+        \item 避免單一文化標準
+        \item 考量不同背景學生的特殊需求
+        \item 建立包容性的評估環境
+    \end{itemize}
+    
+    \item \textbf{持續改進評估品質}
+    \begin{itemize}
+        \item 定期檢討評估機制
+        \item 收集多方回饋
+        \item 基於證據進行改善
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{對台灣醫學教育的啟示}
+\frametitle{對台灣醫學教育的啟示}
+
+\begin{enumerate}
+    \item \textbf{加強對話式專業主義教育}
+    \begin{itemize}
+        \item 從規定性標準轉向反思性對話
+        \item 培養批判思考能力
+        \item 建立包容性的學習環境
+    \end{itemize}
+    
+    \item \textbf{重視評估公平性}
+    \begin{itemize}
+        \item 建立完善的評估品質管控機制
+        \item 減少各種偏誤
+        \item 確保利益衝突管理
+    \end{itemize}
+    
+    \item \textbf{善用科技工具}
+    \begin{itemize}
+        \item 積極探索AI等新科技在教學與評估中的應用
+        \item 發展本土化的教育工具
+        \item 平衡科技與人文
+    \end{itemize}
+    
+    \item \textbf{促進包容性教育}
+    \begin{itemize}
+        \item 警惕專業主義標準可能帶來的排他性
+        \item 建立更包容的學習環境
+        \item 尊重多元文化背景
+    \end{itemize}
+    
+    \item \textbf{發展本土教育研究}
+    \begin{itemize}
+        \item 不僅引進國際經驗
+        \item 更要發展符合本地脈絡的教育實踐
+        \item 建立理論與實務的連結
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+% 結論
+\section{結論}
+
+\begin{frame}{核心訊息}
+\frametitle{AMEE 2025核心訊息}
+
+\begin{block}{醫學教育需要}
+\begin{itemize}
+    \item \textbf{對話而非處方}：透過持續對話建構專業主義
+    \item \textbf{公平而非形式}：重視評估的公平性與文化敏感度
+    \item \textbf{包容而非排斥}：警惕專業標準的武器化傾向
+    \item \textbf{創新而非僵化}：善用科技工具提升教學品質
+    \item \textbf{反思而非接受}：培養批判性思考與終身學習能力
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\textbf{未來展望：}
+\begin{itemize}
+    \item 持續改進醫學教育,培養具有專業能力、人文關懷與社會責任的優秀醫師
+    \item 建立更公平、包容、有效的教育評估體系
+    \item 善用科技創新,同時保持教育的溫度和深度
+    \item 發展本土化的教育理論與實踐
+\end{itemize}
+\end{frame}
+
+\begin{frame}{致謝}
+\frametitle{致謝}
+
+感謝本院支持參與AMEE 2025國際會議,此次學習經驗豐富且深具啟發性。
+
+\vspace{0.5cm}
+
+\textbf{特別感謝：}
+\begin{itemize}
+    \item AMEE大會主辦單位提供優質的學習平台
+    \item 各Workshop講師的精彩分享與討論
+    \item 國際同儕的交流與經驗分享
+    \item 本院同仁對醫學教育的持續支持
+\end{itemize}
+
+\vspace{0.5cm}
+
+期待將這些寶貴經驗轉化為實際行動,為提升本院醫學教育品質而努力。
+
+\vspace{1cm}
+
+\begin{center}
+\Large
+\textbf{謝謝聆聽！}
+
+%\vspace{0.5cm}
+
+\normalsize
+謝慕揚, MD, PhD, FESC\\
+台大醫院新竹分院教學部副主任\\
+2025年
+\end{center}
+\end{frame}
+
+\end{document}

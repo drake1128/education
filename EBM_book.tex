@@ -1,0 +1,131 @@
+% 主 LaTeX 檔案：main.tex
+% 這是教材的總檔案，使用 \include{} 來包含各章節
+% 您可以新增其他章節檔案，如 chapter2.tex 等
+
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\include{Drake_preamble}
+
+\title{實證醫學教材}
+\author{黃沛銓 MD\\謝慕揚 MD, PhD, FESC\\黃國良}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{實證醫學概述}
+\include{EBM_chapter1.tex}
+
+
+\chapter{醫療問題的制定}
+\include{EBM_chapter2}
+
+% 在此新增其他章節
+% \include{chapter2}
+% \include{chapter3}
+% ...
+
+\end{document}
+
+實證醫學教材目錄設計建議
+作為一個關於實證醫學（Evidence-Based Medicine, EBM）的教材，目錄的設計應以邏輯進階為原則，從基礎概念出發，逐步深入到方法論、應用實務，以及進階挑戰。這有助於讀者逐步建立知識框架，確保教材適合醫學學生、臨床醫師或研究人員使用。我的設計考量了EBM的核心元素，包括證據的產生、評估、整合與應用，同時融入倫理、統計和實踐指南，以維持全面性和實用性。目錄可分為主要章節，每章包含子節，以利於教學模組化。
+以下是建議的教材目錄結構，共分為五個主要部分，涵蓋約10-15章，視教材深度而定。每章可附以學習目標、案例研究和討論題，以強化互動性。
+第一部分：實證醫學基礎
+此部分介紹EBM的核心概念和歷史背景，為後續內容奠定基礎。
+
+實證醫學概述
+定義與原則
+EBM的歷史發展
+EBM在醫療決策中的角色
+
+醫療問題的制定
+PICO框架（Patient, Intervention, Comparison, Outcome）
+臨床問題的分類（診斷、治療、預後等）
+問題轉化為可搜尋的查詢
+
+
+第二部分：證據的產生與研究設計
+此部分聚焦於科學研究的基礎方法，幫助讀者理解證據的來源。
+
+研究設計類型
+觀察性研究（cohort、case-control）
+實驗性研究（隨機對照試驗，RCT）
+質性研究與混合方法
+
+統計學基礎
+描述性與推斷性統計
+置信區間、p值與統計顯著性
+偏差與混淆因素
+
+倫理與研究品質
+研究倫理原則（Helsinki宣言）
+證據等級體系（GRADE系統）
+研究報告標準（CONSORT、STROBE）
+
+
+第三部分：證據的搜尋與評估
+此部分強調如何獲取和批判性分析證據，培養讀者的批判思維。
+
+文獻搜尋策略
+資料庫使用（PubMed、Cochrane Library）
+搜尋術語與布林運算子
+灰色文獻與開放存取資源
+
+批判性評估
+評估研究的效度、可靠性和適用性
+工具如CASP checklist
+偏差來源（選擇偏差、出版偏差）
+
+系統回顧與meta-analysis
+系統回顧的步驟（PRISMA指南）
+Meta-analysis的統計方法
+異質性與敏感度分析
+
+
+第四部分：證據的整合與應用
+此部分橋接理論與實務，指導如何將證據應用於臨床情境。
+
+臨床指南與決策
+指南開發過程（AGREE工具）
+證據整合到患者照護
+共享決策模型
+
+EBM在專科領域的應用
+診斷與篩檢
+治療與預防
+公共衛生與政策
+
+實施EBM的障礙與策略
+常見挑戰（時間限制、資源不足）
+知識轉譯與實施科學
+案例分析與模擬
+
+
+第五部分：進階主題與未來展望
+此部分探討EBM的擴展與前沿議題，適合進階讀者。
+
+大數據與人工智慧在EBM中的角色
+電子健康記錄與實時證據
+機器學習在預測模型中的應用
+倫理考量
+
+EBM的全球視角
+發展中國家的挑戰
+文化與資源差異
+國際合作與知識分享
+
+未來方向與持續學習
+新興趨勢（如精準醫學）
+終身學習資源
+評估EBM實踐的指標

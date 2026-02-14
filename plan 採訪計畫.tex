@@ -1,0 +1,485 @@
+% 設定文件並引入必要套件
+\documentclass[12pt,a4paper]{article}
+
+% 中文支援套件
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% 其他必要套件
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=interview_blue,
+    citecolor=interview_blue,
+    urlcolor=interview_blue,
+    pdfborder={0 0 0}
+}
+
+% 頁面設定
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% 顏色定義
+\definecolor{interview_red}{RGB}{156,39,176}
+\definecolor{interview_blue}{RGB}{33,150,243}
+\definecolor{interview_gray}{RGB}{96,125,139}
+\definecolor{highlight_yellow}{RGB}{255,248,225}
+\definecolor{accent_green}{RGB}{76,175,80}
+
+% 標題格式設定
+\titleformat{\section}[block]{\Large\bfseries\color{interview_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{interview_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{interview_gray}}{\thesubsubsection}{6pt}{}
+
+% 自定義環境
+\newmdenv[
+    linecolor=interview_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=interview_blue!5!white,
+        colframe=interview_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+\newcommand{\tip}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=accent_green!5!white,
+        colframe=accent_green,
+        title=\textbf{實務技巧},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% 頁眉頁腳設定
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{interview_red}{教學部文件}}
+\fancyhead[R]{\textcolor{interview_blue}{採訪流程設計}}
+\fancyfoot[C]{\textcolor{interview_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{interview_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% 日期格式
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% 文件開始
+\begin{document}
+
+% 標題頁
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{interview_red}{\textbf{教學部標準作業流程}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 醫學中心教學部主任\\特聘教授採訪流程設計\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{interview_blue}{\textit{Interview Protocol for Department Directors\\and Distinguished Professors}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=interview_blue!5!white,
+        colframe=interview_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{適用對象}\par}
+    \vspace{0.3cm}
+    教學部主任、特聘教授、資深教學醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 醫學中心教學部\par}
+    {\large 教學發展組\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% 主要內容
+\section{採訪流程概述}
+
+\subsection{目的與目標}
+本採訪流程旨在系統性地收集醫學中心教學部主任及特聘教授的專業見解、教學理念及經驗分享，以促進醫學教育發展並提供學術參考資料。透過結構化的採訪設計，確保能夠深度挖掘受訪者的專業智慧，同時維持採訪的專業性與效率。
+
+\subsection{適用範圍}
+\begin{itemize}[nosep]
+    \item 醫學中心教學部主任
+    \item 特聘教授及資深教學醫師
+    \item 學科主任及副主任
+    \item 具豐富教學經驗之主治醫師
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+採訪前務必了解受訪者的專業背景、研究領域及近期成就，以設計更具針對性的問題。
+}
+
+\section{採訪前準備階段}
+
+\subsection{邀請與溝通}
+\subsubsection{正式邀請函}
+\begin{itemize}[nosep]
+    \item 提前2-3週發送正式邀請函（email或公文）
+    \item 明確說明採訪目的、主要議題及預期成果
+    \item 提供採訪大綱供受訪者參考準備
+    \item 說明採訪時間（建議60-90分鐘）及地點安排
+\end{itemize}
+
+\subsubsection{技術確認}
+\begin{itemize}[nosep]
+    \item 確認是否同意錄音或錄影記錄
+    \item 詢問偏好的採訪地點（辦公室、會議室等）
+    \item 確認採訪時間避開門診或手術時段
+    \item 提供緊急聯絡方式以備時程異動
+\end{itemize}
+
+\subsection{背景資料蒐集}
+\subsubsection{學術背景調查}
+\begin{itemize}[nosep]
+    \item 研讀受訪者的學經歷及專業資格
+    \item 了解主要研究領域及重要學術著作
+    \item 查閱近期發表論文及學術活動參與
+    \item 了解獲得的學術榮譽及獎項
+\end{itemize}
+
+\subsubsection{教學相關資訊}
+\begin{itemize}[nosep]
+    \item 現任教學職務及責任範圍
+    \item 參與的教學創新計畫或改革
+    \item 指導研究生及住院醫師的經驗
+    \item 教學評鑑成果及學生回饋
+\end{itemize}
+
+
+\subsection{採訪環境準備}
+\subsubsection{設備檢查}
+\begin{itemize}[nosep]
+    \item 測試錄音設備並準備備用裝置
+    \item 確保採訪環境安靜無干擾
+    \item 準備充足的電力及儲存空間
+    \item 備妥筆記用具及採訪大綱
+\end{itemize}
+
+\section{採訪流程設計}
+
+\subsection{開場階段（5-10分鐘）}
+\subsubsection{破冰與建立關係}
+\begin{itemize}[nosep]
+    \item 感謝受訪者撥冗接受採訪
+    \item 簡單寒暄，詢問近況或最近的教學工作
+    \item 再次確認採訪目的及預期時間
+    \item 說明錄音設備使用及資料保密原則
+\end{itemize}
+
+\subsubsection{採訪規則說明}
+\begin{quote}
+「今天的採訪預計進行60-90分鐘，主要想了解您在醫學教育方面的理念與經驗。我會依照準備的大綱進行，但也歡迎您隨時補充您認為重要的觀點。如果有任何不便回答的問題，請隨時告知。」
+\end{quote}
+
+\newpage
+\subsection{主要訪談內容（40-70分鐘）}
+
+\subsubsection{教育理念與願景（15-20分鐘）}
+\begin{enumerate}[nosep]
+    \item \textbf{核心理念探討}
+    \begin{itemize}[nosep]
+        \item 「您認為現代醫學教育最重要的核心理念是什麼？」
+        \item 「在您的教學生涯中，哪些教育原則始終指導著您？」
+        \item 「您如何看待醫學教育中『知識傳授』與『品格培養』的平衡？」
+    \end{itemize}
+
+    \item \textbf{願景與目標}
+    \begin{itemize}[nosep]
+        \item 「在您的領導下，教學部的發展願景為何？」
+        \item 「您希望培養出什麼樣的下一代醫師？」
+        \item 「面對醫療環境的快速變化，教學策略應該如何調整？」
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{實務經驗分享（15-20分鐘）}
+\begin{enumerate}[nosep]
+    \item \textbf{管理挑戰與解決}
+    \begin{itemize}[nosep]
+        \item 「在教學管理上，您遇過最大的挑戰是什麼？如何克服？」
+        \item 「如何平衡不同專科的教學需求與資源分配？」
+        \item 「面對教學與臨床工作的時間衝突，您有什麼管理策略？」
+    \end{itemize}
+
+    \item \textbf{創新教學案例}
+    \begin{itemize}[nosep]
+        \item 「能否分享一個讓您印象深刻的教學創新案例？」
+        \item 「您如何評估新教學方法的成效？」
+        \item 「在推動教學改革時，如何獲得同仁的支持？」
+    \end{itemize}
+\end{enumerate}
+
+\begin{importantbox}
+\textbf{採訪技巧提醒：} 當受訪者分享具體案例時，要適時追問細節，如「當時的情況如何？」「您是如何做決定的？」「結果如何？」以獲得更深入的資訊。
+\end{importantbox}
+
+\subsubsection{專業見解與趨勢（10-15分鐘）}
+\begin{enumerate}[nosep]
+    \item \textbf{教育趨勢分析}
+    \begin{itemize}[nosep]
+        \item 「您認為台灣醫學教育目前面臨的最大挑戰是什麼？」
+        \item 「國際醫學教育的發展趨勢對我們有什麼啟發？」
+        \item 「科技在醫學教育中扮演什麼角色？未來會如何發展？」
+    \end{itemize}
+
+    \item \textbf{人才培養策略}
+    \begin{itemize}[nosep]
+        \item 「現在的醫學生與過去有什麼不同？教學方式需要調整嗎？」
+        \item 「如何培養醫學生的批判思考能力？」
+        \item 「跨領域合作在醫學教育中的重要性如何？」
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{未來展望與建議（10-15分鐘）}
+\begin{enumerate}[nosep]
+    \item \textbf{發展展望}
+    \begin{itemize}[nosep]
+        \item 「您對台灣醫學教育的未來發展有什麼期許？」
+        \item 「教學部在未來3-5年的重點發展方向為何？」
+        \item 「您最希望看到的教學改革成果是什麼？」
+    \end{itemize}
+
+    \item \textbf{建議與傳承}
+    \begin{itemize}[nosep]
+        \item 「對於剛進入醫學領域的年輕醫師，您有什麼建議？」
+        \item 「對於有志從事醫學教育的同仁，您會給什麼建議？」
+        \item 「您認為醫學生在學習過程中最需要注意什麼？」
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection{結尾階段（5-10分鐘）}
+\subsubsection{總結與確認}
+\begin{itemize}[nosep]
+    \item 簡要總結訪談的重點內容
+    \item 詢問是否有遺漏或希望補充的重要觀點
+    \item 確認哪些內容可以公開引用
+    \item 詢問是否需要避免特定表述方式
+\end{itemize}
+
+\subsubsection{後續安排}
+\begin{itemize}[nosep]
+    \item 說明後續資料整理及確認流程
+    \item 提供聯絡方式以備後續澄清問題
+    \item 承諾在發布前提供內容確認
+    \item 再次感謝受訪者的時間與分享
+\end{itemize}
+
+\section{採訪技巧與注意事項}
+
+\subsection{問問題的技巧}
+\subsubsection{開放式vs封閉式問題}
+\begin{itemize}[nosep]
+    \item \textbf{開放式問題}：「您如何看待...？」「能否談談您的經驗...？」
+    \item \textbf{封閉式問題}：用於確認具體事實或數據
+    \item \textbf{追問技巧}：「能否請您具體說明...？」「這對您意味著什麼？」
+\end{itemize}
+
+\subsubsection{引導與深入}
+\begin{itemize}[nosep]
+    \item 使用「例如」、「比如說」引導具體案例
+    \item 適時沉默，給受訪者思考空間
+    \item 重述問題幫助澄清或轉換角度
+    \item 避免誘導性問題，保持中性立場
+\end{itemize}
+
+\subsection{專業倫理考量}
+\subsubsection{保密原則}
+\begin{itemize}[nosep]
+    \item 尊重受訪者的隱私權
+    \item 避免涉及敏感的人事或政策爭議
+    \item 不記錄與主題無關的私人資訊
+    \item 確保錄音資料的安全保存
+\end{itemize}
+
+\subsubsection{學術誠信}
+\begin{itemize}[nosep]
+    \item 準確記錄並忠實呈現受訪者觀點
+    \item 避免斷章取義或偏頗詮釋
+    \item 引用時註明出處及脈絡
+    \item 發布前務必經受訪者確認
+\end{itemize}
+
+
+\section{後續處理流程}
+
+\subsection{資料整理}
+\subsubsection{錄音轉文字}
+\begin{itemize}[nosep]
+    \item 於採訪後24小時內開始整理
+    \item 完整轉錄重要內容及精彩觀點
+    \item 標註時間點以便後續查找
+    \item 整理關鍵詞及主題分類
+\end{itemize}
+
+\subsubsection{內容編輯}
+\begin{itemize}[nosep]
+    \item 調整口語化表達為書面語
+    \item 確保語意完整與邏輯清晰
+    \item 去除贅詞但保留個人特色
+    \item 加入必要的背景說明
+\end{itemize}
+
+\subsection{確認與發布}
+\subsubsection{初稿確認}
+\begin{itemize}[nosep]
+    \item 於一週內提供初稿供受訪者確認
+    \item 特別標註需要確認的重點內容
+    \item 提供修改期限（建議一週）
+    \item 保持開放態度接受修正建議
+\end{itemize}
+
+\subsubsection{最終發布}
+\begin{itemize}[nosep]
+    \item 依據用途選擇適當的發布平台
+    \item 加入適當的編輯說明或背景資料
+    \item 確保符合醫院及學術機構規範
+    \item 保存完整的採訪記錄檔案
+\end{itemize}
+
+\section{採訪大綱範本}
+
+以下提供一個標準化的採訪大綱範本，可根據具體需求調整：
+
+\begin{importantbox}
+\textbf{採訪大綱範本}
+
+\textbf{一、個人背景與教學理念}
+\begin{itemize}[nosep]
+    \item 簡單自我介紹及教學經歷
+    \item 投入醫學教育的動機與初衷
+    \item 個人的教學理念與方法
+\end{itemize}
+
+\textbf{二、教學管理經驗}
+\begin{itemize}[nosep]
+    \item 教學部管理的主要挑戰
+    \item 創新教學計畫的推動經驗
+    \item 團隊建設與人才培養策略
+\end{itemize}
+
+\textbf{三、專業見解與展望}
+\begin{itemize}[nosep]
+    \item 對醫學教育現況的看法
+    \item 未來發展趨勢的預測
+    \item 給年輕醫師的建議
+\end{itemize}
+
+\textbf{四、補充與建議}
+\begin{itemize}[nosep]
+    \item 其他想分享的經驗或觀點
+    \item 對採訪內容的補充說明
+\end{itemize}
+\end{importantbox}
+
+\section{品質控制與評估}
+
+\subsection{採訪品質指標}
+\begin{itemize}[nosep]
+    \item \textbf{內容深度}：是否獲得有價值的專業見解
+    \item \textbf{資訊完整性}：是否涵蓋預定的主要議題
+    \item \textbf{表達清晰度}：受訪者是否充分表達觀點
+    \item \textbf{時間掌控}：是否在預定時間內完成
+\end{itemize}
+
+\subsection{持續改進機制}
+\begin{itemize}[nosep]
+    \item 每次採訪後進行自我檢討
+    \item 收集受訪者的回饋意見
+    \item 定期更新採訪技巧與問題設計
+    \item 建立採訪經驗資料庫供參考
+\end{itemize}
+
+
+\section{結語}
+
+醫學教育的傳承與發展需要系統性的經驗分享與智慧傳遞。透過專業的採訪流程，我們能夠更好地記錄與傳播優秀教育者的理念與經驗，為醫學教育的持續改進提供寶貴的參考資料。
+
+本採訪流程設計強調：
+\begin{itemize}[nosep]
+    \item \textbf{專業性}：維持學術討論的嚴謹性
+    \item \textbf{系統性}：確保採訪內容的完整性
+    \item \textbf{實用性}：提供可操作的具體指引
+    \item \textbf{彈性}：允許根據實際情況調整
+\end{itemize}
+
+希望這個流程能夠幫助採訪者更有效地進行專業訪談，並為醫學教育的發展貢獻一份心力。
+
+\vspace{1cm}
+\begin{center}
+\textcolor{interview_gray}{\textit{--- 文件結束 ---}}
+\end{center}
+
+\end{document}

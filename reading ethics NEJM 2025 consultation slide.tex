@@ -1,0 +1,383 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% Setting Chinese font
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Theme setup
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Custom colors
+\definecolor{ntublue}{RGB}{0,80,158}
+\definecolor{medred}{RGB}{186,24,27}
+\definecolor{medblue}{RGB}{0,114,188}
+\definecolor{medgray}{RGB}{120,120,120}
+\setbeamercolor{structure}{fg=ntublue}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{fg=white}
+
+\title{The Consultant}
+\subtitle{醫師為親友提供醫療諮詢的倫理議題}
+\author{醫學倫理討論：\\
+耿立達 MD\\
+謝慕揚, MD, PhD, FESC}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% 文章基本資訊
+\begin{frame}{文章基本資訊}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{\textcolor{medred}{項目}} & \textbf{\textcolor{medred}{內容}} \\
+\midrule
+期刊 & New England Journal of Medicine (NEJM) \\
+文章標題 & The Consultant \\
+作者 & Tessa Adzemovic, M.D. \\
+所屬機構 & Division of Global Health Equity, Brigham and Women's Hospital, Boston \\
+發表日期 & August 16, 2025 \\
+期刊卷期 & Volume 393, Number 8, Pages 736-739 \\
+DOI & \href{https://www.nejm.org/doi/abs/10.1056/NEJMp2502400}{10.1056/NEJMp2502400} \\
+文章類型 & Perspective \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+% 核心議題概覽
+\begin{frame}{核心議題概覽}
+\textbf{\textcolor{medred}{本文探討醫師為家人朋友提供非正式醫療諮詢的現象}}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{人文與心理層面}}
+\begin{itemize}
+\item 醫師角色的模糊性
+\item 私人身份與專業身份界線不清
+\item 情感負擔與客觀性喪失
+\item 角色衝突的心理壓力
+\item 醫師倦怠與邊界問題
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{社會與法律層面}}
+\begin{itemize}
+\item 社會不平等的體現
+\item 醫療可近性危機
+\item 醫療信任危機
+\item AMA倫理準則的規定
+\item 醫療疏失的法律責任
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\textbf{\textcolor{medred}{關鍵問題：}}「有醫師朋友/家人的人享有『特權』」
+\end{frame}
+
+% 作者提及的具體案例 (1/2)
+\begin{frame}{作者提及的具體案例 (1/2)}
+%\tiny
+\begin{table}[h]
+\centering
+\begin{tabular}{p{3cm}p{5.5cm}p{3cm}}
+\toprule
+\textbf{\textcolor{medblue}{案例}} & \textbf{\textcolor{medblue}{描述}} & \textbf{\textcolor{medblue}{風險程度}} \\
+\midrule
+感恩節餐桌「看診」 & 遠房親戚在感恩節餐桌上宣布「我準備好看醫生了」，開始描述健康問題 & \textcolor{medgray}{低風險} \\
+\midrule
+朋友血檢報告諮詢 & 朋友帶血檢報告到早午餐，要求第二意見關於鐵質補充和血紅蛋白數值 & \textcolor{medgray}{中等風險} \\
+\midrule
+Uber司機心臟衰竭諮詢 & 司機分享最近心臟衰竭住院經歷，詢問「你覺得怎麼樣？」 & \textcolor{medred}{高風險} \\
+\midrule
+嬰兒牙齦問題 & 新手父母詢問「嬰兒沒長牙時牙齦會碰觸嗎？」 & \textcolor{medgray}{低風險} \\
+\midrule
+凌晨4點急救電話 & 3500英里外的親人，凌晨4點討論生命末期照護目標和急救狀態 & \textcolor{medred}{極高風險} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+% 作者提及的具體案例 (2/2)
+\begin{frame}{作者提及的具體案例 (2/2)}
+%\tiny
+\begin{table}[h]
+\centering
+\begin{tabular}{p{3cm}p{5.5cm}p{3cm}}
+\toprule
+\textbf{\textcolor{medblue}{案例}} & \textbf{\textcolor{medblue}{描述}} & \textbf{\textcolor{medblue}{風險程度}} \\
+\midrule
+中餐廳「以餐換診」 & 高中朋友的醫師母親在中餐廳用餐點交換為餐廳老闆看膽固醇和糖化血紅蛋白報告 & \textcolor{medgray}{中等風險} \\
+\midrule
+頭部血腫誤診（假設） & 如果朋友1歲孩子頭部血腫，用統計數據安慰她說沒事，但結果孩子真的有腦出血 & \textcolor{medred}{極高風險} \\
+\midrule
+懷孕出血誤判（假設） & 朋友有出血症狀，認為只是點狀出血，但實際上是流產 & \textcolor{medred}{高風險} \\
+\midrule
+兒童語言發展遲緩 & 作者認出朋友孩子有語言發展遲緩，但猶豫是否該提及 & \textcolor{medgray}{中等風險} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\textbf{\textcolor{medred}{作者反思：}}「我的手機開始感覺像門診收件籃。」
+\end{frame}
+
+% AMA 倫理準則
+\begin{frame}{美國醫學會倫理準則}
+\begin{block}{\textcolor{white}{AMA Code of Medical Ethics}}
+「醫師為自己或自己的家庭成員治療會帶來幾個挑戰，包括對專業客觀性、病人自主權和知情同意的擔憂。該準則建議醫師只有在必要時才這樣做（例如：緊急情況、選擇有限的情況下）。」
+\end{block}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{三大倫理考量}}
+\begin{enumerate}
+\item \textbf{專業客觀性}\\
+情感因素影響判斷，可能過度治療或治療不足
+\item \textbf{病人自主權}\\
+權力關係不平等，影響真正的自主選擇
+\item \textbf{知情同意}\\
+家庭關係影響充分溝通
+\end{enumerate}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{允許的例外情況}}
+\begin{itemize}
+\item 緊急狀況（沒時間找其他醫師）
+\item 選擇有限（偏遠地區沒有其他醫師）
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{\textcolor{white}{核心問題}}\\
+醫學判斷需要一定程度的客觀性，而醫師對於自己和所愛的人不能被期望擁有這種客觀性
+\end{column}
+\end{columns}
+\end{frame}
+
+% 美國醫療系統問題 (1/2)
+\begin{frame}{美國醫療系統問題 (1/2)}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medred}{醫療可近性危機}}
+\begin{itemize}
+\item 新病人預約等待時間長達\textbf{數月至數年}
+\item 初級醫療人力嚴重短缺
+\item 精神科醫療等待時間長，\textbf{半數醫師不接新病人}
+\item 多年來對初級醫療投資不足
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{\textcolor{medblue}{2024年關鍵報告}}\\
+Milbank Memorial Fund：\\
+《美國初級醫療健康記分卡報告》\\
+標題：\textcolor{medred}{「現在沒有人能看你」}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medred}{醫療品質排名}}
+\begin{itemize}
+\item 在與9個其他高收入國家的比較中
+\item 美國在負擔能力和醫療可及性方面\textbf{排名第10}
+\item 投入最多資源，結果最差
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{\textcolor{medred}{醫療信任危機}}
+\begin{itemize}
+\item 診所和醫院的床邊互動越來越短
+\item 醫療不信任感增長
+\item 建立關係需要時間，這是一個\textbf{短缺的資源}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% 美國醫療系統問題 (2/2)
+\begin{frame}{美國醫療系統問題 (2/2)}
+\textbf{\textcolor{medred}{商業化醫療的興起}}
+
+\begin{block}{禮賓醫療 (Concierge Medicine)}
+Amazon One Medical 和 Function Health 等公司發現並抓住了市場機會\\
+\textcolor{medred}{→ 只對能夠支付年費的患者開放}
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{系統性問題}}
+\begin{itemize}
+\item 進入初級醫療的受訓人員數量無法填補缺口
+\item 醫療資源分配不均
+\item 富人與窮人之間的醫療差距擴大
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{社會不平等}}
+\begin{itemize}
+\item 有關係者 vs 無關係者
+\item 有醫師親友 = 醫療特權
+\item 非正式諮詢加劇不平等
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\textbf{\textcolor{medred}{作者觀察：}}「醫師為親友進行的諮詢似乎只是美國不平等醫療的另一個載體，是富人與窮人、有關係者與無關係者之間差距擴大的另一種方式。」
+\end{frame}
+
+% 重要引文
+\begin{frame}{重要引文}
+\begin{block}{\textcolor{medred}{醫學改變了你}}
+「醫學改變了你——從一個無知的旁觀者變成了一個知情的旁觀者。」
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{關於倫理與法律}}
+\begin{itemize}
+\item 「但實際這樣做在倫理和法律上都充滿了問題。」
+\item 「醫學判斷需要一定程度的客觀性，而醫師對於自己和所愛的人不能被期望擁有這種客觀性，這種客觀性的缺乏可能導致傷害。」
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{關於醫療不平等}}
+\begin{itemize}
+\item 「醫師為親友進行的諮詢似乎只是美國不平等醫療的另一個載體。」
+\item 結果不應取決於社會經濟地位、種族，或者你的家庭中是否有醫生。
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% 作者的理想願景
+\begin{frame}{作者的理想願景與實際行動}
+\begin{block}{\textcolor{medred}{理想願景}}
+「我設想一個世界，人們在正確的時間、正確的地點為正確的病症得到醫治。診斷不會被延誤和陷入混亂。結果不取決於社會經濟地位、種族，或者你的家庭中是否有醫生。」
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{核心問題重新定義}}
+\begin{itemize}
+\item 問題的核心\textbf{不在於}醫師是否應該為親友提供醫療服務
+\item 而在於\textbf{如何讓所有人都能獲得適當的醫療照護}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{\textcolor{medblue}{實際行動}}
+\begin{itemize}
+\item 「在此期間，我將歡迎手機上的濕疹圖片」
+\item 「在徒步旅行中檢查拇趾外翻」
+\item 「在醫院探望朋友和親戚」
+\item 被這些時刻的神聖性所感動
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% 文獻整理者總結
+\begin{frame}{文獻整理者總結}
+\textbf{\textcolor{medred}{文獻整理：謝慕揚, MD, PhD, FESC}}
+
+\begin{block}{核心價值}
+本文深刻地揭示了當代醫療體系中一個被忽視但普遍存在的現象：醫師為親友提供非正式醫療諮詢。作者透過個人經驗和理論分析，呈現了這個現象背後複雜的倫理、法律、心理和社會層面。
+\end{block}
+
+\vspace{0.3cm}
+
+\textbf{\textcolor{medblue}{文章的三大貢獻}}
+\begin{enumerate}
+\item 將個人經驗昇華為對整個醫療體系問題的深度反思
+\item 揭示美國醫療可近性危機如何迫使人們尋求替代管道
+\item 提出政策意涵：建立更公平、更可及的醫療體系才是根本解決之道
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{\textcolor{medred}{對台灣的啟示}}\\
+雖然台灣有全民健保，但醫療可近性、醫病關係、專業界線等問題同樣值得深思
+\end{frame}
+
+% 參考文獻
+\begin{frame}{參考文獻}
+%\tiny
+\begin{enumerate}
+\item American Medical Association. AMA code of medical ethics: treating self or family. Available at: \url{https://code-medical-ethics.ama-assn.org/ethics-opinions/treating-self-or-family}
+
+\item Moskop JC. Doctor in, and for, the family? Physicians reflect on care for loved ones. Narrat Inq Bioeth 2018;8:41-6.
+
+\item Koven S. Letter to a young female physician: notes from a medical life. New York: W.W. Norton, 2021.
+
+\item Blumenthal D, Gumas ED, Shah A, Gunja MZ, Williams RD III. Mirror, mirror 2024: a portrait of the failing U.S. health system — comparing performance in 10 nations. New York: Commonwealth Fund, September 2024.
+
+\item Sun C-F, Correll CU, Trestman RL, et al. Low availability, long wait times, and high geographic disparity of psychiatric outpatient care in the US. Gen Hosp Psychiatry 2023;84:12-7.
+\end{enumerate}
+\end{frame}
+
+% 討論問題
+\begin{frame}{討論問題}
+\textbf{\textcolor{medred}{思考與討論}}
+
+\begin{enumerate}
+\item 在台灣的醫療環境下，醫師為親友提供諮詢的現象是否同樣普遍？
+
+\item 如何在維持專業界線與人情關懷之間取得平衡？
+
+\item 醫療體系應如何改善，才能減少人們對「非正式醫療諮詢」的依賴？
+
+\item 作為醫療專業人員，我們應該如何看待「知情旁觀者」的責任？
+
+\item 台灣的全民健保是否有效解決了文中提到的醫療可近性問題？
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+\vfill
+\centering
+\Huge \textcolor{medred}{謝謝聆聽}
+
+\vspace{1cm}
+
+\Large \textcolor{medblue}{歡迎討論與指教}
+
+\vspace{0.5cm}
+
+\normalsize
+謝慕揚, MD, PhD, FESC\\
+\today
+\vfill
+\end{frame}
+
+\end{document}

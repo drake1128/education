@@ -1,0 +1,591 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{心血管中心教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{心臟超音波EPAs}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{心血管中心教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 心臟超音波可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Echocardiography Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    醫學六年級學生\par
+    PGY住院醫師\par
+    心臟超音波技術員\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 謝慕揚 MD, PhD, FESC\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{心臟超音波EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給學習者執行的專業活動單元。心臟超音波EPAs涵蓋了心臟超音波檢查的核心能力，是所有心臟超音波操作者必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+心臟超音波EPAs評量著重於能否安全、穩定地執行完整的心臟超音波檢查流程，並能整合資訊做出適當臨床判斷。每個EPA都包含明確的里程碑發展階段，從初學者到專家的完整能力建構。
+}
+
+\subsection{學習目標}
+完成心臟超音波EPAs後，學習者應能夠：
+\begin{itemize}[nosep]
+    \item 熟練執行標準心臟超音波視窗掃瞄技術。
+    \item 準確判讀基本心臟超音波影像與測量。
+    \item 獨立操作心臟超音波設備及優化影像品質。
+    \item 識別並報告正常與異常心臟超音波發現。
+    \item 執行基本都卜勒超音波檢查。
+    \item 測量並計算心臟功能參數。
+    \item 與臨床團隊有效溝通檢查結果。
+    \item 遵循感染控制與病患安全原則。
+    \item 執行床邊心臟超音波評估。
+    \item 整合心臟超音波發現與臨床表現。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行，無法穩立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可穩立執行，但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可穩立執行，監督者隨時可得 \\
+        Level 5 & 完全穩立 & 可穩立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{心臟超音波10大EPAs詳述}
+
+\begin{longtable}{|p{1.5cm}|p{4cm}|p{8.5cm}|}
+\caption{心臟超音波EPAs完整架構} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 標準心臟超音波視窗操作}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練操作超音波設備，獲得標準心臟超音波視窗，包括胸骨旁、心尖、下肋及鎖骨上視窗，並進行基本影像優化。} \\
+\hline
+\textbf{核心能力} & 設備操作 & 超音波機器開關、探頭選擇、基本參數調整 \\
+\cline{2-3}
+& 視窗獲得 & 胸骨旁長軸、短軸、心尖四腔心、二腔心、三腔心視窗 \\
+\cline{2-3}
+& 影像優化 & 深度調整、增益控制、時間增益補償 \\
+\cline{2-3}
+& 探頭技巧 & 位移、旋轉、角度調整的基本操作 \\
+\cline{2-3}
+& 病患定位 & 左側臥位、呼吸配合指導 \\
+\hline
+\textbf{Level 1} & Novice & 能在指導下操作設備，獲得基本視窗但影像品質不穩定 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在直接監督下獲得大部分標準視窗，影像品質可接受 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立獲得所有標準視窗，影像品質良好，基本優化技巧熟練 \\
+\hline
+\textbf{Level 4} & Proficient & 能快速獲得高品質影像，處理困難病例，教導基本技巧 \\
+\hline
+\textbf{Level 5} & Expert & 成為視窗獲得專家，能指導複雜操作技巧 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 心臟結構測量與評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠準確測量心臟各腔室大小、心肌厚度及心臟功能參數，並正確判讀測量結果的臨床意義。} \\
+\hline
+\textbf{核心能力} & M型測量 & 左心室內徑、心肌厚度、左心房大小測量 \\
+\cline{2-3}
+& 二維測量 & Simpson法左心室容積、心房面積測量 \\
+\cline{2-3}
+& 功能評估 & 射血分數、縮短分數計算 \\
+\cline{2-3}
+& 參考值應用 & 正常值範圍、體表面積校正 \\
+\cline{2-3}
+& 品質控制 & 測量準確性驗證、重複性評估 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本線性測量，需指導確認測量位置 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能獨立進行M型測量，開始學習二維測量技巧 \\
+\hline
+\textbf{Level 3} & Competent & 能準確完成所有基本測量，正確應用參考值 \\
+\hline
+\textbf{Level 4} & Proficient & 測量技術精準且有效率，能識別測量陷阱 \\
+\hline
+\textbf{Level 5} & Expert & 成為測量技術專家，建立品質保證標準 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 都卜勒超音波基礎操作}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠操作脈波都卜勒(PW)、連續波都卜勒(CW)及彩色都卜勒，測量血流速度並評估瓣膜功能。} \\
+\hline
+\textbf{核心能力} & 都卜勒原理 & 角度校正、奈奎斯特極限、混疊現象理解 \\
+\cline{2-3}
+& PW都卜勒 & 取樣體積定位、二尖瓣與三尖瓣血流測量 \\
+\cline{2-3}
+& CW都卜勒 & 高速血流測量、瓣膜狹窄與逆流評估 \\
+\cline{2-3}
+& 彩色都卜勒 & 血流方向識別、逆流檢測 \\
+\cline{2-3}
+& 組織都卜勒 & 心肌速度測量、舒張功能評估基礎 \\
+\hline
+\textbf{Level 1} & Novice & 理解都卜勒基本原理，能操作PW都卜勒獲得基本波形 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用各種都卜勒模式，測量基本血流速度 \\
+\hline
+\textbf{Level 3} & Competent & 能準確測量瓣膜血流，識別正常與異常波形 \\
+\hline
+\textbf{Level 4} & Proficient & 都卜勒技術熟練，能評估複雜血流動力學 \\
+\hline
+\textbf{Level 5} & Expert & 成為都卜勒技術專家，能指導進階應用 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 左心室功能評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠全面評估左心室收縮與舒張功能，包括整體功能、區域性壁運動及舒張功能參數。} \\
+\hline
+\textbf{核心能力} & 收縮功能 & 射血分數、MAPSE、縮短分數評估 \\
+\cline{2-3}
+& 壁運動分析 & 17節段模式、壁運動異常識別 \\
+\cline{2-3}
+& 舒張功能 & E/A比值、E/e'比值、舒張功能分級 \\
+\cline{2-3}
+& 進階參數 & dP/dt、Tei指數、應變分析基礎 \\
+\cline{2-3}
+& 臨床整合 & 功能評估與臨床表現關聯 \\
+\hline
+\textbf{Level 1} & Novice & 能識別左心室，進行基本收縮功能目測評估 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能計算射血分數，識別明顯壁運動異常 \\
+\hline
+\textbf{Level 3} & Competent & 能全面評估左心室功能，基本舒張功能評估 \\
+\hline
+\textbf{Level 4} & Proficient & 精確功能評估，能識別細微功能變化 \\
+\hline
+\textbf{Level 5} & Expert & 成為左心功能評估專家，指導複雜病例分析 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 右心系統評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估右心房與右心室大小、功能，測量肺動脈壓力，並評估三尖瓣功能。} \\
+\hline
+\textbf{核心能力} & 右心大小 & 右心房面積、右心室直徑測量 \\
+\cline{2-3}
+& 右心功能 & TAPSE、FAC、S'波測量 \\
+\cline{2-3}
+& 肺動脈壓 & 三尖瓣逆流速度、肺動脈壓估算 \\
+\cline{2-3}
+& 下腔靜脈 & IVC直徑、塌陷率評估 \\
+\cline{2-3}
+& 三尖瓣評估 & 三尖瓣逆流程度、狹窄評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別右心結構，基本大小評估 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能測量TAPSE，評估右心功能 \\
+\hline
+\textbf{Level 3} & Competent & 能全面評估右心系統，估算肺動脈壓 \\
+\hline
+\textbf{Level 4} & Proficient & 精確右心評估，處理複雜右心病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為右心評估專家，指導進階技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 瓣膜疾病評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估四個主要心臟瓣膜的形態與功能，包括狹窄與逆流的定性及定量評估。} \\
+\hline
+\textbf{核心能力} & 瓣膜形態 & 瓣膜葉片結構、鈣化、增厚評估 \\
+\cline{2-3}
+& 狹窄評估 & 壓力梯度、瓣膜面積計算 \\
+\cline{2-3}
+& 逆流評估 & 逆流噴流、定量參數測量 \\
+\cline{2-3}
+& 主動脈瓣 & AS/AR嚴重度評估 \\
+\cline{2-3}
+& 二尖瓣 & MS/MR機制與嚴重度評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別瓣膜結構，檢測明顯瓣膜病變 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估瓣膜開閉，測量基本血流速度 \\
+\hline
+\textbf{Level 3} & Competent & 能準確評估瓣膜功能，判斷疾病嚴重度 \\
+\hline
+\textbf{Level 4} & Proficient & 精確瓣膜評估，能識別複雜瓣膜病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為瓣膜疾病專家，指導複雜評估技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 床邊心臟超音波(FOCUS)}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行床邊心臟超音波檢查，快速評估血流動力學狀態，協助急性病況的診斷與治療決策。} \\
+\hline
+\textbf{核心能力} & 快速評估 & 左心功能、右心大小、心包積水檢查 \\
+\cline{2-3}
+& 血流動力學 & 容積狀態、心輸出量評估 \\
+\cline{2-3}
+& 急症應用 & 休克、呼吸困難、胸痛的超音波評估 \\
+\cline{2-3}
+& 縱向縮短 & 心尖四腔心視窗功能評估 \\
+\cline{2-3}
+& 臨床整合 & 超音波發現與臨床表現整合 \\
+\hline
+\textbf{Level 1} & Novice & 能獲得基本視窗，識別明顯異常 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行標準FOCUS檢查，基本功能評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行FOCUS，準確評估血流動力學 \\
+\hline
+\textbf{Level 4} & Proficient & FOCUS技術熟練，能指導臨床決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為FOCUS專家，建立床邊超音波標準 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 心包與大血管評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估心包膜疾病、主動脈疾病及其他大血管病變，識別心包填塞及主動脈剝離等急症。} \\
+\hline
+\textbf{核心能力} & 心包評估 & 心包積水量化、填塞徵象識別 \\
+\cline{2-3}
+& 主動脈評估 & 主動脈根部、升主動脈測量 \\
+\cline{2-3}
+& 下腔靜脈 & IVC直徑變化、右房壓估算 \\
+\cline{2-3}
+& 急症識別 & 心包填塞、主動脈剝離徵象 \\
+\cline{2-3}
+& 鑑別診斷 & 心包炎、限制性心肌病鑑別 \\
+\hline
+\textbf{Level 1} & Novice & 能識別心包積水，基本主動脈觀察 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估心包積水程度，測量主動脈根部 \\
+\hline
+\textbf{Level 3} & Competent & 能識別心包填塞徵象，評估血流動力學影響 \\
+\hline
+\textbf{Level 4} & Proficient & 精確心包與大血管評估，快速識別急症 \\
+\hline
+\textbf{Level 5} & Expert & 成為心包大血管專家，指導複雜病例 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 心臟超音波報告撰寫}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠撰寫結構化心臟超音波報告，準確描述發現，提供臨床相關結論與建議。} \\
+\hline
+\textbf{核心能力} & 結構化描述 & 系統性描述心臟結構與功能 \\
+\cline{2-3}
+& 測量報告 & 準確記錄所有測量數據 \\
+\cline{2-3}
+& 異常描述 & 清楚描述病理發現 \\
+\cline{2-3}
+& 臨床關聯 & 結合臨床資訊提供判斷 \\
+\cline{2-3}
+& 建議事項 & 提供後續追蹤或檢查建議 \\
+\hline
+\textbf{Level 1} & Novice & 能描述基本發現，需指導完成報告 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能撰寫基本報告，包含主要發現 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立撰寫完整報告，內容準確清楚 \\
+\hline
+\textbf{Level 4} & Proficient & 報告撰寫熟練，能提供有價值的臨床建議 \\
+\hline
+\textbf{Level 5} & Expert & 成為報告撰寫專家，建立報告標準 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 品質保證與病患安全}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行心臟超音波品質保證措施，遵循感染控制原則，確保病患安全與檢查品質。} \\
+\hline
+\textbf{核心能力} & 感染控制 & 探頭消毒、無菌技術執行 \\
+\cline{2-3}
+& 病患安全 & 體位安全、生命徵象監測 \\
+\cline{2-3}
+& 品質控制 & 影像品質標準、重複性檢查 \\
+\cline{2-3}
+& 設備維護 & 日常保養、品質測試 \\
+\cline{2-3}
+& 持續改進 & 自我評估、同儕回饋接受 \\
+\hline
+\textbf{Level 1} & Novice & 理解基本安全原則，在指導下執行 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能遵循標準作業程序，基本品質控制 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行品質保證，確保檢查安全 \\
+\hline
+\textbf{Level 4} & Proficient & 品質控制熟練，能識別品質問題 \\
+\hline
+\textbf{Level 5} & Expert & 成為品質專家，建立品質改進標準 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本心臟超音波EPAs採用Case-based Clinical Competency (CCC)評量方式：
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒：} 心臟超音波EPAs的評量重點在於漸進式能力發展，而非單次完美表現。鼓勵從錯誤中學習，持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4cm} p{4cm} p{6cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 1, 2, 3, 7) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 4, 5, 6, 8) & (Mini-Clinical Evaluation Exercise) & 影像判讀測驗、模擬情境 \\
+        \midrule
+        溝通協調類 & MSF & 病患回饋、團隊成員評量 \\
+        (EPA 9, 10) & (Multi-Source Feedback) & 報告撰寫評量 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}：選擇2-3個EPA重點評量
+    \item \textbf{季度檢視}：全面檢視所有EPA進展
+    \item \textbf{年度認證}：EPA達標認證與進階規劃
+    \item \textbf{即時回饋}：發現學習需求時立即介入
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+心臟超音波EPAs的學習是一個持續的過程。建議學習者建立個人學習檔案，記錄每次評量結果與改善計畫。主治醫師應提供及時具體的回饋，協助學習者達到下一個里程碑。
+}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{3cm} p{5cm} p{6cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2, 3 & 基礎操作技能建立 \\
+        第2個月 & EPA 4, 5, 7 & 功能評估與床邊應用 \\
+        第3個月 & EPA 6, 8, 9 & 進階評估與報告撰寫 \\
+        第4個月 & EPA 10, 綜合評量 & 品質保證與整合能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習：
+\begin{itemize}
+    \item ASE/EACVI Guidelines for Cardiac Chamber Quantification (2015)
+    \item Recommendations for Cardiac Chamber Quantification by Echocardiography in Adults
+    \item NEJM Videos in Clinical Medicine: Focused Cardiac Ultrasonography
+    \item Mayo Clinic Echo Tutorial Series
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋（主治醫師、護理師、病人）
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+\end{itemize}
+
+\section{總結}
+
+心臟超音波EPAs涵蓋了心臟超音波檢查的核心能力，從基礎的視窗操作與設備使用，到複雜的功能評估與臨床整合。每個EPA都有清楚的能力描述與里程碑發展路徑，協助學習者循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息：} 心臟超音波EPAs的核心在於「可委託性」- 當您能夠安全、穩立地執行各項心臟超音波檢查活動，並做出合理的臨床判斷時，就達到了相對應EPA的目標。記住，每一次的臨床實務都是學習的機會，透過持續的實作、反思與改進，才能成為一位優秀的心臟超音波專業人員。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{9}
+
+\bibitem{ASE2015}
+Lang, R. M., et al. (2015). Recommendations for cardiac chamber quantification by echocardiography in adults: an update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging. \textit{Journal of the American Society of Echocardiography}, 28(1), 1-39.
+
+\bibitem{NEJM2023}
+Kimura, B. J., Amundson, S. A., and Shaw, D. J. (2023). Focused Cardiac Ultrasonography for Left Ventricular Systolic Function. \textit{NEJM Videos in Clinical Medicine}.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{echo2018}
+Otto, C. M. (2018). Textbook of Clinical Echocardiography. 6th edition. Elsevier.
+
+\end{thebibliography}
+
+\end{document}

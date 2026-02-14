@@ -1,0 +1,607 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=id_orange,
+    citecolor=id_orange,
+    urlcolor=id_orange,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Infectious Disease themed colors)
+\definecolor{id_red}{RGB}{220,53,69}
+\definecolor{id_orange}{RGB}{253,126,20}
+\definecolor{id_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{id_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{id_orange}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{id_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=id_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=id_orange!5!white,
+        colframe=id_orange,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{id_red}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{id_orange}{感染症內科EPAs}}
+\fancyfoot[C]{\textcolor{id_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{id_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{id_red}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 感染症內科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{id_orange}{\textit{Infectious Diseases Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=id_orange!5!white,
+        colframe=id_orange,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    感染症內科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 感染症內科 郭漢岳主任 \\
+    黃崧溪醫師\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{感染症內科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。感染症內科EPAs涵蓋了感染性疾病診斷、治療與照護的核心能力,是所有感染症內科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+感染症內科EPAs評量著重於能否安全、穩定地執行完整的感染症診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的病史詢問與理學檢查,到複雜的免疫不全感染管理與感染管制規範執行,提供完整的感染症診療能力架構。
+}
+
+\subsection{學習目標}
+完成感染症內科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行感染症病史詢問及系統性理學檢查。
+    \item 正確識別常見社區及院內感染致病原。
+    \item 合理選用抗生素並了解其適應症、副作用及使用時機。
+    \item 正確執行微生物檢體採檢、送檢及判讀報告。
+    \item 診斷與治療常見社區感染症。
+    \item 診斷與治療院內感染症。
+    \item 評估與處理不明熱病患。
+    \item 管理免疫不全病患之伺機性感染。
+    \item 診斷與處置敗血症及敗血性休克。
+    \item 執行感染管制規範並通報法定傳染病。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{感染症內科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{感染症內科EPAs完整架構} \\
+\hline
+\rowcolor{id_orange!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{id_orange!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 感染症病史詢問及系統性理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行感染症相關的完整病史詢問及系統性理學檢查,包括感染症狀評估、暴露史調查、免疫狀態評估,並能初步判斷感染部位及嚴重度。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 發燒型態、寒顫、盜汗、局部感染症狀的詳細詢問 \\
+\cline{2-3}
+& 暴露史調查 & 旅遊史、接觸史、動物暴露、性行為史、職業暴露 \\
+\cline{2-3}
+& 免疫狀態評估 & 潛在疾病、免疫抑制藥物、營養狀態、疫苗接種史 \\
+\cline{2-3}
+& 系統性理學檢查 & 生命徵象、感染病灶檢查、淋巴結觸診 \\
+\cline{2-3}
+& 嚴重度評估 & qSOFA評分、感染性休克徵象識別 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本感染症狀,需要監導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成感染症病史詢問,進行基本理學檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問,整合症狀與暴露史進行初步診斷 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史,識別罕見感染症候群 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問,識別不典型感染表現 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 常見社區及院內感染致病原識別}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠根據臨床表現、流行病學資料及微生物學證據,正確識別常見社區及院內感染之致病原,並了解其抗藥性型態。} \\
+\hline
+\textbf{核心能力} & 社區感染致病原 & 呼吸道、泌尿道、腸胃道、皮膚軟組織常見病原 \\
+\cline{2-3}
+& 院內感染致病原 & 多重抗藥性菌株、導管相關感染、呼吸器相關肺炎 \\
+\cline{2-3}
+& 抗藥性型態 & MRSA、ESBL、CRE、VRE等抗藥菌認識 \\
+\cline{2-3}
+& 流行病學特徵 & 地方性流行病、季節性變化、群聚感染識別 \\
+\cline{2-3}
+& 病原-宿主關聯 & 特定致病原與免疫狀態之關聯性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別最常見的社區感染致病原 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能區分社區與院內感染常見致病原 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立識別多重抗藥性菌株,了解抗藥性型態 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別罕見致病原,整合流行病學資料 \\
+\hline
+\textbf{Level 5} & Expert & 成為致病原識別專家,能預測新興抗藥性 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 抗生素適應症、副作用及使用時機}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠根據感染部位、致病原、病患狀況及抗藥性型態,合理選用抗生素,了解其作用機轉、副作用,並掌握使用時機及療程。} \\
+\hline
+\textbf{核心能力} & 抗生素分類 & 各類抗生素之抗菌光譜、作用機轉 \\
+\cline{2-3}
+& 經驗性治療 & 依感染部位選擇適當經驗性抗生素 \\
+\cline{2-3}
+& 目標性治療 & 依培養結果調整抗生素,降階治療原則 \\
+\cline{2-3}
+& 副作用監測 & 過敏反應、腎毒性、肝毒性、QT延長等 \\
+\cline{2-3}
+& 抗生素管理 & 療程規劃、藥物動力學、給藥途徑選擇 \\
+\hline
+\textbf{Level 1} & Novice & 能識別常用抗生素名稱及基本適應症 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能選擇常見感染之經驗性抗生素 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行抗生素治療,依培養結果調整 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜感染,執行抗生素降階治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為抗生素使用專家,制定抗生素管理策略 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 微生物檢驗工具之採檢、使用時機及判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠正確選擇及執行微生物檢驗,包括檢體採集、送檢流程、結果判讀,並整合臨床表現做出診斷。} \\
+\hline
+\textbf{核心能力} & 檢體採集 & 血液培養、痰液、尿液、傷口等檢體正確採集 \\
+\cline{2-3}
+& 送檢時機 & 抗生素使用前採檢、特殊培養送檢時機 \\
+\cline{2-3}
+& 結果判讀 & 培養報告、抗藥性報告、血清學檢驗判讀 \\
+\cline{2-3}
+& 分子診斷 & PCR、快速診斷工具之使用與判讀 \\
+\cline{2-3}
+& 臨床關聯 & 菌落數意義、污染vs.真正感染之判斷 \\
+\hline
+\textbf{Level 1} & Novice & 能執行基本檢體採集,了解送檢流程 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能正確採集各種檢體,判讀培養報告 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行檢驗,整合報告與臨床表現 \\
+\hline
+\textbf{Level 4} & Proficient & 能使用分子診斷工具,判斷污染與真正感染 \\
+\hline
+\textbf{Level 5} & Expert & 成為微生物診斷專家,指導複雜檢驗判讀 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 常見社區感染之診斷、治療及預防}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷與治療常見社區感染症,包括呼吸道、泌尿道、腸胃道、皮膚軟組織感染,並提供預防建議。} \\
+\hline
+\textbf{核心能力} & 呼吸道感染 & 肺炎、流感、COVID-19等診斷與治療 \\
+\cline{2-3}
+& 泌尿道感染 & 單純性與複雜性UTI之診斷與治療 \\
+\cline{2-3}
+& 腸胃道感染 & 急性腹瀉、腸胃炎之診斷與治療 \\
+\cline{2-3}
+& 皮膚軟組織感染 & 蜂窩組織炎、膿瘍之診斷與治療 \\
+\cline{2-3}
+& 預防措施 & 疫苗接種建議、個人衛生教育 \\
+\hline
+\textbf{Level 1} & Novice & 能識別常見社區感染症狀,知道基本治療 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷與治療單純性社區感染 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理複雜社區感染,提供預防建議 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性社區感染,整合多重因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為社區感染專家,制定預防策略 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 院內感染之診斷、治療及預防}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷與治療院內感染,包括導管相關感染、手術部位感染、呼吸器相關肺炎,並執行預防措施。} \\
+\hline
+\textbf{核心能力} & 導管相關感染 & 中心靜脈導管、尿管相關感染診斷與治療 \\
+\cline{2-3}
+& 呼吸器相關肺炎 & VAP診斷標準、治療與預防 \\
+\cline{2-3}
+& 手術部位感染 & SSI分類、診斷與治療 \\
+\cline{2-3}
+& 困難梭菌感染 & CDI診斷、治療與復發預防 \\
+\cline{2-3}
+& 預防策略 & Bundle care、導管移除時機 \\
+\hline
+\textbf{Level 1} & Novice & 能識別院內感染定義,了解預防原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷常見院內感染,執行基本預防措施 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理院內感染,執行bundle care \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜院內感染,制定預防策略 \\
+\hline
+\textbf{Level 5} & Expert & 成為院內感染專家,改善感染管制品質 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 不明熱之診斷流程及處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠系統性評估不明熱病患,執行診斷流程,鑑別感染性、非感染性及惡性腫瘤相關發燒,並制定適當處置策略。} \\
+\hline
+\textbf{核心能力} & 不明熱定義 & 傳統FUO、院內FUO、免疫不全FUO分類 \\
+\cline{2-3}
+& 系統性評估 & 詳細病史、重複理學檢查、影像學檢查 \\
+\cline{2-3}
+& 鑑別診斷 & 感染性、自體免疫、惡性腫瘤、藥物熱 \\
+\cline{2-3}
+& 診斷流程 & 階段性檢查安排、侵入性檢查時機 \\
+\cline{2-3}
+& 治療決策 & 經驗性治療時機、診斷性治療評估 \\
+\hline
+\textbf{Level 1} & Novice & 能了解不明熱定義,知道基本鑑別診斷 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本不明熱評估,安排初步檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估不明熱,執行系統性診斷流程 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜不明熱,做出治療決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為不明熱診斷專家,處理罕見病因 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 免疫不全疾病及伺機性感染之診斷、治療及個案管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估免疫不全病患,診斷與治療伺機性感染,包括愛滋病毒感染相關感染症,並提供長期個案管理。} \\
+\hline
+\textbf{核心能力} & 免疫狀態評估 & 先天性、後天性免疫不全評估 \\
+\cline{2-3}
+& HIV感染管理 & 抗病毒治療、CD4監測、伺機性感染預防 \\
+\cline{2-3}
+& 伺機性感染 & PCP、CMV、MAC等診斷與治療 \\
+\cline{2-3}
+& 器官移植感染 & 移植後感染時序、預防性治療 \\
+\cline{2-3}
+& 個案管理 & 長期追蹤、疫苗接種、預防性治療 \\
+\hline
+\textbf{Level 1} & Novice & 能識別免疫不全狀態,了解常見伺機性感染 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估免疫狀態,診斷常見伺機性感染 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理HIV感染,治療伺機性感染 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜免疫不全感染,提供個案管理 \\
+\hline
+\textbf{Level 5} & Expert & 成為免疫不全感染專家,制定管理策略 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 敗血症之診斷及處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別敗血症及敗血性休克,執行早期目標導向治療,進行感染源控制,並監測治療反應。} \\
+\hline
+\textbf{核心能力} & 快速識別 & SIRS、qSOFA、sepsis-3定義應用 \\
+\cline{2-3}
+& 早期治療 & 1小時bundle、抗生素給予、液體復甦 \\
+\cline{2-3}
+& 感染源控制 & 引流、清創、導管移除時機 \\
+\cline{2-3}
+& 升壓劑使用 & 血管加壓素、強心劑選擇與調整 \\
+\cline{2-3}
+& 監測管理 & 血流動力學監測、器官功能評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別敗血症症狀,知道基本處置原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行1小時bundle,給予初步治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理敗血症,執行感染源控制 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理敗血性休克,調整升壓劑與輸液 \\
+\hline
+\textbf{Level 5} & Expert & 成為敗血症專家,處理難治性休克 \\
+\hline
+
+\rowcolor{id_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 感染管制規範執行及法定傳染病通報}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠正確執行感染管制規範,包括手部衛生、隔離措施、無菌操作,並能及時通報法定傳染病。} \\
+\hline
+\textbf{核心能力} & 手部衛生 & 五時機、七步驟正確執行 \\
+\cline{2-3}
+& 隔離措施 & 標準防護、接觸、飛沫、空氣傳染隔離 \\
+\cline{2-3}
+& 無菌操作 & 中心靜脈導管、侵入性處置無菌技術 \\
+\cline{2-3}
+& 法定傳染病 & 通報時機、通報流程、個案管理 \\
+\cline{2-3}
+& 群聚處理 & 群聚事件識別、通報、控制措施 \\
+\hline
+\textbf{Level 1} & Novice & 能執行基本手部衛生,了解隔離原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能正確執行隔離措施,進行無菌操作 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行感染管制,及時通報法定傳染病 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理群聚事件,指導感染管制執行 \\
+\hline
+\textbf{Level 5} & Expert & 成為感染管制專家,改善管制品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本感染症內科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 感染症內科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 4, 10) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 2, 3, 5, 6, 7, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 8, 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 基礎評估與致病原識別 \\
+        第2個月 & EPA 3, 4 & 抗生素使用與檢驗判讀 \\
+        第3個月 & EPA 5, 6 & 社區與院內感染處理 \\
+        第4個月 & EPA 7 & 不明熱評估流程 \\
+        第5個月 & EPA 8 & 免疫不全感染管理 \\
+        第6個月 & EPA 9, 10 & 敗血症處置與感染管制 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases. 9th edition.
+    \item The Sanford Guide to Antimicrobial Therapy. Latest edition.
+    \item Red Book: Report of the Committee on Infectious Diseases. Latest edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item IDSA Guidelines for Management of Community-Acquired Pneumonia
+    \item Surviving Sepsis Campaign Guidelines
+    \item CDC Guidelines for Healthcare-Associated Infections Prevention
+    \item WHO Guidelines on Hand Hygiene in Health Care
+    \item Taiwan CDC Guidelines for Notifiable Infectious Diseases
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋(主治醫師、護理師、病人)
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+    \item 參與多專科團隊會議
+    \item 定期參加感染症個案討論會
+\end{itemize}
+
+\section{總結}
+
+感染症內科EPAs涵蓋了感染性疾病診療的完整核心能力,從基礎的病史詢問與理學檢查,到複雜的免疫不全感染管理、敗血症處置,以及整合性的感染管制規範執行。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 感染症內科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表感染症內科醫師必須具備的基礎診療能力。每一次的臨床實務都是學習的機會,透過持續的實作、反思與改進,才能成為一位優秀的感染症專科醫師。特別重要的是,感染症診療需要整合臨床判斷、微生物學知識、抗生素管理及感染管制規範,這些能力的培養需要長期的臨床經驗累積。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{mandell2020}
+Bennett, J. E., Dolin, R., \& Blaser, M. J. (2020). \textit{Mandell, Douglas, and Bennett's Principles and Practice of Infectious Diseases}. 9th edition. Elsevier.
+
+\bibitem{sanford2024}
+Gilbert, D. N., Chambers, H. F., Saag, M. S., et al. (2024). \textit{The Sanford Guide to Antimicrobial Therapy}. Antimicrobial Therapy, Inc.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{idsa2019}
+Metlay, J. P., et al. (2019). Diagnosis and Treatment of Adults with Community-acquired Pneumonia. \textit{Clinical Infectious Diseases}, 68(10), e1-e47.
+
+\bibitem{ssc2021}
+Evans, L., et al. (2021). Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. \textit{Critical Care Medicine}, 49(11), e1063-e1143.
+
+\bibitem{cdc2023}
+Centers for Disease Control and Prevention. (2023). \textit{Guidelines for Healthcare-Associated Infections Prevention}. CDC.
+
+\end{thebibliography}
+
+\end{document}

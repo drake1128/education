@@ -1,0 +1,960 @@
+% 設定文件並引入必要套件
+\documentclass[12pt,a4paper]{article}
+
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+\renewcommand{\contentsname}{目次}
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% 段落首行縮排2格
+\setlength{\parindent}{2em}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+\definecolor{medred}{RGB}{139,0,0}
+\definecolor{ntublue}{RGB}{0,80,158}
+
+% Setting title formats - 使用中文編號
+\renewcommand{\thesection}{\CJKnumber{\arabic{section}}、}
+\renewcommand{\thesubsection}{\arabic{subsection}、}
+\renewcommand{\thesubsubsection}{(\arabic{subsubsection})}
+
+\titleformat{\section}[block]{\Large\bfseries}{\thesection}{0pt}{}
+\titleformat{\subsection}[block]{\large\bfseries}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries}{\thesubsubsection}{6pt}{}
+
+% 中文數字轉換
+\usepackage{CJKnumb}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{出國報告}
+\fancyhead[R]{AMEE \& ESC 2025}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+
+% Defining custom date format
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+% 文件開始
+\begin{document}
+\pagenumbering{roman}
+% 標題頁(符合規範格式)
+\begin{titlepage}
+    % 項目①:字體 20 號加粗,靠左對齊
+    {\fontsize{20pt}{24pt}\selectfont\bfseries 出國報告(出國類別:開會)\par}
+    
+    \vspace{2.5cm}
+    
+    % 項目②:字體 26 號加粗,置中對齊
+    \centering
+    {\fontsize{26pt}{31pt}\selectfont\bfseries AMEE 2025歐洲醫學教育年會\\及\\ESC 2025歐洲心臟學會年會\\學習心得報告\par}
+    
+    \vspace{3.5cm}
+    
+    % 項目③:字體 14 號,置中對齊
+    {\fontsize{14pt}{18pt}\selectfont
+    服務機關:國立臺灣大學醫學院附設醫院新竹臺大分院\par
+    \vspace{0.3cm}
+    姓名職稱:謝慕揚, MD, PhD, FESC\\
+    \hspace{2.5cm}教學部副主任兼內科部心臟血管科主治醫師\par
+    \vspace{0.3cm}
+    派赴國家:西班牙\par
+    \vspace{0.3cm}
+    出國期間:2025年08月23日至2025年09月01日\par
+    \vspace{0.3cm}
+    報告日期:2025-10-07\par
+    }
+\end{titlepage}
+
+\newpage
+
+% 摘要(200-300字)
+\section*{摘要}
+%\addcontentsline{toc}{section}{摘要}
+
+本次赴西班牙參加兩項重要國際會議:AMEE 2025(An International Association for Medical Education)歐洲醫學教育年會(8月23-27日,巴塞隆納)及ESC 2025(European Society of Cardiology Congress)歐洲心臟學會年會(8月29日-9月1日,馬德里),為期十二天的學習行程收穫豐碩。
+
+AMEE為全球最重要的醫學教育年會之一,匯集世界各地醫學教育工作者,分享最新教育理念、研究成果與實務經驗。本次會議主題涵蓋建構式配合(Constructive Alignment)、對話式專業主義、武器化專業主義批判、研究方法框架等重要概念,並了解人工智慧在醫學教育中的創新應用。
+
+ESC為全球心臟學領域最具影響力的年會,每年發表最新臨床試驗結果與治療指引更新。本次會議學習了DIGIT-HF、VICTOR、REBOOT-CNIC、TACSI等重要Hotline研究,涵蓋心衰竭治療、冠心病管理、結構性心臟病介入、周邊動脈疾病等領域的最新進展。
+
+透過參與兩大國際會議,不僅掌握了醫學教育改革的國際趨勢和心血管臨床照護的最新證據,更體認到教學與臨床必須相輔相成。本報告將詳述參訪目的、過程、心得與建議,期望將所學應用於本院教學與臨床改進,培養具有專業能力、人文關懷與社會責任的優秀醫師,並提升心血管疾病照護品質。
+
+\newpage
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% 壹、目的
+\section{目的}
+
+\subsection{參加AMEE 2025之主要目的}
+
+\subsubsection{學習國際最新醫學教育理論與實務}
+
+AMEE為全球醫學教育領域最具影響力的年會,匯集世界各地醫學教育專家學者,分享最新的教育理論、研究成果與創新實務。透過參與會議,期望了解當前國際醫學教育的發展趨勢,學習先進的教學方法與評估技術。
+
+\subsubsection{提升教學評估的品質與公平性}
+
+醫學教育評估是確保教學品質的重要環節。本次會議特別關注評估方法的創新與改進,包括MMI(Multiple Mini Interview)、對比效應的控制、利益衝突管理等議題。期望透過學習國際經驗,改善本院的評估機制,提升評估的信度、效度與公平性。
+
+\subsubsection{探索人工智慧在醫學教育的應用}
+
+隨著科技進步,人工智慧在醫學教育中的應用日益重要。本次會議展示了多項AI教學工具,包括ChatGPT生成考題、模擬情境建構、虛擬病人等創新應用。期望了解這些工具的實務應用,評估引進本院的可行性。
+
+\subsection{參加ESC 2025之主要目的}
+
+\subsubsection{學習國際最新心血管臨床試驗結果}
+
+ESC為全球心臟學領域最具影響力的年會,匯集世界各地心臟科專家學者,發表最新的臨床試驗結果、研究成果與創新治療方法。透過參與會議,期望了解當前國際心血管醫學的發展趨勢,學習先進的治療策略與臨床證據。
+
+\subsubsection{掌握心臟學治療指引更新}
+
+心血管治療指引會根據最新臨床證據定期更新。本次會議特別關注心衰竭、冠心病、心律不整等領域的治療指引變革,包括新藥臨床應用、介入治療時機、以及藥物治療策略的優化等議題。
+
+\subsubsection{了解創新心血管介入技術}
+
+隨著科技進步,心臟介入治療技術日新月異。本次會議展示了多項創新技術,包括TAVI新世代器械、藥物塗層器械、以及心律不整電燒治療的新技術等。
+
+\subsection{整合性目的:教學與臨床的相輔相成}
+
+\subsubsection{建立國際交流網絡}
+
+透過參與國際會議,與各國醫學教育專家及心臟科專家交流,建立長期合作關係,有助於提升本院在國際上的能見度,並引進國際資源與經驗。
+
+\subsubsection{促進教學與臨床的整合}
+
+醫學教育與臨床實務密不可分。透過同時參與教育和臨床會議,能夠更全面地思考如何培養優秀醫師,如何將最新臨床證據融入教學,以及如何在臨床實務中實踐教育理念。
+
+\subsubsection{提升本院整體醫療與教學品質}
+
+將國際先進經驗與本院現況結合,發展符合本土需求的教學與臨床改進方案,建立持續進步的學術與臨床文化。
+
+% 貳、過程
+\section{過程}
+
+\subsection{AMEE 2025會議內容}
+
+\subsubsection{會議概況}
+
+AMEE 2025於西班牙巴塞隆納舉行,為期五天(2025年8月23日至27日)。會議包含主題演講、工作坊、論文發表、海報展示等多種形式,涵蓋醫學教育的各個面向。本次會議特別強調教育公平性、多元文化敏感度、以及科技創新應用。
+
+\subsubsection{Workshop參與經驗}
+
+每場Workshop的執行方式具有以下特色:
+\begin{itemize}[nosep]
+    \item 時間長度:每場Workshop為三個小時
+    \item 分組形式:所有參與者分組進行,每組有自己的桌次
+    \item 師資配置:每個Workshop由三位老師共同主持
+    \item 演講時間:每位老師約有15到20分鐘的演講時間
+\end{itemize}
+
+Workshop最具特色的是三位老師的協作方式:三個老師都一起主持,三個人都一起分擔主持的工作。其中一個老師會走到學生的桌子裡面去鼓勵學生參與啟發問題,台上有兩個老師會負責交叉發言提供討論。大家都會互相打斷,然後很客氣地跟大家一起說自己怎麼想。
+
+\begin{importantbox}
+\textbf{Workshop的稀特學習氛圍:}
+\begin{itemize}[nosep]
+    \item 這個會議很有趣,全部都是經驗老道的老師
+    \item 鼓勵其他學生(這些學生其實本身也都是經驗豐富的老師)
+    \item 很多發言,都很有哲理
+    \item 每隔幾分鐘就有很精彩的對話可以被聽到
+\end{itemize}
+\end{importantbox}
+
+\subsubsection{重要學習主題}
+
+\textbf{Constructive Alignment(建構式配合):}
+
+Constructive Alignment是由澳洲教育學者John Biggs提出的重要教育理論,強調教學系統中各個要素之間的一致性和協調性。
+
+核心概念:
+\begin{itemize}[nosep]
+    \item Constructive(建構性):基於建構主義學習理論,學習者主動建構知識
+    \item Alignment(對齊/配合):確保教學目標、教學活動和評量方法三者之間的一致性
+\end{itemize}
+
+實施原則:
+\begin{enumerate}
+    \item 向後設計(Backward Design):先確定學習目標,再設計評量方式,最後規劃教學活動
+    \item 一致性(Consistency):三個要素之間必須彼此呼應,避免教學內容與評量方式脫節
+    \item 透明度(Transparency):學習目標對學生清楚明確,評量標準公開透明
+\end{enumerate}
+
+\textbf{Weaponized Professionalism(武器化專業主義):}
+
+Weaponized Professionalism是指將專業主義的標準和規範作為工具,用來排斥、控制或壓制某些群體,特別是邊緣化群體的現象。
+
+在醫學教育中的表現:
+\begin{itemize}[nosep]
+    \item 外觀和行為標準:對髮型、服裝的嚴格規定,要求「標準」的溝通方式
+    \item 語言和溝通:將口音或方言視為「不專業」
+    \item 評量和考核:使用帶有文化偏見的評量標準
+\end{itemize}
+
+應對策略:
+\begin{itemize}[nosep]
+    \item 重新定義專業主義:將重點放在核心價值而非表面行為
+    \item 教育和培訓:提高對隱性偏見的認識
+    \item 政策改革:檢視現有的專業標準和評量方式
+\end{itemize}
+
+\textbf{Professionalism as Conversation(對話式專業主義):}
+
+「Professionalism is not a prescription but should be a conversation」體現了現代專業主義教育的重要轉向,從規定性的標準轉向對話性的探索過程。
+
+為什麼需要對話?
+\begin{enumerate}
+    \item 複雜性與脈絡性:專業情境往往複雜且稀特,需要考量文化、社會、個人因素
+    \item 多元性與包容性:不同背景的人對專業的理解不同,避免單一文化霸權
+    \item 發展性與學習性:專業主義是持續發展的過程,透過對話促進深度學習
+\end{enumerate}
+
+\textbf{Multiple Mini Interview (MMI)與Contrast Effect:}
+
+MMI是醫學教育中常用的一種結構化面試評估方法。基本格式包括:
+\begin{itemize}[nosep]
+    \item 考生需要通過多個獨立的面試站點(通常6-10個站)
+    \item 每站時間較短(通常5-10分鐘)
+    \item 每站由不同的面試官評分
+    \item 每站評估不同的能力或情境
+\end{itemize}
+
+Contrast Effect(對比效應)是MMI評估中的重要議題。如果評審員剛評完一個表現優秀的考生,可能會對下一個普通表現的考生評分偏低。
+
+減少Contrast Effect的策略:
+\begin{enumerate}
+    \item 標準化評分標準:使用詳細的評分量表和具體行為指標
+    \item 評審員訓練:讓評審員認識這種偏誤並學習如何避免
+    \item 休息時間:在站點間給評審員短暫的重置時間
+    \item 多重評審:同一站點由多位評審員評分
+    \item 評分校準:定期進行評審員間的一致性訓練
+\end{enumerate}
+
+\textbf{Cook (2008) 研究方法框架:}
+
+David A. Cook等人(2008)提出的框架將教育研究目的分為三個類別:
+
+\begin{longtable}{p{2cm}p{4cm}p{8cm}}
+\toprule
+\textbf{目的} & \textbf{解決的問題} & \textbf{焦點與理由} \\
+\midrule
+\endhead
+描述 & 做了什麼? & 活動/事件的說明,讓其他人能夠重複、理解或基於既有成果進一步發展 \\
+證成 & 有效嗎? & 評估效果,提供證據證明特定過程或方法是有益的或達到預期目的 \\
+闡明 & 為什麼/如何有效? & 機制、理論,深化理解、指導未來實務,並透過闡述基本原理幫助跨情境的知識轉移 \\
+\bottomrule
+\end{longtable}
+
+Cook等人發現證成研究最為常見(72\%),其次是描述(16\%),闡明研究最少見(12\%)。該框架鼓勵學者進行更多闡明型研究以建立更強的理論基礎。
+
+\textbf{Post-positivist與Constructivist研究典範:}
+
+這兩個研究典範在本體論、認識論和方法論上有根本性差異:
+
+Post-positivist(後實證主義):
+\begin{itemize}[nosep]
+    \item 相信存在客觀的現實,但認為我們只能不完美地理解它
+    \item 追求客觀性,強調透過嚴謹的方法控制偏誤和錯誤
+    \item 主要使用量化方法,重視信度、效度、可重複性
+\end{itemize}
+
+Constructivist(建構主義):
+\begin{itemize}[nosep]
+    \item 現實是社會建構的,存在多重的、主觀建構的現實
+    \item 知識是透過研究者與被研究者的互動建構出來的
+    \item 主要使用質性方法,重視脈絡、主觀經驗和意義建構
+\end{itemize}
+
+\subsubsection{人工智慧在醫學教育的應用}
+
+會議中現場示範了ChatGPT如何生成考試題目,展示了AI在醫學教育評估中的應用潛力。
+
+重要的AI教育工具:
+
+\textbf{Affinity Learning(免費平台):}
+\begin{itemize}[nosep]
+    \item 網址:\url{https://affinitylearning.ca}
+    \item 功能:透過互動式情境模擬真實世界經驗
+\end{itemize}
+
+\textbf{IU Bloomington Simulation Scenario Builder Tool:}
+\begin{itemize}[nosep]
+    \item 開發者:美國Bloomington大學研究學者
+    \item 網址:\url{https://chatgpt.com/g/g-mw2EfdWEj-iu-bloomington-simulation-scenario-builder-tool}
+    \item 功能:協助模擬教育工作者建立醫療保健模擬案例
+    \item 特色:免費提供
+\end{itemize}
+
+\textbf{AI Patient Actor App (Dartmouth):}
+\begin{itemize}[nosep]
+    \item 網址:\url{https://geiselmed.dartmouth.edu/thesen/patient-actor-app/}
+    \item 功能:讓醫療學員練習臨床推理和溝通技巧
+    \item 特色:提供即時回饋
+\end{itemize}
+
+\textbf{Standardized Patient的專業化:}
+
+芬蘭同學分享他們聘請專業演員擔任standardized patient,並提供專業的表演課程訓練,提升模擬訓練的真實性和教育效果。值得注意的是,台大醫院的SP(標準化病人)也有上專業的表演課程訓練,顯示這已成為國際趨勢。
+
+\subsubsection{其他重要議題}
+
+\textbf{Failure to Fail研究:}
+
+研究問題:什麼時候我們會讓該被當掉的學生通過?這是一個重要的臨床教育評估議題,探討評估者為何難以給予不及格評分、影響評分決策的因素、以及如何建立公平且嚴謹的評估機制。
+
+\textbf{Visual Thinking Strategies (VTS):}
+
+Visual Thinking Strategies是一種基於證據的教學方法,透過藝術分析和結構化探究來培養觀察能力、發展批判性思考、提升溝通技巧、促進團隊討論。
+
+\subsection{ESC 2025會議內容}
+
+\subsubsection{會議概況}
+
+ESC 2025於西班牙馬德里舉行,為期六天(2025年8月29日至9月3日)。會議包含主題演講、Hotline研究發表、專題討論、海報展示等多種形式,涵蓋心血管醫學的各個領域。本次會議特別強調實證醫學、精準醫療、以及多學科團隊照護的重要性。
+
+\subsubsection{心衰竭與心肌症領域}
+
+\textbf{DIGIT-HF試驗重點:}
+
+DIGIT-HF是首個大型隨機對照試驗證實Digitoxin在現代心衰竭治療中的療效。研究收案1212名HFrEF患者,在已接受完善指引治療的患者中仍有顯著療效。
+
+\begin{itemize}[nosep]
+    \item \textbf{研究設計:}多中心、隨機、雙盲、安慰劑對照試驗
+    \item \textbf{收案標準:}NYHA II且LVEF ≤30\%或NYHA III-IV且LVEF ≤40\%
+    \item \textbf{主要結果:}全因死亡+首次心衰住院 HR 0.82 (0.69-0.98), p=0.03
+    \item \textbf{絕對風險減少:}4.6\%, NNT=22
+    \item \textbf{安全性:}整體安全性良好,與ARNI、SGLT2i等新藥併用安全有效
+\end{itemize}
+
+臨床意義:
+\begin{itemize}[nosep]
+    \item 在現代GDMT背景下仍有額外療效
+    \item 相比Digoxin,Digitoxin血中濃度更穩定,不受腎功能影響
+    \item 為HFrEF患者提供額外治療選項
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{VICTOR試驗重點:}
+
+VICTOR是首個專門針對門診穩定HFrEF患者的大型Vericiguat試驗,收案6105名患者。
+
+\begin{itemize}[nosep]
+    \item \textbf{研究設計:}第3期、雙盲、安慰劑對照試驗
+    \item \textbf{收案標準:}LVEF ≤40\%,無近期HF惡化事件,NT-proBNP 600-6000 pg/mL
+    \item \textbf{主要結果:}CV死亡或首次心衰住院 HR 0.93 (0.83-1.04), p=0.22(未達顯著性)
+    \item \textbf{次要終點:}CV死亡 HR 0.83 (0.71-0.97), p=0.02; 全因死亡 HR 0.84 (0.74-0.97), p=0.02
+    \item \textbf{死因分析:}心因性猝死 HR 0.75 (p=0.04); 心衰相關死亡 HR 0.71 (p=0.02)
+\end{itemize}
+
+臨床意義:
+\begin{itemize}[nosep]
+    \item 主要終點未達標,但CV死亡顯著降低17\%
+    \item 在現代GDMT背景下仍顯示mortality benefit
+    \item 為穩定HFrEF患者提供額外治療選項
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{其他重要心衰研究:}
+
+\begin{longtable}{p{3.5cm}p{2cm}p{8.5cm}}
+\toprule
+\textbf{研究名稱} & \textbf{收案數} & \textbf{主要結果} \\
+\midrule
+\endhead
+DAPA ACT HF-TIMI 68 & 2401 & 住院心衰使用Dapagliflozin安全但主要終點未達標 (HR 0.84, p=0.07) \\
+MAPLE-HCM & 175 & Aficamten優於Metoprolol改善梗阻HCM運動能力(峰值氧耗改善2.3 mL/kg/min, p<0.001) \\
+PARACHUTE-HF & 305 & Sacubitril/valsartan在Chagas HF優於Enalapril (Win Ratio 1.52, p=0.01) \\
+ODYSSEY-HCM & 580 & Mavacamten在非梗阻HCM無顯著益處 \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{冠心病與急性冠心症候群領域}
+
+\textbf{REBOOT-CNIC試驗重點:}
+
+REBOOT-CNIC是首個大型試驗質疑β阻斷劑在非心衰心梗患者中的必要性,收案8438名LVEF>40\%的心梗患者。
+
+\begin{itemize}[nosep]
+    \item \textbf{研究設計:}多國多中心隨機對照試驗(109家醫院)
+    \item \textbf{中位數追蹤:}3.7年
+    \item \textbf{主要結果:}全因死亡+非致命性再梗+心衰住院 HR 1.04 (0.89-1.22), p=0.63(無顯著差異)
+    \item \textbf{重要發現:}女性患者使用β阻斷劑可能有害; LVEF 41-49\%患者可能有輕微獲益
+    \item \textbf{交叉率:}3個月7\%, 15個月15\%,主要從對照組轉向β阻斷劑組
+\end{itemize}
+
+臨床意義:
+\begin{itemize}[nosep]
+    \item 挑戰現行指引的Class I建議
+    \item 需要性別特異性治療策略
+    \item 促使重新評估個人化治療方針
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{TACSI試驗重點:}
+
+TACSI試驗評估ACS後CABG患者抗血小板治療策略,收案2201名患者。
+
+\begin{itemize}[nosep]
+    \item \textbf{研究設計:}北歐多國22個心外科中心,隨機開放標籤設計
+    \item \textbf{治療方式:}雙重抗血小板治療組(Ticagrelor + Aspirin) vs 單純Aspirin組
+    \item \textbf{主要結果:}全因死亡+心梗+中風+再血運重建 HR 1.04 (0.89-1.22), p=0.63(無顯著差異)
+    \item \textbf{出血風險:}有增加趨勢
+\end{itemize}
+
+臨床意義:
+\begin{itemize}[nosep]
+    \item 挑戰現行指引對ACS後CABG患者使用DAPT的建議
+    \item 單純Aspirin可能已足夠
+    \item 需重新評估出血與缺血風險平衡
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{其他重要冠心病研究:}
+
+\begin{longtable}{p{3.5cm}p{2cm}p{8.5cm}}
+\toprule
+\textbf{研究名稱} & \textbf{收案數} & \textbf{主要結果} \\
+\midrule
+\endhead
+BETAMI-DANBLOCK & 5496 & MI後β阻斷劑停藥策略,複合心血管終點降低 HR 0.84 (p=0.04) \\
+TARGET-First & 1448 & AMI-PCI後早期停用阿斯匹靈,缺血事件相似但出血顯著減少 \\
+NEO-MINDSET & 3410 & ACS-PCI後早期停用阿斯匹靈,未證明非劣效於缺血事件但出血減少 \\
+OPTION-STEMI & 994 & STEMI多支病變完全血運重建時機,MACE無差異 \\
+TAILORED-CHIP & 1900 & 複雜高危PCI個人化抗血小板治療,缺血事件無差異但出血增加 \\
+DAPT-SHOCK-AMI & 500 & 心因性休克使用Cangrelor,臨床終點無差異但血小板抑制較佳 \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{結構性心臟病領域}
+
+\textbf{DOUBLE-CHOICE試驗詳細結果:}
+
+DOUBLE-CHOICE是評估TAVI麻醉策略與瓣膜比較的重要研究。
+
+麻醉策略(n=752):
+\begin{itemize}[nosep]
+    \item 微創vs標準,30天複合終點22.9\% vs 25.8\%(非劣效性p=0.003)
+    \item 微創麻醉證實非劣效且具成本效益優勢
+\end{itemize}
+
+瓣膜策略(n=835):
+\begin{itemize}[nosep]
+    \item Acurate neo2 vs Evolut,30天複合終點15.4\% vs 30.4\%(p<0.001)
+    \item 主要差異:永久起搏器植入率11.2\% vs 26.5\%
+    \item Acurate neo2顯示優越性
+\end{itemize}
+
+\subsubsection{周邊動脈疾病領域}
+
+\textbf{SWEDEPAD試驗重點:}
+
+SWEDEPAD 1和2試驗挑戰了藥物塗層器械在周邊動脈疾病中的常規使用。
+
+SWEDEPAD 1(n=2355):
+\begin{itemize}[nosep]
+    \item 慢性肢體威脅性缺血:藥物塗層vs未塗層器械
+    \item 主要截肢率無差異 HR 1.05 (0.87-1.27), p=0.61
+    \item 藥物塗層器械未減少截肢,但第一年內減少再介入
+\end{itemize}
+
+SWEDEPAD 2(n=1136):
+\begin{itemize}[nosep]
+    \item 間歇性跛行:藥物塗層vs未塗層器械
+    \item 生活品質無改善但5年死亡率增加 HR 1.47 (1.09-1.98)
+    \item 挑戰藥物塗層器械的安全性
+\end{itemize}
+
+\subsubsection{心律不整、高血壓與其他領域}
+
+\begin{longtable}{p{2.5cm}p{1.5cm}p{3cm}p{7cm}}
+\toprule
+\textbf{研究名稱} & \textbf{收案數} & \textbf{領域} & \textbf{主要結果} \\
+\midrule
+\endhead
+AMALFI & 5040 & 心律不整 & 14天ECG貼片篩檢心房顫動,AF檢出率6.8\% vs 5.4\% (RR 1.26, p=0.03) \\
+POTCAST & 1200 & 心律不整 & ICD患者血鉀目標4.5-5.0 mmol/L,複合終點減少24\% (HR 0.76, p=0.01) \\
+BEAT PAROX-AF & 600 & 心律不整 & 脈衝電場消融vs射頻消融,未證明優越性,單次程序成功率相似 \\
+ALONE-AF & 840 & 心律不整 & 房顫消融後停用抗凝血劑,淨不良事件減少,中風相似 \\
+BaxHTN & 506 & 高血壓 & Baxdrostat治療頑固性高血壓,SBP降低9.8 mmHg (p<0.001) \\
+KARDIA-3 & 750 & 高血壓 & Zilebesiran附加治療,SBP降低5 mmHg (p<0.001) \\
+REFINE ICD & 543 & 器械治療 & EF 35-50\% MI後ICD植入,全因死亡率無改善 \\
+NEWTON-CABG & 766 & 心臟外科 & PCSK9抑制劑改善SVG通暢性,靜脈移植物通暢性無改善 \\
+VICTORION-Difference & 1770 & 血脂 & Inclisiran策略,LDL-C達標率84.9\% vs 31.0\% (p<0.0001) \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{VICTORION-Difference試驗深入分析}
+
+VICTORION-Difference是降血脂策略的突破性研究,展示了Inclisiran(siRNA藥物)的優勢。
+
+研究設計:
+\begin{itemize}[nosep]
+    \item 第4期、雙盲、安慰劑對照試驗
+    \item 收案1770名高/極高心血管風險患者
+    \item 8個歐洲國家,133個研究中心
+\end{itemize}
+
+主要結果:
+\begin{itemize}[nosep]
+    \item 第90天LDL-C達標率:84.9\% vs 31.0\% (OR 12.09, p<0.0001)
+    \item LDL-C降低:-59.45\% vs -24.31\%
+\end{itemize}
+
+安全性優勢:
+\begin{itemize}[nosep]
+    \item 肌肉相關不良事件:11.9\% vs 19.2\% (OR 0.57, p<0.0001)
+    \item Rosuvastatin平均劑量:13.2mg vs 25.4mg
+    \item 疼痛嚴重程度改善趨勢
+\end{itemize}
+
+臨床意義:
+\begin{itemize}[nosep]
+    \item 更多患者早期達標,無需statin最大劑量
+    \item 顯著減少肌肉相關副作用
+    \item 為lipid管理策略提供新選擇
+\end{itemize}
+
+% 參、心得
+\section{心得}
+
+\subsection{教學與臨床的相輔相成}
+
+此次同時參加AMEE和ESC兩大國際會議,深刻體認到醫學教育與臨床實務密不可分。優秀的臨床醫師需要扎實的教育培養,而有效的醫學教育必須建立在最新的臨床證據之上。
+
+AMEE強調的對話式專業主義,與ESC展現的實證醫學精神,其實有著共同的核心價值:不盲目接受權威,而是透過批判性思考和持續對話,尋求最佳的解決方案。在臨床上,我們需要根據最新證據質疑既有準則(如REBOOT-CNIC挑戰β阻斷劑使用);在教學上,我們也需要反思傳統的專業標準是否適當(避免武器化專業主義)。
+
+\subsection{實證醫學的持續演進與教學啟示}
+
+ESC 2025展現了心血管醫學實證研究的豐富多樣性。從DIGIT-HF證實老藥digitoxin仍有價值,到REBOOT-CNIC挑戰β阻斷劑的必要性,每一項研究都促使我們重新思考既有準則。
+
+這給醫學教育帶來重要啟示:我們培養的醫學生,不應該只是記憶現有指引的「背誦機器」,而應該具備批判性思考能力,能夠評估新證據、質疑舊準則。AMEE強調的建構式配合(Constructive Alignment)正是要培養這種能力:讓學習目標、教學活動和評量方法都指向培養學生的批判思維和終身學習能力。
+
+\subsection{個人化醫療與個人化教育}
+
+會議中多項研究強調了個人化的重要性。在臨床上,REBOOT-CNIC發現女性患者使用β阻斷劑可能有害,LVEF 41-49\%患者可能有輕微獲益;在教育上,AMEE警告武器化專業主義可能排斥某些群體,強調需要文化敏感度和包容性。
+
+這提醒我們:無論是臨床治療還是醫學教育,都不能一體適用。我們需要考慮患者的性別、年齡、共病症等因素制定治療方案;同樣地,也需要考慮學生的背景、學習風格、文化差異來設計教育方案。
+
+\subsection{評估與評量的公平性}
+
+AMEE特別強調評估的公平性,包括對比效應的控制、利益衝突管理、以及避免隱性偏見。這與ESC強調的臨床試驗設計品質有異曲同工之妙:都是要確保評估/評量的客觀性和準確性。
+
+在臨床試驗中,我們用隨機分組、雙盲設計來控制偏誤;在教育評估中,我們也需要用標準化評分、多重評審、評審員訓練來提升公平性。MMI設計中對對比效應的重視,就如同臨床試驗中對混雜因子的控制,都是為了得到更可信的結果。
+
+\subsection{科技創新與人文關懷的平衡}
+
+AMEE展示了AI在醫學教育中的應用潛力,ESC展示了TAVI等創新技術改善臨床結果。但兩個會議都強調:科技應該是輔助工具,而非取代人文關懷。
+
+在教育上,AI可以幫助生成考題、建構模擬情境,但不能取代師生間的對話和啟發。在臨床上,新技術可以改善治療效果,但需要透過嚴謹的試驗驗證(如SWEDEPAD顯示藥物塗層器械可能增加死亡率)。關鍵是審慎評估科技的適用性,確保真正有益於教學和臨床。
+
+\subsection{多元視角與跨領域整合}
+
+AMEE的Workshop展現了精彩的學習模式:三位老師協作,一位深入學員引導,兩位台上交叉討論,創造了立體的學習體驗。這種多元視角的整合,對臨床照護也有啟示。
+
+現代心血管照護需要多學科團隊合作:心臟內科、心臟外科、影像醫學、復健科等。ESC多項研究(如DOUBLE-CHOICE的TAVI研究)都強調團隊照護的重要性。在培養醫學生時,我們也應該創造更多跨領域合作的機會,讓學生學習如何在團隊中貢獻專業、整合不同觀點。
+
+\subsection{批判性思考與終身學習}
+
+兩個會議的共同主題是:醫學知識不斷更新,我們需要培養批判性思考和終身學習的能力。
+
+AMEE的Cook研究框架鼓勵我們不只進行「證成」研究(證明有效),更要進行「闡明」研究(解釋為什麼有效),建立更強的理論基礎。ESC的多項試驗挑戰既有準則,也是批判性思考的體現。
+
+在培養醫學生時,我們需要教導他們如何批判性評讀文獻、如何在臨床實務中應用證據、如何在面對不確定性時做出最佳決策。這正是對話式專業主義的精髓:不是給予標準答案,而是培養思考能力。
+
+\subsection{國際經驗與本土實踐}
+
+雖然國際經驗寶貴,但不能直接複製到本土情境。每個國家、每個機構都有其特殊的醫療體系、資源條件、文化背景和病患族群特性。
+
+在臨床上,我們需要思考:國際試驗的結果是否適用於台灣病患?藥物可得性和成本如何?在教育上,我們也需要思考:國際的教育模式是否符合本土文化?如何在現有資源下實施?
+
+關鍵是批判性地吸收國際經驗,結合本土實際,發展適合我們的模式。這需要持續的研究、評估和調整。
+
+% 肆、建議事項
+\section{建議事項}
+
+\subsection{短期建議(3-6個月內實施)}
+
+\subsubsection{舉辦整合性學習心得分享會}
+
+建議於返國後一個月內舉辦分享會,向院內同仁介紹AMEE和ESC 2025的重要內容。可分為兩個部分:
+\begin{itemize}[nosep]
+    \item \textbf{教育主題:}建構式配合、對話式專業主義、MMI評估、AI教學工具等
+    \item \textbf{臨床主題:}心衰竭治療新證據、冠心病治療策略更新、結構性心臟病介入等
+\end{itemize}
+
+可採用journal club或workshop形式,鼓勵互動討論。
+
+\subsubsection{檢視心衰竭治療流程}
+
+建議根據DIGIT-HF、VICTOR等試驗結果,檢視本院心衰竭患者的藥物治療策略:
+\begin{itemize}[nosep]
+    \item 評估digitoxin引進的可行性
+    \item 檢討現有GDMT藥物使用率和劑量優化
+    \item 建立多重藥物治療的整合流程
+\end{itemize}
+
+\subsubsection{重新評估急性冠心症治療策略}
+
+建議根據REBOOT-CNIC、TACSI等試驗結果,重新評估本院ACS患者治療策略:
+\begin{itemize}[nosep]
+    \item 檢討β阻斷劑使用時機,特別注意性別差異
+    \item 評估CABG後抗血小板治療策略
+    \item 建立個人化治療決策流程
+\end{itemize}
+
+\subsubsection{引進對話式教學方法}
+
+建議在醫學生的專業主義教育課程中,採用案例討論和反思對話的方式:
+\begin{itemize}[nosep]
+    \item 取代單向的規則宣講
+    \item 鼓勵學生分享不同觀點
+    \item 討論專業困境和倫理議題
+\end{itemize}
+
+可先從小規模試點開始,評估效果後逐步推廣。
+
+\subsubsection{試用AI教學工具}
+
+建議試用免費的AI教學工具:
+\begin{itemize}[nosep]
+    \item Affinity Learning:用於臨床情境模擬
+    \item IU Bloomington Simulation Scenario Builder:用於建構教學案例
+    \item AI Patient Actor App:用於臨床推理訓練
+\end{itemize}
+
+可先在特定科別或課程中試行,收集使用回饋,評估大規模應用的可行性。
+
+\subsubsection{檢視教學評估機制}
+
+建議成立評估改進小組,檢視本院現有的教學評估機制(包括MMI、臨床技能考試等):
+\begin{itemize}[nosep]
+    \item 識別可能存在的偏誤(如對比效應、文化偏見等)
+    \item 檢視評分標準的公平性和透明度
+    \item 提出改進方案
+\end{itemize}
+
+\subsection{中期建議(6-12個月內實施)}
+
+\subsubsection{建立心血管多重藥物治療準則}
+
+建議參考國際指引和最新研究證據,建立本院的心衰竭、冠心病多重藥物治療準則:
+\begin{itemize}[nosep]
+    \item 藥物使用順序和劑量優化
+    \item 藥物交互作用管理
+    \item 副作用監測和處理
+    \item 個人化治療決策流程
+\end{itemize}
+
+\subsubsection{發展本院的模擬教學方案}
+
+建議參考國際經驗,結合本院資源,發展適合的模擬教學方案:
+\begin{itemize}[nosep]
+    \item 建立標準化病人培訓制度(包括專業表演課程)
+    \item 發展多元化的模擬情境(紙本模擬、虛擬實境等)
+    \item 整合AI工具提升模擬教學效果
+    \item 建立模擬教學品質評估機制
+\end{itemize}
+
+\subsubsection{建立評審員培訓與校準機制}
+
+建議建立系統化的評審員培訓計畫:
+\begin{itemize}[nosep]
+    \item 認識評估偏誤(對比效應、暈輪效應等)及其控制方法
+    \item 文化敏感度與隱性偏見訓練
+    \item 定期評分校準會議,提升評分一致性
+    \item 利益衝突識別與管理
+\end{itemize}
+
+\subsubsection{推動臨床研究參與}
+
+建議鼓勵本院醫師參與臨床研究:
+\begin{itemize}[nosep]
+    \item 參與多中心臨床試驗
+    \item 進行本院病患登錄研究
+    \item 學習國際臨床研究設計的最佳實務
+    \item 發表研究成果於國際期刊
+\end{itemize}
+
+\subsubsection{發展周邊動脈疾病照護方案}
+
+建議根據SWEDEPAD試驗結果,重新評估周邊動脈疾病患者的治療策略:
+\begin{itemize}[nosep]
+    \item 審慎評估藥物塗層器械的使用時機和適應症
+    \item 建立多學科團隊照護流程
+    \item 加強患者教育和長期追蹤
+\end{itemize}
+
+\subsubsection{進行教育研究方法的內部培訓}
+
+建議引進Cook研究框架,培訓教學人員的研究能力:
+\begin{itemize}[nosep]
+    \item 鼓勵不僅進行「證成」研究,更要進行「闡明」研究
+    \item 建立更強的教育理論基礎
+    \item 提升教育研究的品質和國際發表能力
+\end{itemize}
+
+\subsection{長期建議(1-2年內實施)}
+
+\subsubsection{發展結構性心臟病介入治療}
+
+建議評估TAVI等結構性心臟病介入治療的發展可行性:
+\begin{itemize}[nosep]
+    \item 人員培訓和資格認證
+    \item 設備採購和空間規劃
+    \item 多學科團隊建立(心臟內科、心臟外科、麻醉科、影像醫學科)
+    \item 與心臟外科的合作模式建立
+\end{itemize}
+
+\subsubsection{建立系統化的教師發展計畫}
+
+建議建立完整的教師發展體系:
+\begin{itemize}[nosep]
+    \item 新進教師的教學基本能力培訓
+    \item 資深教師的進階教學技能提升
+    \item 教學領導者的培育計畫
+    \item 定期的教學創新工作坊
+    \item 教學成果的獎勵和認可機制
+\end{itemize}
+
+\subsubsection{建立心血管臨床研究中心}
+
+建議建立系統化的臨床研究平台:
+\begin{itemize}[nosep]
+    \item 臨床試驗管理系統
+    \item 研究護理師和資料管理團隊
+    \item 倫理審查流程優化
+    \item 國際多中心試驗參與機制
+    \item 研究經費支持系統
+\end{itemize}
+
+\subsubsection{發展符合本土脈絡的教育理論}
+
+建議不僅學習國際經驗,更要發展符合台灣醫療體系和文化脈絡的教育理論:
+\begin{itemize}[nosep]
+    \item 進行本土醫學教育研究
+    \item 記錄和分析本院的優良教學實務
+    \item 與其他醫學中心交流經驗
+    \item 發表研究成果,貢獻於國際醫學教育知識
+\end{itemize}
+
+\subsubsection{加強國際交流與合作}
+
+建議建立長期的國際交流機制:
+\begin{itemize}[nosep]
+    \item 每年派遣教師和醫師參加國際會議
+    \item 邀請國際專家來院交流
+    \item 參與國際研究合作計畫
+    \item 加入國際醫學教育和心臟學組織
+    \item 建立姊妹機構交流機制
+\end{itemize}
+
+\subsubsection{推動教學與臨床的整合創新}
+
+建議推動教學與臨床相輔相成的創新計畫:
+\begin{itemize}[nosep]
+    \item 在臨床照護中融入教學元素(bedside teaching的現代化)
+    \item 在教學中強調最新臨床證據(evidence-based teaching)
+    \item 建立臨床-教學整合的品質指標
+    \item 鼓勵臨床教師同時進行臨床和教育研究
+\end{itemize}
+
+\subsection{具體行動方案}
+
+\subsubsection{成立教學與臨床整合改進專案小組}
+
+建議成立跨部門的專案小組,負責推動上述建議的實施:
+\begin{itemize}[nosep]
+    \item 成員包括:教學部門、心臟內科、心臟外科、急診醫學科、藥劑部、學生代表等
+    \item 定期會議檢討進度
+    \item 建立溝通平台分享經驗
+    \item 確保改革方案的全面性和可行性
+\end{itemize}
+
+\subsubsection{建立改進成效評估機制}
+
+建議建立明確的評估指標,定期檢視改進成效:
+
+教學面向:
+\begin{itemize}[nosep]
+    \item 學生學習成效評估(考試成績、臨床表現)
+    \item 教學滿意度調查(學生、教師)
+    \item 評估機制公平性檢視
+    \item 教學創新實施成效分析
+\end{itemize}
+
+臨床面向:
+\begin{itemize}[nosep]
+    \item 病患臨床預後評估(死亡率、再住院率)
+    \item 治療品質指標監測(藥物使用率、達標率)
+    \item 醫療團隊滿意度調查
+    \item 成本效益分析
+\end{itemize}
+
+\subsubsection{建立持續改進文化}
+
+最重要的是建立持續改進的文化。醫學教育和臨床醫學都在快速發展,我們需要:
+\begin{itemize}[nosep]
+    \item 鼓勵開放討論和批判反思
+    \item 建立安全的創新試驗空間
+    \item 從失敗中學習,不懼怕嘗試
+    \item 持續關注國際發展,與時俱進
+    \item 重視對話而非單向指令
+    \item 培養終身學習的態度
+\end{itemize}
+
+\begin{importantbox}
+\textbf{核心訊息:整合教學與臨床的願景}
+
+參加AMEE 2025和ESC 2025兩大會議,讓我們深刻體認到:
+
+\textbf{在教育上,我們需要:}
+\begin{itemize}[nosep]
+    \item \textbf{對話而非處方}:透過持續對話建構專業主義
+    \item \textbf{公平而非形式}:重視評估的公平性與文化敏感度
+    \item \textbf{包容而非排斥}:警惕專業標準的武器化傾向
+    \item \textbf{創新而非僵化}:善用科技工具提升教學品質
+    \item \textbf{反思而非接受}:培養批判性思考與終身學習能力
+\end{itemize}
+
+\textbf{在臨床上,我們需要:}
+\begin{itemize}[nosep]
+    \item \textbf{實證而非經驗}:持續更新治療策略基於最新臨床證據
+    \item \textbf{個人化而非一體適用}:考慮患者個別特性制定治療方案
+    \item \textbf{平衡而非極端}:在療效與安全性間找到最佳平衡點
+    \item \textbf{整合而非單一}:多重藥物和多學科團隊的整合照護
+    \item \textbf{批判而非盲從}:審慎評估新技術和新證據的臨床應用
+\end{itemize}
+
+\textbf{教學與臨床的整合:}
+\begin{itemize}[nosep]
+    \item 優秀的臨床照護需要良好的教育培養
+    \item 有效的醫學教育必須基於最新的臨床證據
+    \item 批判性思考是連結兩者的核心能力
+    \item 持續學習是臨床和教學的共同要求
+    \item 人文關懷是醫學的永恆價值
+\end{itemize}
+
+這些理念將引導我們持續改進醫學教育與臨床照護,培養具有專業能力、批判思維、人文關懷與社會責任的優秀醫師,為患者提供最佳的醫療照護。
+\end{importantbox}
+
+\section*{致謝}
+\addcontentsline{toc}{section}{致謝}
+
+感謝本院支持參與AMEE 2025和ESC 2025兩大國際會議,此次為期十二天的學習行程收穫豐碩且深具啟發性。特別感謝:
+
+\begin{itemize}[nosep]
+    \item AMEE和ESC大會主辦單位提供優質的學習平台
+    \item 各Workshop講師和Hotline研究講師的精彩分享與討論
+    \item 國際同儕的交流與經驗分享
+    \item 本院同仁對醫學教育和心血管醫學發展的持續支持
+    \item 醫學生和住院醫師在臨床和教學工作上的配合
+\end{itemize}
+
+此次會議讓我深刻體會到教學與臨床相輔相成的重要性。在AMEE學習到的教育理念,可以幫助我們更好地培養具有批判思維的醫學生;在ESC學習到的臨床證據,可以提升我們的教學內容品質。期待將這些寶貴經驗轉化為實際行動,為提升本院醫學教育與心血管醫療照護品質而努力。
+
+\vspace{1cm}
+\begin{flushright}
+謝慕揚, MD, PhD, FESC\\
+新竹臺大分院教學部副主任\\
+兼內科部心臟血管科主治醫師\\
+\mydate
+\end{flushright}
+
+\end{document}

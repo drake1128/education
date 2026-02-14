@@ -1,0 +1,67 @@
+% Setting up the document class and necessary packages
+\documentclass[a4paper,10pt]{article}
+\usepackage{geometry}
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+\usepackage{longtable}
+\usepackage{ctex}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{noto}
+
+% Configuring the font to Noto Serif for consistency
+\setCJKmainfont{Noto Serif CJK SC}
+
+% Starting the document
+\begin{document}
+\section*{研究提案：AI輔助中文化NEJM病例教學講義對學習效果之影響}
+\noindent 提案日期: 2025-07-01
+\noindent 提案人: 謝慕揚醫師
+
+\vspace{1cm}
+
+% Creating the longtable for the study proposal
+\begin{longtable}{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{12cm}}
+%\caption{研究提案：AI輔助中文化NEJM病例教學講義對學習效果之影響} \\
+\toprule
+\textbf{項目} & \textbf{內容} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{項目} & \textbf{內容} \\
+\midrule
+\endhead
+\textbf{研究主題} & \textbf{主題1}：AI輔助製作中文化NEJM病例教學講義對住院醫師學習效果之影響 \\
+& \textbf{英文}：Impact of AI-Assisted Chinese Translation of NEJM Case Records on Resident Learning Outcomes \\
+& \textbf{主題2}：人工智慧輔助病例教學材料本土化之可行性研究 \\
+& \textbf{英文}：Feasibility Study of AI-Assisted Localization of Case-Based Learning Materials \\
+\midrule
+\textbf{研究設計} & \textbf{類型}：前後對照研究、混合方法研究 \\
+& \textbf{對象}：住院醫師（R1-R3）、主治醫師、醫學生（實習醫師） \\
+& \textbf{介入措施}：實驗組使用AI輔助中文化NEJM病例講義；對照組使用傳統英文NEJM病例或傳統中文教材 \\
+\midrule
+\textbf{測量指標} & \textbf{主要結果}：病例理解測驗分數、學習效率（完成時間）、知識保留率（1個月追蹤測驗） \\
+& \textbf{次要結果}：學習滿意度（Likert量表）、參與度（討論頻率、提問次數）、自信心（診斷自信度） \\
+\midrule
+\textbf{問卷設計} & \textbf{量化（5點Likert量表）}：內容品質（翻譯準確性、術語適切性、邏輯性）、學習體驗（理解度、動機、記憶）、實用性（臨床相關性、便利性、時間節省） \\
+& \textbf{質性（開放式問題）}：與英文NEJM比較之優缺點、AI教材看法、改進建議、未來使用意願 \\
+\midrule
+\textbf{執行流程} & \textbf{準備期（1-2個月）}：製作10份AI輔助中文講義、設計前測問卷、IRB審查 \\
+& \textbf{介入期（3-4個月）}：前測、分組教學、即時回饋 \\
+& \textbf{評估期（1-2個月）}：後測、深度訪談、追蹤測驗 \\
+\midrule
+\textbf{統計分析} & \textbf{樣本數}：每組至少32人（效果量Cohen's d=0.5，檢定力80\%，顯著水準0.05） \\
+& \textbf{方法}：配對t檢定（前後測）、獨立樣本t檢定（組間）、重複測量ANOVA（追蹤）、主題分析法（質性） \\
+\midrule
+\textbf{期刊投稿} & \textbf{目標期刊}：Medical Teacher (IF: 3.3)、BMC Medical Education (IF: 2.9)、Academic Medicine (IF: 7.9)、中華醫學教育雜誌、台灣醫學教育學刊 \\
+& \textbf{投稿角度}：創新性（首次系統評估AI醫學教育）、實用性（可複製模式）、本土化（華語需求） \\
+\midrule
+\textbf{研究限制} & \textbf{潛在問題}：樣本偏差（單一醫院）、新奇效應、語言能力差異 \\
+& \textbf{對策}：多中心合作、延長觀察期、控制基線特徵 \\
+\midrule
+\textbf{後續發展} & 擴大規模（多醫院、多科別）、技術改進（AI演算法優化）、效果追蹤（長期成效）、成本效益分析 \\
+\bottomrule
+\end{longtable}
+
+\end{document}

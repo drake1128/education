@@ -1,0 +1,639 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib} % For bibliography
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=gi_blue,
+    citecolor=gi_blue,
+    urlcolor=gi_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (GI themed colors)
+\definecolor{gi_green}{RGB}{34,139,34}
+\definecolor{gi_blue}{RGB}{30,144,255}
+\definecolor{gi_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{gi_green}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{gi_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{gi_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=gi_green,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=gi_blue!5!white,
+        colframe=gi_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gi_green}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{gi_blue}{腸胃內科EPAs}}
+\fancyfoot[C]{\textcolor{gi_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{gi_green}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{gi_green}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 腸胃內科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{gi_blue}{\textit{Gastroenterology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=gi_blue!5!white,
+        colframe=gi_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    腸胃內科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版（11個EPAs）\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 腸胃內科 胡文皓主任 \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{腸胃內科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。腸胃內科EPAs涵蓋了消化系統疾病診斷、治療與照護的核心能力，是所有腸胃內科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+腸胃內科EPAs評量著重於能否安全、穩定地執行完整的消化系統疾病診療流程，並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段，從初學者到專家的完整能力建構。本版本包含11個核心EPA，從基礎的病史詢問與理學檢查，到複雜的內視鏡操作與跨科部協調，提供完整的消化系統疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成腸胃內科EPAs後，住院醫師應能夠：
+\begin{itemize}[nosep]
+    \item 熟練進行消化系統病史詢問與風險評估。
+    \item 準確執行腹部理學檢查。
+    \item 獨立判讀腹部X光與電腦斷層檢查。
+    \item 執行腹部超音波基礎操作與判讀。
+    \item 判讀常見內視鏡檢查報告。
+    \item 診斷與處理急性腹痛。
+    \item 診斷與治療肝炎。
+    \item 診斷與處理消化道出血。
+    \item 診斷與治療膽胰系統疾病。
+    \item 執行腹腔穿刺引流術。
+    \item 協調消化科病患整體照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行，無法穩立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可穩立執行，但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可穩立執行，監督者隨時可得 \\
+        Level 5 & 完全穩立 & 可穩立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{腸胃內科11大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{腸胃內科EPAs完整架構} \\
+\hline
+\rowcolor{gi_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁 }} \\
+\hline
+\rowcolor{gi_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁 }} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 消化系統病史詢問與風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行消化系統疾病相關的完整病史詢問，包括症狀評估、危險因子識別、飲食史調查，並能初步評估消化系統風險。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 腹痛、噁心嘔吐、腹瀉便秘、吞嚥困難的詳細詢問 \\
+\cline{2-3}
+& 危險因子識別 & 飲酒史、藥物史、家族史、感染史 \\
+\cline{2-3}
+& 功能狀態評估 & 營養狀態、體重變化、食慾評估 \\
+\cline{2-3}
+& 藥物史 & 消化系統藥物使用史、過敏史、順從性評估 \\
+\cline{2-3}
+& 社會環境史 & 飲食習慣、生活型態、職業暴露史 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本消化系統症狀，需要監導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成消化系統病史詢問，使用適當的症狀評估工具 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問，整合症狀與危險因子進行初步風險分層 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史，整合多重共病資訊 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問，識別罕見症狀表現 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 腹部理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練且準確地進行腹部的完整理學檢查，包括腹部視診、觸診、叩診、聽診，並能正確解讀檢查發現。} \\
+\hline
+\textbf{核心能力} & 腹部視診 & 腹部形狀、腸蠕動、皮膚變化觀察 \\
+\cline{2-3}
+& 腹部聽診 & 腸音評估、血管雜音檢查 \\
+\cline{2-3}
+& 腹部叩診 & 肝脾界變化、鼓音實音域識別 \\
+\cline{2-3}
+& 腹部觸診 & 器官腫大、腫塊、壓痛點檢查 \\
+\cline{2-3}
+& 特殊檢查 & Murphy's sign、反彈痛、直腸指診 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本腹部觸診，識別明顯腫大器官 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見異常理學發現，進行系統性腹部檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能區分各種異常理學發現，準確評估腹部積水程度，整合多項檢查發現 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別複雜理學發現特徵，檢查技術精準且有效率 \\
+\hline
+\textbf{Level 5} & Expert & 能偵測細微的異常發現，整合檢查發現與臨床表現 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 腹部影像判讀與分析}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀腹部X光與腹部電腦斷層，識別正常與異常變化，包括腸道疾病、肝膽胰異常等，並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & 腹部X光判讀 & 腸氣分佈、器官影像、異物識別 \\
+\cline{2-3}
+& 腹部CT判讀 & 實質器官、腸道、血管、淋巴結評估 \\
+\cline{2-3}
+& 病變識別 & 腫瘤、發炎、梗阻、穿孔變化 \\
+\cline{2-3}
+& 對比劑評估 & 血管攝影、腸道攝影判讀 \\
+\cline{2-3}
+& 緊急影像 & 急性腹症影像快速判讀 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本正常腹部X光結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別明顯異常病變，判讀基本腹部CT \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分腹部影像異常，整合影像與臨床症狀 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜影像變化，識別細微的早期病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為影像判讀的專家，能教導複雜影像判讀 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 腹部超音波操作與判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠進行基礎腹部超音波檢查，包括設備操作、解剖定位、基本測量與主要結果評估，並能識別重要的功能異常模式。} \\
+\hline
+\textbf{核心能力} & 檢查操作 & 超音波操作、病患指導、品質確保 \\
+\cline{2-3}
+& 基本測量 & 肝脾大小、膽囊壁厚度、血管測量 \\
+\cline{2-3}
+& 功能評估 & 膽囊收縮、血流評估功能異常識別 \\
+\cline{2-3}
+& 病變識別 & 腫瘤、結石、積水檢查 \\
+\cline{2-3}
+& 臨床關聯 & 功能異常與疾病嚴重度關聯 \\
+\hline
+\textbf{Level 1} & Novice & 能協助進行基本超音波檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能獨立操作標準腹部超音波檢查，進行基本判讀 \\
+\hline
+\textbf{Level 3} & Competent & 能完成標準腹部超音波檢查，準確評估功能異常類型 \\
+\hline
+\textbf{Level 4} & Proficient & 能進行進階超音波技術，準確定量評估 \\
+\hline
+\textbf{Level 5} & Expert & 成為超音波技術專家，能教導複雜技術 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 內視鏡檢查報告判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠判讀常見內視鏡檢查報告，包括上消化道內視鏡、大腸鏡檢查結果，識別重要病變，並能整合報告結果與臨床表現。} \\
+\hline
+\textbf{核心能力} & 報告結構 & 內視鏡報告格式、標準術語理解 \\
+\cline{2-3}
+& 病變識別 & 潰瘍、息肉、腫瘤、發炎變化 \\
+\cline{2-3}
+& 嚴重度評估 & 病變分級、範圍評估 \\
+\cline{2-3}
+& 臨床意義 & 病變與症狀關聯性分析 \\
+\cline{2-3}
+& 追蹤建議 & 後續檢查時程、治療建議 \\
+\hline
+\textbf{Level 1} & Novice & 能識別內視鏡基本術語，理解報告格式 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀常見內視鏡發現，識別重要病變 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀內視鏡報告，整合臨床表現 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜內視鏡發現，評估病變嚴重度 \\
+\hline
+\textbf{Level 5} & Expert & 成為內視鏡判讀專家，能教導複雜判讀技巧 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 急性腹痛診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別急性腹痛，進行適當的診斷性檢查，評估嚴重度分級，並執行初步治療措施，包括疼痛控制與手術決策。} \\
+\hline
+\textbf{核心能力} & 快速識別 & 急性腹症症狀識別、高風險特徵 \\
+\cline{2-3}
+& 診斷策略 & 實驗室檢查、影像檢查安排 \\
+\cline{2-3}
+& 嚴重度分級 & 疼痛評估、生命徵象評估 \\
+\cline{2-3}
+& 疼痛控制 & 止痛藥物選擇、非藥物治療 \\
+\cline{2-3}
+& 手術決策 & 保守治療vs手術適應症、轉院必要性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別典型急性腹痛症狀，知道基本檢查項目 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準診斷流程，進行基本嚴重度評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷急性腹痛，適當選擇治療策略 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜臨床情況，整合多重因子做決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為急性腹痛專家，能指導複雜個案處理 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 肝炎診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種肝炎，評估肝功能損傷程度，制定個別化治療計畫，包括抗病毒治療與非藥物治療。} \\
+\hline
+\textbf{核心能力} & 診斷評估 & 症狀、徵象、嚴重度分級評估 \\
+\cline{2-3}
+& 病因識別 & 病毒性vs非病毒性肝炎區分 \\
+\cline{2-3}
+& 嚴重度評估 & Child-Pugh分數、MELD評分應用 \\
+\cline{2-3}
+& 抗病毒治療 & 慢性B肝、C肝治療選擇 \\
+\cline{2-3}
+& 整合照護 & 住院指標、併發症預防 \\
+\hline
+\textbf{Level 1} & Novice & 能識別肝炎症狀徵象，知道基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準治療指引，進行基本抗病毒治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理穩定肝炎，調整藥物治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜肝炎，評估進階治療選項 \\
+\hline
+\textbf{Level 5} & Expert & 成為肝炎專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 消化道出血診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷消化道出血，評估出血嚴重度，制定緊急處置策略，監測治療效果與副作用，並提供內視鏡治療評估。} \\
+\hline
+\textbf{核心能力} & 臨床評估 & Rockall評分、Glasgow-Blatchford評分應用 \\
+\cline{2-3}
+& 診斷策略 & 上消化道vs下消化道出血區分 \\
+\cline{2-3}
+& 嚴重度評估 & 血流動力學影響評估 \\
+\cline{2-3}
+& 緊急處置 & 輸血、藥物治療決策 \\
+\cline{2-3}
+& 內視鏡評估 & 緊急內視鏡適應症評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別消化道出血症狀，知道基本診斷流程 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用臨床評分工具，開始緊急處置 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷消化道出血，選擇適當處置 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜出血情況，評估內視鏡治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為消化道出血專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 膽胰系統疾病診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷膽囊炎、胰臟炎等膽胰系統疾病，執行系統性診斷評估，區分急性與慢性病因，制定個別化治療方案，並監測疾病進展。} \\
+\hline
+\textbf{核心能力} & 臨床評估 & 漸進性腹痛、黃疸、背痛評估 \\
+\cline{2-3}
+& 影像判讀 & 膽囊超音波、MRCP、ERCP判讀 \\
+\cline{2-3}
+& 病因分析 & 膽石性vs非膽石性疾病區分 \\
+\cline{2-3}
+& 治療決策 & 保守治療vs內視鏡vs手術評估 \\
+\cline{2-3}
+& 功能監測 & 胰臟功能評估、糖尿病監測 \\
+\cline{2-3}
+& 外科評估 & 手術適應症、術前評估 \\
+\cline{2-3}
+& 追蹤監測 & 治療反應評估、復發監測 \\
+\hline
+\textbf{Level 1} & Novice & 能識別膽胰疾病可能性，了解基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本診斷評估，區分急性與慢性 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷膽胰疾病，制定治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜膽胰疾病，整合內外科治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為膽胰疾病專家，處理罕見疾病與併發症 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 腹腔穿刺引流術}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行腹腔穿刺引流術，包括適應症評估、解剖定位、無菌技術、併發症預防，並能處理術後照護與管理。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 診斷性vs治療性穿刺決策 \\
+\cline{2-3}
+& 解剖定位 & 超音波導引、解剖標誌識別 \\
+\cline{2-3}
+& 無菌技術 & 消毒、局部麻醉、穿刺技巧 \\
+\cline{2-3}
+& 併發症預防 & 出血、感染、臟器損傷預防 \\
+\cline{2-3}
+& 術後管理 & 引流管照護、移除時機 \\
+\hline
+\textbf{Level 1} & Novice & 能協助腹腔穿刺，了解基本解剖結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行診斷性腹腔穿刺 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行腹腔穿刺，處理一般併發症 \\
+\hline
+\textbf{Level 4} & Proficient & 能執行複雜腹腔手術，使用進階技術 \\
+\hline
+\textbf{Level 5} & Expert & 成為腹腔手術專家，能教導複雜技術 \\
+\hline
+
+\rowcolor{gi_green!10}
+\multicolumn{3}{|c|}{\textbf{EPA 11: 消化科病患跨科部協調與整體照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調消化科病患的整體照護，包括跨科部會診、多專科團隊合作、出院計畫制定，並能有效溝通與教育病患及家屬。} \\
+\hline
+\textbf{核心能力} & 會診協調 & 外科、放射科、病理科會診安排 \\
+\cline{2-3}
+& 團隊合作 & 多專科團隊會議參與、治療計畫整合 \\
+\cline{2-3}
+& 出院計畫 & 後續追蹤、藥物調整、復健安排 \\
+\cline{2-3}
+& 病患教育 & 疾病衛教、生活型態調整指導 \\
+\cline{2-3}
+& 品質改善 & 照護品質監測、改善方案執行 \\
+\cline{2-3}
+& 家屬溝通 & 病情解釋、治療選項討論 \\
+\cline{2-3}
+& 倫理考量 & 醫療倫理、安寧照護決策 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護，了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診，參與團隊討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護，制定出院計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜多科照護，領導團隊討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家，改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本腸胃內科EPAs採用Case-based Clinical Competency (CCC)評量方式：
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒：} 腸胃內科EPAs的評量重點在於漸進式能力發展，而非單次完美表現。鼓勵從錯誤中學習，持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 4, 10) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 3, 5, 6, 7, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        理學檢查類 & DOPS & 標準化病人、技能測驗 \\
+        (EPA 2) & (Direct Observation of Procedural Skills) & 影片回顧、同儕觀察 \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 11) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}：選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}：全面檢視所有11個EPA進展
+    \item \textbf{年度認證}：EPA達標認證與進階規劃
+    \item \textbf{即時回饋}：發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2, 3 & 基礎評估技能建立 \\
+        第2個月 & EPA 4, 5 & 影像與報告判讀能力 \\
+        第3個月 & EPA 6, 7 & 急症與肝炎處理 \\
+        第4個月 & EPA 8, 9 & 出血與膽胰疾病管理 \\
+        第5個月 & EPA 10 & 侵入性操作技能 \\
+        第6個月 & EPA 11 & 整合照護與協調能力 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習：
+
+\textbf{基礎教科書：}
+\begin{itemize}
+    \item Sleisenger and Fordtran's Gastrointestinal and Liver Disease. 11th edition.
+    \item Yamada's Textbook of Gastroenterology. 6th edition.
+\end{itemize}
+
+\textbf{臨床指引：}
+\begin{itemize}
+    \item ACG Guidelines for Management of Peptic Ulcer Disease
+    \item AASLD Guidelines for Hepatitis B Management
+    \item EASL Guidelines for Hepatitis C Management
+    \item ACG Guidelines for Management of Inflammatory Bowel Disease
+    \item ASGE Guidelines for Endoscopic Procedures
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋（主治醫師、護理師、病人）
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+    \item 參與多專科團隊會議
+\end{itemize}
+
+\section{總結}
+
+腸胃內科EPAs涵蓋了消化系統疾病診療的完整核心能力，從基礎的病史詢問與理學檢查，到複雜的內視鏡判讀、急症處理，以及整合性的跨科部協調照護。每個EPA都有清楚的能力描述與里程碑發展路徑，協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息：} 腸胃內科EPAs的核心在於「可委託性」與「完整性」。這11個EPA代表腸胃內科醫師必須具備的基礎診療能力。每一次的臨床實務都是學習的機會，透過持續的實作、反思與改進，才能成為一位優秀的腸胃內科醫師。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{sleisenger2021}
+Feldman, M., Friedman, L. S., \& Brandt, L. J. (2021). \textit{Sleisenger and Fordtran's Gastrointestinal and Liver Disease}. 11th edition. Elsevier.
+
+\bibitem{yamada2020}
+Podolsky, D. K., et al. (2020). \textit{Yamada's Textbook of Gastroenterology}. 6th edition. Wiley-Blackwell.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{acg2022}
+American College of Gastroenterology. (2022). ACG Clinical Guidelines for Management of Peptic Ulcer Disease. \textit{American Journal of Gastroenterology}, 117(1), 25-42.
+
+\bibitem{aasld2022}
+American Association for the Study of Liver Diseases. (2022). AASLD Guidelines for Treatment of Chronic Hepatitis B. \textit{Hepatology}, 76(4), 1018-1040.
+
+\end{thebibliography}
+
+\end{document}

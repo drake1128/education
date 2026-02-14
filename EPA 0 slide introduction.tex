@@ -1,0 +1,505 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+
+% 設定中文字體
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 主題設定
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+% 標題頁資訊
+\title{CBME與EPA在心臟內科的應用}
+\subtitle{以能力為導向的醫學教育實務}
+\author{內科部/心臟內科/謝慕揚醫師}
+\date{\today}
+\institute{醫學中心- 新竹台大分院}
+
+% 自訂顏色
+\definecolor{cardioBlue}{RGB}{0,82,155}
+\definecolor{lightGray}{RGB}{240,240,240}
+
+\begin{document}
+
+% 標題頁
+\begin{frame}
+\titlepage
+\end{frame}
+
+% 大綱
+% \begin{frame}{今日議程}
+% \tableofcontents
+% \end{frame}
+
+\section{什麼是EPA？}
+
+\begin{frame}{EPA基本概念}
+\begin{block}{Entrustable Professional Activities (EPA)}
+\textbf{可信賴專業活動} - 醫師在臨床實務中能夠獨立勝任的專業工作
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{傳統教育模式：}
+\begin{itemize}
+\item 以時間為基礎
+\item 知識導向
+\item 標準化評估
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{EPA導向模式：}
+\begin{itemize}
+\item 以能力為基礎
+\item 實務導向
+\item 個別化進展
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA的核心特徵}
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=center] at (current page.center) {
+\begin{tikzpicture}
+% 中心圓圈
+\fill[cardioBlue] (0,0) circle (1.5cm);
+\node[white, font=\Large\bfseries] at (0,0) {EPA};
+
+% 外圍特徵
+\foreach \angle/\text in {0/可觀察, 60/可評估, 120/可信賴, 180/專業性, 240/整合性, 300/實務性} {
+  \node[circle, fill=lightGray, minimum size=2cm, font=\small] 
+       at (\angle:3cm) {\text};
+  \draw[thick, cardioBlue] (0,0) -- (\angle:1.8cm);
+}
+\end{tikzpicture}
+};
+\end{tikzpicture}
+\end{frame}
+
+\section{為什麼需要EPA？}
+
+\begin{frame}{醫學教育面臨的挑戰}
+\begin{alertblock}{現況問題}
+\begin{itemize}
+\item 理論與實務脫節
+\item 評估方式單一化
+\item 學習進度標準化
+\item 能力認證不明確
+\end{itemize}
+\end{alertblock}
+
+\vspace{0.5cm}
+
+\begin{exampleblock}{EPA的解決方案}
+\begin{itemize}
+\item 整合性能力評估
+\item 個別化學習路徑
+\item 真實情境評估
+\item 漸進式責任委託
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{國際趨勢與發展}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    xlabel={年份},
+    ylabel={採用EPA的醫學院數量},
+    ymin=0,
+    ymax=500,
+    symbolic x coords={2010,2015,2020,2025},
+    xtick=data,
+    nodes near coords,
+    nodes near coords align={vertical},
+    width=10cm,
+    height=6cm,
+    bar width=30pt,
+]
+\addplot coordinates {(2010,20) (2015,150) (2020,350) (2025,450)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\footnotesize{*資料來源：國際醫學教育聯盟報告}
+\end{frame}
+
+\section{心臟內科EPA框架}
+
+\begin{frame}{心臟內科10大EPAs概覽}
+\scriptsize
+\begin{table}
+\centering
+\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.35\textwidth}}
+\hline
+\textbf{EPA} & \textbf{專業活動} & \textbf{核心能力} \\
+\hline
+EPA 1 & 病史詢問與風險評估 & 症狀評估、危險因子識別 \\
+\hline
+EPA 2 & 心血管理學檢查 & 聽診、血管檢查、水腫評估 \\
+\hline
+EPA 3 & 心電圖判讀分析 & 心律、ST-T變化、傳導異常 \\
+\hline
+EPA 4 & 心臟超音波操作 & 影像獲取、功能評估 \\
+\hline
+EPA 5 & 急性冠心症處理 & 快速診斷、風險分層、治療 \\
+\hline
+EPA 6 & 心律不整診療 & 心律識別、治療選擇 \\
+\hline
+EPA 7 & 心衰竭管理 & 診斷評估、藥物調整 \\
+\hline
+EPA 8 & 高血壓管理 & 診斷、治療、生活介入 \\
+\hline
+EPA 9 & 心導管判讀 & 影像判讀、治療建議 \\
+\hline
+EPA 10 & 照護協調溝通 & 團隊合作、病患衛教 \\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{里程碑發展架構}
+\begin{center}
+\begin{tikzpicture}
+% 定義顏色
+\definecolor{level1}{RGB}{255,182,193}
+\definecolor{level2}{RGB}{255,218,185}
+\definecolor{level3}{RGB}{255,255,224}
+\definecolor{level4}{RGB}{144,238,144}
+\definecolor{level5}{RGB}{173,216,230}
+
+% 繪製發展階梯
+\fill[level1] (0,0) rectangle (2,1);
+\node at (1,0.5) {\scriptsize Level 1};
+\node at (1,-0.5) {\scriptsize Novice};
+
+\fill[level2] (2,0) rectangle (4,1);
+\node at (3,0.5) {\scriptsize Level 2};
+\node at (3,-0.5) {\scriptsize Advanced};
+\node at (3,-0.7) {\scriptsize Beginner};
+
+\fill[level3] (4,0) rectangle (6,1);
+\node at (5,0.5) {\scriptsize Level 3};
+\node at (5,-0.5) {\scriptsize Competent};
+
+\fill[level4] (6,0) rectangle (8,1);
+\node at (7,0.5) {\scriptsize Level 4};
+\node at (7,-0.5) {\scriptsize Proficient};
+
+\fill[level5] (8,0) rectangle (10,1);
+\node at (9,0.5) {\scriptsize Level 5};
+\node at (9,-0.5) {\scriptsize Expert};
+
+% 邊框
+\draw[thick] (0,0) rectangle (2,1);
+\draw[thick] (2,0) rectangle (4,1);
+\draw[thick] (4,0) rectangle (6,1);
+\draw[thick] (6,0) rectangle (8,1);
+\draw[thick] (8,0) rectangle (10,1);
+
+% 箭頭
+\draw[->, thick] (0,-1) -- (10,-1);
+\node at (5,-1.5) {能力發展進程};
+
+% 標示重點
+\node[above] at (2,1.2) {\scriptsize 需督導};
+\node[above] at (6,1.2) {\scriptsize 獨立作業};
+\node[above] at (9,1.2) {\scriptsize 指導他人};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+\begin{itemize}
+\item \textbf{Level 1-2}：在督導下學習與執行
+\item \textbf{Level 3}：能獨立勝任標準作業
+\item \textbf{Level 4-5}：能處理複雜情況並指導他人
+\end{itemize}
+\end{frame}
+
+\section{實施方式}
+
+\begin{frame}{月度晨會Mini-OSCE整合}
+\begin{block}{時間規劃 (60分鐘)}
+\begin{itemize}
+\item 準備說明：5分鐘
+\item 三站評估：45分鐘 (3輪 × 15分鐘)
+\item 總結回饋：10分鐘
+\end{itemize}
+\end{block}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{月度主題安排：}
+\begin{itemize}
+\item 第1個月：基礎評估技能
+\item 第2個月：診斷與急症處理
+\item 第3個月：慢性疾病管理
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{評估方式：}
+\begin{itemize}
+\item 6位學生，2人一組
+\item 3個評估站輪轉
+\item 即時口頭回饋
+\item 書面評估報告
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{評估工具與方法}
+\begin{table}
+\centering
+\scriptsize
+\begin{tabular}{lll}
+\hline
+\textbf{EPA類型} & \textbf{評估工具} & \textbf{應用範例} \\
+\hline
+技能操作類 & DOPS & 心臟超音波操作 \\
+\hline
+臨床推理類 & Mini-CEX & 急性冠心症診斷 \\
+\hline
+複雜決策類 & CbD & 心導管結果判讀 \\
+\hline
+溝通協調類 & MSF & 病患照護協調 \\
+\hline
+緊急處理類 & 模擬評估 & 心律不整急救 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+\begin{alertblock}{關鍵成功因素}
+\begin{itemize}
+\item 評估者訓練與標準化
+\item 即時且具體的回饋
+\item 學習歷程持續追蹤
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\section{EPA的使用者}
+
+\begin{frame}{EPA的主要使用者群體}
+\begin{center}
+\begin{tikzpicture}
+% 中心EPA
+\node[circle, fill=cardioBlue, text=white, font=\Large\bfseries, minimum size=2cm] at (0,0) {EPA};
+
+% 四個主要使用者群體
+\node[rectangle, fill=red!20, text=black, minimum width=3cm, minimum height=1.5cm] at (-3,2) {
+\begin{tabular}{c}
+\textbf{學習者} \\
+醫學生 \\
+住院醫師 \\
+專科醫師
+\end{tabular}
+};
+
+\node[rectangle, fill=green!20, text=black, minimum width=3cm, minimum height=1.5cm] at (3,2) {
+\begin{tabular}{c}
+\textbf{教育者} \\
+主治醫師 \\
+住院醫師 \\
+臨床教師
+\end{tabular}
+};
+
+\node[rectangle, fill=blue!20, text=black, minimum width=3cm, minimum height=1.5cm] at (-3,-2) {
+\begin{tabular}{c}
+\textbf{評估者} \\
+CCC委員 \\
+考試委員 \\
+品質管控
+\end{tabular}
+};
+
+\node[rectangle, fill=orange!20, text=black, minimum width=3cm, minimum height=1.5cm] at (3,-2) {
+\begin{tabular}{c}
+\textbf{管理者} \\
+教育主管 \\
+醫院管理 \\
+學會組織
+\end{tabular}
+};
+
+% 連接線
+\foreach \angle in {45, 135, 225, 315} {
+  \draw[thick, cardioBlue] (0,0) -- (\angle:2.2cm);
+}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{各使用者的應用重點}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{學習者觀點：}
+\begin{itemize}
+\item 明確學習目標
+\item 自我評估工具
+\item 能力發展路徑
+\item 個人學習計畫
+\end{itemize}
+
+\textbf{教育者觀點：}
+\begin{itemize}
+\item 教學目標設定
+\item 評估標準依據
+\item 回饋框架
+\item 課程設計指引
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{評估者觀點：}
+\begin{itemize}
+\item 能力認證標準
+\item 評估工具設計
+\item 品質保證機制
+\item 進展追蹤系統
+\end{itemize}
+
+\textbf{管理者觀點：}
+\begin{itemize}
+\item 課程品質管控
+\item 資源配置規劃
+\item 政策制定參考
+\item 認證標準建立
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{實施效益與展望}
+
+\begin{frame}{EPA實施的預期效益}
+\begin{block}{教育品質提升}
+\begin{itemize}
+\item 學習目標更明確具體
+\item 評估方式更多元實用
+\item 個別化學習支持
+\item 能力認證更客觀
+\end{itemize}
+\end{block}
+
+\begin{block}{臨床照護改善}
+\begin{itemize}
+\item 醫師能力標準化
+\item 病人安全保障
+\item 醫療品質提升
+\item 團隊協作強化
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{實施時程規劃}
+\begin{center}
+\begin{tikzpicture}
+% 時間軸
+\draw[thick] (0,0) -- (10,0);
+\foreach \x in {0,2.5,5,7.5,10} {
+  \draw (\x,-0.1) -- (\x,0.1);
+}
+
+% 時程標示
+\node[below] at (0,-0.2) {第1季};
+\node[below] at (2.5,-0.2) {第2季};
+\node[below] at (5,-0.2) {第3季};
+\node[below] at (7.5,-0.2) {第4季};
+\node[below] at (10,-0.2) {第2年};
+
+% 活動標示
+\node[above, align=center] at (1.25,0.5) {教師訓練\\EPA設計};
+\node[above, align=center] at (3.75,0.5) {試行評估\\系統建置};
+\node[above, align=center] at (6.25,0.5) {正式實施\\成效評估};
+\node[above, align=center] at (8.75,0.5) {檢討改善\\擴大推廣};
+
+% 里程碑
+\foreach \x/\text in {2.5/完成設計, 5/開始實施, 7.5/初步成效, 10/全面推廣} {
+  \fill[cardioBlue] (\x,0) circle (0.1);
+  \node[rotate=45, anchor=west] at (\x,0.2) {\scriptsize \text};
+}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{成功實施的關鍵因素}
+\begin{alertblock}{組織層面}
+\begin{itemize}
+\item 領導層支持與承諾
+\item 充足資源投入
+\item 跨部門協調合作
+\end{itemize}
+\end{alertblock}
+
+\begin{block}{執行層面}
+\begin{itemize}
+\item 全體教師共識建立
+\item 標準化訓練實施
+\item 持續品質監控
+\item 定期檢討改善
+\end{itemize}
+\end{block}
+
+\begin{exampleblock}{文化層面}
+\begin{itemize}
+\item 學習型組織建立
+\item 創新教育文化
+\item 持續改善精神
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\section{討論與Q\&A}
+
+\begin{frame}{討論重點}
+\begin{enumerate}
+\item EPA在內科各次專科的適用性如何？
+\item 現有教學資源是否足夠支持EPA實施？
+\item 評估者訓練的具體規劃為何？
+\item 與現行評估制度如何整合？
+\item 學生與住院醫師的接受度評估？
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\Large{\textbf{歡迎提問與討論}}
+\end{center}
+\end{frame}
+
+\begin{frame}{結語}
+\begin{center}
+\Large{\textcolor{cardioBlue}{\textbf{EPA不只是評估工具}}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\large{更是醫學教育轉型的契機}
+\end{center}
+
+\vspace{1cm}
+
+\begin{itemize}
+\item 從知識傳授到能力培養
+\item 從標準化到個別化
+\item 從單向教學到雙向學習
+\item 從孤立評估到整合發展
+\end{itemize}
+
+\vspace{1cm}
+
+% \begin{center}
+% \textbf{讓我們攜手打造更優質的醫學教育！}
+% \end{center}
+% \end{frame}
+
+\end{document}

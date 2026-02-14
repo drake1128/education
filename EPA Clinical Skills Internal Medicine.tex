@@ -1,0 +1,169 @@
+% 內科部臨床技術分類表格
+% 需要的套件：longtable, booktabs, array
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{caption}
+
+% 設定中文字型
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}}
+
+% 頁面設定
+\geometry{
+    a4paper,
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+
+\begin{document}
+
+\section*{內科部侵入性臨床技術檢核表}
+\subsection*{依技能類別分類整理}
+
+\textbf{監督等級說明：}
+\begin{itemize}
+\item \textbf{1} = Independent operation（獨立操作）
+\item \textbf{2} = Supervisor available（主治醫師可聯繫）
+\item \textbf{3} = Supervisor direct supervision（主治醫師直接監督）
+\item \textbf{4} = Observer（觀察者）
+\end{itemize}
+
+\vspace{1em}
+
+% 完整技能表格
+\begin{longtable}{>{\raggedright}p{3cm}>{\raggedright\arraybackslash}p{4.5cm}ccccccc}
+\caption{內科部臨床技術監督等級表} \label{tab:internal-medicine-skills} \\
+\toprule
+\textbf{技能類別} & \textbf{技能名稱} & \textbf{M5} & \textbf{M6} & \textbf{PGY1} & \textbf{PGY2} & \textbf{R1} & \textbf{R2} & \textbf{R3} \\
+\midrule
+\endfirsthead
+
+\multicolumn{9}{c}{\textit{續前頁}} \\
+\toprule
+\textbf{技能類別} & \textbf{技能名稱} & \textbf{M5} & \textbf{M6} & \textbf{PGY1} & \textbf{PGY2} & \textbf{R1} & \textbf{R2} & \textbf{R3} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{9}{r}{\textit{續下頁}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% 基本照護技術
+\textbf{基本照護技術} & & & & & & & & \\
+\midrule
+& 導尿管置放術 \newline \textit{Foley insertion} & 4 & 2 & 1 & 1 & 1 & 1 & 1 \\
+& 鼻胃管置放術 \newline \textit{NG tube} & 4 & 2 & 1 & 1 & 1 & 1 & 1 \\
+& 抽血 \newline \textit{Blood Drawing} & 4 & 2 & 1 & 1 & 1 & 1 & 1 \\
+\midrule
+
+% 血管通路技術
+\textbf{血管通路技術} & & & & & & & & \\
+\midrule
+& 中心靜脈導管放置 \newline \textit{CVC placement} & 4 & 4 & 4 & 3 & 2 & 1 & 1 \\
+& 雙腔靜脈導管 \newline \textit{Double lumen catheter} & 4 & 4 & 4 & 4 & 3 & 2 & 1 \\
+& 動脈出血控制 \newline \textit{Control of bleeding (Arterial)} & 4 & 4 & 3 & 3 & 2 & 1 & 1 \\
+\midrule
+
+% 急救技術
+\textbf{急救技術} & & & & & & & & \\
+\midrule
+& 心肺腦復甦術 \newline \textit{CPCR} & 4 & 4 & 3 & 3 & 2 & 2 & 1 \\
+& 氣管內管更換 \newline \textit{Endotracheal tube change} & 4 & 4 & 4 & 4 & 3 & 2 & 1 \\
+& 胃食道球置入 \newline \textit{S-B tube} & 4 & 4 & 4 & 4 & 3 & 2 & 1 \\
+\midrule
+
+% 診斷性穿刺技術
+\textbf{診斷性穿刺技術} & & & & & & & & \\
+\midrule
+& 腹水引流術 \newline \textit{Paracentesis} & 4 & 4 & 3 & 3 & 2 & 1 & 1 \\
+& 胸腔穿刺術 \newline \textit{Thoracentesis} & 4 & 4 & 4 & 3 & 3 & 2 & 1 \\
+& 關節腔液抽吸 \newline \textit{Synovial fluid aspiration} & 4 & 4 & 4 & 4 & 4 & 3 & 2 \\
+& 腰椎穿刺 \newline \textit{Lumbar puncture} & 4 & 4 & 4 & 4 & 3 & 2 & 1 \\
+
+\end{longtable}
+
+\vspace{1em}
+
+\section*{技能學習進程摘要}
+
+\subsection*{各訓練階段可獨立操作技能統計}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\toprule
+\textbf{訓練階段} & \textbf{可獨立操作技能數} \\
+\midrule
+M5 & 0項 \\
+M6 & 0項 \\
+PGY1 & 3項 \\
+PGY2 & 3項 \\
+R1 & 3項 \\
+R2 & 6項 \\
+R3 & 12項 \\
+\bottomrule
+\end{tabular}
+\caption{各階段可獨立操作技能統計}
+\end{table}
+
+\subsection*{技能類別統計}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\toprule
+\textbf{技能類別} & \textbf{技能數量} \\
+\midrule
+基本照護技術 & 3項 \\
+血管通路技術 & 3項 \\
+急救技術 & 3項 \\
+診斷性穿刺技術 & 4項 \\
+\midrule
+\textbf{總計} & \textbf{13項} \\
+\bottomrule
+\end{tabular}
+\caption{技能類別統計表}
+\end{table}
+
+\subsection*{技能難度分層}
+
+\subsubsection*{初階技能（PGY1即可獨立操作）}
+\begin{enumerate}
+\item 導尿管置放術 (Foley insertion)
+\item 鼻胃管置放術 (NG tube)
+\item 抽血 (Blood Drawing)
+\end{enumerate}
+
+\subsubsection*{中階技能（R2可獨立操作）}
+\begin{enumerate}
+\item 中心靜脈導管放置 (CVC placement)
+\item 動脈出血控制 (Control of bleeding - Arterial)
+\item 腹水引流術 (Paracentesis)
+\end{enumerate}
+
+\subsubsection*{進階技能（R3才可獨立操作）}
+\begin{enumerate}
+\item 雙腔靜脈導管 (Double lumen catheter)
+\item 心肺腦復甦術 (CPCR)
+\item 氣管內管更換 (Endotracheal tube change)
+\item 胃食道球置入 (S-B tube)
+\item 胸腔穿刺術 (Thoracentesis)
+\item 腰椎穿刺 (Lumbar puncture)
+\end{enumerate}
+
+\vspace{1em}
+\noindent\textit{資料來源：醫療科部Invasive skills checklist教學部彙整（修訂日期：2022/12/13）}
+
+\end{document}

@@ -1,0 +1,322 @@
+\documentclass{article}
+
+% Preamble from Drake_preamble.tex
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Defining custom date format for ISO 8601
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+% For checkboxes
+\usepackage{amssymb}
+\newcommand{\checkbox}{\ensuremath{\Box}}
+
+% Begin document
+\begin{document}
+
+\title{OSCE 評分表：急性心肌梗塞案例}
+\author{謝慕揚, MD, PhD, FESC}
+\date{\mydate}
+\maketitle
+
+\section{開場情境}
+Joseph Short，一位 46 歲男性，前往急診室抱怨胸痛。
+
+\section{生命徵象}
+\begin{itemize}
+\item 血壓：165/85 mmHg
+\item 體溫：98.6°F (37°C)
+\item 呼吸率：22/分鐘
+\item 心率：90/分鐘，常規
+\end{itemize}
+
+\section{考生任務}
+\begin{enumerate}
+\item 進行重點病史詢問。
+\item 進行重點理學檢查（不進行直腸、生殖泌尿或女性乳房檢查）。
+\item 向患者解釋您的臨床印象和工作計劃。
+\item 離開房間後撰寫患者筆記。
+\end{enumerate}
+
+\section{檢查清單/SP 表格}
+
+\subsection{患者描述}
+患者為 46 歲男性。
+
+\subsection{SP 注意事項}
+\begin{itemize}
+\item 躺在床上並表現疼痛。
+\item 將您的手放在胸部中間。
+\item 表現呼吸困難。
+\item 如果考生提到 ECG，請問：「什麼是 ECG？」
+\end{itemize}
+
+\subsection{挑戰性問題}
+「這是心臟病發作嗎？我要死了嗎？」
+
+\subsection{樣本考生回應}
+「如您所懷疑，您的症狀令人相當擔憂。我們需要了解更多關於發生什麼事，以知道您的疼痛是否危及生命。」
+
+\subsection{考生檢查清單}
+
+\subsubsection{入口}
+\begin{longtable}{p{0.1\textwidth} p{0.85\textwidth}}
+\toprule
+\checkbox & 考生在進入前敲門。 \\
+\checkbox & 考生自我介紹姓名。 \\
+\checkbox & 考生識別其角色或職位。 \\
+\checkbox & 考生正確使用患者姓名。 \\
+\checkbox & 考生與 SP 眼神接觸。 \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{病史}
+\begin{longtable}{p{0.1\textwidth} p{0.85\textwidth}}
+\toprule
+\checkbox & 考生對您的疼痛表現同情。 \\
+\midrule
+\multicolumn{2}{c}{\textbf{問題與患者回應}} \\
+\midrule
+\checkbox & 主要抱怨：胸痛。 \\
+\checkbox & 發作時間：四十鐘前。 \\
+\checkbox & 誘發事件：無。我在睡覺中醒來，在早上 5:00 有這種疼痛。 \\
+\checkbox & 進展：持續嚴重度。 \\
+\checkbox & 嚴重度等級：7/10。 \\
+\checkbox & 位置：胸部中間。 \\
+\checkbox & 輻射：到我的脖子和左臂。 \\
+\checkbox & 品質：壓力。 \\
+\checkbox & 緩解/惡化因素：無。 \\
+\checkbox & 呼吸短促：是。 \\
+\checkbox & 噁心/嘔吐：我感到噁心，但沒有嘔吐。 \\
+\checkbox & 出汗：是。 \\
+\checkbox & 相關症狀（咳嗽、喘鳴、腹痛、腹瀉/便秘）：無。 \\
+\checkbox & 先前類似疼痛發作：是，但不完全相同。 \\
+\checkbox & 發作時間：過去三個月。 \\
+\checkbox & 嚴重度：較不嚴重。 \\
+\checkbox & 頻率：每週兩到三發作。 \\
+\checkbox & 誘發事件：走樓梯、劇烈工作和重餐。 \\
+\checkbox & 緩解因素：抗酸劑。 \\
+\checkbox & 相關症狀：無。 \\
+\checkbox & 目前藥物：Maalox。 \\
+\checkbox & 過去病史：高血壓五年，用利尿劑治療。高膽固醇，用飲食管理；我對飲食沒有非常遵守。GERD 10 年前，用抗酸劑治療。 \\
+\checkbox & 過去手術史：無。 \\
+\checkbox & 家族史：我父親死於肺癌 72 歲。我母親活著並有消化性潰瘍。無早期心臟病發作。 \\
+\checkbox & 職業：會計師。 \\
+\checkbox & 酒精使用：偶爾。 \\
+\checkbox & 非法藥物使用：古柯鹼，每週一次。 \\
+\checkbox & 上次古柯鹼使用時間：昨天下午。 \\
+\checkbox & 菸草：二十五年。 \\
+\checkbox & 持續時間：一天一包。 \\
+\checkbox & 量：一天一包。 \\
+\checkbox & 性活動：嗯，醫生，老實說，我在過去三個月沒有和我妻子發生性關係，因為我在性交中胸痛。 \\
+\checkbox & 運動：否。 \\
+\checkbox & 飲食：我的醫生去年給我嚴格飲食來降低膽固醇，但我總是作弊。 \\
+\checkbox & 藥物過敏：否。 \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{理學檢查}
+\begin{longtable}{p{0.1\textwidth} p{0.85\textwidth}}
+\toprule
+\checkbox & 考生洗手。 \\
+\checkbox & 考生請求許可開始檢查。 \\
+\checkbox & 考生使用尊重性覆蓋。 \\
+\checkbox & 考生沒有重複疼痛動作。 \\
+\midrule
+\multicolumn{2}{c}{\textbf{檢查組成}} \\
+\midrule
+\checkbox & 脖子檢查：檢查 JVD，頸動脈聽診。 \\
+\checkbox & 心血管檢查：檢查、觸診、聽診。 \\
+\checkbox & 肺部檢查：聽診、觸診、叩診。 \\
+\checkbox & 腹部檢查：聽診、觸診、叩診。 \\
+\checkbox & 四肢：檢查周邊脈搏，在兩臂檢查血壓，檢查水腫。 \\
+\bottomrule
+\end{longtable}
+
+\subsubsection{結尾}
+\begin{longtable}{p{0.1\textwidth} p{0.85\textwidth}}
+\toprule
+\checkbox & 考生討論初始診斷印象。 \\
+\checkbox & 考生討論初始管理計劃。 \\
+\checkbox & 診斷測試。 \\
+\checkbox & 生活方式修改（飲食、運動）。 \\
+\checkbox & 考生詢問患者是否有其他問題或擔憂。 \\
+\bottomrule
+\end{longtable}
+
+\subsection{樣本結尾}
+「Short 先生，您的疼痛來源可能是心臟問題，如心臟病發作或心絞痛，或可能是由於酸逆流、肺部問題，或與您胸部大血管相關的疾病。我們進行一些測試以識別問題來源至關重要。我們將從 ECG 和一些血液檢查開始，但可能需要更複雜的測試。同時，我強烈建議您停止使用古柯鹼，因為使用這種藥物可能導致各種醫療問題，包括心臟病發作。您有任何問題嗎？」
+
+\section{患者筆記}
+
+\subsection{病史}
+HPI: 46 歲男性抱怨胸痛。胸痛在患者前往急診室前 40 分鐘開始。疼痛在早上 5 點從睡眠中醒來患者，穩定的 7/10 壓力感覺在中胸部，輻射到左臂和脖子。無使之惡化或改善。噁心、出汗和呼吸困難也存在。類似發作在過去 3 個月發生，2-3 次/週。這些發作由走樓梯、劇烈工作、性交和重餐誘發。這些發作疼痛較不嚴重，持續 5-10 分鐘，並自發消失或服用抗酸劑後。  
+ROS: 除了上述負面。  
+過敏: NKDA  
+藥物: Maalox, 利尿劑。  
+PMH: 高血壓 5 年，用利尿劑治療。高膽固醇，用飲食管理。GERD 10 年前，用抗酸劑治療。  
+SH: 一 PPD 25 年，3 個月前停止。偶爾 EtOH，偶爾古柯鹼（昨天下午最後使用）。無定期運動；對飲食遵守差。  
+FH: 父親死於肺癌 72 歲。母親有消化性潰瘍。無早期冠狀動脈疾病。
+
+\subsection{理學檢查}
+患者嚴重疼痛。  
+VS: BP 165/85 (兩臂), RR 22。  
+脖子: 無 JVD, 無雜音。  
+胸部: 無壓痛，清晰對稱呼吸音雙側。  
+心臟: 心尖衝動未移位; RRR; 正常 S1/S2; 無雜音、摩擦音或奔馬律。  
+腹部: 軟、非脹、非壓痛，BS。  
+四肢: 無水腫，周邊脈搏 2+ 並對稱。
+
+\subsection{鑑別診斷}
+\begin{enumerate}
+\item 心肌缺血或梗塞
+\item 古柯鹼誘發心肌缺血
+\item GERD
+\item 主動脈剝離
+\item 心包炎
+\item 氣胸
+\item 肺栓塞
+\item 肋軟骨炎
+\end{enumerate}
+
+\subsection{診斷工作}
+\begin{enumerate}
+\item ECG
+\item 心臟酶 (CPK, CPK-MB, troponin)
+\item CXR
+\item 經胸超音波心圖
+\item 心臟導管
+\item 經食道超音波心圖 (TEE)
+\item CT-胸部 IV 對比
+\item 上消化道內視鏡
+\item 膽固醇面板
+\end{enumerate}
+
+\section{案例討論}
+
+\subsection{鑑別診斷}
+\begin{itemize}
+\item 心肌缺血或梗塞：患者有多種心臟風險因素（包括吸菸、高血壓和高脂血症），其症狀為經典心臟缺血。
+\item 古柯鹼誘發：古柯鹼可促使過早動脈粥樣硬化或透過引起冠狀動脈血管收縮或增加心肌能量需求誘發心肌缺血和梗塞。
+\item GERD: 嚴重胸痛為非典型但對 GERD 不常見，並可能在夜間臥位惡化。其他非典型症狀可能包括慢性咳嗽、喘鳴或吞嚥困難。GERD 的經典症狀為胃灼熱，可能被餐食惡化。
+\item 主動脈剝離：突然嚴重胸痛，主動脈剝離應懷疑給予錯過的高死亡潛力（並若誤認為急性 MI 並用溶栓治療的害處潛力）。然而，患者的疼痛不是突然撕裂胸痛輻射到背部。此外，其周邊脈搏和血壓未減少或不等，並無主動脈逆流雜音（雖然理學檢查發現對診斷主動脈剝離有差敏感度和特異性）。
+\item 心包炎：疼痛隨位置或呼吸變化缺席和心包摩擦音缺席使心包炎較不可能。
+\item 氣胸：此診斷應在有急性胸痛和呼吸困難患者考慮，但在此案例給予呼吸音對稱較不可能。
+\item 肺栓塞：如上，此在鑑別急性胸痛和呼吸困難，但此患者無明顯肺栓塞風險因素。
+\item 肋軟骨炎（或其他肌肉骨骼胸痛）：此更典型與觸診疼痛或胸膜痛相關。
+\end{itemize}
+
+\subsection{診斷工作}
+\begin{itemize}
+\item ECG: 急性心肌缺血、梗塞和心包炎在 ECG 有特徵變化。
+\item 心臟酶 (CPK, CPK-MB, troponin): 心肌組織壞死特異測試，可在疼痛發作後 4-6 小時轉正。
+\item CXR: 擴寬縱膈暗示主動脈剝離並也可診斷其他胸痛原因，包括氣胸和肺炎。
+\item 經胸超音波心圖 (TEE): 可示範懷疑急性 MI 的節段壁運動異常（梗塞在壁運動異常缺席不可能）。
+\item 心臟導管：可診斷和治療冠狀動脈疾病。
+\item 經食道超音波心圖 (TEE): 對主動脈剝離高度特異和敏感，並可在床邊快速進行。
+\item CT-胸部 IV 對比：另一快速可用診斷研究可排除主動脈剝離或肺栓塞。
+\item 上消化道內視鏡：可用來記錄 GERD 特徵組織損傷。然而，它可在多達一半有症狀患者正常；食道探針 (pH 和壓力測量) 與內視鏡視覺化一起構成有效診斷技術。
+\item 膽固醇面板：可識別心血管疾病關鍵風險因素。
+\end{itemize}
+
+\end{document}

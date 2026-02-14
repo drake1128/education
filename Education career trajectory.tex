@@ -1,0 +1,371 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支援套件
+\usepackage[CJKspace]{xeCJK}
+\usepackage{xpinyin}
+\setmainfont{Noto Serif Light}
+\setsansfont{Noto Sans}
+\setmonofont[Scale=MatchLowercase]{Noto Mono}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans Mono CJK TC}
+
+% 其他需要的套件
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% 頁面設定
+\geometry{
+    a4paper,
+    top=2cm,
+    bottom=2cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% 頁首頁尾設定
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{教學部進修與職涯發展}
+\rhead{指南}
+\lfoot{第 \thepage\ 頁}
+\rfoot{教學部 2025年}
+
+% 標題格式設定
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{2.5ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% 條目間距設定
+\setlist[enumerate]{itemsep=8pt, parsep=0pt}
+
+% 表格內部縮進調整
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\begin{document}
+
+\begin{center}
+    \Huge \textbf{教學部進修與職涯發展完整指南}
+    \vspace{0.5cm}
+    
+    \large \textbf{進修、證照、職涯與能力培養建議}\\
+    
+    謝慕揚醫師, MD, PhD, FESC\\
+    心血管中心教學部\\
+    2025-05-20 製表
+    \vspace{0.3cm}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{1pt}
+\vspace{0.5cm}
+
+\section*{文件說明}
+本文件針對教學部同仁的工作項目，提供完整的進修與職涯發展建議，包含：
+\begin{itemize}
+    \item 研究所進修單位推薦
+    \item 可取得證照資訊
+    \item 職涯發展方向規劃
+    \item LinkedIn檔案撰寫建議
+    \item 分階段專業能力培養
+    \item 具體培訓與發展措施
+    \item 晉升路徑建議
+\end{itemize}
+
+內容以表格形式呈現，供同仁參考並規劃個人發展路徑。
+
+\vspace{0.5cm}
+
+\section{進修與職涯發展建議}
+
+本節涵蓋研究所進修、證照取得、職涯發展方向及LinkedIn檔案建立等四大主題。
+
+\begin{longtable}{C{3cm}L{4cm}L{4cm}L{4cm}}
+    \hline
+    \textbf{類別} & \textbf{項目} & \textbf{詳細建議} & \textbf{實務應用與備註} \\
+    \hline
+    \endfirsthead
+    \hline
+    \textbf{類別} & \textbf{項目} & \textbf{詳細建議} & \textbf{實務應用與備註} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    \hline
+    \endlastfoot
+    
+    % 研究所進修
+    \multirow{6}{*}{研究所進修} & 國內：台大健康政策與管理研究所 & 學習醫療政策、醫院管理、評鑑制度設計。 & 適合教學醫院評鑑、公文處理，建議在職進修。 \\
+    \cline{2-4}
+    & 國內：台北醫學大學醫學教育研究所 & 提供醫學教育課程設計、評估與師資培訓。 & 高度契合PGY訓練與醫學教育委員會業務。 \\
+    \cline{2-4}
+    & 國內：陽明交通大學公共衛生研究所 & 涵蓋醫療政策、數據分析。 & 適用於部門庶務與評鑑數據管理。 \\
+    \cline{2-4}
+    & 國內：長庚大學醫療管理學系 & 注重醫療品質與流程優化。 & 適合教學評鑑與PGY訓練規畫。 \\
+    \cline{2-4}
+    & 選擇建議 & 依據教育、管理或國際交流目標，選擇合適學程；考慮在職進修或短期海外課程。 & 結合實務經驗，參與國內外醫學教育研討會（如AMEE）。 \\
+    
+    % 證照取得
+    \hline
+    \multirow{6}{*}{證照取得} & 國內：醫務管理師 & 醫療政策、品質管理，3-6個月準備。 & 適用於教學評鑑、PGY訓練，參加學會培訓。 \\
+    \cline{2-4}
+    & 國內：醫療品質管理師 & 醫療品質監控、流程改善，熟悉JCT標準。 & 直接應用於評鑑條文撰寫與品質管理。 \\
+    \cline{2-4}
+    & 國際：CPHQ & 醫療品質管理與數據分析，需英文能力。 & 提升國際競爭力，適合國際交流項目。 \\
+    \cline{2-4}
+    & 國際：PMP & 專案管理，適合會議與庶務管理。 & 約6個月準備，需專案經驗，應用於臨時交辦事項。 \\
+    \cline{2-4}
+    & 國際：Lean Six Sigma Green Belt & 流程優化，2-3個月線上課程。 & 提升網頁系統維護與評鑑流程效率。 \\
+    \cline{2-4}
+    & 選擇建議 & 短期考取國內證照，中長期考國際證照。 & 優先選擇與工作相關證照（如醫療品質管理師）。 \\
+    
+    % 職涯發展
+    \hline
+    \multirow{4}{*}{職涯發展} & 醫學教育專家 & 課程設計師 > 醫學教育委員會主任，或轉學術研究員。 & 攻讀醫學教育碩士，發表論文，參與PGY規範制定。 \\
+    \cline{2-4}
+    & 醫療管理與品質改善 & 品質管理師 > 教學副院長或品質管理中心主任。 & 考取CPHQ，參與評鑑實務，學習數據分析工具。 \\
+    \cline{2-4}
+    & 國際醫療交流 & 國際合作專案經理 > 衛福部或國際組織顧問。 & 提升英文能力，考PMP，累積國際合作案例。 \\
+    \cline{2-4}
+    & 規劃建議 & 短期累積證照與經驗，中期選定路徑，長期爭取高階職位。 & 參與跨院或國際項目，拓展人脈。 \\
+    
+    % LinkedIn撰寫
+    \hline
+    \multirow{6}{*}{\textbf{LinkedIn撰寫}} & 標題 & 例："醫療教育專員 | 教學評鑑與PGY訓練 | 促進教育品質"。 & 使用關鍵詞（如"醫學教育"），提高搜尋能見度。 \\
+    \cline{2-4}
+    & 關於 & 200-300字，涵蓋使命、能力、成就、目標。 & 融入論文發表、評鑑成果，加入聯繫CTA。 \\
+    \cline{2-4}
+    & 工作經歷 & 每職位列3-5項成果，量化影響（如"提升效率30\%"）。 & 提及JCT、ACGME框架，展現專業性。 \\
+    \cline{2-4}
+    & 技能 & 包含醫學教育、品質管理、專案管理等。 & 請同事背書，增加可信度。 \\
+    \cline{2-4}
+    & 動態分享 & 每月分享活動、轉發文章、參與群組。 & 保持檔案活躍，展現專業熱情。 \\
+    \cline{2-4}
+    & 整體建議 & 定期更新，拓展人脈，確保檔案公開。 & 每月花1小時維護，參加醫學教育研討會。 \\
+    
+\end{longtable}
+
+
+\newpage
+\section{教學行政人員職涯發展藍圖}
+
+本節依據工作年資，規劃三階段能力培養路徑，並提供具體培訓措施與晉升建議。
+
+\subsection{核心專業能力培養階段（1-2年）}
+
+\begin{longtable}{P{4cm}P{12cm}}
+\toprule
+\textbf{發展領域} & \textbf{具體能力項目} \\
+\midrule
+\endhead
+
+\textbf{教學行政基礎技能} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學計劃管理與排程
+  \item 醫學教育相關文件處理與歸檔
+  \item 教學評估與回饋系統操作
+  \item 醫學教育法規與標準熟悉
+  \item Word 處理能力
+\end{itemize} \\
+\midrule
+
+\textbf{溝通協調能力} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 與醫師、護理人員和其他醫療專業人員的有效溝通
+  \item 跨部門協調能力
+  \item 教學活動的組織與執行
+\end{itemize} \\
+\midrule
+
+\textbf{數位工具應用} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學管理系統使用
+  \item 遠距教學平台操作 (TMS)
+  \item 基本數據分析與報表製作
+\end{itemize} \\
+\bottomrule
+
+\end{longtable}
+
+\subsection{專業發展深化階段（2-4年）}
+
+\begin{longtable}{P{4cm}P{12cm}}
+\toprule
+\textbf{發展領域} & \textbf{具體能力項目} \\
+\midrule
+\endhead
+
+\textbf{醫學教育專業知識} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 基本醫學教育理論
+  \item 專科教育特性
+  \item 教學評估方法與工具
+\end{itemize} \\
+\midrule
+
+\textbf{項目管理能力} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學課程設計與規劃
+  \item 專科培訓項目管理
+  \item 教學資源分配與優化
+\end{itemize} \\
+\midrule
+
+\textbf{資料分析與報告能力} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學績效數據分析
+  \item 教學品質評估報告撰寫
+  \item 教育成效追蹤與分析
+\end{itemize} \\
+\bottomrule
+
+\end{longtable}
+
+\subsection{領導力與創新階段（4年以上）}
+
+\begin{longtable}{P{4cm}P{12cm}}
+\toprule
+\textbf{發展領域} & \textbf{具體能力項目} \\
+\midrule
+\endhead
+
+\textbf{教學管理創新} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學流程優化與改進
+  \item 新型教學模式導入
+  \item 教學數位化轉型推動
+\end{itemize} \\
+\midrule
+
+\textbf{策略規劃能力} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 教學部門年度計劃制定
+  \item 教學資源戰略規劃
+  \item 教學品質持續改進計劃
+\end{itemize} \\
+\midrule
+
+\textbf{專業影響力} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 醫學教育行政最佳實踐分享
+  \item 參與跨院區/跨機構教學合作
+  \item 教學行政標準與規範制定
+\end{itemize} \\
+\bottomrule
+
+\end{longtable}
+
+\subsection{具體培訓與發展措施}
+
+\begin{longtable}{P{4cm}P{12cm}}
+\toprule
+\textbf{類別} & \textbf{具體措施} \\
+\midrule
+\endhead
+
+\textbf{階段性培訓計劃} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 新進人員導向訓練（教學系統、流程、規範）
+  \item 醫學教育基礎知識工作坊
+  \item 項目管理與流程優化培訓
+  \item 領導力與創新管理課程
+\end{itemize} \\
+\midrule
+
+\textbf{專業認證與進修} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 鼓勵取得相關專業認證（如教育管理、醫務管理等）
+  \item 支持參加醫學教育相關研討會
+  \item 提供進修教育管理或醫務管理相關學位的機會
+\end{itemize} \\
+\midrule
+
+\textbf{績效評估與回饋機制} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 建立明確的績效指標與評估標準
+  \item 定期職涯發展諮詢與規劃
+  \item 優秀表現獎勵與晉升機會
+\end{itemize} \\
+\midrule
+
+\textbf{跨部門學習與交流} &
+\begin{itemize}[leftmargin=*,itemsep=1pt,parsep=0pt]
+  \item 安排與臨床醫療團隊的溝通交流
+  \item 參與不同醫療專科的教學觀摩
+  \item 與其他醫療中心教學部門的標竿學習
+\end{itemize} \\
+\bottomrule
+
+\end{longtable}
+
+\subsection{晉升路徑建議}
+
+\begin{longtable}{P{16cm}}
+\toprule
+\textbf{晉升階梯} \\
+\midrule
+\endhead
+
+\begin{center}
+\textbf{初階教學行政專員} $\rightarrow$ \textbf{資深教學行政專員} $\rightarrow$ \textbf{教學專案管理師} $\rightarrow$ \textbf{教學行政主管} $\rightarrow$ \textbf{教學發展部門經理}
+\end{center} \\
+\bottomrule
+
+\end{longtable}
+
+
+\newpage
+\section{縮寫說明}
+以下表格列出文件中使用的縮寫及其全稱與說明，供參考。
+
+\begin{longtable}{C{3cm}L{6cm}L{6cm}}
+    \hline
+    \textbf{縮寫} & \textbf{全稱} & \textbf{說明} \\
+    \hline
+    \endfirsthead
+    \hline
+    \textbf{縮寫} & \textbf{全稱} & \textbf{說明} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    \hline
+    \endlastfoot
+    
+    PGY & Postgraduate Year & 畢業後一般醫學訓練，指醫學系畢業生進入臨床實務前的培訓階段。 \\
+    \hline
+    JCT & Joint Commission of Taiwan & 台灣聯合評鑑，負責醫療機構的品質評鑑與認證。 \\
+    \hline
+    ACGME & Accreditation Council for Graduate Medical Education & 美國研究生醫學教育認證委員會，制定醫學教育標準，影響PGY課程設計。 \\
+    \hline
+    AMEE & Association for Medical Education in Europe & 歐洲醫學教育協會，舉辦全球醫學教育研討會，提供資源與培訓。 \\
+    \hline
+    CPHQ & Certified Professional in Healthcare Quality & 醫療品質認證，國際公認的品質管理證照，需英文能力。 \\
+    \hline
+    PMP & Project Management Professional & 專案管理專業人士認證，適用於會議與行政管理。 \\
+    \hline
+    CTA & Call to Action & 行動號召，LinkedIn檔案中鼓勵聯繫的結語或提示。 \\
+    \hline
+    TMS & Teaching Management System & 教學管理系統，用於遠距教學平台操作。 \\
+    
+\end{longtable}
+
+
+\vspace{1cm}
+\begin{center}
+    --- 文件結束 ---
+\end{center}
+
+\end{document}

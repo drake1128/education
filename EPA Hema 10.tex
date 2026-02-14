@@ -1,0 +1,643 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=heme_red,
+    citecolor=heme_red,
+    urlcolor=heme_red,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Hematology themed colors)
+\definecolor{heme_red}{RGB}{178,34,52}
+\definecolor{heme_crimson}{RGB}{220,20,60}
+\definecolor{heme_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{heme_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{heme_crimson}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{heme_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=heme_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=heme_crimson!5!white,
+        colframe=heme_crimson,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{heme_red}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{heme_crimson}{血液科EPAs}}
+\fancyfoot[C]{\textcolor{heme_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{heme_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{heme_red}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 血液科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{heme_crimson}{\textit{Hematology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=heme_crimson!5!white,
+        colframe=heme_crimson,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    血液科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 血液科 \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{血液科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。血液科EPAs涵蓋了血液疾病診斷、治療與照護的核心能力,是所有血液科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+血液科EPAs評量著重於能否安全、穩定地執行完整的血液疾病診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的病史詢問與血液抹片判讀,到複雜的骨髓檢查、化療管理與跨科部協調,提供完整的血液疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成血液科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行血液疾病病史詢問與理學檢查。
+    \item 判讀周邊血液抹片與骨髓抹片。
+    \item 診斷與處理各類型貧血。
+    \item 診斷與管理出血性疾病與凝血異常。
+    \item 診斷與處理血栓性疾病。
+    \item 執行骨髓穿刺與切片檢查。
+    \item 診斷與治療急性白血病。
+    \item 診斷與管理淋巴瘤與骨髓瘤。
+    \item 執行輸血醫學與成分輸血。
+    \item 協調血液疾病患者跨科部整合照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{血液科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{血液科EPAs完整架構} \\
+\hline
+\rowcolor{heme_crimson!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{heme_crimson!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 血液疾病病史詢問與理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行血液疾病相關的完整病史詢問與理學檢查,包括出血傾向、貧血症狀、淋巴結腫大評估,並能初步評估疾病嚴重度。} \\
+\hline
+\textbf{核心能力} & 出血症狀評估 & 瘀青、紫斑、牙齦出血、鼻出血、月經過多詳細詢問 \\
+\cline{2-3}
+& 貧血症狀 & 疲倦、暈眩、心悸、呼吸困難、運動耐力評估 \\
+\cline{2-3}
+& 感染史 & 反覆感染、發燒型態、嚴重度評估 \\
+\cline{2-3}
+& 家族史 & 血友病、地中海貧血、血栓傾向家族史 \\
+\cline{2-3}
+& 理學檢查 & 蒼白、黃疸、淋巴結、肝脾腫大、瘀斑檢查 \\
+\cline{2-3}
+& 功能評估 & ECOG score、Karnofsky score評估 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本血液症狀,需要監導者引導完成 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成血液病史詢問,執行基本理學檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問,整合症狀進行初步診斷 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史,識別罕見症狀 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問,建立系統性評估流程 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 周邊血液抹片與骨髓抹片判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀周邊血液抹片與骨髓抹片,識別正常與異常血球型態,並能整合臨床資訊提出診斷建議。} \\
+\hline
+\textbf{核心能力} & 紅血球型態 & 大小不等、形狀異常、內含物識別 \\
+\cline{2-3}
+& 白血球分類 & 五分類計數、異常白血球識別 \\
+\cline{2-3}
+& 血小板評估 & 數量、大小、型態評估 \\
+\cline{2-3}
+& 骨髓細胞 & M:E ratio、成熟度、異常細胞識別 \\
+\cline{2-3}
+& 特殊染色 & 鐵染色、PAS、MPO等判讀 \\
+\cline{2-3}
+& 臨床關聯 & 抹片發現與疾病診斷關聯性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本正常血球型態 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見異常血球,進行基本分類 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分抹片,整合臨床診斷 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜抹片,識別罕見血球異常 \\
+\hline
+\textbf{Level 5} & Expert & 成為抹片判讀專家,能教導複雜判讀技巧 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 貧血診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各類型貧血,執行系統性診斷評估,制定個別化治療計畫,並監測治療效果與副作用。} \\
+\hline
+\textbf{核心能力} & 分類診斷 & MCV分類、網狀球計數、系統性診斷流程 \\
+\cline{2-3}
+& 缺鐵性貧血 & 診斷標準、鐵劑治療、原因追查 \\
+\cline{2-3}
+& 巨球性貧血 & B12/葉酸缺乏、診斷與治療 \\
+\cline{2-3}
+& 溶血性貧血 & 內因性vs外因性、實驗室診斷 \\
+\cline{2-3}
+& 慢性病貧血 & 發炎、腎病、內分泌相關貧血 \\
+\cline{2-3}
+& 輸血指標 & 輸血適應症、目標血紅素評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別貧血,知道基本分類 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷常見貧血,執行基本治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷與治療各類貧血 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜貧血,整合多重病因 \\
+\hline
+\textbf{Level 5} & Expert & 成為貧血診斷專家,處理罕見病因 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 出血性疾病與凝血異常診斷處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷出血性疾病與凝血異常,執行凝血功能檢查判讀,制定止血治療策略,並處理急性出血事件。} \\
+\hline
+\textbf{核心能力} & 凝血檢查判讀 & PT/aPTT/TT解讀、mixing study應用 \\
+\cline{2-3}
+& 血小板疾病 & ITP、TTP、HUS診斷與治療 \\
+\cline{2-3}
+& 凝血因子缺乏 & 血友病、VWD診斷與治療 \\
+\cline{2-3}
+& DIC診斷處理 & 診斷標準、嚴重度評估、治療策略 \\
+\cline{2-3}
+& 止血治療 & 血小板輸注、FFP、凝血因子使用 \\
+\cline{2-3}
+& 急性出血處置 & 出血評估、緊急止血、輸血決策 \\
+\hline
+\textbf{Level 1} & Novice & 能識別出血症狀,了解基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀凝血檢查,處理簡單出血 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷凝血異常,制定治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜出血事件,整合多重因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為凝血專家,處理罕見凝血疾病 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 血栓性疾病診斷與抗凝治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷血栓性疾病,評估血栓風險,選擇適當抗凝藥物,監測治療效果,並處理抗凝相關併發症。} \\
+\hline
+\textbf{核心能力} & DVT/PE診斷 & 臨床評估、D-dimer、影像診斷 \\
+\cline{2-3}
+& 血栓傾向篩檢 & 遺傳性vs後天性、檢查時機 \\
+\cline{2-3}
+& 抗凝藥物選擇 & Warfarin、DOAC、LMWH適應症 \\
+\cline{2-3}
+& INR監測 & 目標範圍、劑量調整、交互作用 \\
+\cline{2-3}
+& 出血風險評估 & HAS-BLED score、預防策略 \\
+\cline{2-3}
+& 抗凝併發症 & 出血處理、HIT識別與處理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別血栓症狀,了解基本抗凝藥物 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷DVT/PE,開始抗凝治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理抗凝治療,監測與調整 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜血栓,評估血栓傾向 \\
+\hline
+\textbf{Level 5} & Expert & 成為血栓專家,制定個人化抗凝策略 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 骨髓穿刺與切片檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行骨髓穿刺與切片檢查,包括適應症評估、解剖定位、無菌技術、標本處理,並能初步判讀結果。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 診斷vs分期vs追蹤、禁忌症識別 \\
+\cline{2-3}
+& 解剖定位 & 後上髂骨棘、胸骨穿刺定位 \\
+\cline{2-3}
+& 穿刺技術 & 局部麻醉、穿刺深度、抽吸技巧 \\
+\cline{2-3}
+& 切片技術 & Jamshidi針使用、標本完整性 \\
+\cline{2-3}
+& 標本處理 & 抹片製作、固定液使用、特殊檢查 \\
+\cline{2-3}
+& 併發症處理 & 出血、疼痛、感染預防與處理 \\
+\hline
+\textbf{Level 1} & Novice & 能協助骨髓檢查,了解基本解剖 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行骨髓穿刺 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行骨髓檢查,處理標本 \\
+\hline
+\textbf{Level 4} & Proficient & 能執行困難穿刺,使用進階技術 \\
+\hline
+\textbf{Level 5} & Expert & 成為骨髓檢查專家,能教導複雜技術 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 急性白血病診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷急性白血病,執行分類與風險分層,制定化療計畫,處理化療併發症,並監測治療反應。} \\
+\hline
+\textbf{核心能力} & 診斷與分類 & AML vs ALL、FAB/WHO分類、免疫分型 \\
+\cline{2-3}
+& 細胞遺傳學 & 染色體核型、分子標記、預後評估 \\
+\cline{2-3}
+& 風險分層 & 預後因子、治療強度決策 \\
+\cline{2-3}
+& 誘導化療 & 化療方案選擇、劑量調整 \\
+\cline{2-3}
+& 併發症處理 & TLS、感染、出血、mucositis管理 \\
+\cline{2-3}
+& 反應評估 & CR標準、MRD監測、復發處理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別白血病可能性,了解基本分類 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行初步評估,協助化療管理 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷白血病,執行化療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜併發症,調整治療策略 \\
+\hline
+\textbf{Level 5} & Expert & 成為白血病專家,發展個人化治療 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 淋巴瘤與骨髓瘤診斷管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷淋巴瘤與多發性骨髓瘤,執行分期評估,制定治療計畫,監測治療反應與疾病進展。} \\
+\hline
+\textbf{核心能力} & 淋巴瘤診斷 & HL vs NHL、病理分型、免疫組化 \\
+\cline{2-3}
+& 分期評估 & Ann Arbor分期、PET-CT應用、IPI score \\
+\cline{2-3}
+& 化療方案 & R-CHOP、ABVD等方案選擇與執行 \\
+\cline{2-3}
+& 骨髓瘤診斷 & CRAB準則、ISS分期、細胞遺傳學 \\
+\cline{2-3}
+& 骨髓瘤治療 & 誘導、鞏固、維持治療策略 \\
+\cline{2-3}
+& 反應評估 & Lugano criteria、IMWG criteria應用 \\
+\hline
+\textbf{Level 1} & Novice & 能識別淋巴瘤可能性,了解基本分型 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行初步分期,協助化療管理 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷與治療淋巴瘤、骨髓瘤 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜病例,評估移植適應症 \\
+\hline
+\textbf{Level 5} & Expert & 成為淋巴瘤專家,參與臨床試驗 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 輸血醫學與成分輸血}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估輸血適應症,選擇適當血品,執行輸血前檢查,監測輸血反應,並處理輸血相關併發症。} \\
+\hline
+\textbf{核心能力} & 輸血適應症 & 紅血球、血小板、血漿輸注指標 \\
+\cline{2-3}
+& ABO/Rh系統 & 血型判定、交叉試驗、不規則抗體 \\
+\cline{2-3}
+& 成分輸血 & PRBC、PC、FFP、Cryo適應症 \\
+\cline{2-3}
+& 特殊輸血 & 大量輸血、緊急輸血、換血術 \\
+\cline{2-3}
+& 輸血反應 & 急性溶血、TRALI、TACO識別處理 \\
+\cline{2-3}
+& 輸血替代 & 自體輸血、無血管理策略 \\
+\hline
+\textbf{Level 1} & Novice & 能了解輸血基本原則,執行輸血醫囑 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能評估輸血適應症,處理常規輸血 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理輸血,識別輸血反應 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理大量輸血,管理複雜輸血反應 \\
+\hline
+\textbf{Level 5} & Expert & 成為輸血專家,制定輸血策略 \\
+\hline
+
+\rowcolor{heme_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 血液疾病跨科部整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調血液疾病患者的整體照護,包括跨科部會診、造血幹細胞移植評估、緩和照護,並能有效溝通與教育病患及家屬。} \\
+\hline
+\textbf{核心能力} & 會診協調 & 感染科、放射腫瘤科、外科會診安排 \\
+\cline{2-3}
+& 移植評估 & 自體vs異體移植適應症評估 \\
+\cline{2-3}
+& 支持療法 & G-CSF、抗生素預防、營養支持 \\
+\cline{2-3}
+& 緩和照護 & 症狀控制、疼痛管理、善終照護 \\
+\cline{2-3}
+& 病患教育 & 疾病衛教、化療副作用、自我照護 \\
+\cline{2-3}
+& 家屬溝通 & 病情解釋、治療選項、預後討論 \\
+\cline{2-3}
+& 倫理考量 & 知情同意、DNR討論、醫療決策 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護,了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診,參與團隊討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護,制定整合計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜多科照護,領導團隊討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家,改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本血液科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 血液科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。血液抹片判讀與骨髓檢查需要大量練習才能精熟。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 6) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 3, 4, 5, 7, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        抹片判讀類 & 抹片判讀評量 & 線上測驗、定期考核 \\
+        (EPA 2) & Slide Interpretation Assessment & 盲測、peer review \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 基礎評估與抹片判讀 \\
+        第2個月 & EPA 3, 9 & 貧血診斷與輸血醫學 \\
+        第3個月 & EPA 4, 5 & 凝血異常與血栓管理 \\
+        第4個月 & EPA 6 & 骨髓檢查技能 \\
+        第5個月 & EPA 7, 8 & 血液惡性腫瘤管理 \\
+        第6個月 & EPA 10 & 整合照護與協調能力 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item Williams Hematology. 10th edition.
+    \item Wintrobe's Clinical Hematology. 14th edition.
+    \item Hoffman's Hematology: Basic Principles and Practice. 8th edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item ASH Guidelines for Management of Venous Thromboembolism
+    \item NCCN Guidelines for Acute Lymphoblastic Leukemia
+    \item NCCN Guidelines for Multiple Myeloma
+    \item BSH Guidelines for Blood Transfusion
+    \item EHA Guidelines for Diagnosis and Treatment of Lymphomas
+\end{itemize}
+
+\textbf{線上資源:}
+\begin{itemize}
+    \item ASH Image Bank (血液抹片圖庫)
+    \item Hematology.org Educational Resources
+    \item UpToDate Hematology Section
+    \item Blood Journal Online
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 建立個人抹片判讀資料庫
+    \item 參與同儕學習與討論
+    \item 利用ASH Image Bank練習
+    \item 建立個人學習檔案
+    \item 參與多專科團隊會議
+    \item 定期複習骨髓檢查技能
+    \item 參加血液科個案討論會
+\end{itemize}
+
+\section{總結}
+
+血液科EPAs涵蓋了血液疾病診療的完整核心能力,從基礎的病史詢問與血液抹片判讀,到複雜的白血病化療管理、骨髓移植評估,以及整合性的跨科部協調照護。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 血液科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表血液科醫師必須具備的基礎診療能力。血液抹片與骨髓抹片判讀是血液科的基石,需要大量練習累積經驗。血液惡性腫瘤的治療需要謹慎評估風險效益,密切監測併發症。輸血醫學與凝血管理攸關病患安全,必須精確掌握適應症與併發症處理。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{williams2021}
+Kaushansky, K., et al. (2021). \textit{Williams Hematology}. 10th edition. McGraw-Hill Education.
+
+\bibitem{wintrobe2018}
+Greer, J. P., et al. (2018). \textit{Wintrobe's Clinical Hematology}. 14th edition. Lippincott Williams \& Wilkins.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{ash2020vte}
+American Society of Hematology. (2020). ASH Guidelines on Management of Venous Thromboembolism. \textit{Blood Advances}, 4(19), 4693-4738.
+
+\bibitem{nccn2024}
+NCCN Clinical Practice Guidelines in Oncology. (2024). Acute Lymphoblastic Leukemia. Version 1.2024.
+
+\bibitem{kumar2016}
+Kumar, S. K., et al. (2016). Multiple myeloma. \textit{Nature Reviews Disease Primers}, 2, 16046.
+
+\bibitem{swerdlow2016}
+Swerdlow, S. H., et al. (2016). The 2016 revision of the World Health Organization classification of lymphoid neoplasms. \textit{Blood}, 127(20), 2375-2390.
+
+\end{thebibliography}
+
+\end{document}

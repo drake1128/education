@@ -1,0 +1,1064 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+\definecolor{light_blue}{RGB}{173,216,230}
+\definecolor{light_green}{RGB}{144,238,144}
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{內科部正式文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{CCC委員會章程}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+% Document start
+\begin{document}
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\LARGE\textcolor{emergency_red}{\textbf{○○醫院內科部}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 臨床能力委員會工作計畫章程\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Clinical Competency Committee Charter}}\par}
+    \vspace{2cm}
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{委員會正式章程}\par}
+    \vspace{0.5cm}
+    根據醫院教學委員會授權\\
+    依據衛生福利部醫學教育相關法規\\
+    制定內科部臨床能力評核標準\\
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.4版\par
+    生效日期：\mydate
+    \end{tcolorbox}
+    \vfill
+    \begin{center}
+    \begin{tabular}{lr}
+    \textbf{內科部主任：} & \rule{5cm}{0.5pt} \\
+    & \\
+    \textbf{教學委員會主席：} & \rule{5cm}{0.5pt} \\
+    & \\
+    \textbf{醫院院長：} & \rule{5cm}{0.5pt} \\
+    \end{tabular}
+    \end{center}
+    \vspace{1cm}
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+\section{章程總則}
+\subsection{設立依據}
+本臨床能力委員會（Clinical Competency Committee, CCC）依據下列法規及政策設立：
+\begin{itemize}[nosep]
+    \item 衛生福利部「專科醫師訓練課程基準」
+    \item 「畢業後一般醫學訓練計畫基準」
+    \item 醫院評鑑暨醫療品質策進會相關標準
+    \item 本院醫學教育委員會授權
+    \item 內科部教學訓練規章
+    \item 「住院醫師勞動權益保障及工作時間指引」相關規範
+\end{itemize}
+\subsection{委員會宗旨}
+因應住院醫師納入勞基法後工時縮減的挑戰，建立以勝任能力為本（Competency-Based Medical Education, CBME）的系統性教學評量機制，從傳統「以時間為本」轉向「以能力為本」的醫學教育模式，確保內科部所屬各層級醫事人員達到專業標準，維護醫療品質與病患安全，善盡醫學教育之社會責任。
+\subsection{適用範圍}
+本章程適用於內科部所屬：
+\begin{itemize}[nosep]
+    \item 醫學系學生
+    \item 畢業後一般醫學訓練醫師（PGY）
+    \item 住院醫師（Resident）- R1至R3各年級
+    %\item 專科護理師（Nurse Practitioner, NP）
+    %\item 總住院醫師（Chief Resident）, 總醫師
+    \item 其他經委員會決議納入評核之醫事人員
+\end{itemize}
+\subsection{核心理念}
+本委員會採用美國ACGME「下一代評鑑系統」(Next Accreditation System, NAS)之CCC架構，結合台灣本土醫療環境特色，建立：
+\begin{itemize}[nosep]
+    \item \textbf{結構嚴謹}：標準化評核流程與決議程序
+    \item \textbf{證據導向}：多元評量工具整合運用
+    \item \textbf{階段發展}：依訓練階段設定能力里程碑(Milestone)
+    \item \textbf{核心勝任能力}：以ACGME六大核心能力為評核架構
+    \item \textbf{完善回饋機制}：即時性、明確性、個人化回饋
+\end{itemize}
+\subsection{委員會功能定位}
+根據台灣醫界推動CCC的實證經驗，本委員會採用「能力發展模型」而非「問題辨認模型」：
+\subsubsection{能力發展模型}
+\begin{itemize}[nosep]
+    \item 系統性詮釋各類評量工具到訓練計畫的能力架構
+    \item 發展以里程碑(Milestone)為本的評量地圖
+    \item 整合多項評量工具資料，掌握每位受訓者全方位發展軌跡
+    \item 依照個人優缺點給予形成性(Formative)、敘述性(Narrative)回饋
+    \item 形成個人化學習成長方向指引
+\end{itemize}
+\subsubsection{避免問題辨認模型}
+避免傳統「舉紅旗」模式，不將CCC功能簡化為僅識別少數陷入困境者，而是要為每位受訓者提供建設性的能力發展指導。
+\begin{importantbox}
+\textbf{重要原則：}本委員會採用能力發展模型，重視每位受訓者的持續改善和能力提升，而非僅著重於問題識別。所有受訓者都應在CCC會議後即時得到具體回饋和個人化學習計畫。
+\end{importantbox}
+\begin{importantbox}
+%\textbf{章程效力：}本章程經內科部主任由內科部修訂、教學委員會主席及院長核准後具法律效力，所有相關人員均須遵守。違反者將依相關規定處理。
+\textbf{章程效力：}本章程經內科部主任指導，由內科部修訂、經教學部同意備查，所有相關人員均須遵守。違反者將依相關規定處理。
+\end{importantbox}
+\section{委員會組織架構}
+\subsection{委員會組成}
+\subsubsection{委員總數}
+委員會由15-20名委員組成，確保代表性與專業性。
+\subsubsection{委員組成結構}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{委員類別} & \textbf{人數} & \textbf{資格要求} & \textbf{任期} \\
+\hline
+委員會主席 & 1名 & 內科部主任或其指定之次專科主任 & 2年 \\
+\hline
+次專科主任代表 & 6-8名 &
+\begin{itemize}[nosep]
+\item 整合醫學部主任
+\item 腫瘤醫學部主任
+\item 胸腔內科主任
+\item 腸胃內科主任
+\item 心臟內科主任
+\item 腎臟內科主任
+\item 內分泌科主任
+\item 血液腫瘤科主任
+\item 感染科主任
+\item 風濕免疫科主任%（視科別設置）
+\end{itemize} & 1年 \\
+\hline
+醫事人員代表 & 4-6名 &
+\begin{itemize}[nosep]
+\item 內科專科護理師
+\item 內科加護病房護理長
+\item 一般內科病房護理長
+\item 心導管室組長
+\item 內視鏡室護理長
+\item 血液透析室護理長
+\item 化療中心護理長
+\end{itemize} & 1年 \\
+\hline
+% 教學代表 & 2-3名 &
+% \begin{itemize}[nosep]
+% \item 醫學教育委員會代表
+% \item PGY計畫主持人
+% \item 住院醫師訓練負責人
+% \end{itemize} & 1年 \\
+% \hline
+外部委員 & 1-2名 &
+\begin{itemize}[nosep]
+\item 他院內科部主任或資深主治醫師
+\item 醫學教育專家
+\end{itemize} & 2年 \\
+\hline
+\end{longtable}
+\subsection{委員資格與培訓}
+\subsubsection{基本資格}
+\begin{itemize}[nosep]
+    \item 具備相關專科醫師或專業證書
+    \item 在本院服務滿2年以上
+    \item 具備教學經驗或管理經驗
+    \item 無重大醫療糾紛或懲處記錄
+    \item 完成CCC委員培訓課程並通過認證
+\end{itemize}
+\subsubsection{專業資格}
+\begin{itemize}[nosep]
+    \item 主治醫師：具備專科醫師證書，教學年資3年以上
+    \item 醫事人員代表與護理長：具備專科護理師證書，護理師證書，或專業證書，年資5年以上
+    %\item 教學代表：具備醫學教育相關資格或經驗
+    \item 外部委員：他院資深主治醫師或醫學教育專家
+\end{itemize}
+% \subsubsection{必要培訓}
+% 所有新任委員須完成以下培訓：
+% \begin{itemize}[nosep]
+%     \item \textbf{基礎訓練}：4小時CCC章程、流程、系統操作
+%     \item \textbf{里程碑訓練}：熟悉各專科里程碑指標定義
+%     \item \textbf{評量工具訓練}：Mini-CEX、DOPS、360度評估等操作
+%     \item \textbf{偏差識別訓練}：認知偏差、團體迷思防範
+%     \item \textbf{回饋技巧訓練}：ADAPT或R2C2回饋模型
+%     \item \textbf{實習期}：3個月資深委員帶領參與會議
+%     \item \textbf{認證考核}：筆試+模擬評核操作
+% \end{itemize}
+\subsection{利益迴避原則}
+\subsubsection{迴避情形}
+委員遇有下列情形應主動迴避，不得參與討論及表決：
+\begin{itemize}[nosep]
+    \item 受評核者為其直接指導學生
+    \item 與受評核者有直系血親、姻親關係
+    \item 與受評核者有重大利益關係
+    \item 其他可能影響公正性之情形
+\end{itemize}
+% \subsubsection{迴避程序}
+% \begin{enumerate}
+%     \item 委員應於會議開始前主動聲明迴避
+%     \item 主席宣布委員迴避，該委員應離席
+%     \item 迴避委員不計入該案表決人數
+%     \item 迴避情形應記錄於會議紀錄
+% \end{enumerate}
+
+\vspace{0.5cm}
+\note{
+指導老師在評核其直接指導學生時，可提供意見但不得參與表決，以確保評核之客觀性。
+}
+\section{委員會職責與權限}
+\subsection{主要職責}
+\subsubsection{能力評核認定}
+\begin{itemize}[nosep]
+    \item 制定並修訂臨床能力評核標準
+    \item 執行定期能力評核作業
+    \item 審核學員能力進階申請
+    \item 認定學員是否達到畢業標準
+\end{itemize}
+\subsubsection{品質監控}
+\begin{itemize}[nosep]
+    \item 監控教學訓練品質
+    \item 分析學員表現趨勢
+    \item 識別訓練課程缺失
+    \item 提出改善建議方案
+\end{itemize}
+\subsubsection{政策制定}
+\begin{itemize}[nosep]
+    \item 制定內科部教學政策
+    \item 修訂訓練課程基準
+    \item 建立評核作業流程
+    \item 訂定獎懲標準
+\end{itemize}
+
+\subsection{評核對象與標準}
+
+\subsubsection{醫學生評核}
+\textbf{評核週期：}每1-3週評核一次，共1次評核
+\begin{itemize}[nosep]
+    \item \textbf{第1次評核（1週）}：基本知識與臨床技能
+    \item \textbf{第2次評核（2-3週）}：臨床判斷能力
+    % \item \textbf{第3次評核（9個月）}：團隊合作與溝通
+    % \item \textbf{第4次評核（12個月）}：綜合能力評估
+\end{itemize}
+
+\subsubsection{PGY醫師評核}
+\textbf{評核週期：}每3個月評核一次，共4次評核
+\begin{itemize}[nosep]
+    \item \textbf{第1次評核（3個月）}：基本臨床技能
+    \item \textbf{第2次評核（6個月）}：臨床判斷能力
+    \item \textbf{第3次評核（9個月）}：團隊合作與溝通
+    \item \textbf{第4次評核（12個月）}：綜合能力評估
+\end{itemize}
+\subsubsection{住院醫師評核}
+\textbf{評核週期：}每6個月評核一次
+\begin{itemize}[nosep]
+    \item \textbf{R1年度評核}：基礎臨床能力確認
+    \item \textbf{R2年度評核}：專科知識與技能
+    \item \textbf{R3年度評核}：獨立作業能力
+    \item \textbf{結業評核}：專科醫師能力認定
+\end{itemize}
+
+% \subsubsection{專科護理師評核}
+% \textbf{評核週期：}每年評核一次
+% \begin{itemize}[nosep]
+%     \item \textbf{新進評核}：基本專科護理能力，基礎專科護理能力，可與PGY醫師協作照護病患 (注意: 協作照護並非擔任教學)
+%     \item \textbf{年度評核}：進階護理實務能力，可在專科領域為了病患安全提供臨床建議 (但是需與臨床教學作清楚區分，並非擔任教學任務) 
+%     \item \textbf{升等評核}：資深專科護理師能力，資深護理專家，具備跨科協調與病患安全監督能力
+%     \item \textbf{病患安全}：評估專科護理師在多專科照護團隊中的協作能力，確保其具備與住院醫師有效溝通、提供專業護理建議，以及在緊急情況下進行適當臨床提醒的能力，以維護病人安全。
+% \end{itemize}
+
+% \begin{importantbox}
+% \begin{itemize}
+%     \item 臨床提醒能力：及時發現並提醒潛在風險
+%     \item 專業諮詢能力：在護理專業領域提供建議
+%     \item 團隊溝通能力：有效與醫療團隊溝通
+%     \item 品質監控能力：協助維護醫療照護品質
+% \end{itemize}
+% \end{importantbox}
+
+% \begin{importantbox}
+%     注意: 此委員會對於專科護理師另外有責任，應評估專科護理師在醫療團隊中的協作能力，確保其能在專業護理領域提供適當臨床建議，維護病人安全。
+% \end{importantbox}
+
+\section{六大核心能力評估架構}
+\subsection{核心能力定義}
+依據ACGME（Accreditation Council for Graduate Medical Education）六大核心能力：
+\subsubsection{1. 病患照護（Patient Care）}
+\begin{itemize}[nosep]
+    \item 提供具同理心、適當且有效的病患照護
+    \item 進行準確的病史詢問與理學檢查
+    \item 制定並執行適當的診療計畫
+    \item 熟練使用預防醫學與健康促進策略
+\end{itemize}
+\subsubsection{2. 醫學知識（Medical Knowledge）}
+\begin{itemize}[nosep]
+    \item 具備生物醫學、臨床與社會行為科學知識
+    \item 運用知識解決臨床問題
+    \item 展現對病理生理學的理解
+    \item 掌握最新醫學研究發展
+\end{itemize}
+\subsubsection{3. 實務學習與改善（Practice-based Learning and Improvement）}
+\begin{itemize}[nosep]
+    \item 評估並改善病患照護品質
+    \item 運用資訊科技進行持續學習
+    \item 參與品質改善活動
+    \item 具備批判性思考能力
+\end{itemize}
+\subsubsection{4. 人際關係與溝通技巧（Interpersonal and Communication Skills）}
+\begin{itemize}[nosep]
+    \item 與病患、家屬建立良好關係
+    \item 有效的團隊溝通與合作
+    \item 清楚記錄病歷資料
+    \item 展現文化敏感度
+\end{itemize}
+\subsubsection{5. 專業素養（Professionalism）}
+\begin{itemize}[nosep]
+    \item 展現責任感、誠實與正直
+    \item 尊重病患自主權與隱私
+    \item 遵守醫學倫理原則
+    \item 維持專業形象與行為
+\end{itemize}
+\subsubsection{6. 制度下的實務（Systems-based Practice）}
+\begin{itemize}[nosep]
+    \item 了解醫療制度與資源運用
+    \item 具備成本效益概念
+    \item 參與跨領域團隊合作
+    \item 推動病患安全文化
+\end{itemize}
+\subsection{里程碑評量體系}
+\subsubsection{里程碑定義}
+里程碑(Milestone)為描述住院醫師在特定核心勝任能力上從新手到專家發展過程中可觀察的知識、技能和態度行為指標。
+\subsubsection{里程碑層級}
+各核心能力均分為5個發展層級：
+\begin{itemize}[nosep]
+    \item \textbf{Level 1}：新手層級，需要直接監督
+    \item \textbf{Level 2}：進階初學者，需要間接監督
+    \item \textbf{Level 3}：勝任者，可獨立執行但偶需協助
+    \item \textbf{Level 4}：熟練者，可獨立執行並指導他人
+    \item \textbf{Level 5}：專家層級，可擔任教學領導角色
+\end{itemize}
+\subsubsection{階段性能力期待}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{light_green}
+\textbf{核心能力} & \textbf{PGY} & \textbf{R1} & \textbf{R2} & \textbf{R3} & \textbf{畢業標準} \\
+\hline
+病患照護 & Level 1-2 & Level 2-3 & Level 3 & Level 3-4 & Level 4以上 \\
+\hline
+醫學知識 & Level 1-2 & Level 2-3 & Level 3 & Level 3-4 & Level 4以上 \\
+\hline
+實務學習與改善 & Level 1-2 & Level 2 & Level 2-3 & Level 3 & Level 3以上 \\
+\hline
+人際關係與溝通 & Level 1-2 & Level 2 & Level 2-3 & Level 3 & Level 3以上 \\
+\hline
+專業素養 & Level 2 & Level 2-3 & Level 3 & Level 3 & Level 3以上 \\
+\hline
+制度下的實務 & Level 1 & Level 2 & Level 2-3 & Level 3 & Level 3以上 \\
+\hline
+\end{longtable}
+\subsubsection{評量工具對應}
+請參考表格 ~\ref{evaluation tool}，進行評量。
+
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{4cm}|}
+% \hline
+% \rowcolor{light_blue}
+% \textbf{評量工具} & \textbf{主要評估核心能力} & \textbf{適用對象} \\
+% \hline
+% Mini-CEX & 病患照護、醫學知識、溝通技巧 & PGY、住院醫師 \\
+% \hline
+% DOPS & 病患照護、醫學知識 & 住院醫師、NP \\
+% \hline
+% CbD & 醫學知識、實務學習與改善 & 住院醫師 \\
+% \hline
+% 360度評估 & 人際關係與溝通、專業素養 & 全體 \\
+% \hline
+% Portfolio & 實務學習與改善、專業素養 & 全體 \\
+% \hline
+% 模擬情境測驗 & 病患照護、制度下的實務 & PGY、住院醫師 \\
+% \hline
+% 病例討論 & 醫學知識、病患照護 & 住院醫師 \\
+% \hline
+% 品質改善專案 & 實務學習與改善、制度下的實務 & R2、R3 \\
+% \hline
+% \end{longtable}
+
+
+\section{會議運作機制}
+\subsection{會議類型與頻率}
+\subsubsection{定期會議}
+\begin{itemize}[nosep]
+    \item \textbf{月例會}：每月第二週星期三下午2:00-4:00
+    \item \textbf{季評會}：每季最後一週進行能力評核
+    \item \textbf{年度會議}：每年12月進行年度總檢討
+\end{itemize}
+\subsubsection{特別會議}
+\begin{itemize}[nosep]
+    \item \textbf{緊急評核會議}：處理重大事件或申訴案件
+    \item \textbf{專案會議}：討論政策修訂或重要議題
+    \item \textbf{校外評鑑會議}：配合外部評鑑作業
+\end{itemize}
+
+% \subsection{會議準備與共享心智模型}
+% \subsubsection{建立共享心智模型}
+% 有效的CCC運作有賴於委員間建立共享心智模型(Shared Mental Model)，確保所有委員對以下事項達成共識：
+% \begin{itemize}[nosep]
+%     \item 住院醫師表現標準與期待
+%     \item CCC角色和責任範圍
+%     \item 各評量工具的操作方法與限制
+%     \item 勝任能力的定義與里程碑標準
+%     \item 決策程序與回饋原則
+% \end{itemize}
+% \subsubsection{會議前準備工作}
+% \begin{enumerate}
+%     \item \textbf{資料整理}：計畫行政專員使用住院醫師管理系統(RMS)整理評量資料
+%     \item \textbf{視覺化呈現}：製作蜘蛛圖表、箱型圖或儀表板，呈現能力發展軌跡
+%     \item \textbf{資料品質檢核}：確保所有評量資料完整且即時更新
+%     \item \textbf{會議資料分發}：提前3日將評核資料提供委員審閱
+%     \item \textbf{問題預識別}：標註需特別關注或討論的案例
+% \end{enumerate}
+% \subsubsection{減少認知偏差策略}
+% \begin{itemize}[nosep]
+%     \item \textbf{錨定效應防範}：避免過度依賴第一印象或單一指標
+%     \item \textbf{確認偏差避免}：主動尋找與既有印象相反的證據
+%     \item \textbf{可得性偏差控制}：不因近期事件過度影響整體評估
+%     \item \textbf{團體迷思預防}：鼓勵不同意見表達，避免過早共識
+%     \item \textbf{從眾效應抑制}：資淺委員優先發言，減少權威影響
+% \end{itemize}
+% \subsection{會議進行與決策程序}
+% \subsubsection{結構化會議流程}
+% 為確保會議效率和決策品質，採用以下結構化流程：
+% \begin{enumerate}
+%     \item \textbf{開會前準備（會議前30分鐘）}
+%     \begin{itemize}[nosep]
+%         \item 確認出席人數與迴避聲明
+%         \item 分發當日評核案件資料
+%         \item 技術設備測試（電子投票系統）
+%     \end{itemize}
+%     \item \textbf{會議開始（15分鐘）}
+%     \begin{itemize}[nosep]
+%         \item 主席致詞與會議目標確認
+%         \item 上次會議紀錄確認
+%         \item 本次評核案件概述
+%     \end{itemize}
+%     \item \textbf{個案討論階段（每案最多15分鐘）}
+%     \begin{itemize}[nosep]
+%         \item 資料呈現（5分鐘）：行政專員報告評量結果
+%         \item 委員討論（8分鐘）：依序發言，資淺委員優先
+%         \item 決策表決（2分鐘）：電子投票系統進行
+%     \end{itemize}
+%     \item \textbf{會議結束（10分鐘）}
+%     \begin{itemize}[nosep]
+%         \item 決議結果確認
+%         \item 後續行動項目安排
+%         \item 下次會議時程確定
+%     \end{itemize}
+% \end{enumerate}
+% \subsubsection{資訊分享最大化策略}
+% \begin{itemize}[nosep]
+%     \item \textbf{資淺者優先發言}：避免權威效應影響
+%     \item \textbf{意見覆誦確認}：確保每個觀點被正確理解
+%     \item \textbf{標準化資訊系統}：確保所有委員擁有相等資訊量
+%     \item \textbf{非共享資訊促進}：鼓勵分享只有少數委員知道的資訊
+%     \item \textbf{多元意見開放}：建立正式管道讓不同聲音被聽見
+% \end{itemize}
+% \subsubsection{評量工具整合原則}
+% \begin{itemize}[nosep]
+%     \item \textbf{多源資料統整}：整合正式評量工具與非正式觀察
+%     \item \textbf{證據等級加權}：依證據可信度進行適當加權
+%     \item \textbf{一致性標準}：所有委員採用相同加權程序
+%     \item \textbf{專業判斷運用}：避免單純數字加總，需要專業詮釋
+%     \item \textbf{書面記錄留存}：記錄關鍵決策要素，提高透明度
+% \end{itemize}
+% \section{表決機制與決議程序}
+% \subsection{表決方式}
+% \begin{importantbox}
+% \textbf{高效率表決制度：}
+% \begin{itemize}[nosep]
+% \item 採用電子投票系統，即時統計結果
+% \item 每案討論時間限制15分鐘
+% \item 實名投票制，確保責任歸屬
+% \item 表決結果當場公布
+% \end{itemize}
+% \end{importantbox}
+% \subsubsection{表決類型}
+% \begin{enumerate}
+%     \item \textbf{公開舉手表決}：一般議案討論
+%     \item \textbf{記名投票}：重要人事案件
+%     \item \textbf{電子投票}：例行能力評核案件
+%     \item \textbf{書面投票}：機敏性議題
+% \end{enumerate}
+
+\subsection{決議標準}
+\subsubsection{能力評核認定標準}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{6cm}|}
+\hline
+\rowcolor{light_blue}
+\textbf{評核結果} & \textbf{表決標準} & \textbf{後續處理} \\
+\hline
+\textbf{通過} &
+\begin{itemize}[nosep]
+\item 贊成票≥2/3
+\item 且反對票<1/4
+\end{itemize} &
+\begin{itemize}[nosep]
+\item 進入下一階段訓練
+\item 發給能力認證證明
+\item 更新訓練記錄
+\end{itemize} \\
+\hline
+\textbf{有條件通過} &
+\begin{itemize}[nosep]
+\item 贊成票≥1/2
+\item 且<2/3
+\end{itemize} &
+\begin{itemize}[nosep]
+\item 訂定改善計畫
+\item 3個月後重新評核
+\item 加強輔導機制
+\end{itemize} \\
+\hline
+\textbf{不通過} &
+\begin{itemize}[nosep]
+\item 贊成票<1/2
+\item 或反對票≥1/2
+\end{itemize} &
+\begin{itemize}[nosep]
+\item 重複訓練或轉調
+\item 終止訓練契約
+\item 啟動申訴程序
+\end{itemize} \\
+\hline
+\textbf{延期評核} &
+\begin{itemize}[nosep]
+\item 資料不足
+\item 爭議過大
+\end{itemize} &
+\begin{itemize}[nosep]
+\item 補充評核資料
+\item 1個月內重新評核
+\item 暫停進階申請
+\end{itemize} \\
+\hline
+\end{longtable}
+% \subsection{快速決議程序}
+% 為提高會議效率，建立以下快速決議機制：
+% \subsubsection{綠燈程序（Green Light Procedure）}
+% \begin{itemize}[nosep]
+%     \item 適用：表現優異且無爭議之案件
+%     \item 條件：所有評核指標均達標準以上
+%     \item 程序：主席提案→無異議→直接通過
+%     \item 時間：5分鐘內完成決議
+% \end{itemize}
+% \subsubsection{黃燈程序（Yellow Light Procedure）}
+% \begin{itemize}[nosep]
+%     \item 適用：部分指標需改善之案件
+%     \item 條件：有1-2項能力需加強
+%     \item 程序：簡要討論→制定改善計畫→表決
+%     \item 時間：10分鐘內完成決議
+% \end{itemize}
+% \subsubsection{紅燈程序（Red Light Procedure）}
+% \begin{itemize}[nosep]
+%     \item 適用：嚴重問題或爭議案件
+%     \item 條件：重大缺失或安全疑慮
+%     \item 程序：詳細討論→多輪表決→決議
+%     \item 時間：15分鐘內完成決議
+% \end{itemize}
+% \section{評核作業流程}
+% \subsection{評核資料收集}
+% \subsubsection{必要文件}
+% 每位受評核者須準備：
+% \begin{itemize}[nosep]
+%     \item 訓練期間完整學習記錄
+%     \item 六大核心能力自我評估表
+%     \item 指導老師評估報告
+%     \item 同儕評估回饋表
+%     \item 病患滿意度調查結果
+%     \item 參與教學研究活動記錄
+% \end{itemize}
+
+\subsubsection{評估工具}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\caption{評估工具} \label{evaluation tool} \\
+\hline
+\rowcolor{light_blue}
+\textbf{評量工具} & \textbf{主要評估核心能力} & \textbf{適用對象} \\
+\hline
+Mini-CEX & 病患照護、醫學知識、溝通技巧 & PGY、住院醫師 \\
+\hline
+DOPS & 病患照護、醫學知識 & 住院醫師、NP \\
+\hline
+CbD & 醫學知識、實務學習與改善 & PGY、住院醫師 \\
+\hline
+360度評估 & 人際關係與溝通、專業素養 & 全體 \\
+\hline
+Portfolio & 實務學習與改善、專業素養 & 全體 \\
+\hline
+模擬情境測驗 & 病患照護、制度下的實務 & PGY、住院醫師 \\
+\hline
+病例討論 & 醫學知識、病患照護 & 住院醫師 \\
+\hline
+品質改善專案 & 實務學習與改善、制度下的實務 & R2、R3 \\
+\hline
+\end{longtable}
+
+
+\subsection{評核流程圖}
+\begin{center}
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Define styles
+    \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm,
+                          text centered, draw=black, fill=light_blue]
+    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm,
+                           text centered, draw=black, fill=light_green]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+    % Define nodes
+    \node (start) [process] {評核資料準備};
+    \node (committee) [process, below of=start] {委員會審查};
+    \node (discussion) [process, below of=committee] {案件討論};
+    \node (vote) [decision, below of=discussion] {委員評核};
+    \node (pass) [process, left of=vote, xshift=-3cm] {通過認證};
+    \node (conditional) [process, right of=vote, xshift=3cm] {有條件通過};
+    \node (fail) [process, below of=vote] {不通過};
+    \node (record) [process, below of=fail] {記錄決議};
+    % Define arrows
+    \draw [arrow] (start) -- (committee);
+    \draw [arrow] (committee) -- (discussion);
+    \draw [arrow] (discussion) -- (vote);
+    \draw [arrow] (vote) -- node[anchor=south] {≥2/3贊成} (pass);
+    \draw [arrow] (vote) -- node[anchor=south] {1/2-2/3贊成} (conditional);
+    \draw [arrow] (vote) -- node[anchor=east] {<1/2贊成} (fail);
+    \draw [arrow] (pass) |- (record);
+    \draw [arrow] (conditional) |- (record);
+    \draw [arrow] (fail) -- (record);
+\end{tikzpicture}
+\end{center}
+
+% \section{回饋機制與學習計畫}
+% \subsection{高品質回饋系統}
+% \subsubsection{回饋特性要求}
+% 所有回饋必須具備以下特性：
+% \begin{itemize}[nosep]
+%     \item \textbf{即時性}：CCC決議後3個工作天內完成回饋
+%     \item \textbf{明確性}：使用里程碑層級描述，避免模糊表達
+%     \item \textbf{個人化}：針對個人優缺點提供專屬建議
+%     \item \textbf{可行性}：提供具體可執行的改善方向
+%     \item \textbf{持續性}：建立前後連貫的發展軌跡
+% \end{itemize}
+% \subsubsection{結構化回饋模型}
+% 採用ADAPT或R2C2模型進行系統性回饋：
+% \textbf{ADAPT模型：}
+% \begin{itemize}[nosep]
+%     \item \textbf{Ask}：詢問受訓者自我評估
+%     \item \textbf{Discussion}：討論評估結果與差距
+%     \item \textbf{Ask}：詢問受訓者對回饋的反應
+%     \item \textbf{Plan Together}：共同制定學習計畫
+% \end{itemize}
+% \textbf{R2C2模型：}
+% \begin{itemize}[nosep]
+%     \item \textbf{Rapport Building}：建立良好關係
+%     \item \textbf{Explore Reaction}：了解受訓者反應
+%     \item \textbf{Explore Content}：討論具體內容
+%     \item \textbf{Coach for Performance Change}：指導行為改變
+% \end{itemize}
+% \subsection{個人化學習計畫}
+% \subsubsection{學習計畫要素}
+% 每位受訓者的個人化學習計畫應包含：
+% \begin{itemize}[nosep]
+%     \item \textbf{現況分析}：基於里程碑的能力現況評估
+%     \item \textbf{目標設定}：下階段應達成的具體里程碑
+%     \item \textbf{學習活動}：量身訂做的教學介入措施
+%     \item \textbf{評量計畫}：追蹤進展的評估安排
+%     \item \textbf{時程規劃}：明確的達成時間表
+%     \item \textbf{支援資源}：所需的教學資源與指導人員
+% \end{itemize}
+% \subsubsection{學習介入策略}
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{5cm}|}
+% \hline
+% \rowcolor{light_green}
+% \textbf{能力缺口} & \textbf{學習介入措施} & \textbf{評量方式} \\
+% \hline
+% 病患照護技能 &
+% \begin{itemize}[nosep]
+% \item 增加床邊教學時數
+% \item 模擬情境訓練
+% \item 技能工作坊參與
+% \item 指定mentor指導
+% \end{itemize} & Mini-CEX、DOPS \\
+% \hline
+% 醫學知識不足 &
+% \begin{itemize}[nosep]
+% \item 專題研習安排
+% \item 期刊閱讀計畫
+% \item 線上學習課程
+% \item 病例討論增加
+% \end{itemize} & 筆試、CbD \\
+% \hline
+% 溝通技巧待加強 &
+% \begin{itemize}[nosep]
+% \item 溝通技巧訓練課程
+% \item 困難對話練習
+% \item 跨團隊合作專案
+% \item 家屬會談觀摩
+% \end{itemize} & 360度評估、病患滿意度 \\
+% \hline
+% 專業素養改善 &
+% \begin{itemize}[nosep]
+% \item 倫理個案討論
+% \item 專業行為省思寫作
+% \item 資深醫師mentoring
+% \item 醫德教育課程
+% \end{itemize} & 行為觀察、省思報告 \\
+% \hline
+% \end{longtable}
+% \subsection{進展追蹤機制}
+% \subsubsection{追蹤頻率}
+% \begin{itemize}[nosep]
+%     \item \textbf{一般情況}：每3個月評核一次
+%     \item \textbf{需改善者}：每月追蹤一次
+%     \item \textbf{嚴重落後者}：每2週評估一次
+%     \item \textbf{特殊情況}：隨時安排額外評核
+% \end{itemize}
+% \subsubsection{進展指標}
+% \begin{itemize}[nosep]
+%     \item 里程碑層級提升情況
+%     \item 學習計畫執行進度
+%     \item 評量工具成績趨勢
+%     \item 指導老師回饋意見
+%     \item 同儕評估結果變化
+%     \item 自我反思品質提升
+% \end{itemize}
+% \section{台灣本土化實施策略}
+% \subsection{分階段導入計畫}
+% 參考台灣醫界推動CCC的成功經驗，採用分階段導入策略：
+% \subsubsection{第一階段：基礎建置（3個月）}
+% \begin{itemize}[nosep]
+%     \item 委員會成員遴選與培訓
+%     \item 內科各次專科里程碑在地化
+%     \item 評量工具整合與資訊系統建置
+%     \item 標準作業程序制定
+%     \item 試行評核演練
+% \end{itemize}
+% \subsubsection{第二階段：試行運作（6個月）}
+% \begin{itemize}[nosep]
+%     \item 小規模試行評核作業
+%     \item 委員會議流程優化
+%     \item 回饋機制測試與調整
+%     \item 受訓者滿意度調查
+%     \item 作業流程持續改善
+% \end{itemize}
+% \subsubsection{第三階段：全面實施（持續）}
+% \begin{itemize}[nosep]
+%     \item 擴大至所有內科受訓者
+%     \item 建立品質監控指標
+%     \item 與外部評鑑接軌
+%     \item 經驗分享與推廣
+%     \item 持續精進與創新
+% \end{itemize}
+% \subsection{資訊系統整合}
+% \subsubsection{住院醫師管理系統(RMS)功能}
+% \begin{itemize}[nosep]
+%     \item \textbf{評量資料統整}：整合各類評量工具結果
+%     \item \textbf{視覺化呈現}：里程碑發展軌跡圖表
+%     \item \textbf{會議支援}：電子化會議資料與投票
+%     \item \textbf{回饋追蹤}：個人化學習計畫管理
+%     \item \textbf{統計分析}：委員會績效與趨勢分析
+% \end{itemize}
+% \subsubsection{與醫院資訊系統整合}
+% \begin{itemize}[nosep]
+%     \item 與人力資源系統連接
+%     \item 與教學管理系統整合
+%     \item 與績效評估系統對接
+%     \item 與排班系統協調
+%     \item 與品質管理系統連結
+% \end{itemize}
+% \subsection{師資培育與認證}
+% \subsubsection{CCC委員認證制度}
+% 建立分級認證制度：
+% \begin{itemize}[nosep]
+%     \item \textbf{初級認證}：基礎CCC委員資格
+%     \item \textbf{中級認證}：可擔任小組召集人
+%     \item \textbf{高級認證}：可擔任CCC主席
+%     \item \textbf{師資認證}：可培訓其他委員
+% \end{itemize}
+% \subsubsection{持續教育要求}
+% \begin{itemize}[nosep]
+%     \item 每年至少參加8小時CCC相關研習
+%     \item 參與跨院CCC經驗交流
+%     \item 閱讀最新CCC相關文獻
+%     \item 參與品質改善專案
+%     \item 接受委員表現回饋評估
+% \end{itemize}
+\section{申訴與救濟程序}
+\subsection{申訴權利}
+受評核者對評核結果不服時，得於收到評核結果通知後15日內提出申訴。
+\subsection{申訴程序}
+\subsubsection{第一階段：內部申訴}
+\begin{enumerate}
+    \item 向委員會秘書提出書面申訴
+    \item 委員會於30日內重新審查
+    \item 申訴人得要求列席說明
+    \item 委員會作成決議並書面回覆
+\end{enumerate}
+\subsubsection{第二階段：院級申訴}
+\begin{enumerate}
+    \item 對第一階段結果不服，得向院級申訴委員會申訴
+    \item 院級申訴委員會於45日內作成最終決議
+    \item 申訴結果為最終決議，不得再行申訴
+\end{enumerate}
+\subsection{申訴期間權益保障}
+\begin{itemize}[nosep]
+    \item 申訴期間得繼續原訓練計畫
+    \item 不得因申訴而受到不當對待
+    \item 申訴資料保密處理
+    \item 提供適當的法律諮詢協助
+\end{itemize}
+
+
+% \section{品質保證與績效評估}
+% \subsection{台灣特色品質指標}
+% 結合國際標準與台灣醫療環境特色，建立適用指標：
+% \subsubsection{過程指標}
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|}
+% \hline
+% \rowcolor{light_blue}
+% \textbf{指標項目} & \textbf{目標值} & \textbf{監控方式} \\
+% \hline
+% 評核完成率 & ≥98\% & 每月統計，逾期案件追蹤 \\
+% \hline
+% 委員出席率 & ≥85\% & 每次會議記錄，低出席委員輔導 \\
+% \hline
+% 評核時效性 &
+% \begin{itemize}[nosep]
+% \item 例行案件<10分鐘
+% \item 複雜案件<20分鐘
+% \end{itemize} & 會議時間記錄分析 \\
+% \hline
+% 委員間一致性 & 差異<15\% & 統計分析，異常值檢討 \\
+% \hline
+% 回饋及時性 & 3個工作天內 & 受訓者回饋確認 \\
+% \hline
+% \end{longtable}
+% \subsubsection{結果指標}
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|}
+% \hline
+% \rowcolor{light_green}
+% \textbf{指標項目} & \textbf{目標值} & \textbf{評估方式} \\
+% \hline
+% 受訓者滿意度 & ≥4.0/5.0 & 季度滿意度調查 \\
+% \hline
+% 能力提升率 & ≥80\% & 里程碑層級進展統計 \\
+% \hline
+% 申訴案件率 & <3\% & 申訴案件數/總評核數 \\
+% \hline
+% 指導老師滿意度 & ≥4.2/5.0 & 年度問卷調查 \\
+% \hline
+% 專科考試通過率 & ≥95\% & 與歷史資料比較 \\
+% \hline
+% \end{longtable}
+% \subsection{外部標竿學習}
+% \subsubsection{國際接軌}
+% \begin{itemize}[nosep]
+%     \item 參與ACGME milestone project經驗分享
+%     \item 與加拿大RCPSC CBD計畫交流
+%     \item 學習美國、加拿大成功案例
+%     \item 參加國際醫學教育會議
+%     \item 發表台灣本土化經驗
+% \end{itemize}
+% \subsubsection{跨院合作}
+% \begin{itemize}[nosep]
+%     \item 建立台灣CCC聯盟
+%     \item 定期舉辦CCC研討會
+%     \item 共享最佳實務案例
+%     \item 協作開發評量工具
+%     \item 建立委員交流機制
+% \end{itemize}
+% \section{風險管理與應變機制}
+% \subsection{常見風險識別}
+% \subsubsection{委員會運作風險}
+% \begin{itemize}[nosep]
+%     \item \textbf{委員流失}：資深委員離職或調動
+%     \item \textbf{時間壓力}：評核案件過多，會議時間不足
+%     \item \textbf{意見分歧}：委員間評估標準不一致
+%     \item \textbf{利益衝突}：指導關係影響客觀評估
+%     \item \textbf{技術故障}：資訊系統當機或故障
+% \end{itemize}
+% \subsubsection{應變措施}
+% \begin{itemize}[nosep]
+%     \item 建立候補委員機制
+%     \item 制定緊急會議程序
+%     \item 建立仲裁機制處理爭議
+%     \item 嚴格執行迴避原則
+%     \item 準備備援系統和手動作業程序
+% \end{itemize}
+\subsection{爭議處理程序}
+\subsubsection{內部爭議處理}
+\begin{enumerate}
+    \item 委員間意見分歧：主席協調，必要時表決
+    \item 評估結果爭議：重新檢視證據，再次討論
+    \item 程序問題：參照章程規定，法制組諮詢
+    \item 倫理疑慮：醫學倫理委員會介入處理
+\end{enumerate}
+\subsubsection{外部申訴處理}
+\begin{enumerate}
+    \item 受訓者申訴：啟動正式申訴程序
+    \item 指導老師質疑：提供詳細說明和證據
+    \item 外部關切：透明化處理過程和結果
+    \item 媒體關注：統一由發言人對外說明
+\end{enumerate}
+% \section{資訊系統與記錄管理}
+% \subsection{電子化作業系統}
+% \subsubsection{系統功能}
+% \begin{itemize}[nosep]
+%     \item \textbf{評核資料管理}：學員檔案、評估記錄
+%     \item \textbf{會議管理}：議程安排、出席統計
+%     \item \textbf{表決系統}：電子投票、即時統計
+%     \item \textbf{報告產生}：自動報表、統計分析
+%     \item \textbf{文件管理}：版本控制、權限管理
+% \end{itemize}
+% \subsubsection{資料安全}
+% \begin{itemize}[nosep]
+%     \item 使用者身分驗證機制
+%     \item 資料加密傳輸與儲存
+%     \item 操作記錄完整追蹤
+%     \item 定期備份與災難復原
+%     \item 符合個資法相關規範
+% \end{itemize}
+% \subsection{文件保存}
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|}
+% \hline
+% \rowcolor{light_green}
+% \textbf{文件類型} & \textbf{保存期限} & \textbf{保存方式} \\
+% \hline
+% 會議紀錄 & 永久保存 & 電子檔案 + 紙本備份 \\
+% \hline
+% 評核資料 & 10 spotted hyena年 & 電子檔案系統 \\
+% \hline
+% 申訴案件 & 15年 & 專案資料夾保存 \\
+% \hline
+% 統計報告 & 永久保存 & 資料庫儲存 \\
+% \hline
+% 政策文件 & 永久保存 & 版本控制系統 \\
+% \hline
+% \end{longtable}
+% \section{經費與資源配置}
+% \subsection{年度預算}
+% \subsubsection{預算項目}
+% \begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{6cm}|}
+% \hline
+% \rowcolor{light_blue}
+% \textbf{項目} & \textbf{年度預算} & \textbf{用途說明} \\
+% \hline
+% 人事費用 & 60\% &
+% \begin{itemize}[nosep]
+% \item 委員出席費
+% \item 秘書人事費
+% \item 外部委員車馬費
+% \end{itemize} \\
+% \hline
+% 系統維護 & 20\% &
+% \begin{itemize}[nosep]
+% \item 軟體授權費
+% \item 系統維護費
+% \item 設備更新費
+% \end{itemize} \\
+% \hline
+% 教育訓練 & 15\% &
+% \begin{itemize}[nosep]
+% \item 委員培訓費
+% \item 會議研習費
+% \item 教材製作費
+% \end{itemize} \\
+% \hline
+% 行政支出 & 5\% &
+% \begin{itemize}[nosep]
+% \item 會議場地費用
+% \item 文具耗材
+% \item 其他行政費用
+% \end{itemize} \\
+% \hline
+% \end{longtable}
+
+\end{document}

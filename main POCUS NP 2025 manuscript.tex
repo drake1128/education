@@ -1,0 +1,80 @@
+% 與采辰開始寫作計畫
+% 想投稿 POCUS, nurse practitioner的期刊
+% 2025-09-20 開始統計，與results section
+
+
+\documentclass[a4paper,12pt]{article}
+
+% Including necessary packages for tables
+\usepackage{longtable} % For multi-page tables
+\usepackage{booktabs} % For professional table formatting
+\usepackage{geometry} % For setting margins
+\geometry{margin=1in} % Standard margins for readability
+\usepackage{amsmath} % For mathematical symbols if needed
+\usepackage{amsfonts} % For additional fonts if needed
+\usepackage{setspace} % For line spacing control
+\usepackage[utf8]{inputenc} % For UTF-8 encoding
+\usepackage{CJKutf8} % For Chinese characters in the document
+\usepackage{noto} % Reliable font package for non-Latin scripts (if needed)
+
+
+\title{Manuscript}
+\author{Tsai-Chen Hou , Mu-Yang Hsieh}
+% Setting up the document
+\begin{document}
+\maketitle
+
+
+
+% Clearing page to start fresh
+\clearpage
+
+% Table 1: Integrated Domain-Level Pre- and Post-Training Means and Growth Rates
+\begin{longtable}{lccc}
+\caption{Integrated Domain-Level Pre- and Post-Training Means and Growth Rates (Across Both Batches)} \\
+\toprule
+Domain & Overall Pre & Overall Post & Overall Growth Rate \\
+\midrule
+\endfirsthead
+
+\toprule
+Domain & Overall Pre & Overall Post & Overall Growth Rate \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+Ultrasound Machine Operation & 3.06 & 3.80 & 0.24 \\
+Imaging Knowledge & 1.69 & 3.60 & 1.13 \\
+Imaging Techniques & 1.32 & 3.51 & 1.66 \\
+Self-Psychological Aspects & 1.54 & 3.71 & 1.41 \\
+\end{longtable}
+
+% Adding some spacing between tables
+\vspace{1cm}
+
+% Table 2: Integrated Post-Training Clinical Application Questions (Means)
+\begin{longtable}{p{12cm}c}
+\caption{Integrated Post-Training Clinical Application Questions (Means; 0--5 Scale, Across Both Batches)} \\
+\toprule
+Question & Overall Mean \\
+\midrule
+\endfirsthead
+
+\toprule
+Question & Overall Mean \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+Desire to use ultrasound for patients with dyspnea or abdominal distension & 4.07 \\
+Confidence in using ultrasound for patients with dyspnea or abdominal distension & 4.00 \\
+Understanding what physicians are doing when using ultrasound & 4.56 \\
+\end{longtable}
+
+
+
+\end{document}

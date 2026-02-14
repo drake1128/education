@@ -1,0 +1,551 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=rheum_purple,
+    citecolor=rheum_purple,
+    urlcolor=rheum_purple,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Rheumatology themed colors)
+\definecolor{rheum_purple}{RGB}{138,43,226}
+\definecolor{rheum_blue}{RGB}{75,0,130}
+\definecolor{rheum_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{rheum_purple}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{rheum_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{rheum_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=rheum_purple,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=rheum_blue!5!white,
+        colframe=rheum_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{rheum_purple}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{rheum_blue}{風濕免疫科EPAs}}
+\fancyfoot[C]{\textcolor{rheum_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rheum_purple}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{rheum_purple}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 風濕免疫科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{rheum_blue}{\textit{Rheumatology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=rheum_blue!5!white,
+        colframe=rheum_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    風濕免疫科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 風濕免疫科  \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{風濕免疫科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。風濕免疫科EPAs涵蓋了風濕免疫疾病診斷、治療與照護的核心能力,是所有風濕免疫科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+風濕免疫科EPAs評量著重於能否安全、穩定地執行完整的風濕免疫疾病診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的病史詢問與關節檢查,到複雜的免疫調節藥物管理與跨科部協調,提供完整的風濕免疫疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成風濕免疫科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練進行風濕免疫疾病病史詢問與風險評估。
+    \item 準確執行關節系統完整理學檢查。
+    \item 判讀風濕免疫疾病相關影像檢查。
+    \item 執行關節穿刺術與關節液分析。
+    \item 獨立判讀自體免疫抗體與免疫學檢驗。
+    \item 診斷與治療類風濕性關節炎。
+    \item 診斷與管理全身性紅斑狼瘡與結締組織疾病。
+    \item 診斷與處置痛風與結晶性關節炎。
+    \item 使用與監測免疫調節藥物(DMARDs與生物製劑)。
+    \item 協調風濕免疫疾病患者跨科部整合照護。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{風濕免疫科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{風濕免疫科EPAs完整架構} \\
+\hline
+\rowcolor{rheum_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{rheum_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 風濕免疫疾病病史詢問與風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行風濕免疫疾病相關的完整病史詢問,包括症狀評估、家族史調查、藥物史,並能初步評估疾病活性與風險。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 關節痛、晨間僵硬、肌肉無力、皮疹、口腔潰瘍的詳細詢問 \\
+\cline{2-3}
+& 系統性症狀 & 發燒、體重減輕、疲倦、雷諾氏現象評估 \\
+\cline{2-3}
+& 家族史識別 & 自體免疫疾病、乾癬、僵直性脊椎炎家族史 \\
+\cline{2-3}
+& 藥物史 & NSAIDs、類固醇、免疫抑制劑使用史 \\
+\cline{2-3}
+& 功能評估 & 日常生活活動能力、工作能力評估(HAQ, RAPID3) \\
+\cline{2-3}
+& 疾病活性評估 & DAS28、SLEDAI等疾病活性指標應用 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本關節症狀,需要監導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成風濕病史詢問,使用適當的症狀評估工具 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問,整合症狀與家族史進行初步風險分層 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史,整合多重共病資訊 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問,識別罕見症狀表現 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 關節系統理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練且準確地進行全身關節系統的完整理學檢查,包括關節腫脹、壓痛、活動度評估,並能正確解讀檢查發現。} \\
+\hline
+\textbf{核心能力} & 關節檢查 & 對稱性、腫脹、壓痛、溫度、積液檢查 \\
+\cline{2-3}
+& 活動度評估 & 主動與被動關節活動度、疼痛弧評估 \\
+\cline{2-3}
+& 特殊檢查 & 擠壓測試、骶髂關節、脊椎活動度評估 \\
+\cline{2-3}
+& 關節外表現 & 皮疹、結節、指甲病變、黏膜病變 \\
+\cline{2-3}
+& 關節計數 & 腫脹關節計數、壓痛關節計數(66/68 joints) \\
+\cline{2-3}
+& 功能測試 & 握力、行走速度、Schober test \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本關節觸診,識別明顯腫脹 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見異常理學發現,進行系統性關節檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能區分各種異常理學發現,準確計數關節,整合多項檢查發現 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別複雜理學發現特徵,檢查技術精準且有效率 \\
+\hline
+\textbf{Level 5} & Expert & 能偵測細微的異常發現,整合檢查發現與臨床表現 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 風濕免疫疾病影像判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀風濕免疫疾病相關影像檢查,包括關節X光、超音波、MRI,識別正常與異常變化,並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & 關節X光判讀 & 關節間隙狹窄、骨侵蝕、骨質增生、鈣化 \\
+\cline{2-3}
+& 超音波檢查 & 滑膜增生、血流訊號、積液、肌腱病變 \\
+\cline{2-3}
+& MRI判讀 & 骨髓水腫、滑膜炎、侵蝕、軟骨變化 \\
+\cline{2-3}
+& 分期評估 & Steinbrocker分期、Sharp score評估 \\
+\cline{2-3}
+& 鑑別診斷 & 發炎性vs退化性關節炎影像特徵 \\
+\cline{2-3}
+& 追蹤評估 & 疾病進展、治療反應影像評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本正常關節X光結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別明顯異常病變,判讀基本超音波影像 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分影像異常,整合影像與臨床症狀 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜影像變化,識別細微的早期病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為影像判讀的專家,能教導複雜影像判讀 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 關節穿刺術與關節液分析}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行關節穿刺術,包括適應症評估、解剖定位、無菌技術,並能正確分析關節液檢查結果。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 診斷性vs治療性穿刺決策、禁忌症識別 \\
+\cline{2-3}
+& 解剖定位 & 膝、肩、踝、腕、肘等關節穿刺點定位 \\
+\cline{2-3}
+& 無菌技術 & 消毒、局部麻醉、穿刺技巧 \\
+\cline{2-3}
+& 關節液分析 & 外觀、白血球計數、結晶檢查、培養 \\
+\cline{2-3}
+& 結晶判讀 & 尿酸結晶、焦磷酸鈣結晶偏光顯微鏡判讀 \\
+\cline{2-3}
+& 併發症處理 & 出血、感染、疼痛管理 \\
+\hline
+\textbf{Level 1} & Novice & 能協助關節穿刺,了解基本解剖結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行大關節穿刺 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行關節穿刺,判讀關節液結果 \\
+\hline
+\textbf{Level 4} & Proficient & 能執行困難關節穿刺,使用超音波導引 \\
+\hline
+\textbf{Level 5} & Expert & 成為關節穿刺專家,能教導複雜技術 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 自體免疫抗體與免疫學檢驗判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀自體免疫抗體與免疫學檢驗報告,包括ANA、ENA、RF、ACPA等,識別正常與異常變化,並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & ANA判讀 & 效價、型態(speckled, homogeneous, nucleolar)判讀 \\
+\cline{2-3}
+& 特異性抗體 & Anti-dsDNA, Anti-Sm, Anti-RNP, Anti-Ro/La \\
+\cline{2-3}
+& RF與ACPA & 類風濕因子、抗環瓜氨酸抗體臨床意義 \\
+\cline{2-3}
+& 補體系統 & C3、C4、CH50在SLE的應用 \\
+\cline{2-3}
+& 發炎指標 & ESR、CRP在疾病活性評估 \\
+\cline{2-3}
+& 臨床關聯 & 抗體與疾病表現、預後的關聯性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別明顯陽性抗體,知道基本正常範圍 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀常見自體抗體,使用系統性判讀流程 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀複雜抗體組合,整合臨床表現 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀罕見抗體型態,準確評估臨床意義 \\
+\hline
+\textbf{Level 5} & Expert & 成為免疫檢驗判讀專家,能教導複雜判讀 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 類風濕性關節炎診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷類風濕性關節炎,評估疾病活性與嚴重度,制定個別化治療計畫,包括DMARDs與生物製劑選擇,並監測治療效果。} \\
+\hline
+\textbf{核心能力} & 診斷標準 & 2010 ACR/EULAR分類標準應用 \\
+\cline{2-3}
+& 疾病活性評估 & DAS28、SDAI、CDAI評分系統 \\
+\cline{2-3}
+& 預後評估 & 侵蝕性疾病、關節外表現識別 \\
+\cline{2-3}
+& 治療策略 & Treat-to-target策略、藥物選擇階梯 \\
+\cline{2-3}
+& DMARDs使用 & MTX、HCQ、SSZ等使用與監測 \\
+\cline{2-3}
+& 併發症管理 & 關節變形、肺纖維化、血管炎處理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別RA症狀徵象,知道基本診斷標準 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準治療指引,進行基本藥物調整 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理穩定RA,調整藥物治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜RA,評估進階治療選項 \\
+\hline
+\textbf{Level 5} & Expert & 成為RA專家,發展個人化治療策略 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 全身性紅斑狼瘡與結締組織疾病管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷全身性紅斑狼瘡與其他結締組織疾病,評估器官侵犯程度,制定個別化治療方案,並監測疾病活性與藥物副作用。} \\
+\hline
+\textbf{核心能力} & 診斷評估 & SLICC/ACR標準、EULAR/ACR 2019分類標準 \\
+\cline{2-3}
+& 器官侵犯評估 & 腎、肺、心、神經、血液系統評估 \\
+\cline{2-3}
+& 疾病活性 & SLEDAI、BILAG評分系統應用 \\
+\cline{2-3}
+& 免疫抑制治療 & 類固醇、MMF、CYC、AZA使用 \\
+\cline{2-3}
+& 生物製劑 & Belimumab、Rituximab適應症與使用 \\
+\cline{2-3}
+& 併發症預防 & 感染、骨質疏鬆、心血管疾病預防 \\
+\hline
+\textbf{Level 1} & Novice & 能識別SLE可能性,了解基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本評估,安排初步檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷SLE,制定治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜SLE,整合內外科治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為SLE專家,處理罕見疾病與併發症 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 痛風與結晶性關節炎診斷與處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷痛風與其他結晶性關節炎,執行急性發作處置,制定長期降尿酸治療計畫,並監測治療效果與副作用。} \\
+\hline
+\textbf{核心能力} & 臨床診斷 & ACR/EULAR痛風分類標準、鑑別診斷 \\
+\cline{2-3}
+& 結晶確認 & 關節液偏光顯微鏡檢查、結晶判讀 \\
+\cline{2-3}
+& 急性發作處置 & NSAIDs、秋水仙素、類固醇選擇 \\
+\cline{2-3}
+& 降尿酸治療 & Allopurinol、Febuxostat使用與監測 \\
+\cline{2-3}
+& 共病管理 & 慢性腎病、高血壓、代謝症候群整合治療 \\
+\cline{2-3}
+& 預防策略 & 飲食建議、藥物預防、生活型態調整 \\
+\hline
+\textbf{Level 1} & Novice & 能識別典型痛風症狀,知道基本治療 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷與治療單純性痛風 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理痛風,執行降尿酸治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性痛風,整合多重因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為痛風專家,發展個人化治療策略 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 免疫調節藥物使用與監測}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠合理選用免疫調節藥物,包括傳統DMARDs與生物製劑,了解其作用機轉、副作用,並執行適當監測與調整。} \\
+\hline
+\textbf{核心能力} & DMARDs選擇 & MTX、HCQ、SSZ、LEF藥理與適應症 \\
+\cline{2-3}
+& 生物製劑 & Anti-TNF、Anti-IL6、Anti-CD20、JAK抑制劑 \\
+\cline{2-3}
+& 副作用監測 & 肝腎功能、血球、感染風險監測 \\
+\cline{2-3}
+& 感染預防 & 疫苗接種、TB篩檢、帶狀皰疹預防 \\
+\cline{2-3}
+& 藥物交互作用 & 與其他藥物的交互作用評估 \\
+\cline{2-3}
+& 懷孕用藥 & 孕期安全藥物選擇與調整 \\
+\hline
+\textbf{Level 1} & Novice & 能了解常用免疫藥物,知道基本副作用 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用基本DMARDs,執行標準監測 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立使用免疫藥物,調整劑量與監測 \\
+\hline
+\textbf{Level 4} & Proficient & 能使用生物製劑,處理複雜副作用 \\
+\hline
+\textbf{Level 5} & Expert & 成為免疫藥物專家,制定個人化用藥策略 \\
+\hline
+
+\rowcolor{rheum_purple!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 風濕免疫疾病跨科部整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調風濕免疫疾病患者的整體照護,包括跨科部會診、多專科團隊合作、復健安排,並能有效溝通與教育病患及家屬。} \\
+\hline
+\textbf{核心能力} & 會診協調 & 腎臟科、皮膚科、復健科會診安排 \\
+\cline{2-3}
+& 團隊合作 & 多專科團隊會議參與、治療計畫整合 \\
+\cline{2-3}
+& 復健安排 & 物理治療、職能治療、輔具評估 \\
+\cline{2-3}
+& 病患教育 & 疾病衛教、藥物使用、自我監測指導 \\
+\cline{2-3}
+& 品質改善 & 照護品質監測、改善方案執行 \\
+\cline{2-3}
+& 家屬溝通 & 病情解釋、治療選項討論、預後說明 \\
+\cline{2-3}
+& 倫理考量 & 醫療倫理、安寧照護決策 \\
+\hline
+\textbf{Level 1} & Novice & 能參與基本病患照護,了解團隊角色 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本會診,參與團隊討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調病患照護,制定整合計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜多科照護,領導團隊討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為照護協調專家,改善照護品質 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本風濕免疫科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 風濕免疫科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 4) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 5, 6, 7, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        理學檢查類 & DOPS & 標準化病人、技能測驗 \\
+        (EPA 2) & (Direct Observation of Procedural Skills) & 影片回顧、同儕觀察 \\
+        \midrule
+        影像判讀類 & 影像判讀評量 & 線上測驗、病例討論 \\
+        (EPA 3) & Image Interpretation Assessment & 定期考核、peer review \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 10) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{總結}
+
+風濕免疫科EPAs涵蓋了風濕免疫疾病診療的完整核心能力,從基礎的病史詢問與關節檢查,到複雜的免疫調節藥物管理、生物製劑使用,以及整合性的跨科部協調照護。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 風濕免疫科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表風濕免疫科醫師必須具備的基礎診療能力。關節檢查是風濕免疫科的基石,需要反復練習才能精熟。免疫調節藥物的使用需要謹慎評估與密切監測,確保病患安全。
+\end{importantbox}
+
+\end{document}

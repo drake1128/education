@@ -1,0 +1,50 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# PDF files (too large for git)
+*.pdf
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+*.swp
+*~
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Google Drive shortcut files
+*.gdoc
+*.gsheet
+*.gslides
+*.gform
+*.gdraw
+*.gmap
+*.gjam
+
+# Claude Code local settings
+.claude/

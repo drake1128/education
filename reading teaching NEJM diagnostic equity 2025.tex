@@ -1,0 +1,562 @@
+% 設定文件並引入必要套件
+\documentclass[12pt,a4paper]{article}
+
+% 中文支援套件
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% 其他必要套件
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% 頁面設定
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% 顏色定義
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% 標題格式設定
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% 自定義環境
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% 頁眉頁腳設定
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{教學部教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{診斷公平性醫學教育：推進診斷卓越}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% 日期格式
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% 文件開始
+\begin{document}
+
+% 標題頁與目錄分併
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{教學部教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 診斷公平性醫學教育：推進診斷卓越\\Medical Education in Diagnostic Equity\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Advancing Diagnostic Excellence through Medical Education}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    教學部同仁、住院醫師及醫學教育者\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \vspace{0.5cm}
+    {\large\textbf{文獻來源}\par}
+    \vspace{0.3cm}
+    New England Journal of Medicine\\
+    2025;393:1202-14\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 教學部副主任\\謝慕揚, MD, PhD, FESC\\
+    整理製表 with assistance by AI: Claude\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% 主要內容
+\section{自學方案}
+本文件為搭配《New England Journal of Medicine》評論文章\href{https://www.nejm.org/doi/full/10.1056/NEJMra2411880}{《Advancing Diagnostic Excellence through Medical Education in Diagnostic Equity》}而製作，請先取得該文獻後，搭配本文件自學。已有基礎的同事，請直接跳至考題處進行自我測驗。
+
+\section{文章概述}
+
+\subsection{背景與目標}
+診斷錯誤是一個長期存在的品質和安全問題，涵蓋識別和溝通準確診斷的錯誤和不當延遲。診斷不公平性（diagnostic inequities）指與患者社會身份相關的診斷錯誤不成比例負擔，是阻礙診斷卓越的重要問題。醫學教育是支持診斷公平性的重要槓桿，需要透過強化培訓來整合教育、臨床實務和研究的改進。
+
+\vspace{0.5cm}
+\note{
+診斷公平性將診斷視為情境化的協作過程，而非僅是個別醫師的認知活動。
+}
+
+\subsection{診斷公平性的核心特徵}
+\begin{itemize}[nosep]
+    \item \textbf{透明性命名問題}：明確指出壓迫現象，坦誠討論過去和現階段的變革。
+    \item \textbf{情境化協作過程}：將診斷視為需要完整診斷團隊參與的協作過程。
+    \item \textbf{融入公平考量}：在醫師認知過程中融入公平性考量。
+    \item \textbf{公平溝通技巧}：創造學習和實踐公平診斷溝通的機會。
+    \item \textbf{賦權診斷團隊}：建立策略來賦權完整診斷團隊。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+診斷公平性教育應被理解為關鍵領域，而非獨立的隔離區域，應該通知基礎科學、研究和臨床照護的學習。
+}
+
+\section{傳統醫學教育與診斷公平性教育的比較}
+
+以下表格比較傳統醫學教育與診斷公平性教育在培訓模式、評估方法、學習軌跡、課程設計及對患者照護影響等方面的差異，基於《New England Journal of Medicine》文章的內容。
+
+\begin{longtable}{p{3cm}|p{6cm}|p{6cm}}
+    \toprule
+    \textbf{比較面向} & \textbf{傳統醫學教育} & \textbf{診斷公平性教育} \\
+    \midrule
+    \endhead
+    \textbf{診斷模式} & 
+    以學徒模式為基礎，缺乏診斷過程的明確教育。專注於個別醫師的認知能力。 & 
+    明確教育診斷過程，刻意練習基礎診斷推理技巧。強調診斷的情境化和協作性質。 \\
+    \midrule
+    \textbf{公平性關注} & 
+    往往忽視或延續有害的種族、性別等偏見，缺乏對系統性不公平的認識。 & 
+    積極識別和拆解偏見的醫學知識，教導支持健康公平的策略。 \\
+    \midrule
+    \textbf{評估方法} & 
+    依賴總結性評估，通常在培訓階段結束時進行，觀察與回饋有限且不頻繁。 & 
+    整合人際、系統和結構層面的考量，強調直接觀察與頻繁的工場評估。 \\
+    \midrule
+    \textbf{溝通技巧} & 
+    標準化溝通技巧教學，較少關注跨差異溝通。 & 
+    整合跨差異溝通和建立患者-醫師夥伴關係的技巧。 \\
+    \midrule
+    \textbf{診斷理解} & 
+    將診斷視為醫師個人的認知活動，忽略環境和系統因素的影響。 & 
+    強調診斷的情境化和協作性質，認識環境對診斷卓越的影響。 \\
+    \midrule
+    \textbf{偏見處理} & 
+    較少關注內隱偏見的影響，缺乏系統性的偏見識別和管理訓練。 & 
+    教導內隱偏見識別和管理技巧，提供具體敘述性回饋。 \\
+    \midrule
+    \textbf{患者中心} & 
+    以醫師為中心的診斷過程，患者參與度較低。 & 
+    以患者為診斷過程的中心，促進患者-醫師夥伴關係。 \\
+    \midrule
+    \textbf{團隊角色} & 
+    強調個別醫師的診斷能力，較少跨專業合作。 & 
+    提升跨專業團隊的角色，認識環境對診斷卓越的支持或損害作用。 \\
+    \midrule
+    \textbf{挑戰} & 
+    結構簡單但缺乏靈活性，無法因應學員個別需求。 & 
+    實施複雜，需大量資源支持師資發展及制度改革。 \\
+    \midrule
+    \textbf{優勢} & 
+    結構明確，易於管理，適用於大規模培訓計畫。 & 
+    提升診斷公平性，促進終身學習，確保患者獲得公正高品質診斷照護。 \\
+    \bottomrule
+\end{longtable}
+
+\section{角色與責任}
+
+\subsection{臨床教育者}
+\begin{itemize}[nosep]
+    \item \textbf{建立公平溝通技巧}：使用關係中心照護、內隱偏見識別和管理技巧。
+    \item \textbf{模範實踐}：在診斷過程中展示創傷知情照護和公平原則。
+    \item \textbf{指導認知過程}：幫助學習者識別和調整有偏見的疾病腳本。
+    \item \textbf{促進個體化}：通過詳細社會史取得來破壞刻板印象。
+\end{itemize}
+
+\subsection{教育計畫領導者}
+\begin{itemize}[nosep]
+    \item \textbf{課程設計}：整合診斷不公平性和達成診斷公平所需技巧的討論。
+    \item \textbf{師資發展}：為臨床教育者提供健康公平教學所需的技能培訓。
+    \item \textbf{系統支持}：確保機構支持結構能力培訓和社區合作。
+    \item \textbf{政策制定}：制定支持診斷公平性的教育政策和評估標準。
+\end{itemize}
+
+\subsection{學習者}
+\begin{itemize}[nosep]
+    \item \textbf{積極參與}：作為教育和臨床夥伴，積極參與學習計畫制定。
+    \item \textbf{共同學習}：與督導者和同儕進行共同學習，而非傳統的專家傳授知識模式。
+    \item \textbf{反思實踐}：定期反思自己的偏見和診斷決策過程。
+    \item \textbf{回饋與成長}：透過頻繁的回饋明確了解進展並調整學習目標。
+\end{itemize}
+
+\subsection{患者與社區}
+\begin{itemize}[nosep]
+    \item \textbf{診斷夥伴}：被視為診斷團隊的成員，而非被動的診斷對象。
+    \item \textbf{專業貢獻}：患者和社區成員作為講師和小組成員參與診斷推理教育。
+    \item \textbf{社區主導研究}：參與和領導社區研究以支持診斷公平性。
+    \item \textbf{回饋支持}：確保患者獲得高品質回饋，促進專業發展。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+診斷公平性教育最好被視為共同學習過程，而非傳統的專家督導傳授知識給新手學習者的模式。
+}
+
+\section{挑戰與解決方案}
+
+\subsection{實施挑戰}
+\begin{itemize}[nosep]
+    \item \textbf{制度慣性}：大型學術機構對變革的阻力。
+    \item \textbf{師資準備}：教育者缺乏健康公平教學的技能和工具。
+    \item \textbf{資源限制}：缺乏足夠資源支持結構能力培訓。
+    \item \textbf{抗拒變革}：對健康公平整合的抗拒。
+\end{itemize}
+
+\subsection{解決方案}
+\begin{itemize}[nosep]
+    \item \textbf{多層次介入}：在內在和人際、系統和結構層面同時行動。
+    \item \textbf{師資發展}：投資教育者的健康公平教學技能培訓。
+    \item \textbf{機構支持}：獲得機構對結構能力培訓和社區合作的支持。
+    \item \textbf{共同學習模式}：採用重視學習者和督導者專業知識的教學策略。
+    \item \textbf{心理安全}：創造心理安全的學習環境，歡迎錯誤作為學習機會。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+診斷公平性的成功需要制度支持、師資發展及學員參與，共同克服傳統培訓的碎片化挑戰。
+}
+
+\section{具體實施策略}
+
+\subsection{透明性：命名問題}
+\textbf{理論基礎}：透明地指出壓迫現象，結合對過去和現階段變革的坦誠討論，是醫學教育中真實反壓迫努力的關鍵。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item 明確教導診斷不公平性的證據基礎（如：黑人比白人更容易漏診心肌梗塞）
+    \item 討論消除診斷不公平性的策略
+    \item 在課程目標中整合診斷不公平性的基礎知識
+    \item 為此教學創造空間，並由教育計畫支持
+\end{itemize}
+
+\subsection{診斷作為情境化協作過程}
+\textbf{理論基礎}：運用照護情境化和社會認知理論的原則，強調診斷過程成功或失敗的關鍵在於醫師腦袋外的領域，而非雜訊。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item 以患者為診斷過程中心，而非醫師
+    \item 提升跨專業團隊的角色
+    \item 認識環境對診斷卓越的支持或損害作用
+    \item 整合結構能力到推理教育中，認識健康和疾病是政策、暴露和系統的下游後果
+\end{itemize}
+
+\subsection{融入公平考量到診斷推理認知框架}
+\textbf{核心組件}：
+\begin{itemize}[nosep]
+    \item \textbf{問題表徵}：患者健康問題的簡潔心理抽象
+    \item \textbf{疾病腳本}：總結診斷關鍵資訊的心理索引卡
+    \item \textbf{診斷框架}：系統性診斷方法
+\end{itemize}
+
+\textbf{公平性整合策略}：
+\begin{itemize}[nosep]
+    \item 初始病患描述不應包含種族和族群，而應在社會史中記錄患者自我認同的社會身份
+    \item 指出疾病腳本中編碼的偏見、不準確資訊
+    \item 將環境和結構因素整合到疾病腳本中作為特定疾病的強風險因子
+    \item 避免對患者的污名化語言，透過詳盡社會史取得來個體化每位患者
+\end{itemize}
+
+\section{考題}
+
+以下為重點針對本文章的反選選擇題，旨在檢驗對診斷公平性核心概念及應用的理解。
+
+\begin{enumerate}
+    \item 診斷公平性教育的主要目標是：
+    \begin{enumerate}[label=\alph*)]
+        \item 縮短診斷時間
+        \item 解決診斷不公平性以改善所有人的診斷準確性
+        \item 增加學員輪調次數
+        \item 統一所有學員的學習進度
+    \end{enumerate}
+
+    \item 與傳統醫學教育相比，診斷公平性教育的核心特徵是：
+    \begin{enumerate}[label=\alph*)]
+        \item 固定時間培訓
+        \item 整合人際、系統和結構層面考量的情境化協作方法
+        \item 減少工場評估
+        \item 僅限學術課程
+    \end{enumerate}
+
+    \item 在診斷公平性教育中，初始病患描述的原則是：
+    \begin{enumerate}[label=\alph*)]
+        \item 必須包含種族和族群資訊
+        \item 不應包含種族族群，而應在社會史中記錄患者自我認同的社會身份
+        \item 只記錄醫學相關資訊
+        \item 避免任何社會身份資訊
+    \end{enumerate}
+
+    \item 關係中心照護在診斷溝通中的作用是：
+    \begin{enumerate}[label=\alph*)]
+        \item 減少診斷時間
+        \item 提供框架讓醫師認識患者帶來的專業知識，破壞刻板印象
+        \item 標準化診療流程
+        \item 減少患者參與
+    \end{enumerate}
+
+    \item 診斷團隊應該包括：
+    \begin{enumerate}[label=\alph*)]
+        \item 僅限醫師和護理師
+        \item 跨專業團隊成員、患者和社區成員
+        \item 只有資深醫師
+        \item 僅醫師個人
+    \end{enumerate}
+
+    \item 診斷公平性教育最適合採用的教學模式是：
+    \begin{enumerate}[label=\alph*)]
+        \item 傳統專家督導模式
+        \item 共同學習模式，重視學習者和督導者的專業知識
+        \item 單向知識傳遞
+        \item 純理論教學
+    \end{enumerate}
+
+    \item 內隱偏見識別和管理培訓的目的是：
+    \begin{enumerate}[label=\alph*)]
+        \item 完全消除偏見
+        \item 提供技能來恢復關係，包括認識偏見、道歉、與患者合作
+        \item 增加診斷速度
+        \item 減少患者互動
+    \end{enumerate}
+
+    \item 結構能力在診斷公平性教育中的作用是：
+    \begin{enumerate}[label=\alph*)]
+        \item 關注個人行為改變
+        \item 認識和處理影響健康的較大社會力量
+        \item 簡化診斷過程
+        \item 減少系統複雜性
+    \end{enumerate}
+
+    \item 診斷公平性教育需要的制度支持不包括：
+    \begin{enumerate}[label=\alph*)]
+        \item 結構能力培訓
+        \item 社區合作夥伴關係
+        \item 減少教育時間
+        \item 師資發展計畫
+    \end{enumerate}
+
+    \item 診斷公平性的道德必要性在於：
+    \begin{enumerate}[label=\alph*)]
+        \item 縮短培訓時間
+        \item 確保所有患者獲得公平、高品質的診斷照護
+        \item 增加醫師收入
+        \item 簡化醫療流程
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\subsection{考題詳解}
+
+\begin{enumerate}
+    \item \textbf{正確答案：b) 解決診斷不公平性以改善所有人的診斷準確性}
+    
+    \textbf{詳解：} 診斷公平性教育旨在解決診斷不公平性這個複雜問題，以改善所有人的診斷準確性。
+
+    \item \textbf{正確答案：b) 整合人際、系統和結構層面考量的情境化協作方法}
+    
+    \textbf{詳解：} 診斷公平性教育強調診斷的情境化和協作性質，整合多個層面的考量。
+
+    \item \textbf{正確答案：b) 不應包含種族族群，而應在社會史中記錄患者自我認同的社會身份}
+    
+    \textbf{詳解：} 為減少種族和族群與生物學間的虛假關聯影響，初始描述不應包含種族族群。
+
+    \item \textbf{正確答案：b) 提供框架讓醫師認識患者帶來的專業知識，破壞刻板印象}
+    
+    \textbf{詳解：} 關係中心照護提供框架讓醫師認識患者的專業知識，將患者視為個體而破壞刻板印象。
+
+    \item \textbf{正確答案：b) 跨專業團隊成員、患者和社區成員}
+    
+    \textbf{詳解：} 診斷團隊包括跨專業團隊成員、患者和他們的社區。
+
+    \item \textbf{正確答案：b) 共同學習模式，重視學習者和督導者的專業知識}
+    
+    \textbf{詳解：} 診斷公平性教育最好作為共同學習過程，而非傳統的專家督導模式。
+
+    \item \textbf{正確答案：b) 提供技能來恢復關係，包括認識偏見、道歉、與患者合作}
+    
+    \textbf{詳解：} 內隱偏見識別和管理提供技能來恢復關係，包括認識意外偏見影響、道歉等。
+
+    \item \textbf{正確答案：b) 認識和處理影響健康的較大社會力量}
+    
+    \textbf{詳解：} 結構能力要求醫師教育者認識和處理塑造和限制行為並影響健康的較大力量。
+
+    \item \textbf{正確答案：c) 減少教育時間}
+    
+    \textbf{詳解：} 診斷公平性教育需要充足的教育時間和資源，而非減少。
+
+    \item \textbf{正確答案：b) 確保所有患者獲得公平、高品質的診斷照護}
+    
+    \textbf{詳解：} 診斷公平性的道德必要性在於確保所有患者都能獲得公平、高品質的診斷照護。
+\end{enumerate}
+
+\section{重要知識點總結}
+
+\subsection{診斷公平性的核心原則}
+\begin{itemize}[nosep]
+    \item \textbf{透明命名問題}：明確指出診斷不公平現象及其影響的族群。
+    \item \textbf{情境化協作}：將診斷視為需要完整診斷團隊參與的協作過程。
+    \item \textbf{公平認知框架}：在診斷推理認知過程中融入公平性考量。
+    \item \textbf{溝通技巧}：建立跨差異溝通和患者夥伴關係的技巧。
+\end{itemize}
+
+\subsection{關鍵教學策略}
+\begin{itemize}[nosep]
+    \item \textbf{共同學習}：採用重視所有參與者專業知識的教學模式。
+    \item \textbf{內隱偏見管理}：提供識別和管理偏見影響的實用技巧。
+    \item \textbf{結構能力}：認識影響健康的上游社會和政策因素。
+    \item \textbf{關係中心照護}：以患者為中心，建立真正的醫病夥伴關係。
+\end{itemize}
+
+\subsection{實施要點}
+\begin{itemize}[nosep]
+    \item \textbf{多層次介入}：在個人、人際、系統和結構層面同時採取行動。
+    \item \textbf{師資發展}：投資教育者的健康公平教學能力。
+    \item \textbf{機構支持}：確保機構政策和資源支持診斷公平性教育。
+    \item \textbf{心理安全}：創造歡迎錯誤作為學習機會的環境。
+\end{itemize}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item 診斷公平性教育需要積極對抗根深蒂固的系統，保持開放態度持續從同事、學生和求診者身上學習。
+    \item 有效的診斷公平性教育需要在教育、臨床實務、倡議和研究之間建立多元、跨專業的協調努力。
+    \item 醫師和教育者有機會和責任持續推動醫療照護中的公平和正義，與我們服務的社區合作。
+    \item 診斷公平性是一個需要集中注意力的關鍵領域，適合通過醫學教育採取行動。
+\end{itemize}
+\end{importantbox}
+
+\section{具體可行的作法草案}
+
+基於文獻內容，以下為在醫療人力與時間有限的環境下，實施診斷公平性教育的具體策略：
+
+\subsection{建立診斷公平性課程架構}
+\textbf{實施步驟}：
+\begin{itemize}[nosep]
+    \item 識別和教導診斷不公平現象的證據（如特定族群的診斷延遲）
+    \item 整合診斷不公平性知識到既有課程目標中
+    \item 設計以患者故事為中心的案例討論，強調社會決定因子
+    \item 建立跨專業合作的診斷推理練習
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 每季度安排2小時工作坊，由資深教育者帶領
+    \item 利用既有晨會時間整合10分鐘診斷公平性討論
+    \item 與社工、藥師等跨專業團隊合作設計案例
+\end{itemize}
+
+\subsection{實施內隱偏見識別和管理訓練}
+\textbf{具體作法}：
+\begin{itemize}[nosep]
+    \item 使用標準化病人代表多元身份進行診療練習
+    \item 教導醫師識別患者參與度變化的非語言線索
+    \item 練習在感受到偏見影響時的道歉和關係修復技巧
+    \item 建立「暫停反思」的診療習慣
+\end{itemize}
+
+\textbf{資源需求}：
+\begin{itemize}[nosep]
+    \item 每位醫師每年參與4小時訓練（分為2次2小時課程）
+    \item 利用線上模組進行非同步學習，減少集中培訓時間
+    \item 與醫院既有多元化培訓計畫整合
+\end{itemize}
+
+\subsection{實施計畫示例}
+\begin{itemize}[nosep]
+    \item \textbf{第一個月}：建立診斷公平性基礎知識課程，培訓核心教師團隊
+    \item \textbf{第二個月}：開始內隱偏見識別和管理訓練，整合關係中心照護技巧
+    \item \textbf{第三個月}：實施制度支持措施，啟動社區合作計畫
+    \item \textbf{持續進行}：定期評估和調整，確保可持續實施
+\end{itemize}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item 診斷公平性教育需要制度支持、師資發展和學員參與的三方協作。
+    \item 有效實施需要將公平性考量整合到既有臨床工作流程中，而非增加額外負擔。
+    \item 共同學習模式和心理安全環境是成功的關鍵，確保所有參與者都能貢獻並學習。
+    \item 與社區組織的合作有助於深入了解影響患者健康的結構性因素。
+\end{itemize}
+\end{importantbox}
+
+\section{結語}
+
+診斷公平性教育代表醫學教育的重要發展方向，旨在透過系統性方法來解決診斷不公平現象。成功實施需要在個人、人際、系統和結構多個層面同時行動，並需要教育者、學習者、患者和社區的共同參與。
+
+通過建立透明、協作和公平的診斷文化，我們能夠為所有患者提供更加公正和優質的診斷照護。作為醫療人員和教育者，我們有機會和責任持續推動醫療照護中的公平和正義，與我們服務的社區合作，共同創造一個更加公平的醫療環境。
+
+診斷公平性不僅是一個技術問題，更是一個道德責任。透過醫學教育的力量，我們可以培養新一代的醫療專業人員，他們不僅具備卓越的臨床技能，更能夠識別並積極解決診斷過程中的不公平現象，確保每位患者都能獲得應得的優質診斷照護。
+
+\end{document}

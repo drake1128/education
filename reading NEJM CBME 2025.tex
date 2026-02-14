@@ -1,0 +1,740 @@
+% 設定文件並引入必要套件
+\documentclass[12pt,a4paper]{article}
+
+% 中文支援套件
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% 其他必要套件
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% 頁面設定
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% 顏色定義
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% 標題格式設定
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% 自定義環境
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% 頁眉頁腳設定
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{教學部教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{能力導向醫學教育：前線醫療應用}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% 日期格式
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% 文件開始
+\begin{document}
+
+% 標題頁與目錄合併
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{教學部教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries Competency-Based Medical Education\\能力導向醫學教育：前線醫療應用\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Competency-Based Medical Education at the Front Lines of Patient Care}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    教學部同仁、住院醫師及醫學教育者\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 教學部副主任\\謝慕揚, MD, PhD, FESC\\
+    整理製表 with assistance by AI: Grok\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% 主要內容
+\section{自學方案}
+本文件為搭配《New England Journal of Medicine》評論文章\href{https://www.nejm.org/doi/full/10.1056/NEJMra2411880?query=featured_secondary_home}{《Competency-Based Medical Education at the Front Lines of Patient Care》}而製作，請先取得該文獻後，搭配本文件自學。已有基礎的同事，請直接跳至考題處進行自我測驗。
+
+\section{文章概述}
+
+\subsection{背景與目標}
+能力導向醫學教育（Competency-Based Medical Education, CBME）是一種以成果為導向的培訓模式，旨在將醫學教育與患者及社會醫療需求對齊，實現「五重目標」：改善人口健康、促進健康公平、提升患者醫療品質、支持醫療專業人員及降低醫療成本（PAGE1）。傳統醫學教育以固定時間為基礎，常導致培訓成果不一致，無法滿足當前醫療系統的快速變化需求。CBME 強調學員的終身學習及能力掌握，允許個別化學習軌跡，確保畢業生具備提供高品質、安全醫療所需的知識、技能及專業行為（PAGE2）。
+
+\vspace{0.5cm}
+\note{
+CBME 將學員置於學習核心，強調能力達成而非時間限制，與傳統固定時間培訓形成對比。
+}
+
+\subsection{CBME 的核心特徵}
+\begin{itemize}[nosep]
+    \item \textbf{成果導向}：明確定義培訓目標，與患者醫療需求對齊（PAGE2）。
+    \item \textbf{彈性培訓}：允許學員按個別化軌跡進展，無需妥協標準（PAGE2）。
+    \item \textbf{里程碑框架}：使用可衡量的發展性基準（milestones）評估學員進展（PAGE4）。
+    \item \textbf{職場評估}：透過直接觀察及委託專業活動（Entrustable Professional Activities, EPAs）確保臨床能力（PAGE8）。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+CBME 的里程碑及 EPA 框架確保學員能力與實際醫療任務一致，提升培訓品質。
+}
+\section{傳統醫學教育與能力導向醫學教育的比較}
+
+以下表格比較傳統醫學教育（Traditional Medical Education）與能力導向醫學教育（Competency-Based Medical Education, CBME）在培訓模式、評估方法、學習軌跡、課程設計及對患者照護影響等方面的差異，基於《New England Journal of Medicine》文章《Competency-Based Medical Education at the Front Lines of Patient Care》的內容（PAGE2, PAGE4）。
+
+\begin{longtable}{p{4cm}|p{6cm}|p{6cm}}
+    \toprule
+    \textbf{比較面向} & \textbf{傳統醫學教育} & \textbf{能力導向醫學教育（CBME）} \\
+    \midrule
+    \endhead
+    \textbf{培訓模式} & 
+    以固定時間為基礎（如美國通科專業3年研究生醫學教育，PAGE2）。學員在預定時間結束後晉級，無論能力是否達標。 & 
+    以成果為導向，允許個別化學習軌跡（PAGE2）。學員需證明達成特定能力（competencies）後才能晉級，時間可變（PAGE4）。 \\
+    \midrule
+    \textbf{評估方法} & 
+    依賴總結性評估（summative assessments），通常在培訓階段結束時進行，觀察與回饋有限且不頻繁（PAGE4）。評估與臨床照護脫節，導致成果不一致。 & 
+    強調直接觀察與頻繁的職場評估，採用委託專業活動（EPAs）及里程碑（milestones）框架，提供具體敘述性回饋（PAGE8）。評估與患者照護緊密結合。 \\
+    \midrule
+    \textbf{學習軌跡} & 
+    學員進展統一，忽略個別差異（PAGE2）。固定輪調模式導致碎片化，缺乏連續性，影響學習效果（PAGE10）。 & 
+    承認學員發展軌跡不同，允許個別化進展（PAGE2）。採用縱向輪調模式，增強學員與患者、教師的連續性（PAGE10）。 \\
+    \midrule
+    \textbf{課程設計} & 
+    課程結構僵化，依賴固定時間的輪調模式，與患者需求關聯較弱（PAGE4）。課程設計缺乏明確的能力指標。 & 
+    課程以能力里程碑為基礎，與患者及社會醫療需求對齊（PAGE2）。設計靈活，聚焦於日常臨床任務的掌握（PAGE4）。 \\
+    \midrule
+    \textbf{對患者照護的影響} & 
+    培訓成果不一致，部分畢業生未充分準備好獨立照護患者（PAGE2）。教育與臨床實務脫節，難以滿足現代醫療需求。 & 
+    確保學員具備高品質、安全照護所需的知識、技能及專業行為（PAGE2）。透過與患者需求的對齊，提升醫療品質與安全性（PAGE11）。 \\
+    \midrule
+    \textbf{挑戰} & 
+    結構簡單但缺乏靈活性，無法因應學員個別需求。碎片化輪調導致評估連續性不足（PAGE10）。 & 
+    實施複雜，需大量資源支持職場評估及教師培訓。時間可變模式可能導致醫療服務空缺（PAGE10）。 \\
+    \midrule
+    \textbf{優勢} & 
+    結構明確，易於管理，適用於大規模培訓計畫（PAGE4）。 & 
+    提升學員能力透明度，促進終身學習，確保患者照護品質（PAGE2）。允許個別化進展，減少不必要的培訓時間（PAGE10）。 \\
+    \bottomrule
+\end{longtable}
+\section{角色與責任}
+
+\subsection{課程設計與實施}
+\begin{itemize}[nosep]
+    \item \textbf{課程設計}：教育領導者負責設計以里程碑為基礎的課程，明確從新手到早期專家的能力描述（PAGE4）。課程需與特定醫療領域（如內科或兒科）對齊，確保學員達成預期成果。
+    \item \textbf{實施策略}：program manager 教學負責人監督課程實施，整合職場評估（如直接觀察）及程式化評估策略，確保與醫療需求一致（PAGE4）。
+\end{itemize}
+
+\subsection{臨床教育者}
+\begin{itemize}[nosep]
+    \item \textbf{教學與評估}：臨床教育者透過直接觀察提供即時、具體的敘述性回饋，協助學員制定個別化學習計畫（PAGE8）。
+    \item \textbf{EPA 應用}：使用委託專業活動（EPAs）評估學員執行特定臨床任務的能力，如「管理慢性阻塞性肺疾病患者」（PAGE8）。
+    \item \textbf{挑戰}：職場評估需融入臨床工作流程，需系統性支持以減輕教育者的負擔（PAGE8）。
+\end{itemize}
+
+\subsection{學員角色}
+\begin{itemize}[nosep]
+    \item \textbf{主動學習}：學員被視為教育與臨床夥伴，積極參與學習計畫制定，與教師共同製作學習成果（PAGE2）。
+    \item \textbf{回饋與成長}：透過頻繁的回饋及 EPA 評估，學員明確了解進展並調整學習目標（PAGE8）。
+\end{itemize}
+
+\subsection{臨床能力委員會}
+\begin{itemize}[nosep]
+    \item \textbf{進展評估}：負責監督學員進展，提供客觀表現評估，並決定是否晉級（PAGE5）。
+    \item \textbf{回饋支持}：確保學員獲得高品質回饋，促進專業發展（PAGE5）。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+臨床教育者與學員的合作類似醫病關係中的共同製作（coproduction），促進學習與醫療品質。
+}
+
+\subsection{能力導向醫學教育（CBME）角色與職務整理}
+
+% 定義表格欄位寬度
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{longtable}{L{4cm} L{10cm}}
+    \caption{能力導向醫學教育（CBME）角色與職務一覽表} \label{tab:cbme_roles_duties} \\
+    \toprule
+    \rowcolor{emergency_blue!20}
+    \textbf{角色} & \textbf{主要職務} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \rowcolor{emergency_blue!20}
+    \textbf{角色} & \textbf{主要職務} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{2}{r}{\textit{續下頁}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+
+    教育領導者 \newline (Education Leaders) &
+    \begin{itemize}[nosep]
+        \item 制定 CBME 教育策略，確保課程符合認證標準（如 ACGME）。
+        \item 領導教學部門，協調住院醫師培訓及繼續醫學教育（CME）。
+        \item 定期評估計劃數據，推動持續改進，確保教育成果與臨床實踐整合。
+    \end{itemize} \\
+    \midrule
+    臨床教育者 \newline (Clinician Educators) &
+    \begin{itemize}[nosep]
+        \item 直接觀察學員臨床表現，指導住院醫師和醫學生。
+        \item 使用里程碑（Milestones）和可委託專業活動（EPAs）識別培訓差距，制定個別化學習計劃。
+        \item 提供結構化反饋，促進學員的自我調節學習和專業發展。
+    \end{itemize} \\
+    \midrule
+    項目主任 \newline (Program Directors) &
+    \begin{itemize}[nosep]
+        \item 設計並實施 CBME 課程，確保符合認證要求。
+        \item 安排學員輪轉，監督培訓進度，制定學習計劃。
+        \item 收集臨床教育者反饋，調整課程以解決培訓差距。
+    \end{itemize} \\
+    \midrule
+    臨床能力委員會 \newline (Clinical Competency Committee) &
+    \begin{itemize}[nosep]
+        \item 定期審查學員表現數據，根據 ACGME 里程碑標準評估能力。
+        \item 提供結構化反饋，制定個別化學習計劃，協助項目主任做出進階決策。
+        \item 確保學員在完成培訓時具備獨立執行的專業能力。
+    \end{itemize} \\
+\end{longtable}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item 教育領導者需確保 CBME 課程與患者需求一致，提升教育成果。
+    \item 臨床教育者是 CBME 的核心，需接受持續的教師培訓以提升反饋質量。
+    \item 項目主任與臨床能力委員會協作，確保學員能力達標並順利進階。
+\end{itemize}
+\end{importantbox}
+
+\section{挑戰與解決方案}
+
+\subsection{實施挑戰}
+\begin{itemize}[nosep]
+    \item \textbf{時間限制}：傳統固定時間培訓不利於個別化學習軌跡，導致教育成果不一致（PAGE2）。
+    \item \textbf{評估負擔}：職場評估需大量時間與資源，臨床教育者可能因臨床工作負擔而難以執行（PAGE8）。
+    \item \textbf{碎片化}：培訓環境的孤立及頻繁轉換點（如輪調）導致連續性不足，影響評估公正性（PAGE10）。
+\end{itemize}
+
+\subsection{解決方案}
+\begin{itemize}[nosep]
+    \item \textbf{學習分析}：使用學習分析及人工智慧整合評估資料，識別學員進展問題並優化課程（PAGE7）。
+    \item \textbf{教師發展}：提供長期教師培訓，聚焦於能力教學、評估及回饋技能（PAGE9）。
+    \item \textbf{制度支持}：制定支持 CBME 的政策，提供資源與文化改變，減輕教育者負擔（PAGE2）。
+    \item \textbf{縱向輪調}：採用縱向輪調模式，增強學員與患者、教師的連續性（PAGE10）。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+CBME 的成功需制度支持、教師發展及學員參與，共同克服傳統培訓的碎片化挑戰。
+}
+
+\section{考題}
+
+以下為針對本文章的十道選擇題，旨在檢驗對 CBME 核心概念及應用的理解。
+
+\begin{enumerate}
+    \item CBME 的主要目標是：
+    \begin{enumerate}[label=\alph*)]
+        \item 縮短培訓時間
+        \item 對齊培訓與患者及社會醫療需求
+        \item 增加學員輪調次數
+        \item 統一所有學員的學習進度
+    \end{enumerate}
+
+    \item 與傳統醫學教育相比，CBME 的核心特徵是：
+    \begin{enumerate}[label=\alph*)]
+        \item 固定時間培訓
+        \item 成果導向與彈性學習軌跡
+        \item 減少職場評估
+        \item 僅限學術課程
+    \end{enumerate}
+
+    \item 里程碑（Milestones）在 CBME 中的作用是：
+    \begin{enumerate}[label=\alph*)]
+        \item 規定培訓年限
+        \item 提供可衡量的發展性基準
+        \item 取代臨床觀察
+        \item 限制學員自主性
+    \end{enumerate}
+
+    \item 委託專業活動（EPAs）的主要功能是：
+    \begin{enumerate}[label=\alph*)]
+        \item 評估學員的學術表現
+        \item 測量學員執行特定臨床任務的能力
+        \item 制定課程時間表
+        \item 減少教師回饋
+    \end{enumerate}
+
+    \item 臨床教育者在 CBME 中的主要責任是：
+    \begin{enumerate}[label=\alph*)]
+        \item 制定課程標準
+        \item 提供直接觀察與即時回饋
+        \item 管理學員輪調日程
+        \item 負責學員最終考試
+    \end{enumerate}
+
+    \item CBME 實施的主要挑戰包括：
+    \begin{enumerate}[label=\alph*)]
+        \item 學員參與不足
+        \item 職場評估的時間與資源負擔
+        \item 過多縱向輪調
+        \item 缺乏學術課程
+    \end{enumerate}
+
+    \item 解決 CBME 碎片化問題的建議是：
+    \begin{enumerate}[label=\alph*)]
+        \item 增加短期輪調
+        \item 採用縱向輪調模式
+        \item 減少教師培訓
+        \item 統一學員進展速度
+    \end{enumerate}
+
+    \item 學習分析在 CBME 中的應用是：
+    \begin{enumerate}[label=\alph*)]
+        \item 取代臨床觀察
+        \item 整合評估資料以優化課程
+        \item 制定固定培訓時間
+        \item 減少學員回饋
+    \end{enumerate}
+
+    \item 臨床能力委員會的角色不包括：
+    \begin{enumerate}[label=\alph*)]
+        \item 監督學員進展
+        \item 提供回饋與支持
+        \item 制定課程內容
+        \item 決定學員晉級
+    \end{enumerate}
+
+    \item CBME 的道德必要性在於：
+    \begin{enumerate}[label=\alph*)]
+        \item 縮短培訓時間
+        \item 確保患者接受高品質醫療
+        \item 增加學員考試次數
+        \item 統一教師評估標準
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\subsection{考題詳解}
+
+\begin{enumerate}
+    \item \textbf{正確答案：b) 對齊培訓與患者及社會醫療需求}
+
+    \textbf{詳解：} CBME 旨在實現五重目標，確保培訓成果與患者及社會醫療需求一致（PAGE1）。
+
+    \item \textbf{正確答案：b) 成果導向與彈性學習軌跡}
+
+    \textbf{詳解：} CBME 強調成果導向及個別化學習軌跡，與傳統固定時間培訓不同（PAGE2）。
+
+    \item \textbf{正確答案：b) 提供可衡量的發展性基準}
+
+    \textbf{詳解：} 里程碑為學員提供從新手到早期專家的可衡量基準，促進進展評估（PAGE4）。
+
+    \item \textbf{正確答案：b) 測量學員執行特定臨床任務的能力}
+
+    \textbf{詳解：} EPAs 評估學員執行特定臨床任務（如管理COPD患者）的能力，強調委託等級（PAGE8）。
+
+    \item \textbf{正確答案：b) 提供直接觀察與即時回饋}
+
+    \textbf{詳解：} 臨床教育者透過直接觀察及敘述性回饋支持學員成長（PAGE8）。
+
+    \item \textbf{正確答案：b) 職場評估的時間與資源負擔}
+
+    \textbf{詳解：} 職場評估需大量時間與資源，對臨床教育者構成挑戰（PAGE8）。
+
+    \item \textbf{正確答案：b) 採用縱向輪調模式}
+
+    \textbf{詳解：} 縱向輪調增強連續性，減少培訓碎片化（PAGE10）。
+
+    \item \textbf{正確答案：b) 整合評估資料以優化課程}
+
+    \textbf{詳解：} 學習分析整合評估資料，識別問題並改進課程（PAGE7）。
+
+    \item \textbf{正確答案：c) 制定課程內容}
+
+    \textbf{詳解：} 臨床能力委員會負責進展評估與回饋，而非課程設計（PAGE5）。
+
+    \item \textbf{正確答案：b) 確保患者接受高品質醫療}
+
+    \textbf{詳解：} CBME 的道德必要性在於確保學員提供高品質醫療，滿足患者需求（PAGE11）。
+\end{enumerate}
+
+\section{重要知識點總結}
+
+\subsection{CBME 的核心原則}
+\begin{itemize}[nosep]
+    \item \textbf{成果導向}：培訓目標對齊患者及社會醫療需求，強調能力而非時間。
+    \item \textbf{里程碑框架}：提供可衡量的進展基準，促進終身學習。
+    \item \textbf{EPA 評估}：透過委託等級評估學員的臨床任務能力。
+\end{itemize}
+
+\subsection{角色與責任}
+\begin{itemize}[nosep]
+    \item \textbf{教育領導者}：設計里程碑課程，監督實施及評估策略。
+    \item \textbf{臨床教育者}：提供直接觀察、回饋及個別化學習計畫。
+    \item \textbf{學員}：主動參與學習，與教師共同製作成果。
+    \item \textbf{臨床能力委員會}：監督進展，確保客觀評估。
+\end{itemize}
+
+\subsection{實施挑戰與解決方案}
+\begin{itemize}[nosep]
+    \item \textbf{挑戰}：時間限制、碎片化、評估負擔。
+    \item \textbf{解決方案}：學習分析、教師發展、縱向輪調、制度支持。
+\end{itemize}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item CBME 透過成果導向培訓提升醫療品質，需多方合作。
+    \item 職場評估與回饋是 CBME 核心，需系統性支持。
+    \item 學員參與及個別化學習軌跡是 CBME 成功的關鍵。
+    \item 改變傳統培訓模式是道德必要性，確保患者安全與醫療品質。
+\end{itemize}
+\end{importantbox}
+
+\section{具體可行的作法草案}
+
+以下為在醫療人力與時間有限的環境下，實施能力導向醫學教育（CBME）中增強評估與回饋的具體策略，基於《New England Journal of Medicine》文章《Competency-Based Medical Education at the Front Lines of Patient Care》（PAGE8）。這些作法強調直接觀察、頻繁且具體的敘述性回饋及委託專業活動（EPAs），並考慮醫院心血管中心背景及數位工具使用偏好，確保可行性與效率。
+
+\subsection{使用委託專業活動（EPAs）進行聚焦評估}
+\textbf{理論基礎}：EPAs 是可觀察的臨床任務（如「管理急性心肌梗塞患者」），整合多項能力，減少廣泛評估的時間需求（PAGE8）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{選擇專科特定 EPAs}：針對心血管中心，選定5–7個核心 EPAs，如「執行與解讀心臟超音波」或「管理急性冠狀動脈症候群」。
+    \item \textbf{製作 EPA 清單}：開發數位化清單，列出可觀察行為（如「向患者清楚解釋治療計畫」），使用 Microsoft Teams 等平台記錄。
+    \item \textbf{優先高頻任務}：聚焦常見臨床情境（如病房查房或 STEMI 急診處理），將評估融入日常工作流程。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 每科室指定1–2名資深醫師每月輪流負責 EPA 評估，分攤工作量。
+    \item 每項 EPA 評估控制在5–10分鐘，使用預設模板減少記錄時間。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+EPA 聚焦高頻臨床任務，減少評估負擔，適合人力有限的環境。
+}
+
+\subsection{實施短頻回饋會議}
+\textbf{理論基礎}：CBME 強調即時、敘述性回饋而非不頻繁的總結性評估，促進學員成長（PAGE8）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{微回饋時段}：在 EPA 觀察後（如程序或患者互動後）提供1–2分鐘回饋，使用 Plus-Delta 框架（優點與改進點）。
+    \item \textbf{每週團體回饋}：安排每週15分鐘團體回饋會議，由一名醫師回顧2–3名學員的 EPA 表現，促進同儕學習。
+    \item \textbf{數位回饋工具}：使用 Microsoft Forms 或類似平台，允許醫師提交短篇回饋，供學員非同步查看。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 培訓3–5名核心醫師進行回饋技巧訓練（1小時工作坊），確保一致性。
+    \item 每週回饋時間控制在15分鐘，團體會議涵蓋多位學員，減少個別負擔。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+短頻回饋融入臨床工作，透過團體與數位方式減輕醫師負擔。
+}
+
+\subsection{利用科技簡化記錄}
+\textbf{理論基礎}：記錄評估耗時，數位工具可減輕行政負擔，確保資料品質（PAGE8）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{電子評估平台}：採用雲端系統（如 MedHub 或 Microsoft Teams 整合），允許醫師在查房時用行動裝置輸入資料。
+    \item \textbf{語音轉文字工具}：使用語音辨識軟體（如 Teams 轉錄功能）將口頭回饋轉為文字記錄。
+    \item \textbf{標準化模板}：設計包含 EPA 委託等級（「需直接監督」至「獨立執行」）的數位模板，簡化記錄。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 指派一名行政人員管理平台與生成報告，減輕醫師負擔。
+    \item 每項評估記錄控制在2–3分鐘，利用預填模板與語音輸入。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+數位工具整合臨床工作流程，顯著減少記錄時間，提升效率。
+}
+
+\subsection{培訓教師以提升評估效率}
+\textbf{理論基礎}：教師發展是 CBME 成功的關鍵，熟練的評估技能可減少時間投入（PAGE9）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{短期培訓模組}：每季提供30分鐘線上或實體工作坊，聚焦 EPA 評估、敘述性回饋及減少偏見。
+    \item \textbf{同儕觀察}：安排醫師配對，在查房中互相觀察評估實務，提供改進建議。
+    \item \textbf{導師計畫}：指派資深教育者（如溫醫師、蔡醫師）指導新教師，聚焦時間高效的評估技巧。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 每位醫師每年培訓2–3小時，採用非同步線上模組以適應行程。
+    \item 利用現有資深教師作為培訓者，無需外部資源。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+短期培訓提升教師評估效率，減少人力負擔並確保一致性。
+}
+
+\subsection{讓學員成為共同製作夥伴}
+\textbf{理論基礎}：學員作為共同製作（coproduction）夥伴可減輕教師負擔，增強學習主動性（PAGE9）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{自我評估}：培訓學員在教師回饋前使用 EPA 清單自我評估，簡化討論流程。
+    \item \textbf{同儕回饋}：鼓勵學員在團體查房中提供結構化同儕回饋，減輕教師工作量。
+    \item \textbf{學員主導記錄}：允許學員在數位平台上啟動 EPA 評估表單，由教師審核與完成。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 培訓開始時安排1小時會議，教授學員自我與同儕評估技能。
+    \item 教師僅需審核學員預填資料，減少記錄時間。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+學員參與評估與回饋，減輕教師負擔並促進自主學習。
+}
+
+\subsection{將評估融入臨床工作流程}
+\textbf{理論基礎}：將評估融入日常臨床工作可減少額外時間需求（PAGE8）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{查房評估}：在病房查房中進行 EPA 觀察，每次聚焦1–2項 EPA（如病史採集或治療計畫）。
+    \item \textbf{多學科查房}：利用心血管中心的多學科查房，評估學員的團隊合作能力。
+    \item \textbf{批次處理}：教師在輪班結束時批次記錄評估（10分鐘處理3–5名學員），使用數位模板。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 每週每位學員評估1–2次，融入既有臨床任務。
+    \item 採用輪值制，每班次僅一名教師負責評估，減輕總體負擔。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+融入臨床工作流程的評估最大化利用現有時間，減少額外負擔。
+}
+
+\subsection{使用學習分析提升效率}
+\textbf{理論基礎}：學習分析可識別高風險學員並優化評估資源分配（PAGE7）。
+
+\textbf{具體步驟}：
+\begin{itemize}[nosep]
+    \item \textbf{進展儀表板}：採用儀表板（如 MedHub 或 Excel）追蹤學員 EPA 進展，突出需額外支持的學員。
+    \item \textbf{自動化警報}：設定針對 EPA 表現持續偏低的學員警報，聚焦教師回饋於高優先案例。
+    \item \textbf{資料彙總審查}：臨床能力委員會每月審查彙總資料，進行進展決策。
+\end{itemize}
+
+\textbf{人力與時間考量}：
+\begin{itemize}[nosep]
+    \item 指派一名資料管理員維護分析系統，釋放教師時間。
+    \item 每月委員會會議控制在1小時，聚焦資料驅動決策。
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+學習分析減少教師逐一審查的負擔，優先聚焦高風險學員。
+}
+
+\subsection{實施計畫示例}
+\begin{itemize}[nosep]
+    \item \textbf{第一個月}：選定5個核心 EPA，開發數位清單，培訓3–5名教師（1小時工作坊）。
+    \item \textbf{第二個月}：在查房中試行 EPA 評估，提供微回饋，學員開始自我評估。
+    \item \textbf{第三個月}：實施每週團體回饋會議（15分鐘），啟用進展儀表板，評估工作量並調整。
+    \item \textbf{持續進行}：每月臨床能力委員會會議，審查分析資料，確保進展決策高效。
+\end{itemize}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item EPA 與數位工具簡化評估流程，適合人力有限的環境。
+    \item 短頻回饋與學員參與減輕教師負擔，促進學習效果。
+    \item 融入臨床工作與學習分析確保時間效率，符合 CBME 原則。
+    \item 制度支持（如數位平台與行政協助）是成功的關鍵。
+\end{itemize}
+\end{importantbox}
+
+
+\section{範例: 胸腔科肺炎照顧能力里程碑}
+
+\subsection{概述}
+本表單為胸腔科住院醫師在肺炎照顧中的能力里程碑（Milestones），基於能力導向醫學教育（CBME）框架，涵蓋 ACGME 六大核心能力。里程碑旨在追蹤學員從新手到專家的進展，確保學員能獨立診斷、管理和治療肺炎患者。
+
+\subsection{里程碑表單}
+
+% 定義表格欄位寬度
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{longtable}{L{2.5cm} L{2.5cm} L{2.5cm} L{2.5cm} L{2.5cm} L{2.5cm}}
+    \caption{胸腔科肺炎照顧能力里程碑表單} \label{tab:pneumonia_milestones} \\
+    \toprule
+    \rowcolor{emergency_blue!20}
+    \textbf{核心能力} & \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Level 4} & \textbf{Level 5} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \rowcolor{emergency_blue!20}
+    \textbf{核心能力} & \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Level 4} & \textbf{Level 5} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{6}{r}{\textit{續下頁}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+
+    患者照顧 \newline (PC1: 診斷與管理成人肺炎) &
+    能識別肺炎的常見症狀（如咳嗽、發燒、呼吸困難），但需指導完成病史詢問和體檢。 &
+    能完成全面病史詢問和體檢，初步識別肺炎的臨床特徵（如肺部啰音），需監督確認診斷。 &
+    能根據病史、體檢和基本檢查（胸部 X 光、血液檢查）提出肺炎診斷，並制定初始治療計劃，需監督調整。 &
+    能獨立診斷 CAP 或 HAP，選擇適當抗生素並監測治療反應，僅需偶爾指導。 &
+    能管理複雜肺炎病例（如耐藥菌感染或合併敗血症），指導其他學員並優化治療策略。 \\
+    \midrule
+    醫學知識 \newline (MK1: 肺炎的病理生理與治療原則) &
+    了解肺炎的基本病理生理和常見病原體（如肺炎鏈球菌），但需指導應用知識。 &
+    能描述肺炎的常見病原體和抗生素選擇原則，需監督確認藥物選擇。 &
+    能根據指南（如 ATS/IDSA）選擇針對 CAP 或 HAP 的抗生素，並解釋藥物機轉，需監督複雜病例。 &
+    能整合最新證據，選擇針對耐藥菌或特殊病原體的治療，僅需偶爾指導。 &
+    能教授肺炎病理生理和治療策略，參與制定機構指南。 \\
+    \midrule
+    基於實踐的學習與改進 \newline (PBLI1: 基於證據的肺炎管理) &
+    能查找肺炎相關文獻，但需指導篩選可靠來源。 &
+    能應用指南管理簡單肺炎病例，需監督解讀證據。 &
+    能獨立查找並應用證據，調整治療計劃以應對治療失敗，需監督複雜情況。 &
+    能整合多源證據，針對個別患者優化肺炎治療，僅需偶爾指導。 &
+    能領導基於證據的肺炎管理研究或質量改進項目。 \\
+    \midrule
+    人際關係與溝通技巧 \newline (ICS1: 與患者及家屬溝通) &
+    能進行基本溝通，傳達肺炎診斷，但需指導處理患者疑問。 &
+    能清晰解釋肺炎診斷和治療計劃，需監督處理敏感問題（如預後）。 &
+    能有效與患者及家屬討論治療選項，回答常見問題，需監督複雜溝通。 &
+    能獨立處理困難溝通情境（如拒絕治療或預後不良），僅需偶爾指導。 &
+    能指導學員進行患者溝通，促進共享決策。 \\
+    \midrule
+    專業素養 \newline (PROF1: 肺炎照顧中的專業行為) &
+    展現基本專業行為（如守時、尊重患者），但需提醒遵循倫理原則。 &
+    能遵循倫理原則管理肺炎患者，需監督處理衝突（如資源分配）。 &
+    能獨立展現專業行為，處理簡單倫理問題，需監督複雜情況。 &
+    能在複雜倫理情境中展現專業行為（如終末期肺炎患者的安寧照護），僅需偶爾指導。 &
+    能指導學員處理倫理挑戰，作為專業素養的典範。 \\
+    \midrule
+    基於系統的實踐 \newline (SBP1: 協調跨團隊照護) &
+    了解跨團隊照護的重要性，但需指導參與團隊協作。 &
+    能參與肺炎患者的跨團隊照護（如與護理師、呼吸治療師合作），需監督協調。 &
+    能有效協調跨團隊照護，確保肺炎患者接受適切治療，需監督複雜轉診。 &
+    能獨立領導跨團隊照護，協調重症肺炎患者的加護病房轉診，僅需偶爾指導。 &
+    能優化機構層面的肺炎照護流程，領導跨學科質量改進項目。 \\
+\end{longtable}
+
+\begin{importantbox}
+\textbf{臨床要點：}
+\begin{itemize}[nosep]
+    \item 里程碑應與肺炎照顧的 EPAs 對齊，例如「管理成人社區獲得性肺炎」或「協調重症肺炎患者的加護病房轉診」。
+    \item 臨床教育者需通過直接觀察和敘述性反饋評估學員進展，確保里程碑評估的客觀性。
+    \item 學員應參與制定個別化學習計劃，針對薄弱能力進行改進。
+\end{itemize}
+\end{importantbox}
+\end{document}

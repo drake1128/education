@@ -1,0 +1,433 @@
+\documentclass[12pt,a4paper]{article}
+
+% 這是一份latex 文件的 preamble
+% 請AI閱讀後，將附上的PDF整理，以latex code整理，儘量用longtable
+% 請注意我的名字: 謝慕揚, MD, PhD, FESC
+% 表格請注意換行，不該在cell內使用 \\
+% 表格請不要有垂直分隔線 |
+
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{醫療倫理文獻整理}}
+\fancyhead[R]{\textcolor{emergency_blue}{謝慕揚, MD, PhD, FESC}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Defining custom date format for ISO 8601
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+\begin{document}
+
+\title{\textcolor{emergency_red}{The Consultant: 醫師為親友提供醫療諮詢的倫理議題}}
+\author{\textcolor{emergency_blue}{文獻整理：謝慕揚, MD, PhD, FESC}}
+\date{\textcolor{emergency_gray}{\mydate}}
+\maketitle
+
+\section{文章基本資訊}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{12cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{項目}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{項目}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+期刊 & New England Journal of Medicine (NEJM) \\
+文章標題 & The Consultant \\
+作者 & Tessa Adzemovic, M.D. \\
+所屬機構 & Division of Global Health Equity, Department of Medicine, Brigham and Women's Hospital, Boston \\
+發表日期 & August 16, 2025 \\
+期刊卷期 & Volume 393, Number 8 \\
+頁碼 & 736-739 \\
+DOI & \href{https://www.nejm.org/doi/abs/10.1056/NEJMp2502400}{10.1056/NEJMp2502400} \\
+文章類型 & Perspective \\
+\end{longtable}
+
+\section{核心議題}
+
+\note{本文探討醫師為家人朋友提供非正式醫療諮詢的現象，以及其背後的倫理、法律和社會問題。}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{議題類別}} & \textbf{\textcolor{emergency_blue}{具體內容}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{議題類別}} & \textbf{\textcolor{emergency_blue}{具體內容}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_red}{人文議題} & 醫師角色的模糊性：私人身份與專業身份界線不清 \\
+& 關係中的親密與責任：醫療知識帶來的「知情責任」 \\
+& 社會不平等的體現：有醫師朋友/家人的人享有「特權」 \\
+
+\textcolor{emergency_red}{心理議題} & 情感負擔與客觀性喪失：醫師治療親友時缺乏專業客觀性 \\
+& 角色衝突的心理壓力：既是專業醫師又是關心的朋友/家人 \\
+& 醫師倦怠與邊界問題：工作與生活無法分離 \\
+
+\textcolor{emergency_red}{法律議題} & 美國醫學會倫理準則的規定和限制 \\
+& 醫療疏失的法律責任風險 \\
+& 醫病關係的法律定義問題 \\
+
+\textcolor{emergency_red}{社會制度問題} & 醫療可近性危機：預約等待時間過長 \\
+& 醫療信任危機：醫病互動時間縮短 \\
+& 商業化醫療的興起：禮賓醫療只服務付得起年費的病人 \\
+\end{longtable}
+
+\section{作者提及的具體案例}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{7cm} >{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{案例}} & \textbf{\textcolor{emergency_blue}{描述}} & \textbf{\textcolor{emergency_blue}{風險程度}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{案例}} & \textbf{\textcolor{emergency_blue}{描述}} & \textbf{\textcolor{emergency_blue}{風險程度}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{3}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+感恩節餐桌「看診」 & 遠房親戚在感恩節餐桌上宣布「我準備好看醫生了」，開始描述健康問題 & \textcolor{emergency_gray}{低風險} \\
+
+朋友血檢報告諮詢 & 朋友帶血檢報告到早午餐，要求第二意見關於鐵質補充和血紅蛋白數值 & \textcolor{emergency_gray}{中等風險} \\
+
+Uber司機心臟衰竭諮詢 & 司機分享最近心臟衰竭住院經歷，詢問「你覺得怎麼樣？」 & \textcolor{emergency_red}{高風險} \\
+
+嬰兒牙齦問題 & 新手父母詢問「嬰兒沒長牙時牙齦會碰觸嗎？」 & \textcolor{emergency_gray}{低風險} \\
+
+凌晨4點急救電話 & 3500英里外的親人，凌晨4點討論生命末期照護目標和急救狀態 & \textcolor{emergency_red}{極高風險} \\
+
+中餐廳「以餐換診」 & 高中朋友的醫師母親在中餐廳用餐點交換為餐廳老闆看膽固醇和糖化血紅蛋白報告 & \textcolor{emergency_gray}{中等風險} \\
+
+頭部血腫誤診（假設） & 如果朋友1歲孩子頭部血腫，用統計數據安慰她說沒事，但結果孩子真的有腦出血 & \textcolor{emergency_red}{極高風險} \\
+
+懷孕出血誤判（假設） & 朋友有出血症狀，認為只是點狀出血，但實際上是流產 & \textcolor{emergency_red}{高風險} \\
+
+兒童語言發展遲緩 & 作者認出朋友孩子有語言發展遲緩，但猶豫是否該提及 & \textcolor{emergency_gray}{中等風險} \\
+\end{longtable}
+
+\section{美國醫學會倫理準則}
+
+\begin{importantbox}
+\textbf{AMA醫療倫理準則關於治療自己或家人的規定：}
+
+「醫師為自己或自己的家庭成員治療會帶來幾個挑戰，包括對專業客觀性、病人自主權和知情同意的擔憂。」
+
+該準則建議醫師只有在必要時才這樣做（例如：緊急情況、選擇有限的情況下）。
+\end{importantbox}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{倫理考量}} & \textbf{\textcolor{emergency_red}{具體問題}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{倫理考量}} & \textbf{\textcolor{emergency_red}{具體問題}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+專業客觀性 & 醫師可能因為情感因素無法客觀判斷病情，可能過度治療或治療不足 \\
+
+病人自主權 & 家人可能不好意思拒絕醫師家屬的治療建議，權力關係不平等，影響真正的自主選擇 \\
+
+知情同意 & 很難像對待一般病人那樣詳細解釋風險，家庭關係可能影響充分的溝通 \\
+
+允許的例外情況 & 緊急狀況（沒時間找其他醫師）；選擇有限（比如偏遠地區沒有其他醫師） \\
+\end{longtable}
+
+\section{美國醫療系統問題}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{問題類別}} & \textbf{\textcolor{emergency_blue}{具體狀況}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{問題類別}} & \textbf{\textcolor{emergency_blue}{具體狀況}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+醫療可近性 & 新病人預約等待時間長達數月至數年 \\
+& 初級醫療人力嚴重短缺 \\
+& 精神科醫療等待時間長，半數醫師不接新病人 \\
+
+醫療品質排名 & 在與9個其他高收入國家的比較中，美國在負擔能力和醫療可及性方面排名第10 \\
+
+投資不足 & 多年來對初級醫療投資不足造成巨大的人力短缺 \\
+& 進入初級醫療的受訓人員數量無法填補缺口 \\
+
+2024年報告 & Milbank Memorial Fund發布《美國初級醫療健康記分卡報告》，標題為「現在沒有人能看你」 \\
+
+醫療信任危機 & 診所和醫院的床邊互動變得越來越短 \\
+& 醫療不信任感增長 \\
+& 建立關係需要時間，這是一個短缺的資源 \\
+
+商業化趨勢 & Amazon One Medical和Function Health等公司發現並抓住了機會 \\
+& 禮賓醫療服務只對能夠支付年費的患者開放 \\
+\end{longtable}
+
+\section{作者的反思與建議}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{主題}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{主題}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+核心問題重新定義 & 問題的核心不在於醫師是否應該為親友提供醫療服務，而在於如何讓所有人都能獲得適當的醫療照護 \\
+
+理想願景 & 人們在適當的時間、地點接受適當的醫療 \\
+& 診斷不被延誤且不會陷入混亂 \\
+& 醫療結果不因社經地位、種族或是否有醫師親友而有差別 \\
+
+實際行動 & 「在此期間，我將歡迎手機上的濕疹圖片，在徒步旅行中檢查拇趾外翻，並在醫院探望朋友和親戚」 \\
+
+情感價值 & 諮詢結束時，作者感激所分享的親密感，被這些時刻的神聖性所感動 \\
+
+職業初心 & 如果今天重寫醫學院申請文章，會寫關於這種親密關係和神聖時刻 \\
+\end{longtable}
+
+\section{重要引文}
+
+\note{「醫學改變了你——從一個無知的旁觀者變成了一個知情的旁觀者。」}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{重要語句}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{重要語句}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+「我的手機開始感覺像門診收件籃。」 \\
+
+「但實際這樣做在倫理和法律上都充滿了問題。」 \\
+
+「醫學判斷需要一定程度的客觀性，而醫師對於自己和所愛的人不能被期望擁有這種客觀性，這種客觀性的缺乏可能導致傷害。」\\
+
+「醫師為親友進行的諮詢似乎只是美國不平等醫療的另一個載體，是富人與窮人、有關係者與無關係者之間差距擴大的另一種方式。」 \\
+
+「我設想一個世界，人們在正確的時間、正確的地點為正確的病症得到醫治。診斷不會被延誤和陷入混亂。結果不取決於社會經濟地位、種族，或者你的家庭中是否有醫生。」 \\
+\end{longtable}
+
+\section{參考文獻}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{13cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{編號}} & \textbf{\textcolor{emergency_red}{文獻}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{編號}} & \textbf{\textcolor{emergency_red}{文獻}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1 & American Medical Association. AMA code of medical ethics: treating self or family. Available at: https://code-medical-ethics.ama-assn.org/ethics-opinions/treating-self-or-family \\
+
+2 & Moskop JC. Doctor in, and for, the family? Physicians reflect on care for loved ones. Narrat Inq Bioeth 2018;8:41-6. \\
+
+3 & Koven S. Letter to a young female physician: notes from a medical life. New York: W.W. Norton, 2021. \\
+
+4 & Blumenthal D, Gumas ED, Shah A, Gunja MZ, Williams RD III. Mirror, mirror 2024: a portrait of the failing U.S. health system — comparing performance in 10 nations. New York: Commonwealth Fund, September 2024. \\
+
+5 & Sun C-F, Correll CU, Trestman RL, et al. Low availability, long wait times, and high geographic disparity of psychiatric outpatient care in the US. Gen Hosp Psychiatry 2023;84:12-7. \\
+\end{longtable}
+
+\section{文獻整理者總結}
+
+\begin{importantbox}
+\textbf{文獻整理：謝慕揚, MD, PhD, FESC}
+
+本文深刻地揭示了當代醫療體系中一個被忽視但普遍存在的現象：醫師為親友提供非正式醫療諮詢。作者透過個人經驗和理論分析，呈現了這個現象背後複雜的倫理、法律、心理和社會層面。
+
+文章的價值在於將個人經驗昇華為對整個醫療體系問題的深度反思，特別是美國醫療可近性危機如何迫使人們尋求替代管道。作者最終的結論——問題的根本不在於醫師是否應該為親友提供醫療服務，而在於如何建立一個更公平、更可及的醫療體系——具有重要的政策意涵。
+
+整理日期：\mydate
+\end{importantbox}
+
+\end{documen }

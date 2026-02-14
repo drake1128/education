@@ -1,0 +1,705 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib} % For bibliography
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{心臟內科EPAs}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 心臟內科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Cardiology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    心臟內科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 心臟內科 謝慕揚 MD, PhD, FESC\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{心臟內科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。心臟內科EPAs涵蓋了心血管疾病診斷、治療與照護的核心能力，是所有心臟內科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+心臟內科EPAs評量著重於能否安全、穩定地執行完整的心血管疾病診療流程，並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段，從初學者到專家的完整能力建構。
+}
+
+\subsection{學習目標}
+完成心臟內科EPAs後，住院醫師應能夠：
+\begin{itemize}[nosep]
+    \item 熟練進行心血管系統病史詢問與風險評估。
+    \item 準確執行心臟血管系統理學檢查。
+    \item 獨立判讀心電圖與心臟超音波檢查。
+    \item 診斷與處理急性冠心症候群。
+    \item 管理各種心律不整。
+    \item 治療急性與慢性心衰竭。
+    \item 管理高血壓與相關併發症。
+    \item 判讀心導管檢查結果。
+    \item 協調心臟科病患整體照護。
+    \item 與病患及家屬進行有效溝通。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行，無法穩立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可穩立執行，但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可穩立執行，監督者隨時可得 \\
+        Level 5 & 完全穩立 & 可穩立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{心臟內科10大EPAs詳述}
+
+\begin{longtable}{|p{1.5cm}|p{4cm}|p{8.5cm}|}
+\caption{心臟內科EPAs完整架構} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 心臟科病史詢問與風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行心血管疾病相關的完整病史詢問，包括症狀評估、危險因子識別、家族史調查，並能初步評估心血管風險。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 胸痛、呼吸困難、心悸、暈厥、水腫的詳細詢問 \\
+\cline{2-3}
+& 危險因子識別 & 高血壓、糖尿病、血脂異常、吸菸史、肥胖 \\
+\cline{2-3}
+& 功能狀態評估 & NYHA分級、運動耐受度評估 \\
+\cline{2-3}
+& 藥物史 & 心血管藥物使用史、過敏史、順從性評估 \\
+\cline{2-3}
+& 家族史 & 早發性冠心病、遺傳性心律不整、心肌病變 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本心血管症狀，需要督導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成心血管病史詢問，使用適當的疼痛評估工具 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問，整合症狀與危險因子進行初步風險分層 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史，整合多重共病資訊 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問，識別罕見症狀表現 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 心臟血管系統理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練且準確地進行心臟血管系統的完整理學檢查，包括心臟聽診、血管檢查、水腫評估，並能正確解讀檢查發現。} \\
+\hline
+\textbf{核心能力} & 心臟聽診 & 四個聽診區域、心音與雜音識別、心律評估 \\
+\cline{2-3}
+& 血管檢查 & 頸動脈、周邊動脈搏動、血管雜音 \\
+\cline{2-3}
+& 血壓測量 & 標準測量技術、姿勢性血壓變化 \\
+\cline{2-3}
+& 水腫評估 & 下肢水腫分級、頸靜脈壓評估 \\
+\cline{2-3}
+& 其他徵象 & 發紺、杵狀指、皮膚變化 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本心臟聽診，識別正常心音，測量血壓技術正確 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見心雜音，進行系統性血管檢查，評估下肢水腫程度 \\
+\hline
+\textbf{Level 3} & Competent & 能區分收縮期與舒張期雜音，準確評估頸靜脈壓，整合多項檢查發現 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別複雜心雜音特徵，檢查技術精準且有效率 \\
+\hline
+\textbf{Level 5} & Expert & 能偵測細微的異常發現，整合檢查發現與臨床表現 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 心電圖判讀與分析}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀12導程心電圖，識別正常與異常變化，包括心律不整、ST-T變化、傳導異常等，並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & 基本判讀 & 心律、心軸、間期測量（PR、QRS、QT） \\
+\cline{2-3}
+& 心律不整 & 房性、結性、心室性心律不整識別 \\
+\cline{2-3}
+& ST-T變化 & 急性心肌梗塞、缺血變化判讀 \\
+\cline{2-3}
+& 傳導異常 & 房室傳導阻滯、束支傳導阻滯 \\
+\cline{2-3}
+& 其他異常 & 肥大、電解質異常、藥物影響 \\
+\hline
+\textbf{Level 1} & Novice & 能測量基本間期與心律，識別正常心電圖 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見心律不整，判讀明顯ST段變化 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分心電圖異常，整合心電圖與臨床症狀 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜心律不整，識別細微的缺血變化 \\
+\hline
+\textbf{Level 5} & Expert & 成為心電圖判讀的專家，能教導複雜心電圖判讀 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 心臟超音波基礎操作與判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠進行基礎心臟超音波檢查，包括標準切面獲取、基本測量、主要結構與功能評估，並能識別重要的病理發現。} \\
+\hline
+\textbf{核心能力} & 影像獲取 & 胸骨旁、心尖、胸骨下標準切面 \\
+\cline{2-3}
+& 基本測量 & 左心室功能、心房心室大小、壁厚測量 \\
+\cline{2-3}
+& 瓣膜評估 & 瓣膜型態、開關功能、逆流評估 \\
+\cline{2-3}
+& 血流評估 & 都卜勒血流測量、壓力梯度計算 \\
+\cline{2-3}
+& 病理識別 & 壁運動異常、心包膜積水、血栓 \\
+\hline
+\textbf{Level 1} & Novice & 能獲取基本標準切面，進行簡單的線性測量 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能獨立獲取大部分標準切面，進行基本功能評估 \\
+\hline
+\textbf{Level 3} & Competent & 能完成標準心臟超音波檢查，準確評估左心室功能 \\
+\hline
+\textbf{Level 4} & Proficient & 能進行進階超音波技術，準確定量評估 \\
+\hline
+\textbf{Level 5} & Expert & 成為超音波技術專家，能教導複雜技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 急性冠心症診斷與初步處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別急性冠心症候群，進行適當的診斷性檢查，評估風險分層，並執行初步治療措施，包括藥物治療與轉介決策。} \\
+\hline
+\textbf{核心能力} & 快速識別 & 典型與非典型症狀識別、高風險特徵 \\
+\cline{2-3}
+& 診斷策略 & 心電圖、心肌酵素、影像學檢查安排 \\
+\cline{2-3}
+& 風險分層 & TIMI、GRACE評分應用 \\
+\cline{2-3}
+& 藥物治療 & 抗血小板、抗凝血、降血脂藥物選擇 \\
+\cline{2-3}
+& 處置決策 & PCI適應症、轉院時機、住院必要性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別典型胸痛症狀，知道基本檢查項目 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準診斷流程，進行基本風險評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷急性冠心症，適當選擇治療策略 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜臨床情況，整合多重因素做決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為急性冠心症專家，能指導複雜個案處理 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 心律不整診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種心律不整，評估血流動力學影響，選擇適當的治療方式，包括藥物治療、電擊整流、或轉介電燒治療。} \\
+\hline
+\textbf{核心能力} & 心律識別 & 上心室性、心室性心律不整分類 \\
+\cline{2-3}
+& 血流評估 & 血壓、意識、灌流狀態評估 \\
+\cline{2-3}
+& 治療選擇 & 藥物vs非藥物治療決策 \\
+\cline{2-3}
+& 緊急處置 & 不穩定心律不整的急救處理 \\
+\cline{2-3}
+& 長期管理 & 抗凝血治療、導管消融適應症 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本心律不整，知道緊急處置原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能處理穩定性心律不整，選擇基本抗心律不整藥物 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理大部分心律不整，做出電擊整流決定 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜心律不整，評估導管消融適應症 \\
+\hline
+\textbf{Level 5} & Expert & 成為心律不整專家，能執行複雜治療程序 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 心衰竭診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷急性與慢性心衰竭，區分收縮性與舒張性功能異常，制定個別化治療計畫，包括藥物調整與非藥物治療。} \\
+\hline
+\textbf{核心能力} & 診斷評估 & 症狀、徵象、功能分級評估 \\
+\cline{2-3}
+& 病因識別 & 缺血性、非缺血性心肌病變區分 \\
+\cline{2-3}
+& 功能評估 & 射血分率、舒張功能評估 \\
+\cline{2-3}
+& 藥物治療 & ACE抑制劑、利尿劑、β阻斷劑調整 \\
+\cline{2-3}
+& 整合照護 & 復健、營養、疫苗接種建議 \\
+\hline
+\textbf{Level 1} & Novice & 能識別心衰竭症狀徵象，知道基本藥物治療 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準治療指引，進行基本藥物調整 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理穩定心衰竭，調整複雜藥物組合 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性心衰竭，評估進階治療選項 \\
+\hline
+\textbf{Level 5} & Expert & 成為心衰竭專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 高血壓診斷與管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷高血壓，評估心血管風險，制定個別化降血壓治療策略，監測治療效果與副作用，並提供生活型態建議。} \\
+\hline
+\textbf{核心能力} & 診斷確認 & 診間、居家、24小時血壓監測解讀 \\
+\cline{2-3}
+& 次發性評估 & 次發性高血壓篩檢與評估 \\
+\cline{2-3}
+& 風險分層 & 心血管風險計算與分層 \\
+\cline{2-3}
+& 藥物選擇 & 單一與複方藥物治療策略 \\
+\cline{2-3}
+& 生活介入 & 飲食、運動、體重控制建議 \\
+\hline
+\textbf{Level 1} & Novice & 能正確測量血壓，知道高血壓診斷標準 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能開始第一線降血壓藥物，提供基本生活型態建議 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理單純性高血壓，調整藥物劑量與組合 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難控制高血壓，評估次發性高血壓 \\
+\hline
+\textbf{Level 5} & Expert & 成為高血壓管理專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 心導管檢查結果判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠判讀心導管造影結果，包括冠狀動脈解剖、狹窄程度評估、側支循環評估，並整合臨床資訊提出治療建議。} \\
+\hline
+\textbf{核心能力} & 解剖識別 & 冠狀動脈主要分支與變異 \\
+\cline{2-3}
+& 狹窄評估 & 血管狹窄程度與重要性判斷 \\
+\cline{2-3}
+& 功能評估 & 左心室功能、壁運動分析 \\
+\cline{2-3}
+& 治療規劃 & PCI vs CABG適應症評估 \\
+\cline{2-3}
+& 風險評估 & 手術風險與預後評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別主要冠狀動脈，判斷明顯血管狹窄 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀標準心導管影像，評估狹窄嚴重程度 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分心導管，整合臨床與影像資訊 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜冠狀動脈病變，評估手術適應症 \\
+\hline
+\textbf{Level 5} & Expert & 成為心導管判讀專家，能指導複雜個案 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 心臟科病患照護協調與溝通}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠協調心臟科病患的整體照護，包括跨團隊溝通、病患與家屬衛教、出院計畫安排，並能進行困難醫療決策的溝通。} \\
+\hline
+\textbf{核心能力} & 團隊溝通 & 與護理、藥師、復健師等專業溝通 \\
+\cline{2-3}
+& 病患衛教 & 疾病解釋、藥物衛教、生活指導 \\
+\cline{2-3}
+& 家屬溝通 & 病情說明、預後討論、決策支持 \\
+\cline{2-3}
+& 照護協調 & 出院準備、居家照護安排 \\
+\cline{2-3}
+& 困難溝通 & 壞消息告知、醫療糾紛處理 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本病情說明，提供標準化衛教 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能與團隊成員有效溝通，進行個別化病患衛教 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立協調複雜照護，進行困難病情討論 \\
+\hline
+\textbf{Level 4} & Proficient & 能領導跨團隊照護，進行複雜醫療決策溝通 \\
+\hline
+\textbf{Level 5} & Expert & 成為溝通協調專家，能處理最複雜情況 \\
+\hline
+
+% EPA 11: CCU侵入性處置操作與管理
+% 新增至心臟內科EPAs文件中
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 11: CCU侵入性處置操作與管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠在心臟加護病房(CCU)環境下，安全且熟練地執行各種侵入性處置，包括氣管內管插管、動脈導管設置、心包膜穿刺術、胸腔穿刺術，並能評估適應症、預防併發症、提供後續監測與照護。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 緊急插管指標、血流動力學監測需求、心包填塞診斷、胸腔積液評估 \\
+\cline{2-3}
+& 操作前準備 & 設備檢查、無菌操作準備、病患定位、同意書取得與風險告知 \\
+\cline{2-3}
+& 侵入性操作技術 & 氣管插管技術、動脈穿刺與導管固定、超音波導引穿刺術 \\
+\cline{2-3}
+& 併發症識別與處理 & 插管困難處理、血管損傷、氣胸、心律不整等緊急處置 \\
+\cline{2-3}
+& 監測與後續照護 & 生命跡象監測、導管功能評估、感染預防、移除時機判斷 \\
+\hline
+\textbf{Level 1} & Novice & 能觀察他人執行侵入性處置，了解基本適應症與禁忌症，協助準備器械設備 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在直接監督下執行簡單的動脈導管設置，進行基本的胸腔穿刺操作 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行大部分侵入性處置，正確評估適應症，處理常見併發症 \\
+\hline
+\textbf{Level 4} & Proficient & 能熟練執行所有CCU侵入性處置，處理複雜情況，指導初學者操作 \\
+\hline
+\textbf{Level 5} & Expert & 成為侵入性處置專家，能處理最困難的臨床情況，建立標準作業程序 \\
+\hline
+
+% 詳細技能分解表
+\multicolumn{3}{|c|}{\textbf{各項處置技術細項能力要求}} \\
+\hline
+\rowcolor{emergency_blue!10}
+\textbf{處置項目} & \textbf{Level 3 (Competent) 能力要求} & \textbf{Level 5 (Expert) 能力要求} \\
+\hline
+
+\textbf{氣管內管插管} & • 能評估困難插管風險因素 \newline • 正確執行快速序列插管 \newline • 使用視頻喉鏡輔助插管 \newline • 確認插管位置的多種方法 & • 處理極困難插管情況 \newline • 執行纖維支氣管鏡插管 \newline • 建立緊急呼吸道(環甲膜切開) \newline • 指導插管技術教學 \\
+\hline
+
+\textbf{動脈導管設置} & • 熟練橈動脈與股動脈穿刺 \newline • 正確波形判讀與校正 \newline • 適當的導管固定與照護 \newline • 識別與處理血管痙攣 & • 執行困難動脈穿刺 \newline • 使用超音波導引技術 \newline • 處理血管併發症 \newline • 建立血流動力學監測協定 \\
+\hline
+
+\textbf{心包膜穿刺術} & • 超音波評估心包積液 \newline • 執行心包膜穿刺引流 \newline • 識別心包填塞徵象 \newline • 術後心臟功能監測 & • 處理複雜心包疾病 \newline • 執行心包切開術 \newline • 處理出血性併發症 \newline • 建立心包疾病治療指引 \\
+\hline
+
+\textbf{胸腔穿刺術} & • 胸部X光與超音波判讀 \newline • 安全穿刺點選擇與標記 \newline • 執行診斷性與治療性穿刺 \newline • 胸管置入與管理 & • 處理複雜胸腔疾病 \newline • 執行影像導引穿刺 \newline • 胸腔鏡檢查技術 \newline • 建立胸腔疾病處理流程 \\
+\hline
+
+% 評估工具與頻率建議
+\multicolumn{3}{|c|}{\textbf{評估方法與建議}} \\
+\hline
+\rowcolor{emergency_gray!10}
+\textbf{評估工具} & \textbf{使用時機} & \textbf{評估重點} \\
+\hline
+
+\textbf{DOPS} & 每次侵入性處置執行時 & 操作技術熟練度、安全性考量、併發症處理 \\
+\hline
+
+\textbf{Mini-CEX} & 處置前後病患評估 & 適應症判斷、風險評估、病患溝通能力 \\
+\hline
+
+\textbf{CbD} & 複雜個案討論 & 臨床決策能力、併發症處理、團隊合作 \\
+\hline
+
+\textbf{MSF} & 季度評估 & 團隊合作、溝通技巧、專業態度 \\
+\hline
+
+% 安全考量與品質指標
+\multicolumn{3}{|c|}{\textbf{安全考量與品質指標}} \\
+\hline
+\rowcolor{highlight_yellow}
+\textbf{安全要點} & \multicolumn{2}{|p{12.5cm}|}{
+• 嚴格遵守無菌操作原則 \newline
+• 確實執行Time-out程序 \newline  
+• 備妥緊急救命設備 \newline
+• 建立標準化操作流程 \newline
+• 定期檢討併發症發生率 \newline
+• 持續教育訓練與能力認證
+} \\
+\hline
+
+\textbf{品質指標} & \multicolumn{2}{|p{12.5cm}|}{
+• 插管成功率 >95\% \newline
+• 動脈導管相關感染率 <2\% \newline
+• 心包膜穿刺併發症率 <5\% \newline
+• 胸腔穿刺相關氣胸率 <3\% \newline
+• 病患滿意度評分 >4.5/5.0
+} \\
+\hline
+
+% 學習資源建議
+\multicolumn{3}{|c|}{\textbf{推薦學習資源}} \\
+\hline
+\textbf{教科書} & \multicolumn{2}{|p{12.5cm}|}{
+• Roberts and Hedges' Clinical Procedures in Emergency Medicine, 7th Edition \newline
+• Textbook of Critical Care, 8th Edition \newline
+• The ICU Book, 4th Edition
+} \\
+\hline
+
+\textbf{線上資源} & \multicolumn{2}{|p{12.5cm}|}{
+• NEJM Procedure Videos \newline
+• Critical Care Ultrasound Course \newline
+• Airway Management Simulation Training
+} \\
+\hline
+
+\textbf{實作訓練} & \multicolumn{2}{|p{12.5cm}|}{
+• 模擬人體訓練（每月至少4小時） \newline
+• 豬隻模型侵入性操作練習 \newline
+• 超音波技術認證課程 \newline
+• BLS/ACLS定期更新認證
+} \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本心臟內科EPAs採用Case-based Clinical Competency (CCC)評量方式：
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒：} 心臟內科EPAs的評量重點在於漸進式能力發展，而非單次完美表現。鼓勵從錯誤中學習，持續改進。每個EPA都需要在真實臨床情境中反覆練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4cm} p{4cm} p{6cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 2, 4) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 3, 5, 6, 7, 8, 9) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        溝通協調類 & MSF & 病患回饋、家屬訪談 \\
+        (EPA 10) & (Multi-Source Feedback) & 團隊成員評量 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}：選擇2-3個EPA重點評量
+    \item \textbf{季度檢討}：全面檢視所有EPA進展
+    \item \textbf{年度認證}：EPA達標認證與進階規劃
+    \item \textbf{即時回饋}：發現學習需求時立即介入
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+心臟內科EPAs的學習是一個持續的過程。建議住院醫師建立個人學習檔案，記錄每次評量結果與改善計畫。主治醫師應提供及時具體的回饋，協助學習者達到下一個里程碑。
+}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{3cm} p{5cm} p{6cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2, 3 & 基礎評估技能建立 \\
+        第2個月 & EPA 4, 5, 6 & 診斷技術與急症處理 \\
+        第3個月 & EPA 7, 8, 10 & 慢性疾病管理與溝通 \\
+        第4個月 & EPA 9, 綜合評量 & 進階技能與整合能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習：
+\begin{itemize}
+    \item Braunwald's Heart Disease: A Textbook of Cardiovascular Medicine. 12th edition.
+    \item ESC Guidelines on cardiovascular disease prevention in clinical practice (2021 version)
+    \item AHA/ACC Guidelines for the Management of Heart Failure (2022 Update)
+    \item ESC Guidelines on cardiac pacing and cardiac resynchronization therapy (2021)
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋（主治醫師、護理師、病人）
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+\end{itemize}
+
+\section{總結}
+
+心臟內科EPAs涵蓋了心血管疾病診療的核心能力，從基礎的病史詢問與理學檢查，到複雜的心導管判讀與病患照護協調。每個EPA都有清楚的能力描述與里程碑發展路徑，協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息：} 心臟內科EPAs的核心在於「可委託性」- 當您能夠安全、穩立地執行各項心血管疾病診療活動，並做出合理的臨床決策時，就達到了相對應EPA的目標。記住，每一次的臨床實務都是學習的機會，透過持續的實作、反思與改進，才能成為一位優秀的心臟內科醫師。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{9}
+
+\bibitem{braunwald2022}
+Libby, P., Bonow, R. O., Mann, D. L., Tomaselli, G. F., \& Bhatt, D. L. (2022). \textit{Braunwald's Heart Disease: A Textbook of Cardiovascular Medicine}. 12th edition. Elsevier.
+
+\bibitem{esc2021prevention}
+Visseren, F. L. J., et al. (2021). 2021 ESC Guidelines on cardiovascular disease prevention in clinical practice. \textit{European Heart Journal}, 42(34), 3227-3337.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{heidenreich2022}
+Heidenreich, P. A., et al. (2022). 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. \textit{Circulation}, 145(18), e895-e1032.
+
+\end{thebibliography}
+
+\end{document}

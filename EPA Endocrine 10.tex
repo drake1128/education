@@ -1,0 +1,603 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=endo_teal,
+    citecolor=endo_teal,
+    urlcolor=endo_teal,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions (Endocrinology themed colors)
+\definecolor{endo_blue}{RGB}{0,128,164}
+\definecolor{endo_teal}{RGB}{0,150,136}
+\definecolor{endo_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{endo_blue}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{endo_teal}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{endo_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=endo_blue,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=endo_teal!5!white,
+        colframe=endo_teal,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{endo_blue}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{endo_teal}{新陳代謝內分泌科EPAs}}
+\fancyfoot[C]{\textcolor{endo_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{endo_blue}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{endo_blue}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 新陳代謝內分泌科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{endo_teal}{\textit{Endocrinology \& Metabolism Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=endo_teal!5!white,
+        colframe=endo_teal,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    新陳代謝內分泌科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第1.0版(10個EPAs)\par
+    發布日期:\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 新陳代謝內分泌科 黃則穎醫師 \\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{新陳代謝內分泌科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。新陳代謝內分泌科EPAs涵蓋了內分泌代謝疾病診斷、治療與照護的核心能力,是所有新陳代謝內分泌科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+新陳代謝內分泌科EPAs評量著重於能否安全、穩定地執行完整的內分泌代謝疾病診療流程,並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段,從初學者到專家的完整能力建構。本版本包含10個核心EPA,從基礎的糖尿病診斷與治療,到複雜的內分泌急症處理與代謝症候群整合照護,提供完整的內分泌代謝疾病診療能力架構。
+}
+
+\subsection{學習目標}
+完成新陳代謝內分泌科EPAs後,住院醫師應能夠:
+\begin{itemize}[nosep]
+    \item 熟練診斷與治療糖尿病,並進行長期管理。
+    \item 正確使用各類糖尿病相關藥物。
+    \item 快速識別並處理高血糖與低血糖急症。
+    \item 判讀甲狀腺功能檢查並診斷治療。
+    \item 診斷與處置常見腎上腺疾病。
+    \item 診斷與處置常見腦下垂體疾病。
+    \item 識別與處理內分泌相關急症。
+    \item 提供肥胖與代謝症候群病人整合照護。
+    \item 評估與治療血脂異常。
+    \item 診斷與處理高低血鈣異常。
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行,無法獨立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可獨立執行,但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可獨立執行,監督者隨時可得 \\
+        Level 5 & 完全獨立 & 可獨立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{新陳代謝內分泌科10大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{新陳代謝內分泌科EPAs完整架構} \\
+\hline
+\rowcolor{endo_teal!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{endo_teal!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 糖尿病診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立診斷糖尿病及前期糖尿病,制定個別化治療計畫,包括飲食運動處方、口服降糖藥物與胰島素治療,並進行長期追蹤管理。} \\
+\hline
+\textbf{核心能力} & 診斷標準 & 空腹血糖、口服糖耐量試驗、HbA1c診斷標準應用 \\
+\cline{2-3}
+& 分類評估 & 第1型、第2型、妊娠糖尿病、其他型別鑑別 \\
+\cline{2-3}
+& 治療目標 & 個別化血糖控制目標設定、HbA1c目標 \\
+\cline{2-3}
+& 生活型態介入 & 飲食計畫、運動處方、體重管理 \\
+\cline{2-3}
+& 併發症篩檢 & 視網膜、腎臟、神經、心血管併發症評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別糖尿病症狀,知道診斷標準 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷糖尿病,開始基本降糖治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理糖尿病,設定治療目標,安排併發症篩檢 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜糖尿病,調整複雜藥物組合 \\
+\hline
+\textbf{Level 5} & Expert & 成為糖尿病專家,制定個人化治療策略 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 糖尿病相關用藥認識與使用}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟悉各類降糖藥物之作用機轉、適應症、禁忌症、副作用,並能根據病患狀況合理選用與調整藥物。} \\
+\hline
+\textbf{核心能力} & 口服降糖藥 & Metformin、磺醯尿素類、DPP-4抑制劑等 \\
+\cline{2-3}
+& 注射降糖藥 & GLP-1受體促效劑之適應症與使用 \\
+\cline{2-3}
+& 胰島素治療 & 基礎、餐時、預混胰島素之選擇與調整 \\
+\cline{2-3}
+& 藥物組合 & 合理藥物組合,降階與升階治療 \\
+\cline{2-3}
+& 副作用監測 & 低血糖、體重變化、腎功能影響等監測 \\
+\hline
+\textbf{Level 1} & Novice & 能識別常用降糖藥物名稱及基本作用 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能開立基本降糖藥物處方 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立選用與調整降糖藥物,執行胰島素起始治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能制定複雜藥物組合,調整胰島素多次注射 \\
+\hline
+\textbf{Level 5} & Expert & 成為降糖藥物專家,處理難治性糖尿病 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 高血糖與低血糖急症處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別高血糖急症(DKA、HHS)及低血糖症,執行緊急處置,進行輸液與胰島素治療,並監測電解質與血糖變化。} \\
+\hline
+\textbf{核心能力} & DKA診斷處置 & 診斷標準、輸液治療、胰島素靜脈注射、電解質矯正 \\
+\cline{2-3}
+& HHS診斷處置 & 高滲透壓高血糖狀態之診斷與治療 \\
+\cline{2-3}
+& 低血糖處理 & 意識評估、葡萄糖補充、病因分析 \\
+\cline{2-3}
+& 監測管理 & 血糖、電解質、酸鹼值、滲透壓監測 \\
+\cline{2-3}
+& 併發症預防 & 腦水腫、低血鉀、低血磷等預防 \\
+\hline
+\textbf{Level 1} & Novice & 能識別高低血糖症狀,知道緊急處置原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能處理輕度低血糖,協助DKA治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理DKA與低血糖急症 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜高低血糖急症,預防併發症 \\
+\hline
+\textbf{Level 5} & Expert & 成為糖尿病急症專家,處理危急情況 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 甲狀腺功能異常判讀與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠判讀甲狀腺功能檢查報告,診斷甲狀腺功能亢進、低下及其他甲狀腺疾病,並制定適當治療計畫。} \\
+\hline
+\textbf{核心能力} & 功能檢查判讀 & TSH、Free T4、Free T3判讀,亞臨床異常識別 \\
+\cline{2-3}
+& 甲狀腺亢進 & Graves病、毒性結節、甲狀腺炎鑑別與治療 \\
+\cline{2-3}
+& 甲狀腺低下 & 原發性、次發性低下之診斷與治療 \\
+\cline{2-3}
+& 結節評估 & 超音波檢查、細針穿刺適應症評估 \\
+\cline{2-3}
+& 藥物治療 & 抗甲狀腺藥物、甲狀腺素補充治療 \\
+\hline
+\textbf{Level 1} & Novice & 能判讀基本甲狀腺功能檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能診斷明顯甲狀腺功能異常 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷與治療甲狀腺疾病 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜甲狀腺疾病,評估結節 \\
+\hline
+\textbf{Level 5} & Expert & 成為甲狀腺專家,處理罕見疾病 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 常見腎上腺疾病診斷與處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷與處置常見腎上腺疾病,包括庫欣氏症候群、原發性醛固酮增多症、嗜鉻細胞瘤、腎上腺功能不全等。} \\
+\hline
+\textbf{核心能力} & 庫欣氏症候群 & 篩檢、診斷流程、病因鑑別、治療 \\
+\cline{2-3}
+& 原發性醛固酮增多症 & 高血壓篩檢、確認試驗、亞型分類 \\
+\cline{2-3}
+& 嗜鉻細胞瘤 & 臨床表現、生化檢查、影像定位 \\
+\cline{2-3}
+& 腎上腺功能不全 & 原發性、次發性不全之診斷與治療 \\
+\cline{2-3}
+& 腎上腺偶發瘤 & 功能評估、惡性風險評估、追蹤策略 \\
+\hline
+\textbf{Level 1} & Novice & 能識別腎上腺疾病可能性,知道基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行腎上腺疾病篩檢,判讀基本檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷常見腎上腺疾病,執行確認試驗 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜腎上腺疾病,進行病因鑑別 \\
+\hline
+\textbf{Level 5} & Expert & 成為腎上腺疾病專家,處理罕見病例 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 常見腦下垂體疾病診斷與處置}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷與處置常見腦下垂體疾病,包括泌乳激素瘤、肢端肥大症、庫欣病、腦下垂體功能低下等。} \\
+\hline
+\textbf{核心能力} & 泌乳激素瘤 & 高泌乳激素血症鑑別、影像學、藥物治療 \\
+\cline{2-3}
+& 肢端肥大症 & 臨床表現、IGF-1與生長激素檢查、治療 \\
+\cline{2-3}
+& 庫欣病 & 與腎上腺庫欣氏症候群鑑別診斷 \\
+\cline{2-3}
+& 腦下垂體功能低下 & 多重激素缺乏評估與補充治療 \\
+\cline{2-3}
+& 腦下垂體腫瘤 & 功能性與非功能性腫瘤評估、手術評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別腦下垂體疾病可能性 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本腦下垂體功能評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷常見腦下垂體疾病 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜腦下垂體疾病,評估手術適應症 \\
+\hline
+\textbf{Level 5} & Expert & 成為腦下垂體疾病專家,長期追蹤管理 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 內分泌相關急症識別與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別內分泌相關急症,包括甲狀腺風暴、黏液水腫昏迷、腎上腺危象等,並執行緊急處置。} \\
+\hline
+\textbf{核心能力} & 甲狀腺風暴 & 診斷標準、緊急處置、抗甲狀腺藥物、β阻斷劑 \\
+\cline{2-3}
+& 黏液水腫昏迷 & 識別、甲狀腺素緊急補充、支持治療 \\
+\cline{2-3}
+& 腎上腺危象 & 診斷、壓力劑量類固醇、輸液治療 \\
+\cline{2-3}
+& 高血鈣危象 & 症狀識別、輸液、降鈣治療 \\
+\cline{2-3}
+& 嗜鉻細胞瘤危象 & 高血壓危象處理、α與β阻斷劑使用 \\
+\hline
+\textbf{Level 1} & Novice & 能識別內分泌急症可能性 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能協助處理內分泌急症 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理常見內分泌急症 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜危急情況,整合多重因素 \\
+\hline
+\textbf{Level 5} & Expert & 成為內分泌急症專家,指導危急處置 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 肥胖與代謝症候群病人整合照護}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估與管理肥胖及代謝症候群病人,提供整合性照護,包括生活型態介入、藥物治療、減重手術評估。} \\
+\hline
+\textbf{核心能力} & 肥胖評估 & BMI、體脂肪、腰圍測量、併發症評估 \\
+\cline{2-3}
+& 代謝症候群診斷 & 診斷標準、心血管風險評估 \\
+\cline{2-3}
+& 生活型態介入 & 飲食計畫、運動處方、行為治療 \\
+\cline{2-3}
+& 減重藥物 & GLP-1受體促效劑、其他減重藥物使用 \\
+\cline{2-3}
+& 整合照護 & 糖尿病、高血壓、血脂異常整合管理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別肥胖與代謝症候群 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能提供基本生活型態建議 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理肥胖與代謝症候群,提供整合照護 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜肥胖病例,評估減重手術 \\
+\hline
+\textbf{Level 5} & Expert & 成為肥胖醫學專家,制定整合治療策略 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 高血脂評估與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠評估血脂異常,計算心血管風險,制定降脂治療策略,包括生活型態介入與藥物治療,並監測療效與副作用。} \\
+\hline
+\textbf{核心能力} & 血脂檢查判讀 & 總膽固醇、LDL-C、HDL-C、三酸甘油酯 \\
+\cline{2-3}
+& 風險評估 & 心血管風險評估工具、LDL-C目標設定 \\
+\cline{2-3}
+& 生活型態介入 & 飲食建議、運動處方、戒菸 \\
+\cline{2-3}
+& 降脂藥物 & Statin類、Ezetimibe、PCSK9抑制劑等 \\
+\cline{2-3}
+& 副作用監測 & 肌肉症狀、肝功能、腎功能監測 \\
+\hline
+\textbf{Level 1} & Novice & 能判讀血脂檢查,識別異常 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能開立基本降脂藥物,提供生活建議 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立評估與治療血脂異常,設定LDL-C目標 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性高血脂,使用進階降脂藥物 \\
+\hline
+\textbf{Level 5} & Expert & 成為血脂專家,制定個人化治療策略 \\
+\hline
+
+\rowcolor{endo_blue!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 高低血鈣原因與數值判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠判讀血鈣與相關檢查數值,診斷高血鈣與低血鈣病因,包括副甲狀腺功能異常,並制定適當治療策略。} \\
+\hline
+\textbf{核心能力} & 血鈣檢查 & 總血鈣、游離鈣、白蛋白校正鈣計算 \\
+\cline{2-3}
+& 高血鈣鑑別 & 副甲狀腺亢進、惡性腫瘤、其他原因鑑別 \\
+\cline{2-3}
+& 低血鈣鑑別 & 副甲狀腺低下、維生素D缺乏、其他原因 \\
+\cline{2-3}
+& 相關檢查 & 副甲狀腺素、維生素D、磷、鎂檢查判讀 \\
+\cline{2-3}
+& 治療處置 & 急性與慢性高低血鈣之治療策略 \\
+\hline
+\textbf{Level 1} & Novice & 能識別異常血鈣數值 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能判讀血鈣相關檢查,進行初步鑑別 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷高低血鈣病因,執行治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜血鈣異常,整合多重病因 \\
+\hline
+\textbf{Level 5} & Expert & 成為鈣代謝專家,處理罕見病因 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本新陳代謝內分泌科EPAs採用Case-based Clinical Competency (CCC)評量方式:
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒:} 新陳代謝內分泌科EPAs的評量重點在於漸進式能力發展,而非單次完美表現。鼓勵從錯誤中學習,持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 2, 3, 4, 5, 6, 7, 9, 10) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        整合照護類 & Multi-source Feedback & 跨科團隊評量 \\
+        (EPA 8) & (360-degree Assessment) & 病人滿意度調查 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}:選擇3-4個EPA重點評量
+    \item \textbf{季度檢討}:全面檢視所有10個EPA進展
+    \item \textbf{年度認證}:EPA達標認證與進階規劃
+    \item \textbf{即時回饋}:發現學習需求時立即介入
+\end{itemize}
+
+\section{實施建議與學習資源}
+
+\subsection{月度晨會Mini-OSCE整合建議}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2 & 糖尿病診斷與用藥基礎 \\
+        第2個月 & EPA 3, 7 & 內分泌急症處理 \\
+        第3個月 & EPA 4, 10 & 甲狀腺與血鈣異常 \\
+        第4個月 & EPA 5, 6 & 腎上腺與腦下垂體疾病 \\
+        第5個月 & EPA 8, 9 & 代謝症候群與血脂管理 \\
+        第6個月 & 綜合評量 & 整合照護能力評估 \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源}
+學員可參考以下文獻深入學習:
+
+\textbf{基礎教科書:}
+\begin{itemize}
+    \item Williams Textbook of Endocrinology. 14th edition.
+    \item The Diabetes Textbook. 2nd edition.
+    \item Endocrinology: Adult and Pediatric. 7th edition.
+\end{itemize}
+
+\textbf{臨床指引:}
+\begin{itemize}
+    \item ADA Standards of Medical Care in Diabetes (最新版)
+    \item Endocrine Society Clinical Practice Guidelines
+    \item Taiwan Diabetes Association Clinical Practice Guidelines
+    \item ACC/AHA Guidelines on the Management of Blood Cholesterol
+    \item AACE/ACE Obesity Clinical Practice Guidelines
+\end{itemize}
+
+\subsection{自我評估工具}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思
+    \item 尋求多方回饋(主治醫師、營養師、衛教師、病人)
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+    \item 參與多專科團隊會議
+    \item 定期參加內分泌個案討論會
+\end{itemize}
+
+\section{總結}
+
+新陳代謝內分泌科EPAs涵蓋了內分泌代謝疾病診療的完整核心能力,從基礎的糖尿病診斷與治療,到複雜的內分泌急症處理、腺體疾病診斷,以及整合性的代謝症候群照護。每個EPA都有清楚的能力描述與里程碑發展路徑,協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息:} 新陳代謝內分泌科EPAs的核心在於「可委託性」與「完整性」。這10個EPA代表內分泌科醫師必須具備的基礎診療能力。內分泌疾病診療的特色在於需要精確的檢驗判讀、長期的疾病管理、以及對激素調控系統的深入理解。每一次的臨床實務都是學習的機會,透過持續的實作、反思與改進,才能成為一位優秀的新陳代謝內分泌科醫師。特別重要的是,內分泌疾病常需要長期追蹤管理,培養與病人建立良好醫病關係、提供衛教指導的能力同樣重要。
+\end{importantbox}
+
+% References section
+\section{參考文獻}
+\begin{thebibliography}{10}
+
+\bibitem{melmed2020}
+Melmed, S., et al. (2020). \textit{Williams Textbook of Endocrinology}. 14th edition. Elsevier.
+
+\bibitem{defronzo2018}
+DeFronzo, R. A., et al. (2018). \textit{The Diabetes Textbook: Clinical Management of Diabetes Mellitus}. 2nd edition. Wiley-Blackwell.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{ada2024}
+American Diabetes Association. (2024). Standards of Medical Care in Diabetes—2024. \textit{Diabetes Care}, 47(Supplement 1), S1-S321.
+
+\bibitem{grundy2019}
+Grundy, S. M., et al. (2019). 2018 AHA/ACC/AACVPR/AAPA/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA Guideline on the Management of Blood Cholesterol. \textit{Circulation}, 139(25), e1082-e1143.
+
+\bibitem{garvey2016}
+Garvey, W. T., et al. (2016). American Association of Clinical Endocrinologists and American College of Endocrinology Comprehensive Clinical Practice Guidelines for Medical Care of Patients with Obesity. \textit{Endocrine Practice}, 22(Suppl 3), 1-203.
+
+\end{thebibliography}
+
+\end{document}

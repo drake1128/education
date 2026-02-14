@@ -1,0 +1,447 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文套件
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Sans CJK TC}[AutoFakeBold,AutoFakeSlant]
+\setCJKsansfont{Noto Sans CJK TC}[AutoFakeBold,AutoFakeSlant]
+\setCJKmonofont{Noto Sans CJK TC}
+\IfFontExistsTF{Noto Sans CJK TC}{}{\setCJKmainfont{Microsoft YaHei}}
+
+% 必要套件
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{datetime2}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, 
+    citecolor=blue,
+    urlcolor=blue,
+    pdfborder={0 0 0}
+}
+
+% 頁面設定
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=25pt
+}
+\addtolength{\topmargin}{-10pt}
+
+% 顏色定義
+\definecolor{header_red}{RGB}{186,24,27}
+\definecolor{header_blue}{RGB}{0,114,188}
+\definecolor{header_gray}{RGB}{120,120,120}
+
+% 標題格式設定
+\titleformat{\section}[block]{\Large\bfseries\color{header_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{header_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{header_gray}}{\thesubsubsection}{6pt}{}
+
+% 頁眉頁腳設定
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{header_red}{國立臺灣大學醫學院附設醫院新竹臺大分院}}
+\fancyhead[R]{\textcolor{header_blue}{心臟內科實習醫學生訓練計畫}}
+\fancyfoot[C]{\textcolor{header_gray}{\thepage/\pageref{LastPage}}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{header_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% 文件開始
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{header_red}{\textbf{國立臺灣大學醫學院附設醫院新竹臺大分院}}\par}
+    \vspace{2cm}
+    {\huge\bfseries 心臟內科實習醫學生訓練計畫\par}
+    \vspace{4cm}
+    
+    \begin{tcolorbox}[
+        colback=header_blue!5!white,
+        colframe=header_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{新竹臺大分院 心血管中心 編印}}\par
+    \vspace{0.5cm}
+    \end{tcolorbox}
+    
+    \vfill
+    {\large 文件編號：01R-09-0002待修訂\\
+    版次：03\\
+    訂定/修正日期：2024/11/01\\
+    檢視日期：2024/11/01\par}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\section{背景}
+心臟內科在新竹台大分院為發展相當完整的次專科，在介入性心導管、電氣生理學、心臟超音波、周邊動脈阻塞疾病等，都有全方面的發展。
+
+配合既有年輕心臟內科主治醫師訓練內容，因應醫院成為醫學中心，開始建立與拓展各職類訓練計畫，提供大新竹地區完整的急重症照護醫師開始有專門訓練。
+
+新竹分院心內與心臟外科有密切合作，提供的病患照護不限於心導管支架術，繞道與開心手術均平衡發展，兩科在心臟加護病房提供的照護內容彼此支援，很適合提供醫學生理解如何進行跨科部合作。
+
+\section{願景 (參考CanMEDS/ACGME)}
+將台大內科與台大外科百年來的醫師訓練養成，與國際最新教學方法接軌，在新竹提供在地的醫學中心等級的教學與服務。
+
+延續台大百年傳統，持續進行醫事人員訓練與教育，結合新的教學方法，帶動區域醫療。
+
+\section{教師}
+\subsection{教學課程心臟內科教學負責人}
+\begin{itemize}
+    \item 李志國主任/謝慕揚醫師 (教學計畫編寫與執行)
+    \item 余安立醫師 (計畫執行，協調，聯絡)
+    \item 呂忠穎醫師 (計畫執行，協調，聯絡)
+\end{itemize}
+
+\subsection{學歷專長}
+\begin{itemize}
+    \item Echo: 許如瑩
+    \item Electrophysiology: 林彥良，余安立
+    \item FFR: 楊欽文
+    \item Rota: 謝慕揚，劉聖甫
+    \item LM and bifurcation: 謝慕揚
+    \item VSD/ASD/PFO: 傅俊閔
+    \item PAOD: 謝慕揚，潘恆宇
+\end{itemize}
+
+\section{訓練目標 (心臟內科)}
+在2-3週的訓練時間中，希望醫五/六學生能在新竹台大分院心臟科，對於心臟科常見的疾病、檢查、治療，以及心臟科常見的共病症，能有初步的認識；此外，經由與主治醫師一同查房、門診、檢查，學習如何與病患/病患家屬溝通。
+
+此外，藉著照護病患，學習獨立思考、用藥/檢查/治療的適應症，以及書寫病歷的能力。
+
+\section{教學目標與教學內容}
+\begin{itemize}
+    \item 詳見下表
+    \item 實證醫學 (evidence-based medicine)
+    \item 全人醫療 (whole person care)
+    \item 跨領域學習
+    \item 自主學習e-learning
+\end{itemize}
+
+\section{課程活動進行模式}
+\begin{enumerate}
+    \item 受訓同仁，每日08:00參加內科部講堂活動，09:00後至2A病房報到。若無08:00內科部活動，則直接至2A病房。進階學生，則依團隊安排到CCU心臟加護病房開始學習。
+    \item 報到: 內科部2A病房NP黃秋燕/張惠婷。心導管室: 謝明倩。
+    \item 週一至週五，依據病房工作表進行上課安排。
+    \begin{enumerate}
+        \item 教學活動第一順位: 學員有直接照護病房病患，依據病患診療流程，依序陪同病患到下表中檢查單位陪同檢查並學習。
+        \item 教學活動第二順位: 學員沒有照護到病患，由病房NP直接安排當日住院病患，並進行教學: 病房Routine以及團隊溝通與醫護團隊互動禮儀。
+        \item 教學活動第三順位: 病患照護重要接觸行為與急救演練。
+        \item 教學活動第四順位: 疾病別相關教學。
+        \item 以上上課地點均在2A病房電子白板。
+        \item 教學活動第五順位: 門診教學
+    \end{enumerate}
+\end{enumerate}
+
+\section{教育執行方法與訓練過程說明}
+\subsection{新竹台大分院內科部訓練特色}
+\begin{itemize}
+    \item 院區小，樓層近，相關病房至檢查室學習距離近，學員可以隨時進入檢查室學習。例如:
+    \begin{itemize}
+        \item 心導管室就在2A心臟科病房隔壁，學員可以直接由病房區進入導管室學習導管判圖與打針技術。
+        \item 生理功能室就建置在2A心臟科病房內，學員可以隨時參與自己照護病患的運動心電圖院內之執行。
+        \item 心臟超音波室，血管超音波室，就在六樓，離6A/B病房只有10公尺。
+        \item 胃鏡室，大腸鏡室，支氣管鏡室，就在三樓。
+    \end{itemize}
+    \item 區域醫院有貼近社區的疾病分佈。
+    \item 重症醫師親自值班進行教學，也有床邊超音波的教學計畫。
+    \item 內科部每月與住院醫師進行座談，在整體大方向不改變的架構下，隨時機動調整教學訓練細節，以達成效。
+\end{itemize}
+
+\section{訓練設備}
+\begin{itemize}
+    \item 電子白板 (2A and CCU各一)
+    \item 穿刺訓練模型
+    \item 心臟超音波
+    \begin{itemize}
+        \item 六樓心臟超音波室: Philips EPIC x2, IE33 x1
+        \item CCU: handheld echo (GE VScan Extend)
+        \item 2A: handheld echo (GE VScan Extend)
+    \end{itemize}
+    \item 生理功能室
+    \begin{itemize}
+        \item 運動心電圖機
+        \item 24小時心電圖
+    \end{itemize}
+    \item 心導管室
+    \begin{itemize}
+        \item Philips 導管機
+        \item Siemens 導管機
+    \end{itemize}
+    \item Teams 電子通訊軟體，內建教學檔案資料庫
+\end{itemize}
+
+\section{訓練考核方式}
+\begin{itemize}
+    \item MiniCex
+    \item ePortfolio
+    \item 依教學部標準考核方式進行
+    \item 由臨床指導老師與授課老師 (醫師，專科護理師，放射師，護理師) 一起評核
+\end{itemize}
+
+\section{訓練期間建議研讀之雜誌及教科書}
+以下為心血管內科領域的頂尖期刊，包含出版機構、每週出刊日及推薦理由。建議學生定期查閱以掌握最新研究進展。
+
+\begin{longtable}{|p{4cm}|p{4cm}|p{2cm}|p{5cm}|}
+\hline
+\textbf{期刊名稱} & \textbf{出版機構} & \textbf{每週出刊日} & \textbf{推薦理由} \\
+\hline
+\endhead
+Journal of the American College of Cardiology (JACC) & American College of Cardiology & 每週不定時 & 最高SJR評分（9.280），涵蓋急性冠心症、介入治療及指南，影響臨床實務 \\
+Circulation & American Heart Association & 每週不定時 & SJR 8.613，聚焦臨床試驗與觀察研究，提供高影響力文章 \\
+European Heart Journal (EHJ) & European Society of Cardiology & 每週四 & SJR 6.788，出版ESC指南及臨床視角，含\href{https://academic.oup.com/eurheartj}{EHJ Dialogues} \\
+JAMA Cardiology & American Medical Association & 每週三 & 每週三線上更新，涵蓋臨床研究與政策，免費存取12個月後文章 \\
+Nature Reviews Cardiology & Nature Publishing Group & 每週不定時 & SJR 4.882，提供權威綜述，適合深入理解心血管疾病機轉 \\
+American Journal of Cardiology (AJC) & Elsevier & 每週不定時 & 實用臨床研究，快速接受至出版，適合心臟病診斷與治療 \\
+International Journal of Cardiology & Elsevier & 每週不定時 & 涵蓋基礎與臨床研究，無病例報告，強調爭議性議題 \\
+\bottomrule
+\caption{2025年心血管內科推薦期刊}
+\end{longtable}
+
+\vspace{0.5cm}
+\note{
+建議學生透過\href{https://pubmed.ncbi.nlm.nih.gov/}{PubMed}或期刊官網訂閱電子提醒，確保及時接收最新文章。出刊日可能因期刊調整而變動，宜定期查閱官網。
+}
+
+\subsection{教科書}
+以下教科書為心血管內科基礎與進階學習的權威資源：
+\begin{itemize}[nosep]
+    \item \textbf{Braunwald’s Heart Disease}：全面涵蓋心血管疾病病理、診斷與治療，適合深入學習。
+    \item \textbf{ECG Made Easy}：簡明心電圖判讀指南，適合初學者快速掌握ECG技能。
+    \item \textbf{Hurst’s The Heart}：提供臨床與基礎研究的整合視角，適合進階學習。
+\end{itemize}
+
+\subsection{線上資源}
+以下平台支援自主學習與實證醫學應用：
+\begin{itemize}[nosep]
+    \item \textbf{ESC e-Learning Platform}：提供互動式心電圖訓練及ESC指南課程。
+    \item \textbf{AHA ECG Competency Series}：線上模擬ECG判讀，強化臨床技能。
+    \item \textbf{UpToDate}：快速查詢最新診斷與治療建議，支援臨床決策。
+\end{itemize}
+
+
+
+\section{心血管中心特殊訓練項目}
+\begin{itemize}
+    \item HoloLens, 運用mixed reality實境技術，提供心臟血管解剖教學與實例，讓學員以科技輔助學習 (2023-06-18第一次舉辦)。
+    \item 核心課程條目如下面表格。
+\end{itemize}
+
+\begin{longtable}{p{4cm}p{5cm}cp{5cm}}
+\hline
+\textbf{題目} & \textbf{重要內容} & \textbf{時數(hour)} & \textbf{參考教學資料} \\
+\hline
+\endfirsthead
+\hline
+\textbf{題目} & \textbf{重要內容} & \textbf{時數(hour)} & \textbf{參考教學資料} \\
+\hline
+\endhead
+\hline
+\endfoot
+病房Routine & 張惠婷 NP \newline 認識病房routine (ward and CCU) & 1 & 新竹與竹北生醫 CV Protocol \\
+\hline
+團隊溝通與醫護團隊互動禮儀 & 謝慕揚 \newline 認識什麼是團隊決策衝突 & 1 & Lecture 醫療決策衝突.pptx \\
+\hline
+ACLS in cath room/CCU/CV ward & 連朕緯 \newline 認識急救 & 0.5 & How to perform an effective CPCR in different environments \\
+\hline
+Defibrillation & 連朕緯 \newline 認識急救動作- defibrillation & 0.5 & 如何操作電擊器? \\
+\hline
+慢性缺血性心臟病與穩定型心絞痛(Chronic ischemic heart disease and stable angina) & 劉聖甫 \newline 冠心病如何診斷與如何診斷心絞痛 & 1 & Managing Stable Ischemic Heart Disease with CKD, NEJM 2020\newline Three cases of chest pain and its DDx\newline ESC Guideline on Chronic Angina\newline Correlation of ECG, echo, and CAG \\
+\hline
+鬱血性心臟衰竭(Congestive heart failure) & 曾新育 \newline 認識心衰竭 & 1 & Heart Failure Management- A Timeline, NEJM 2014 \\
+\hline
+心臟瓣膜疾病(Valvular heart diseases) & 呂忠穎 \newline 認識瓣膜性心臟病 & 1 & Acute aortic regurgitation\newline MitraClip step by step\newline Mitral stenosis NEJM Clinical problem solving\newline Simple explanation of common murmurs \\
+\hline
+原發性高血壓(Essential hypertension) & 陳俊凱 (教學門診) & 1 & TSOC Hypertension guideline \\
+\hline
+心房纖維顫動與撲動(Atrial fibrillation and flutter) & 余安立 \newline 認識心房顫動撲動與如何照護病患 & 1 & 2023 AHA/ACC Afib guideline\newline 2020 ESC Afib guideline \\
+\hline
+急性冠心症 (Acute coronary syndrome) & 陳宗彥 \newline 認識ACS including STEMI \newline 認識post-MI mechanical complications & 1 & ESC STEMI Guideline 2017\newline STEMI determining the size and area\newline How to interpret elevated troponin levels, Circulation 2011\newline Case 8-2024 post-MI mechanical complications\newline ECG Focus on ACS \\
+\hline
+病化竇房結症候群與房室結傳導阻滯 (Sick sinus syndrome and AV block) & 余安立 \newline 認識慢的心律不整 & 1 & Bradyarrhythmia (Springer) \\
+\hline
+上心室性頻脈(Supra-ventricular tachycardia) & 余安立 \newline 認識快的心律不整PSVT & 1 & Tachyarrhythmia (Springer) \\
+\hline
+心室性頻脈與心室顫動(Ventricular tachycardia and ventricular fibrillation) & 林彥良 \newline 認識心室不整脈與ICD & 1 & PPM and CRT step-by-step (eBook) \\
+\hline
+肺水腫與心因性休克(Pulmonary edema and cardiogenic shock) & 謝慕揚 \newline 認識心因性休克與認識CCU & 1 & CXR reading for pulmonary edema \\
+\hline
+週邊血管疾病(Peripheral vascular disease) & 謝慕揚 \newline 認識血超 & 1 & Approach to PAOD \\
+\hline
+肺栓塞/深部靜脈血栓症(Pulmonary embolism/Deep vein thrombosis) & 謝慕揚 \newline 認識肺栓塞與靜脈栓塞 & 1 & Catheter-Based Reperfusion Treatment of Pulmonary Embolism\newline McConnell's sign- a Review\newline DVT- May-Thurner \\
+\hline
+主動脈瘤與剝離(Aortic aneurysm and dissection) & 林明賢 (CVS) \newline 認識主動脈疾病 & 1 & The IRAD registry on DAA \\
+\hline
+肺動脈高壓(Pulmonary hypertension) & 潘恆宇/林麟 \newline 認識肺動脈高壓 & 1 & Echo pulmonary hypertensi \\
+\hline
+次發性高血壓Secondary hypertension & 詹傑凱 \newline 認識 primary aldosteronism & & Adrenal vein sampling AVS p \\
+\hline
+導管室無菌技術 & 李志國 \newline 如何作好無菌與實際操作 & 1 & Practice of sterile technique in the cath room/CCU/CV ward \\
+\hline
+History taking and physical examination & 病房NP & 1 & Cardiology tutorial\newline Case-based learning \\
+\hline
+12 leads ECG & 呂忠穎 \newline 基本心電圖判讀案例討論 & 1 & ST elevation DDx, NEJM 2003\newline Posterior wall MI terminology, Circulation 2006 \\
+\hline
+Chest X-ray & 謝慕揚 & 1 & Felson CXR Primer \\
+\hline
+CT/MRI chest heart/vessels & 李志國 & 1 & Lecture Critical Care DAA an \\
+\hline
+Cardiac catheterization & 楊欽文 \newline CAG & 1 & Introduction of CAG to non-cardiologists \\
+\hline
+FFR and hemodynamic basics & 謝慕揚 \newline 認識血流動力學波型 (AS, HOCM, and FFR) & 1 & FFR introduction \\
+\hline
+Echocardiography & 許如瑩 \newline 認識心超 & 1 & Echo teaching.pptx \\
+\hline
+運動心電圖(Treadmill ECG) & 林彥良 \newline 認識運動心電圖 & 0.3 & CV Teaching TXT treadmill co \\
+\hline
+核子醫學心肌灌流檢查(Thallium 201 myocardial perfusion scan) & 林彥良 \newline 認識核醫檢查 & 0.3 & How to read thallium scan \\
+\hline
+Holter EKG & 林彥良 \newline 認識24小時心電圖 & 0.3 & Making sense of common Ho \\
+\hline
+\end{longtable}
+
+\section{臨床技能訓練計畫}
+\begin{itemize}
+    \item IABP
+    \item CAG
+    \item PCI
+    \item Complex PCI
+    \item PTA for dialysis access
+    \item PTA for PAOD
+    \item ICAS
+    \item EP study
+    \item ICD
+    \item PPM
+    \item Ablation for PSVT
+    \item Ablation for atrial fibrillation
+\end{itemize}
+
+\section{模擬訓練計劃}
+(略)
+
+\section{醫師核心技能(一)}
+運用床邊焦點式超音波(Point-of-Care UltraSound, POCUS)，佐以臨床理學檢查，進行病患評估。
+
+\section{醫師核心技能(二)}
+\begin{itemize}
+    \item 穿刺技術
+    \item 運用血管超音波探頭，進行即時針頭導引，進行周邊動靜脈血管穿刺。
+    \begin{itemize}
+        \item 每月固定60分鐘授課時間，列入新竹台大內科部教學活動表內，內容包含：
+        \item 20分鐘的lecture (詳見2022 POCUS 工作坊分享之檔案)，搭配10分鐘的Youtube影片 (耿立達醫師/新竹急診醫學部/新竹教學部拍攝，https://www.youtube.com/watch?v=XsIDJ01xS94\&t=384s)觀賞。
+        \item 30分鐘的實作，以新竹教研部購置之穿刺模型 (藍色矽膠塊) 搭配20G或18G長針。在實做中直接給予DOPS回饋。
+        \item 觀看自學教學影片，了解怎麼進行自我訓練。https://vimeo.com/791071731/0a94db7a10?share=copy 新竹心臟內科與總院PGY教學張博淵教授合作製作。
+        \item 對象為當月輪訓新竹台大所有R2以上住院醫師，地點在新竹醫院MICU或RCC。
+        \item 目標在訓練住院醫師於加護病房中，能安全快速進行：
+        \begin{itemize}
+            \item 周邊動脈導管置入，避免血腫甚至腔室症候群等併發症。
+            \item 周邊靜脈導管置入，以減少非緊急性中心靜脈導管置入，並提升病患接受升壓劑治療時效，符合2021年surviving sepsis campaign guideline建議。
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section{檢討改善}
+\begin{itemize}
+    \item 學員每次上課操作後，至臨床技能中心網頁 (QR code至google 表單填寫)。
+    \item 於每月底"住院醫師與專科護理師討論會/PGY導師臨床教學會議"中現場回饋。 
+\end{itemize}
+
+\newpage
+
+\section{過去受訓學員心得與建議}
+\subsection{蕭力夫 (2023-07-03 to 2023-07-14, 醫學系四年級生)}
+在這兩週的心臟內科實習中，我獲得了許多珍貴的臨床經驗，也深深被急重症領域吸引。雖然當時我還是個菜鳥，尚未正式進入臨床學習，但幸運的是，老師們根據我的狀況設計了一套合適的訓練模式，讓我能夠積極參與各種臨床活動。雖然我尚未直接照護病人，但有機會跟隨導管室的工作，學習心臟超音波技術，並進入加護病房和急診室，與醫師們一同評估重症病人。
+
+在這段時間裡，最讓我印象深刻的是，兩週後在老師的指導下，我已經能夠協助病人進行心臟超音波檢查並成功取像。尤其是學習如何獲得apical 4 chamber view和parasternal long axis view的過程中，雖然還無法獨立完成完整的報告，但能夠在床邊與主治醫師一起討論病人的心臟收縮力，並針對用藥方案進行即時討論，這對我來說是一段非常寶貴且難得的學習經歷。
+
+這裡的環境也非常有利於學習，檢查室、導管室和病房區的設置緊密相連，讓我隨時可以觀察到不同的臨床情境，學到更多的專業知識。老師們的教學不僅非常專業，還充滿親和力，即便醫院的工作節奏非常繁忙，老師們仍會在忙碌中抽出時間，進行細緻的指導，這使我受益匪淺。
+
+作為新竹人，我特別選擇回到家鄉進行這次實習，也讓我對當地的醫療環境有了更深入的了解。這段時間的學習與觀察，使我對急重症領域的興趣更為堅定，也讓我對未來的專業發展充滿了信心。
+
+如果你對急重症或心臟內科有興趣，並且想提升自己的臨床技能，我強烈推薦來這裡實習。這裡不僅能提供豐富的臨床經驗，還能在專業醫師的指導下，幫助你迅速成長和進步。
+
+\subsection{林怡汎 (2015-08-01 to 2016-07-31, R1)}
+在開始回饋心得之前,先容我致一段感謝詞,因為如果沒有這些前輩,我也不會有機會實地參與這個計畫。首先是謝慕揚學長,感謝你打電話打通關節,讓我可以理直氣壯地去跟各個超音波檢查。再來要感謝胡文皓學長,從基本功開始指導我腹部超音波,包括:超音波介面設定、擺放探頭的手法、辨認器官、檢查順序、正常及異常型態、擷取圖片完成報告等,循序漸進並且實務地讓我熟悉這項技術。接著要感謝楊為舜醫師,老師很深入去思考病人的問題,教導我不要頭痛醫頭、腳痛醫腳,片面式地評估病人,要綜觀全面真正為病人著想。當時討論到的病患,我之後還有繼續再追蹤。最後要感謝曾經指導過我超音波的學長們:張立禹學長、張家豪學長、詹傑凱學長、蔡明宏學長、李志國學長、江君揚學長和廖哲偉學長,或許你們已經忘記曾經教過我甚麼,不過我都有默默記在心裡,謝謝你們!
+
+回到超音波教學計畫本身。我的臨床課程有六個月在新竹分院,從一零四年八月到一零五年一月,我是在十月中進入這個課程,最初是從最常用的腹部超音波開始。我參加課程的具體方法,是早上九點至十點間快速看完病人並開完重要的醫囑,在十點半到十一點左右到超音波室見習。胡文皓學長的時段是在周三周四早上,一開始謝慕揚學長說一周一小時就夠了,但是我如果行有餘力就兩天都會去跟檢查。
+
+大約見習兩、三周以後,學長開始讓我對病人練習,他一開始會挑選體型適合且正常器官型態的病患,大約在我學習超音波滿兩個月過後,他會在該檢查診的後段放慢速度,讓我有餘裕慢慢掃超音波,他則一邊撰寫前一位病患的報告,這時候我開始遇到肥胖病患、慢性肝炎、膽囊切除術後、血管瘤等五花八門的病例,了解到甚麼是好做檢查、甚麼是不好做檢查的病患,也才知道為什麼有的醫師會帶護腕做超音波。
+
+至於腎臟超音波,我是跟楊為舜醫師和詹傑凱醫師學習。剛好有一個月我是跟著詹傑凱學長,所以那個月有機會掃自己的病人。相較腹部超音波,腎臟超音波比較單純一點,基本的判斷大小、水腎、囊泡、腫瘤,大約一到兩堂課時間就可以講完,但還是要累積實務經驗,才能訓練敏銳的觀察力,並且從細微的型態差別去做鑑別診斷。
+
+胸腔超音波的部分,由於時常有抽胸水的機會,所以在病房就累積不少實務經驗。若事前評估斷層影像就覺得會有困難,或者實際進針後不順利,主治醫師都會到場支援,所以也能從困難抽水的病例中學習到東西。後來曾跟自己的病患到超音波室看檢查,體驗到在高級的機器才看得到的畫面,例如fluid color sign和B mode等。
+
+心臟超音波方面,其實謝慕揚學長就介紹了很多,我也偷偷把過去CR們撰寫的教學檔案拷貝到自己的硬碟中,不過心臟超音波的入門門檻頗高,光是擺位跟抓探頭位置,就需要練習多時。老實說我還沒有很熟練心臟超音波,大概以subcostal fourchamber view為最常用到的技術,基本判斷有無心包積水、四個房室的大小、跳動的一致性等。後來謝慕揚學長說我可以自己用病房的超音波診斷病患下肢靜脈血栓,於是我又跑去向檢查室技術員姐姐和心血管外科羅健洺醫師學習血管超音波。
+
+回總院後,有一次R3學長想帶我們找休克病人的下腔靜脈來評估水分狀態,他在腹超範圍找不到血管,從subcostal view的右心房往下追蹤卻找不到,後來換R2也找不到,換到我的時候,我探頭一放上去就是下腔靜脈進入右心房的畫面。這件事給我很大的鼓舞,後來R2默默對我說:結果妳掃得最好。還有一次值班我推床邊超音波去掃一位疑似肺栓塞病患的心臟,看到右心房右心室型態正常,心中就比較放心。
+
+甲狀腺超音波是比較可惜的部分,我在新竹沒有去跟甲超診,軟組織超音波也沒有。不過我回總院後到急診輪訓,曾在超音波指引後進行過關節液抽吸。照會的骨科學長說,他們臨床實務會用手檢查判斷可抽後,便直接抽取。不過,當時在超音波定位後,就更有信心可以一針到位。
+
+這個超音波計畫實行的最大困難,應該是如何克服忙碌的臨床工作,固定每周一至兩次去跟檢查。在分院推行計畫較總院容易成功的原因,包括病人疾病相對單純、與病人或家屬溝通的時間相對少、跨科部照會溝通的時間相對少、病房與檢查室距離較近、與主治醫師零距離不用跟fellow和CR搶位置等。許多住院醫師同事都向我反應過,明明在總院照顧的病人數就比分院少很多,可是每天都在瞎忙不知道在忙甚麼。每周要擠出一個小時不應該是一件那麼困難的事。相對來說,總院比分院有的優勢則是超音波機台較多、品質也較好,不過在分院如果有持續性的學習,每周一次使用檢查室機器練習,也能夠慢慢進步。
+
+整體評估起來,若之後分院打算實行超音波學習計畫,是可行的。首先學員要具備堅強意志力和處理事情的效率,克服困難撥出空檔固定每周一至兩次報到。其次是要找到熱血、熱情、願意花時間指導學員的臨床導師們。再來就是擬定教學時程跟教學目標,例如:一堂課要學會看水腎、四堂課要學會看氣胸、八堂課要學會看室壁運動異常等。有了具體目標,學員便有了方向,知道自己要學甚麼,這樣才會學得快。最理想是上課一段時間後,往前回顧學習內容,由導師評估學習成效。分院的優勢是住院醫師跟主治醫師的距離感較小,學員們比較能大膽問問題,從自己的盲點中獲得學習。
+
+總結以上,我在分院主訓六個月,最大收穫便在於超音波的學習。記得PGY時曾被婦產科某名醫批評產科超音波技術很差,他還跟其他PGY學員們提這件事情,把我當時陰影不小。後來有一次謝慕揚學長對我說,要好好運用超音波的技術拿來救人!這句話聽起來真的很熱血,也鼓舞著我、支持我繼續學習超音波。
+
+\subsection{Peter Chang (2017-04 to 06, 短期學員)}
+(Peter是新加坡國立心臟中心的短期學員，他在2017年來心血管中心短期學習兩個月，雖然已經是主治醫師，但是對於洗腎病患透析血管他則像是clerk一樣從頭學習)
+
+您在台大醫院新竹分院接受洗腎動靜脈管路導管治療訓練的期間：
+2016 年 4-6月，期間共約 2 月。
+
+您接受指導訓練後，目前在自己的單位執行AV shunt PTA的量約為：16 台/月。
+
+您覺得本單位訓練的優點為：
+
+NTUH Hsinchu Branch is a high volume center with a busy AV shunt PTA service that is excellent for training. Working in collaboration with dialysis centers off-site, the service works in a streamlined fashion and minimizes the time lapsed between the dialysis center and the eventual PTA therapy. The service is staffed by experienced operators and seasoned ancillary staff providing excellent results for the patients. Til this day, I am impressed by the efficiency with which the service is run and the cost-effective delivery of endovascular therapy. Furthermore, the staff and the attendings are friendly, approachable, and readily share their know-how with the trainees.
+
+您想給本單位的建議為：
+
+For a more complete training in shunt management, I would recommend that the trainee spend time in the dialysis centers that transfer patients to NTUH and understand how shunts are assessed during hemodialysis as well as indicators for problematic access. It would provide a more longitudinal care from discussion of renal replacement therapy to creation of dialysis access to problems during dialysis and finally endovascular therapy.
+
+您想給本單位的評價是？若有機會，會推薦同事來本院受訓嗎？
+
+Excellent training program. I would definitely recommend my colleagues for a similar training in NTUH Hsinchu.
+
+% \subsection{林振傑 (2016-08-01 to 2016-08-31, PGY)}
+% (略)
+
+\subsection{曾新育 (2015-12-01 to 2015-12-31, PGY)}
+新竹台大心臟內科的特點在於病房、心導管室和心臟功能檢查室均位於同一區域，急診與心臟內科加護病房也在附近。因此主治醫師都會在附近出沒，醫學生和住院醫師能夠在病房學習的同時，方便地安排時間跟隨主治醫師一同參與會診與心導管業務。
+
+我自己在一個月內的期間就跟過主治醫師一起到到急診看STEMI會診，並跟到心導管室參與整個D2W的治療。平常在病房接的病人也可以到導管室參與手術，甚至在主治醫師的cover有可以有操作導管治療的機會。絕對是難能可貴的學習經驗。
+
+% \subsection{藍鼎淵 (2016-06-01 to 2016-06-30, PGY)}
+% (略)
+
+\subsection{余安立 (2017-07-01 to 2017-07-31, PGY)}
+新竹台大心臟內科的優勢在於心臟科病房、心導管室與心臟功能檢查室都在同一個空間，因此在病房學習的同時，可以很容易的安排出時間跟著主治醫師到心導管室學習，這是醫學生或住院醫師階段都很難得的機會，藉由觀摩自己照顧的病人的心導管過程，可以更好的了解心臟科病人的診治過程。
+
+另外，新竹台大心臟內科的特色在於完整的床邊超音波教學，可以提前學習到很對在各科都用得上的超音波基本技巧，超音波的機器各單位都有，也有老師們指導可以自己動手操作，可以幫助未來執行procedure或在各科值班處理病人時有更多信心。
+
+% \subsection{呂忠穎 (2017-09-01 to 2017-09-30, PGY)}
+% (略)
+
+% \subsection{呂忠穎 (2017-09-01 to 2017-09-30, PGY)}
+% (略)
+
+\label{LastPage}
+\end{document}

@@ -1,0 +1,980 @@
+\documentclass[12pt,a4paper]{article}
+
+% 這是一份latex 文件的 preamble
+% 作者: 謝慕揚, MD, PhD, FESC
+% 表格請注意換行,不該在cell內使用 \\
+% 表格請不要有垂直分隔線 |
+
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{醫學教育文獻整理}}
+\fancyhead[R]{\textcolor{emergency_blue}{謝慕揚, MD, PhD, FESC}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Defining custom date format for ISO 8601
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+\begin{document}
+
+\title{\textcolor{emergency_red}{重振床邊臨床會診的策略}}
+\author{\textcolor{emergency_blue}{文獻整理：謝慕揚, MD, PhD, FESC}}
+\date{\textcolor{emergency_gray}{\mydate}}
+\maketitle
+
+\section{文章基本資訊}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{12cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{項目}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{項目}} & \textbf{\textcolor{emergency_red}{內容}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+期刊 & New England Journal of Medicine (NEJM) \\
+文章標題 & Strategies to Reinvigorate the Bedside Clinical Encounter \\
+作者 & Brian T. Garibaldi, M.D., M.E.H.P.$^1$ 和 Stephen W. Russell, M.D.$^2$ \\
+所屬機構 & $^1$Center for Bedside Medicine, Northwestern University Feinberg School of Medicine, Chicago \newline $^2$Department of Medicine, University of Alabama at Birmingham, Birmingham \\
+發表日期 & November 12, 2025 \\
+DOI & \href{https://doi.org/10.1056/NEJMra2500226}{10.1056/NEJMra2500226} \\
+文章類型 & Review Article (Medical Education series) \\
+編輯 & Jeffrey M. Drazen, M.D., Raja-Elie Abdulnour, M.D., and Judith L. Bowen, M.D., Ph.D. \\
+聯絡資訊 & brian.garibaldi@northwestern.edu \\
+\end{longtable}
+
+\section{核心要點 (Key Points)}
+
+\note{21世紀的醫學學習者在訓練期間與病人接觸的時間遠少於20世紀的同儕，這導致床邊臨床技能的知識和實踐下降。}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{核心概念}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{核心概念}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+醫學學習者在訓練期間與病人直接接觸的時間僅佔13\%，導致基本床邊技能的衰退 \\
+
+床邊臨床技能的下降導致診斷錯誤、臨床結果不佳、醫療成本增加以及醫師倦怠 \\
+
+帶領學習者到床邊有助於培養臨床觀察技能，創造技能練習機會，並允許實證基礎的理學檢查技能示範 \\
+
+將即時照護技術和人工智慧整合到臨床會診中，可補充人類觀察、人類臨床決策制定和人類溝通 \\
+
+在特定情境中尋求提供臨床技能回饋的機會，可改善床邊技術以及從會診中獲得的資訊解釋 \\
+
+除了床邊臨床會診獲得的診斷數據外，理學檢查幫助學習者應對臨床不確定性，幫助教師示範與病人的互動，改善醫病溝通，增加專業成就感，並幫助解決醫療保健差異 \\
+\end{longtable}
+
+\section{問題背景：我們如何走到這一步？}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{層面}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{層面}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_blue}{歷史傳統} & 早期美國醫學教育依賴分層系統，從19世紀初的個別導師制到世紀中期授予學位的醫學院。20世紀初，越來越多美國醫學院遵循Sir William Osler等臨床教育大師在約翰霍普金斯醫院的模式，學生「檢查病人、做出診斷、聽到病肺的囉音、觸摸到腫瘤的異物和非人類的大理石質地」 \\
+
+\textcolor{emergency_blue}{技術導向} & 基於技術的檢測將診斷過程轉移到實驗室和放射科，造成一種錯誤印象：醫師看到、感覺到、聽到和聞到的東西不再準確或可靠 \\
+
+\textcolor{emergency_blue}{電子病歷影響} & 電子健康記錄（EHR）創建的工作流程迫使醫師花更多時間與病人的數位呈現（「iPatient」）相處，而不是與實際的人相處 \\
+
+\textcolor{emergency_blue}{工時與經濟壓力} & 隨著工作時間的變化和經濟壓力，產量優先於床邊評估和教育。醫師與病人相處的有限時間越來越碎片化 \\
+
+\textcolor{emergency_blue}{效率迷思} & 一些醫師和實習生錯誤地認為去床邊是低效率的。一些人擔心在病人面前討論照護的複雜性會導致病人的不適或困惑 \\
+
+\textcolor{emergency_blue}{不確定性挑戰} & 去床邊帶來的不確定性對教育者和學習者都可能令人生畏 \\
+
+\textcolor{emergency_blue}{個人防護設備} & 雖然個人防護設備保護醫師和病人免受傳染病傳播（René Laënnec，聽診器的發明者，死於結核病），但物理障礙可能延長查房時間、降低溝通、觸診和聽診等活動的準確性，並限制與病人接觸的總時間 \\
+
+\textcolor{emergency_blue}{查房轉移} & 傳統上作為床邊教學堡壘的晨間查房已經轉移到走廊，與實際病人相處的查房時間不到20\% \\
+\end{longtable}
+
+\section{床邊會診的持久價值}
+
+\begin{importantbox}
+\textbf{實證支持床邊會診的重要性}
+
+\begin{itemize}
+\item 在導致住院的急診室就診中，病史採集和理學檢查在近40\%的病例中得出診斷，另外33\%的診斷是通過添加簡單的檢查得出的
+\item 適當的理學檢查可以避免額外診斷檢測的需要，然而理學檢查最常見的錯誤就是根本不進行檢查
+\item 在過夜入院的病人中，主治醫師在第二天早上進行理學檢查後，在26\%的病例中發現了關鍵診斷
+\item 當團隊在照護交接後去床邊時，鑑別診斷在20\%的時間內發生實質性變化
+\item 除了床邊查房的診斷重要性外，病人通常更喜歡床邊查房，並在床邊進行查房時感覺他們的團隊更關心他們作為個體
+\end{itemize}
+\end{importantbox}
+
+\section{六大重振床邊醫學文化的策略}
+
+\subsection{策略總覽表}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{策略}} & \textbf{\textcolor{emergency_red}{理由}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{策略}} & \textbf{\textcolor{emergency_red}{理由}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_blue}{策略1：去床邊觀察（病人和實習生）} & 觀察構成理學檢查的基礎，可以為許多疾病的診斷和預後提供有價值的線索。直接觀察實習生的臨床技能對於提供可操作的具體回饋至關重要。觀察技能可以通過在非醫學情境中的練習來改善 \\
+
+\textcolor{emergency_blue}{策略2：實踐和教導實證基礎的理學檢查方法} & 理學檢查應該像任何其他診斷測試一樣，以假設驅動的方法使用。在許多情況下，理學檢查仍然是參考標準診斷測試。在其他情況下，似然比可以幫助選擇適當的理學檢查操作，通過將該操作與基於技術的測試進行比較 \\
+
+\textcolor{emergency_blue}{策略3：創造刻意練習的機會} & 床邊時間有限，因此教育者需要創造刻意練習床邊技能的機會。傳統的晨間查房仍然是教授床邊臨床技能的最佳機會。其他教學課程，如晨間報告、午餐會議或專門的理學檢查課程，可以提供練習機會 \\
+
+\textcolor{emergency_blue}{策略4：使用技術教授和加強臨床檢查技能} & 即時照護技術（例如數位聽診器和超音波）是床邊檢查的一部分。它增強診斷，允許學習者校準理學檢查技能，並將教育者、學習者和病人聚集在一起。遠距醫療改善了照護的可及性，並允許臨床醫師在病人的家庭環境中探視病人。人工智慧可以減輕行政負擔，協助臨床推理過程，並幫助獲取數據。在床邊使用現有或新技術時，重要的是要意識到偏見的可能性 \\
+
+\textcolor{emergency_blue}{策略5：尋求和提供臨床技能回饋} & 在美國，與真實病人一起直接觀察和回饋臨床技能是罕見的。評估可以推動學習。與真實病人一起的形成性評估可以告知個別學習計劃 \\
+
+\textcolor{emergency_blue}{策略6：認識床邊會診超越診斷的力量} & 以好奇心接近每次會診可以幫助醫師應對不確定性。進行適當的病史採集和理學檢查有助於病人感到被照顧，並可以產生治療效果。使用實證基礎的方法與病人完全在場，可以改善醫病關係並增加專業成就感。在床邊花時間可以幫助解決醫療保健不平等 \\
+\end{longtable}
+
+\section{策略一：去床邊觀察}
+
+\subsection{修訂的Sutton定律}
+
+\begin{importantbox}
+\textbf{Sutton定律的應用}
+
+惡名昭彰的罪犯Willie Sutton據說曾說過：「我搶銀行是因為那裡有錢。」應用於醫學，Sutton定律傳統上意味著「立即進行最有可能提供診斷的診斷測試」。
+
+修訂的Sutton定律可能表示：為了改善床邊臨床技能，你需要去病人所在的地方：床邊。
+
+現代的「床邊」不僅包括醫院房間或門診診所，還包括遠距醫療會診或家庭健康訪視。
+\end{importantbox}
+
+\subsection{觀察的重要性}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{觀察技能的價值}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{觀察技能的價值}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+觀察是最重要和最未被充分利用的臨床技能之一，可以幫助建立診斷以及臨床教學 \\
+
+James Parkinson對「震顫性麻痺」的描述幾乎完全依賴於他對病人的直接觀察 \\
+
+從床尾甚至從走廊觀察病人，可以揭示對理解診斷、預後和病人個人情況至關重要的線索 \\
+
+刻意練習可以改善觀察技能。在臨床前期，在非醫學情境中（例如觀看藝術）練習觀察可以改善臨床領域的觀察 \\
+
+觀察學習者參與臨床會診提供了評估和回饋其臨床技能的豐富機會 \\
+
+教師直接觀察臨床技能的能力和信心可以通過練習來改善 \\
+\end{longtable}
+
+\section{策略二：實踐和教導實證基礎的理學檢查方法}
+
+\subsection{假設驅動的理學檢查}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{12cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{步驟}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{步驟}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_blue}{問題背景} & 在醫學院，理學檢查通常以從頭到腳的方式教授，而不是作為閾值基礎臨床決策方法的一部分。這種策略可能導致一些醫師將基於技術的測試優先於理學檢查 \\
+
+\textcolor{emergency_blue}{第一步：估計檢前機率} & 使用從病人病史和特定情境下疾病流行率的知識中獲得的線索，估計診斷假設的檢前機率 \\
+
+\textcolor{emergency_blue}{第二步：選擇理學檢查操作} & 如果需要額外的數據收集，臨床醫師可以選擇針對疑似診斷的適當理學檢查操作。一些理學檢查發現是所討論疾病的病理特徵（例如帶狀疱疹的皮疹或蜂窩組織炎的外觀和溫暖） \\
+
+\textcolor{emergency_blue}{第三步：比較準確性} & 在許多情況下，理學檢查發現的準確性和可靠性是通過與基於技術的測試進行比較來確定的（例如，在診斷射血分數降低的心衰竭時，將側向移位的心尖搏動和第三心音與超音波心動圖進行比較） \\
+
+\textcolor{emergency_blue}{第四步：決定後續} & 使用從病史和假設驅動的理學檢查中獲得的資訊，臨床醫師可以決定是否需要額外的測試，或者是否有足夠的資訊來做出診斷並提供治療建議 \\
+\end{longtable}
+
+\section{策略三：創造刻意練習的機會}
+
+\subsection{床邊查房的優化}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{面向}} & \textbf{\textcolor{emergency_blue}{策略}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{面向}} & \textbf{\textcolor{emergency_blue}{策略}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_red}{效率提升} & 在查房期間與學習者和教師一起在床邊進行以病人為中心的醫學教育可以提高效率並增強醫師滿意度 \\
+
+\textcolor{emergency_red}{即時問題識別} & 在病人房間內查房可識別需要立即處理的問題，有助於制定共同的醫療議程，並加快測試、治療和會診的安排 \\
+
+\textcolor{emergency_red}{準備工作} & 教師應為病人和學習者準備床邊查房期間的預期內容 \\
+
+\textcolor{emergency_red}{編排互動} & 通過為醫療團隊成員分配任務（如訂單輸入或從EHR檢索數據）來編排床邊互動。分配角色有助於集中臨床陳述，留出時間澄清重要的病史數據，並將理學檢查的細節整合到病例陳述中 \\
+
+\textcolor{emergency_red}{結構化時間} & 與病人一起的結構化時間也提供了教學機會 \\
+\end{longtable}
+
+\subsection{高效床邊教學工具}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{工具}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{工具}} & \textbf{\textcolor{emergency_red}{說明}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_blue}{\href{https://meded.ucsf.edu/resource/clinical-teaching-tools-omp-and-snapps}{One-Minute Preceptor}} & 一分鐘指導者模型（五步驟微技能模型），提供快速有效的教學架構。由Neher等人於1992年發展，包含五個步驟：獲得承諾、探查支持證據、教授一般規則、強化正確做法、糾正錯誤。原始文獻：\href{https://pubmed.ncbi.nlm.nih.gov/1496899/}{Neher JO, et al. J Am Board Fam Pract. 1992;5:419-424} \\
+
+\textcolor{emergency_blue}{\href{https://www.amjmed.com/article/S0002-9343(16)30209-1/fulltext}{Five-Minute Moment}} & 五分鐘時刻由Stanford Medicine 25發展，結合了與理學檢查發現相關的難忘小插曲、如何正確進行檢查操作的資訊以及發現的相關性數據。如果時間允許，可以結合多個腳本教學工具，為病人的主訴創建更全面的方法。原始文獻：\href{https://www.amjmed.com/article/S0002-9343(16)30209-1/fulltext}{Chi J, et al. Am J Med. 2016;129:792-5}。更多資源請見：\href{https://stanfordmedicine25.stanford.edu/}{Stanford Medicine 25} \\
+\end{longtable}
+
+\subsection{選擇性床邊教學}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{策略}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{策略}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+在晨間查房期間與整個團隊一起看每位病人通常是不可能的 \\
+
+臨床教育者可以通過選擇病史或理學檢查可能有助於闡明診斷的情況來優先考慮與學習者一起看哪些病人 \\
+
+例如，集中的心肺檢查可以幫助區分慢性呼吸困難病人的慢性阻塞性肺病和心衰竭 \\
+
+由於相當比例的住院入院是由於心肺疾病，學習如何進行針對性心肺檢查對大多數臨床醫師都很有用 \\
+
+教育者還可以根據特定的陳述選擇病人，這些陳述將為教育者和學習者提供改善其臨床技能的機會 \\
+
+鑑於「神經恐懼症」是醫學訓練中常見的現象，看有神經系統症狀的病人對於診斷和教學通常都是高收益的努力 \\
+
+在傳統查房之外帶學習者到床邊也可能很有價值。例如，檢查有新的或惡化臨床狀況的病人可以實時展示床邊會診在診斷和臨床決策中的價值。這種類型的「反應式學習」是工作場所非正式學習的重要組成部分 \\
+\end{longtable}
+
+\subsection{專門的理學檢查課程}
+
+\begin{importantbox}
+\textbf{常規照護之外的床邊課程}
+
+作者之一領導定期課程，其中實習生提供他們想要探索的患有未知病人的主訴或症狀。團隊去床邊進行理學檢查（如果適當，包括超音波檢查），就存在的發現達成一致，討論發現的潛在臨床意義，並將它們與影像學研究和其他診斷測試的可用結果進行比較。
+
+這些教育課程展示了床邊臨床發現的價值，並將檢查技術與影像學結果進行校準。這些課程還提供了慶祝實習生發現的機會，並承認床邊檢查的局限性（例如，當檢查和超音波檢查的發現未能發現診斷時）。
+\end{importantbox}
+
+\subsection{利用傳統教學會議}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{應用}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{應用}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+教師可以利用傳統的教育課程來教授和練習臨床技能 \\
+
+例如，在晨間報告陳述後，團隊去床邊進行集中的病史採集和理學檢查。使用這種策略時，床邊發現可能導致鑑別診斷的實質性變化（例如，懷疑脫水引起腎衰竭的病人被發現患有失代償性心衰竭） \\
+
+傳統的晨間報告或其他會議也可以用於使用標準化病人（受過訓練以模擬疾病症狀的人）或健康志願者示範和練習特定的理學檢查操作。\href{https://stanfordmedicine25.stanford.edu/}{Stanford Medicine 25}提供了豐富的理學檢查教學資源和視頻示範 \\
+\end{longtable}
+
+\subsection{早期開始的重要性}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{關鍵考量}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{關鍵考量}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+床邊課程應在醫學院早期開始，因為習慣形成得早並影響整個醫師職業生涯的臨床實踐 \\
+
+參與與真實和標準化病人一起觀察的床邊臨床會診的臨床前學生，在其三年級實習結束時，比未參與此類課程的臨床前學生具有更好的臨床技能 \\
+
+然而，當臨床前學生進入臨床輪轉並且沒有看到醫師在病人的日常照護中使用病史和理學檢查時，他們很快將重點轉向EHR和基於技術的測試 \\
+\end{longtable}
+
+\section{策略四：使用技術教授和加強臨床檢查技能}
+
+\subsection{聽診器技術的演進}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{技術進展}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{技術進展}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+Laënnec在兩個世紀前發明的聽診器仍然是醫學中最重要的技術進步之一 \\
+
+新技術擴大了聽診器的診斷能力。數位聽診器允許同步聽診，並實時顯示聲譜圖和心電圖 \\
+
+人工智慧演算法有助於心律不整和瓣膜性心臟病的診斷 \\
+\end{longtable}
+
+\subsection{即時照護超音波 (POCUS)}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{POCUS的價值}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{POCUS的價值}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+POCUS可以建立傳統理學檢查無法發現的診斷 \\
+
+POCUS允許學習者通過將檢查發現與病理生理特徵的實時視覺化聯繫起來，校準他們的理學檢查技能 \\
+
+人工智慧演算法可以協助學習者進行影像獲取和解釋 \\
+
+POCUS的真正力量在於它將病人、醫師和實習生聚集在床邊。為了精通POCUS，醫師需要與病人在一起，展開對話，並適當地揭露要檢查的身體部位。在這個過程中，重要的病史線索和理學檢查發現變得明顯（例如，胸骨切開術疤痕或起搏器） \\
+
+醫師還可以通過向病人展示病理生理特徵的實時影像，與病人建立聯繫並讓他們參與共同決策 \\
+\end{longtable}
+
+\subsection{技術克服障礙}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{應用場景}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{應用場景}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+技術可以幫助克服臨床檢查的物理障礙（例如限制觸摸和聽力的個人防護設備），並在將病人轉運到掃描儀不可行時提供實時診斷（例如由於臨床不穩定或感染預防需要） \\
+
+技術還重新定義了床邊的概念，包括遠距醫療，允許病人在醫師協助下進行病人主導的理學檢查，同時為醫師提供對病人家庭環境的洞察 \\
+\end{longtable}
+
+\subsection{新興技術與人工智慧}
+
+\begin{importantbox}
+\textbf{人工智慧在床邊的角色}
+
+新興技術有可能進一步修改床邊臨床會診。例如，多模態人工智慧系統有朝一日可能能夠協助觀察和視覺檢查病人。大型語言模型在臨床推理任務中顯示出前景。
+
+也許人工智慧更直接和有用的影響將是減輕EHR施加的行政負擔，釋放出與病人直接接觸的時間。
+
+無論床邊人工智慧的角色如何形成，人工智慧交互的結果應該始終告知而不是取代床邊的人類觀察、人類臨床決策和人類溝通。床邊臨床技能在人工智慧支持的臨床工作場所中將更加重要，這突顯了需要更加強調對這些技能的直接觀察和回饋。
+\end{importantbox}
+
+\section{策略五：尋求和提供臨床技能回饋}
+
+\subsection{床邊回饋的挑戰與策略}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{面向}} & \textbf{\textcolor{emergency_red}{考量}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{面向}} & \textbf{\textcolor{emergency_red}{考量}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_blue}{複雜性} & 在病人面前向學習者提供回饋是一項複雜的技能，特別是如果回饋涉及糾正理學檢查技術的錯誤或修改鑑別診斷或治療計劃 \\
+
+\textcolor{emergency_blue}{潛在風險} & 提供不當的回饋可能破壞實習生與病人之間的關係 \\
+
+\textcolor{emergency_blue}{正向效果} & 如果以特定情境和周到的方式提供，床邊回饋可以向病人保證整個團隊都投入到他們的照護中 \\
+
+\textcolor{emergency_blue}{設定期望} & 在提供床邊回饋之前設定對病人和學習者的期望至關重要；這個過程可能涉及事先提醒病人和團隊將提供回饋，並尋求學習者的特定需求領域 \\
+
+\textcolor{emergency_blue}{避免術語} & 儘可能避免使用醫學術語可以改善溝通和教育 \\
+
+\textcolor{emergency_blue}{事後匯報} & 床邊會診後與學習者簡短的匯報可以加強要點並確定改善未來經驗的方法 \\
+\end{longtable}
+
+\subsection{直接觀察的現況}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{美國現況}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{美國現況}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+儘管床邊回饋很重要，但在美國，與真實病人一起直接觀察和評估臨床技能是罕見的 \\
+
+美國醫學教育反而依賴於使用多項選擇考試的醫學知識總結性評估來確定學習者的發展能力 \\
+
+在許多其他國家，內科住院醫師在畢業時需要通過考試，在考試中他們與真實病人會面，同時由教師觀察員評估 \\
+
+高風險評估可以推動學習。經歷過這種經驗的非美國訓練醫師通常在臨床檢查技能方面更流利，並且對病人照護中床邊會診的價值有更廣泛的認識，而不是美國訓練的醫師。這種經驗可能轉化為病人更好的結果 \\
+\end{longtable}
+
+\subsection{APECS評估系統}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{APECS系統說明}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{APECS系統說明}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+雖然在美國沒有高風險、總結性臨床技能考試的興趣，但需要在訓練中納入更多直接觀察 \\
+
+理學檢查和溝通技能評估（APECS）是內科住院醫師的形成性經驗，包括與真實病人的綜合性、僅理學檢查、遠距醫療和POCUS會診 \\
+
+住院醫師在七個臨床領域中接受評估，並從有經驗的教師那裡獲得個別化的實踐回饋 \\
+
+APECS強調了理學檢查的持久價值。使用APECS評估實習生理學檢查技能的研究顯示，良好的技術與正確理學檢查發現的識別顯著相關，良好的技術和理學檢查發現的識別都與正確鑑別診斷的制定顯著相關 \\
+
+直接觀察實習生也提供了回饋的機會。在另一項納入APECS的研究中，只有一半參與嚴重主動脈瓣逆流病人檢查的實習生認識到特徵性舒張期雜音 \\
+
+兩個常見的觀察到的錯誤（學習者也犯了這些錯誤）是通過袍服或衣服聽診，以及在感覺橈動脈脈搏時聽心臟（而不是心尖搏動或頸動脈脈搏）。這些是技術上的簡單錯誤，可以輕鬆糾正 \\
+
+APECS也提供了教師發展的機會，因為來自不同專科和具有不同經驗程度的醫師與學習者配對作為指導者 \\
+\end{longtable}
+
+\subsection{日常工作流程中的評估工具}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{11cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{工具}} & \textbf{\textcolor{emergency_blue}{說明}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{工具}} & \textbf{\textcolor{emergency_blue}{說明}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textcolor{emergency_red}{Ten-Minute Moment} & 床邊醫學學會創建了用於日常工作流程的十分鐘時刻，其中教師觀察學習者進行集中的理學檢查，並在基於技能的工作表的幫助下提供實時回饋 \\
+
+\textcolor{emergency_red}{Mini-CEX} & 迷你臨床評估練習（Mini-CEX）是另一個常用的工具，用於指導基於工作場所的觀察和後續回饋 \\
+\end{longtable}
+
+\section{策略六：認識床邊會診超越診斷的力量}
+
+\subsection{應對臨床不確定性}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{不確定性管理}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{不確定性管理}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+臨床醫學是在不確定性的背景下進行的。無論手頭的任務是建立診斷、做出治療決定還是提供臨床後續追蹤，不確定性都是床邊病人照護的一部分 \\
+
+承認這一事實允許病人、臨床醫師和實習生共同協商不確定性，這可以加強醫病關係 \\
+
+教育者可以展示以減輕不確定性的一個屬性是好奇心。好奇心，如Fitzgerald在1999年的一篇文章中所定義的，「是調查、發現的衝動」，當應用於臨床醫學時，好奇心允許將病人視為一個人，將體徵和症狀視為故事中的固定片段 \\
+
+以好奇心接近床邊會診允許臨床醫師有效地與病人和學習者合作 \\
+\end{longtable}
+
+\subsection{完全在場的價值}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{完全在場的好處}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{完全在場的好處}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+使用實證基礎的方法在與病人互動期間完全在場，例如有意圖地準備、專注地傾聽和就重要事項達成一致，允許在床邊花費的時間產生的不僅僅是臨床線索 \\
+
+它允許與病人的故事建立聯繫並產生信任 \\
+
+花時間完全在場幫助臨床醫師在工作中找到意義，這可以是抵禦壓力和倦怠的強大屏障 \\
+
+做得好的理學檢查傳達關心，並可以產生超越診斷發現的安慰劑效應 \\
+
+慶祝與病人共度的時間產生重要臨床資訊的時刻，建立臨床會診的興奮，並且是「發現貧乏症」（即學習者認識到臨床發現與疾病病理生物學基礎之間聯繫的「發現」時刻的匱乏）的解藥。許多學習者和執業醫師經歷發現貧乏症，因為他們在床邊花費的時間很少 \\
+\end{longtable}
+
+\subsection{解決醫療保健差異}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{15cm}}
+\toprule
+\textbf{\textcolor{emergency_blue}{健康平等考量}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{1}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_blue}{健康平等考量}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{1}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+床邊會診也可以解決醫療保健差異 \\
+
+在代表性不足的種族和族裔群體的青少年中，報告在常規檢查期間從未進行過理學檢查的百分比高於白人同儕 \\
+
+即使進行了這些檢查，系統性不平等（例如包含深色膚色的皮膚科教科書的匱乏或脈搏血氧儀等設備的偏見）可能導致有色人種病人的結果更差 \\
+
+英語水平有限的病人也可能獲得不足的照護 \\
+
+當教育者帶團隊到床邊時，他們能夠以特定情境的方式承認和解決這些不平等 \\
+\end{longtable}
+
+\section{結論}
+
+\begin{importantbox}
+\textbf{Osler的智慧在今日依然適用}
+
+在技術進步、與病人時間有限和臨床不確定性的背景下，迫切需要重振床邊會診，以滿足21世紀病人、實習生和臨床教育者的需求。
+
+通過使用六項策略，臨床教育者可以幫助實習生：
+\begin{itemize}
+\item 認識床邊會診在診斷推理中的價值
+\item 加強醫病關係
+\item 對抗醫療保健不平等
+\item 改善專業成就感
+\item 避免倦怠
+\end{itemize}
+
+Osler的話在一個多世紀後仍然真實：
+
+\textbf{「醫學是在床邊學習的，而不是在教室裡。不要讓你對疾病表現的概念來自講堂裡聽到的話或從書中讀到的話。看，然後推理和比較和控制。但首先要看。」}
+\end{importantbox}
+
+\section{參考文獻選錄}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{13.5cm}}
+\toprule
+\textbf{\textcolor{emergency_red}{編號}} & \textbf{\textcolor{emergency_red}{文獻}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續前頁}} \\
+\toprule
+\textbf{\textcolor{emergency_red}{編號}} & \textbf{\textcolor{emergency_red}{文獻}} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{2}{r}{{接續下頁}} \\ \midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1 & Rosen MA, Bertram AK, Tung M, Desai SV, Garibaldi BT. Use of a real-time locating system to assess internal medicine resident location and movement in the hospital. JAMA Netw Open 2022;5(6):e2215885. \\
+
+2 & Vukanovic-Criley JM, Hovanesyan A, Criley SR, et al. Confidential testing of cardiac examination competency in cardiology and noncardiology faculty and trainees: a multicenter study. Clin Cardiol 2010;33:738-45. \\
+
+4 & Singh H, Giardina TD, Meyer AND, Forjuoh SN, Reis MD, Thomas EJ. Types and origins of diagnostic errors in primary care settings. JAMA Intern Med 2013;173:418-25. \\
+
+11 & McGee S. Evidence-based physical diagnosis. 5th ed. Philadelphia: Elsevier, 2022. \\
+
+17 & Garibaldi BT, Russell SW. Strategies to improve bedside clinical skills teaching. Chest 2021;160:2187-95. \\
+
+19 & Paley L, Zornitzki T, Cohen J, Friedman J, Kozak N, Schattner A. Utility of clinical examination in the diagnosis of emergency department patients admitted to the department of medicine of an academic hospital. Arch Intern Med 2011;171:1394-6. \\
+
+21 & Reilly BM. Physical examination in the care of medical inpatients: an observational study. Lancet 2003;362:1100-5. \\
+
+27 & Garibaldi BT, Zaman J, Artandi MK, Elder AT, Russell SW. Reinvigorating the clinical examination for the 21st century. Pol Arch Intern Med 2019;129:907-12. \\
+
+30 & Russell SW. Improving observational skills to enhance the clinical examination. Med Clin North Am 2018;102:495-507. \\
+
+34 & Garibaldi BT, Niessen T, Gelber AC, et al. A novel bedside cardiopulmonary physical diagnosis curriculum for internal medicine postgraduate training. BMC Med Educ 2017;17:182. \\
+
+37 & Neher JO, Gordon KC, Meyer B, Stevens N. A five-step "microskills" model of clinical teaching. \href{https://pubmed.ncbi.nlm.nih.gov/1496899/}{J Am Board Fam Pract. 1992;5:419-24}. \\
+
+38 & Chi J, Artandi M, Kugler J, et al. The five-minute moment. \href{https://www.amjmed.com/article/S0002-9343(16)30209-1/fulltext}{Am J Med. 2016;129:792-5}. \\
+
+44 & \href{https://stanfordmedicine25.stanford.edu/}{Stanford Medicine 25} (\url{http://stanfordmedicine25.stanford.edu/}). \\
+
+48 & Kumar A, Liu G, Chi J, Kugler J. The role of technology in the bedside encounter. Med Clin North Am 2018;102:443-51. \\
+
+63 & Clark BW, Niessen T, Apfel A, et al. Relationship of physical examination technique to associated clinical skills: results from a direct observation assessment. Am J Med 2022;135(6):775-782.e10. \\
+
+69 & Zulman DM, Haverfield MC, Shaw JG, et al. Practices to foster physician presence and connection with patients in the clinical encounter. JAMA 2020;323:70-81. \\
+
+75 & Thayer WS. Osler, the teacher. Bull Johns Hopkins Hosp 1919;30:198. \\
+\end{longtable}
+
+\section{文獻整理者總結}
+
+\begin{importantbox}
+\textbf{文獻整理：謝慕揚, MD, PhD, FESC}
+
+本篇NEJM醫學教育文章為床邊臨床技能教學提供了全面且實用的策略框架。作者Brian T. Garibaldi和Stephen W. Russell深入探討了當代醫學教育面臨的核心挑戰：醫學學習者與病人接觸時間的急劇減少，以及由此導致的床邊臨床技能衰退。
+
+\textbf{核心洞見：}
+
+\begin{enumerate}
+\item \textbf{問題的嚴重性：}醫學學習者僅花費13\%的時間與病人直接接觸，這不僅是教育問題，更是病人安全問題。超過半數的門診診斷錯誤可歸因於病史採集不佳和理學檢查錯誤。
+
+\item \textbf{六大策略架構：}文章提供的六大策略形成完整的教學工具箱，從觀察、實證基礎檢查、刻意練習、技術整合、回饋機制，到超越診斷的全人照護，涵蓋床邊教學的各個面向。
+
+\item \textbf{技術整合而非取代：}文章特別強調POCUS和人工智慧等新技術應該補充而非取代人類觀察、決策和溝通。這是重要的平衡觀點。
+
+\item \textbf{評估驅動學習：}APECS系統的介紹提供了具體的評估工具，研究顯示良好的檢查技術與正確診斷顯著相關，這為床邊技能的重要性提供了實證支持。
+\end{enumerate}
+
+\textbf{對心血管醫學教學的啟示：}
+
+在心臟科教學中，床邊技能尤其重要：
+
+\begin{itemize}
+\item \textbf{心臟聽診：}文章提到的數位聽診器和人工智慧輔助診斷對心臟瓣膜疾病和心律不整的教學特別有價值
+\item \textbf{POCUS整合：}在心衰竭、心包積液等疾病的診斷中，將傳統理學檢查與POCUS結合可以即時校準學習
+\item \textbf{急症處理：}在心導管室和CCU，床邊觀察和即時評估的能力是救命技能
+\item \textbf{不確定性管理：}心血管疾病常涉及複雜的血液動力學和多重共病，床邊會診提供應對不確定性的框架
+\end{itemize}
+
+\textbf{實際應用建議：}
+
+\begin{enumerate}
+\item \textbf{晨間查房重整：}將查房帶回床邊，使用\href{https://meded.ucsf.edu/resource/clinical-teaching-tools-omp-and-snapps}{One-Minute Preceptor}和\href{https://www.amjmed.com/article/S0002-9343(16)30209-1/fulltext}{Five-Minute Moment}工具
+\item \textbf{選擇性深度教學：}優先選擇高收益病例（如心衰竭、心律不整、瓣膜疾病）進行集中的床邊教學
+\item \textbf{整合新技術：}在床邊教學中系統性地使用數位聽診器和POCUS
+\item \textbf{建立回饋文化：}使用Ten-Minute Moment和Mini-CEX工具在日常工作流程中提供即時回饋
+\item \textbf{早期介入：}在實習醫師和住院醫師訓練早期就建立床邊技能的習慣
+\end{enumerate}
+
+\textbf{最重要的提醒：}
+
+文章以Osler的名言結尾：「醫學是在床邊學習的，而不是在教室裡...首先要看。」這提醒我們，無論技術如何進步，醫學的核心始終是醫師與病人在床邊的直接互動。作為臨床教師，我們有責任將這一傳統傳承給下一代醫師。
+
+本文提供的策略不僅是理論框架，更是可立即應用於臨床教學的實用工具。對於所有參與醫學教育的臨床教師而言，這是一份必讀的重要文獻。
+
+整理日期：\mydate, with assistance by Claude.ai
+\end{importantbox}
+
+\end{document}

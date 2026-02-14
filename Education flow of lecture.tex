@@ -1,0 +1,205 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{flowchart}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 設定程式碼樣式
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false
+}
+
+\title{\textbf{自動化ICU教學文件生成系統}}
+\author{基於Teams錄影轉錄與AI整理}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{系統概述}
+本系統旨在建立一個完整的自動化流程，將ICU住院醫師訓練課程的Teams錄影，透過語音轉錄、AI整理，最終生成結構化的LaTeX教學文件。
+
+\section{流程架構圖}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.5cm, auto]
+    % 定義節點樣式
+    \tikzstyle{process} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
+    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!20]
+    \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!20]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+
+    % 流程節點
+    \node (start) [io] {Teams線上課程};
+    \node (record) [process, below of=start] {錄影設定\\繁體中文轉錄};
+    \node (transcript) [process, below of=record] {系統自動生成\\中文轉錄文字};
+    \node (check) [decision, below of=transcript] {轉錄品質\\檢查};
+    \node (manual) [process, right of=check, xshift=3cm] {手動修正\\錯誤轉錄};
+    \node (ai) [process, below of=check] {AI文本整理\\結構化處理};
+    \node (latex) [process, below of=ai] {生成LaTeX\\教學文件};
+    \node (output) [io, below of=latex] {Overleaf編譯\\最終文件};
+
+    % 流程箭頭
+    \draw [arrow] (start) -- (record);
+    \draw [arrow] (record) -- (transcript);
+    \draw [arrow] (transcript) -- (check);
+    \draw [arrow] (check) -- node[anchor=west] {需要修正} (manual);
+    \draw [arrow] (manual) |- (ai);
+    \draw [arrow] (check) -- node[anchor=east] {品質良好} (ai);
+    \draw [arrow] (ai) -- (latex);
+    \draw [arrow] (latex) -- (output);
+\end{tikzpicture}
+\end{center}
+
+\section{詳細步驟說明}
+
+\subsection{第一階段：錄影與轉錄}
+\begin{enumerate}[itemsep=0.5em]
+    \item \textbf{Teams會議設定}
+    \begin{itemize}
+        \item 開啟會議錄製功能
+        \item 語言設定：繁體中文（台灣）
+        \item 確保音質清晰，減少背景雜音
+    \end{itemize}
+    
+    \item \textbf{自動轉錄配置}
+    \begin{itemize}
+        \item 啟用即時轉錄功能
+        \item 設定轉錄語言為繁體中文
+        \item 錄影結束後自動生成轉錄檔案
+    \end{itemize}
+\end{enumerate}
+
+\subsection{第二階段：文本預處理}
+\begin{enumerate}[itemsep=0.5em]
+    \item \textbf{轉錄品質檢查}
+    \begin{itemize}
+        \item 檢查醫學專業術語正確性
+        \item 修正常見轉錄錯誤（如：呼吸器 → 人工呼吸器）
+        \item 補充標點符號和段落結構
+    \end{itemize}
+    
+    \item \textbf{內容結構化}
+    \begin{itemize}
+        \item 識別主要教學重點
+        \item 分離理論說明與臨床案例
+        \item 標記重要概念和關鍵詞
+    \end{itemize}
+\end{enumerate}
+
+\subsection{第三階段：AI處理與整理}
+\begin{enumerate}[itemsep=0.5em]
+    \item \textbf{AI提示詞範例}
+    \begin{lstlisting}[language=bash, caption=AI處理指令]
+請將以下ICU教學錄音轉錄內容整理成結構化的教學文件：
+
+1. 提取主要教學目標
+2. 整理醫學概念和定義
+3. 分類臨床案例和處置方式
+4. 生成學習重點摘要
+5. 輸出為LaTeX格式，包含：
+   - 章節標題
+   - 醫學術語定義
+   - 臨床流程圖
+   - 參考文獻格式
+
+內容：[轉錄文字]
+    \end{lstlisting}
+    
+    \item \textbf{AI輸出要求}
+    \begin{itemize}
+        \item 結構化LaTeX代碼
+        \item 醫學術語正確性驗證
+        \item 臨床指引符合性檢查
+        \item 教學邏輯清晰度評估
+    \end{itemize}
+\end{enumerate}
+
+\subsection{第四階段：LaTeX文件生成}
+
+\subsubsection{文件模板結構}
+\begin{lstlisting}[language=TeX, caption=LaTeX教學文件模板]
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\setCJKmainfont{Noto Sans CJK TC}
+
+\title{ICU住院醫師訓練課程}
+\subtitle{[課程主題]}
+\author{[講師姓名]}
+\date{[錄製日期]}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{學習目標}
+% AI生成的學習目標
+
+\section{核心概念}
+% 醫學概念和定義
+
+\section{臨床應用}
+% 實際案例和處置流程
+
+\section{重點摘要}
+% 課程重點整理
+
+\section{延伸閱讀}
+% 相關參考文獻
+
+\end{document}
+\end{lstlisting}
+
+\section{技術實施建議}
+
+\subsection{自動化工具鏈}
+\begin{enumerate}
+    \item \textbf{Teams API整合}：自動下載轉錄檔案
+    \item \textbf{Python腳本}：文本預處理和格式化
+    \item \textbf{AI API調用}：ChatGPT/Claude等進行內容整理
+    \item \textbf{LaTeX編譯}：Overleaf API或本地編譯環境
+    \item \textbf{版本控制}：Git管理文件版本和修訂歷史
+\end{enumerate}
+
+\subsection{品質控制機制}
+\begin{itemize}
+    \item 醫學專業術語數據庫比對
+    \item 臨床指引一致性檢查
+    \item 教學內容完整性評估
+    \item 同儕審核流程整合
+\end{itemize}
+
+\section{預期效益}
+
+\begin{itemize}
+    \item \textbf{效率提升}：減少90\%手動整理時間
+    \item \textbf{標準化}：統一教學文件格式和結構
+    \item \textbf{可追溯性}：完整保存教學內容和修訂歷程
+    \item \textbf{知識管理}：建立可搜索的教學資源庫
+    \item \textbf{持續改進}：透過AI學習優化整理品質
+\end{itemize}
+
+\section{結論}
+
+本自動化系統將大幅提升ICU教學文件的生產效率和品質一致性，讓醫師能夠專注於臨床教學本身，而非繁瑣的文件整理工作。透過AI輔助和LaTeX排版，可以產出專業、結構化的教學資源，有效支持住院醫師的學習需求。
+
+\end{document}

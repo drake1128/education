@@ -1,0 +1,744 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{array}
+
+% 設定中文字體
+\setCJKmainfont{Noto Sans CJK TC}
+
+% 主題設定
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+% 標題頁資訊
+\title{心臟內科可信賴專業活動EPAs}
+\subtitle{Cardiology Entrustable Professional Activities}
+\author{內科部心臟科}
+\date{\today}
+\institute{醫學中心}
+
+% 自訂顏色 - 沿用原文件配色
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% 調整beamer顏色主題
+\setbeamercolor{structure}{fg=emergency_blue}
+\setbeamercolor{frametitle}{fg=emergency_red}
+\setbeamercolor{block title}{bg=emergency_blue!20,fg=emergency_blue}
+\setbeamercolor{block body}{bg=emergency_blue!5}
+\setbeamercolor{block title alerted}{bg=emergency_red!20,fg=emergency_red}
+\setbeamercolor{block body alerted}{bg=emergency_red!5}
+
+\begin{document}
+
+% 標題頁
+\begin{frame}
+\titlepage
+\end{frame}
+
+% 大綱
+\begin{frame}{今日議程}
+\tableofcontents
+\end{frame}
+
+\section{心臟內科EPAs概述}
+
+\begin{frame}{什麼是心臟內科EPAs？}
+\begin{block}{Entrustable Professional Activities (EPA)}
+\textbf{可信賴專業活動} - 心臟內科醫師在臨床實務中能夠穩立勝任的專業工作單元
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{涵蓋範圍：}
+\begin{itemize}
+\item 心血管疾病診斷
+\item 急慢性心臟病處理
+\item 心臟檢查技術
+\item \textcolor{emergency_red}{侵入性處置操作}
+\item 病患照護協調
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{核心特色：}
+\begin{itemize}
+\item 以能力為導向
+\item 漸進式發展
+\item 真實情境評量
+\item 個別化學習
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{委託等級架構}
+\begin{center}
+\begin{tikzpicture}
+% 定義顏色
+\definecolor{level1}{RGB}{255,182,193}
+\definecolor{level2}{RGB}{255,218,185}
+\definecolor{level3}{RGB}{255,255,224}
+\definecolor{level4}{RGB}{144,238,144}
+\definecolor{level5}{RGB}{173,216,230}
+
+% 繪製發展階梯
+\fill[level1] (0,0) rectangle (2,1);
+\node at (1,0.5) {\scriptsize Level 1};
+\node at (1,-0.5) {\scriptsize Novice};
+
+\fill[level2] (2,0) rectangle (4,1);
+\node at (3,0.5) {\scriptsize Level 2};
+\node at (3,-0.5) {\scriptsize Advanced};
+\node at (3,-0.7) {\scriptsize Beginner};
+
+\fill[level3] (4,0) rectangle (6,1);
+\node at (5,0.5) {\scriptsize Level 3};
+\node at (5,-0.5) {\scriptsize Competent};
+
+\fill[level4] (6,0) rectangle (8,1);
+\node at (7,0.5) {\scriptsize Level 4};
+\node at (7,-0.5) {\scriptsize Proficient};
+
+\fill[level5] (8,0) rectangle (10,1);
+\node at (9,0.5) {\scriptsize Level 5};
+\node at (9,-0.5) {\scriptsize Expert};
+
+% 邊框
+\draw[thick] (0,0) rectangle (2,1);
+\draw[thick] (2,0) rectangle (4,1);
+\draw[thick] (4,0) rectangle (6,1);
+\draw[thick] (6,0) rectangle (8,1);
+\draw[thick] (8,0) rectangle (10,1);
+
+% 箭頭
+\draw[->, thick] (0,-1) -- (10,-1);
+\node at (5,-1.5) {能力發展進程};
+
+% 標示重點
+\node[above] at (2,1.2) {\scriptsize 需監導};
+\node[above] at (6,1.2) {\scriptsize 穩立作業};
+\node[above] at (9,1.2) {\scriptsize 指導他人};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+\begin{itemize}
+\item \textbf{Level 1-2}：在監導下學習與執行
+\item \textbf{Level 3}：能穩立勝任標準作業
+\item \textbf{Level 4-5}：能處理複雜情況並指導他人
+\end{itemize}
+\end{frame}
+
+\section{11大EPAs架構}
+
+\begin{frame}{心臟內科11大EPAs概覽}
+\footnotesize
+\begin{table}
+\centering
+\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|}
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動} & \textbf{核心能力領域} \\
+\hline
+EPA 1 & 病史詢問與風險評估 & 症狀評估、危險因子、功能分級 \\
+\hline
+EPA 2 & 心血管理學檢查 & 聽診技巧、血管檢查、水腫評估 \\
+\hline
+EPA 3 & 心電圖判讀分析 & 心律判斷、ST-T變化、傳導系統 \\
+\hline
+EPA 4 & 心臟超音波操作 & 影像取得、功能測量、異常識別 \\
+\hline
+EPA 5 & 急性冠心症處理 & 快速診斷、風險分層、緊急治療 \\
+\hline
+EPA 6 & 心律不整診療 & 心律識別、血流評估、治療選擇 \\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{心臟內科11大EPAs概覽 (續)}
+\footnotesize
+\begin{table}
+\centering
+\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|}
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動} & \textbf{核心能力領域} \\
+\hline
+EPA 7 & 心衰竭管理 & 診斷分類、藥物調整、整合照護 \\
+\hline
+EPA 8 & 高血壓管理 & 診斷確認、風險評估、生活介入 \\
+\hline
+EPA 9 & 心導管判讀 & 解剖識別、狹窄評估、治療規劃 \\
+\hline
+EPA 10 & 照護協調溝通 & 團隊合作、病患衛教、困難溝通 \\
+\hline
+\rowcolor{emergency_red!10}
+EPA 11 & \textcolor{emergency_red}{\textbf{CCU侵入性處置}} & \textcolor{emergency_red}{\textbf{插管、動脈導管、穿刺術}} \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\begin{alertblock}{新增重點}
+\textbf{EPA 11}涵蓋CCU重要的侵入性處置技術，包括氣管插管、動脈導管設置、心包膜穿刺術、胸腔穿刺術等關鍵技能。
+\end{alertblock}
+\end{frame}
+
+\section{重點EPAs詳述}
+
+\begin{frame}{EPA 1: 心臟科病史詢問與風險評估}
+\begin{alertblock}{核心描述}
+能夠穩立進行心血管疾病相關的完整病史詢問，包括症狀評估、危險因子識別、家族史調查，並能初步評估心血管風險。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item 胸痛特質詳細詢問
+\item NYHA功能分級
+\item 三高危險因子評估
+\item 家族史系統調查
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 系統性病史詢問
+\item Level 3: 風險分層評估
+\item Level 4: 複雜情況處理
+\item Level 5: 指導他人技巧
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 2: 心臟血管系統理學檢查}
+\begin{alertblock}{核心描述}
+能夠熟練且準確地進行心臟血管系統的完整理學檢查，包括心臟聽診、血管檢查、水腫評估，並能正確解讀檢查發現。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item 四區心臟聽診
+\item 心雜音識別分類
+\item 頸靜脈壓評估
+\item 周邊血管搏動
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 常見異常識別
+\item Level 3: 複雜雜音區分
+\item Level 4: 細微徵象偵測
+\item Level 5: 教學示範能力
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 3: 心電圖判讀與分析}
+\begin{alertblock}{核心描述}
+能夠穩立判讀12導程心電圖，識別正常與異常變化，包括心律不整、ST-T變化、傳導異常等，並提出臨床相關性分析。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item 基本間期測量
+\item 心律不整分類
+\item ST段異常判讀
+\item 傳導阻滯識別
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 明顯異常識別
+\item Level 3: 臨床關聯整合
+\item Level 4: 複雜心律判讀
+\item Level 5: 罕見變化識別
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 5: 急性冠心症診斷與初步處理}
+\begin{alertblock}{核心描述}
+能夠快速識別急性冠心症候群，進行適當的診斷性檢查，評估風險分層，並執行初步治療措施，包括藥物治療與轉介決策。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item 典型/非典型症狀
+\item TIMI/GRACE評分
+\item 抗血小板治療
+\item PCI適應症評估
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 標準流程執行
+\item Level 3: 穩立診療決策
+\item Level 4: 複雜個案處理
+\item Level 5: 專業諮詢提供
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 7: 心衰竭診斷與治療}
+\begin{alertblock}{核心描述}
+能夠診斷急性與慢性心衰竭，區分收縮性與舒張性功能異常，制定個別化治療計畫，包括藥物調整與非藥物治療。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item HFrEF/HFpEF區分
+\item 利尿劑調整策略
+\item ACE-I/ARB/ARNI選擇
+\item 心臟復健規劃
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 基本藥物調整
+\item Level 3: 複雜組合管理
+\item Level 4: 難治性處理
+\item Level 5: 個人化策略
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 11: CCU侵入性處置操作與管理}
+\begin{alertblock}{核心描述}
+能夠在心臟加護病房環境下，安全且熟練地執行各種侵入性處置，包括氣管內管插管、動脈導管設置、心包膜穿刺術、胸腔穿刺術，並能評估適應症、預防併發症、提供後續監測與照護。
+\end{alertblock}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{關鍵技能：}
+\begin{itemize}
+\item 緊急氣管插管
+\item 動脈導管設置
+\item 超音波導引穿刺
+\item 併發症識別處理
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{里程碑重點：}
+\begin{itemize}
+\item Level 2: 基本操作執行
+\item Level 3: 獨立處置能力
+\item Level 4: 複雜情況處理
+\item Level 5: 專家級操作
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EPA 11: 各項處置技術細節}
+\footnotesize
+\begin{table}
+\centering
+\begin{tabular}{|l|p{5cm}|p{5cm}|}
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{處置項目} & \textbf{Level 3 能力要求} & \textbf{Level 5 專家能力} \\
+\hline
+氣管插管 & 評估困難插管風險、執行快速序列插管 & 處理極困難插管、纖維支氣管鏡插管 \\
+\hline
+動脈導管 & 橈動脈與股動脈穿刺、波形判讀校正 & 困難穿刺、超音波導引、併發症處理 \\
+\hline
+心包穿刺 & 超音波評估、執行穿刺引流 & 複雜心包疾病、心包切開術 \\
+\hline
+胸腔穿刺 & X光超音波判讀、安全穿刺點選擇 & 影像導引穿刺、胸腔鏡技術 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\begin{alertblock}{安全品質指標}
+• 插管成功率 >95\% • 動脈導管感染率 <2\% • 心包穿刺併發症 <5\% • 胸腔穿刺氣胸率 <3\%
+\end{alertblock}
+\end{frame}
+
+\section{評量方法}
+
+\begin{frame}{EPA評量工具對應}
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA類型} & \textbf{主要工具} & \textbf{輔助方法} \\
+\hline
+技能操作類 & DOPS & 直接觀察評估 \\
+(EPA 2, 4, \textcolor{emergency_red}{11}) & \scriptsize Direct Observation & 同儕回饋 \\
+\hline
+臨床推理類 & Mini-CEX & 病例討論 \\
+(EPA 1,3,5,6,7,8,9) & \scriptsize Mini-Clinical Exercise & 模擬情境 \\
+\hline
+溝通協調類 & MSF & 360度回饋 \\
+(EPA 10) & \scriptsize Multi-Source Feedback & 病患家屬評量 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{block}{評量頻率建議}
+\begin{itemize}
+\item \textbf{每月重點評量}：2-3個EPAs
+\item \textbf{季度全面檢討}：所有EPAs進展
+\item \textbf{年度能力認證}：達標確認與規劃
+\item \textcolor{emergency_red}{\textbf{侵入性處置}}：每次執行時評估
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{月度評量主題安排}
+\begin{center}
+\begin{tikzpicture}
+% 繪製時間軸
+\draw[thick, emergency_blue] (0,0) -- (12,0);
+
+% 月份標記
+\foreach \x/\month in {0/第1月, 2.4/第2月, 4.8/第3月, 7.2/第4月, 9.6/第5月, 12/第6月} {
+  \draw[emergency_blue] (\x,-0.2) -- (\x,0.2);
+  \node[below, emergency_blue] at (\x,-0.3) {\scriptsize \month};
+}
+
+% EPAs安排
+\node[above, align=center] at (1.2,0.8) {\scriptsize EPA 1,2,3\\基礎評估};
+\node[above, align=center] at (3.6,0.8) {\scriptsize EPA 4,5,6\\診斷急症};
+\node[above, align=center] at (6,0.8) {\scriptsize EPA 7,8,10\\慢病溝通};
+\node[above, align=center] at (8.4,0.8) {\scriptsize EPA 9\\整合評量};
+\node[above, align=center, text=emergency_red] at (10.8,0.8) {\scriptsize \textbf{EPA 11}\\CCU處置};
+
+% 連接線
+\foreach \x in {1.2, 3.6, 6, 8.4, 10.8} {
+  \draw[dashed, emergency_gray] (\x,0.2) -- (\x,0.6);
+}
+\end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+
+\begin{alertblock}{重點提醒}
+EPA 11納入CCU輪訓期間重點評量，確保侵入性處置技能的安全性與熟練度。每月選擇特定EPAs進行深度評量，確保學習者能循序漸進建立專業能力。
+\end{alertblock}
+\end{frame}
+
+\section{實施策略}
+
+\begin{frame}{CCC評量架構}
+\begin{block}{Case-based Clinical Competency 特色}
+\begin{itemize}
+\item \textbf{真實情境評量}：在實際臨床工作中評估
+\item \textbf{多次觀察}：持續追蹤能力發展
+\item \textbf{漸進委託}：依能力逐步增加責任
+\item \textbf{360度回饋}：多方人員提供回饋
+\end{itemize}
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{評量重點：}
+\begin{itemize}
+\item 安全性第一
+\item 能力漸進發展
+\item 學習從錯誤改進
+\item 個別化指導
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{成功關鍵：}
+\begin{itemize}
+\item 明確期望設定
+\item 及時具體回饋
+\item 學習資源支持
+\item 持續改善機制
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{實施時程規劃}
+\begin{center}
+\begin{tikzpicture}
+% 時間軸
+\draw[thick] (0,0) -- (12,0);
+
+% 階段標記
+\foreach \x/\phase in {0/準備期, 3/試行期, 6/實施期, 9/檢討期, 12/推廣期} {
+  \draw (\x,-0.1) -- (\x,0.1);
+  \node[below] at (\x,-0.3) {\scriptsize \phase};
+}
+
+% 活動內容
+\node[above, align=center] at (1.5,1) {\scriptsize 教師訓練\\EPA設計};
+\node[above, align=center] at (4.5,1) {\scriptsize 小規模試行\\系統調整};
+\node[above, align=center] at (7.5,1) {\scriptsize 全面實施\\持續評量};
+\node[above, align=center] at (10.5,1) {\scriptsize 成效分析\\經驗分享};
+
+% 里程碑
+\foreach \x/\milestone in {3/設計完成, 6/試行成功, 9/實施穩定, 12/持續改善} {
+  \fill[emergency_red] (\x,0) circle (0.1);
+  \node[rotate=45, anchor=west, emergency_red] at (\x,0.2) {\tiny \milestone};
+}
+
+% 特別標記EPA 11
+\node[above, align=center, text=emergency_red] at (1.5,1.8) {\scriptsize \textbf{EPA 11}\\CCU訓練設計};
+\end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{關鍵里程碑}
+\begin{itemize}
+\item \textbf{3個月}：完成EPA設計與教師訓練（含EPA 11特殊訓練）
+\item \textbf{6個月}：試行評估並調整系統
+\item \textbf{9個月}：全面實施並穩定運作
+\item \textbf{12個月}：檢討成效並持續改善
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{學習資源與支持}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\textbf{教學資源：}
+\begin{itemize}
+\item 標準化病患
+\item 模擬教學設備
+\item 線上學習平台
+\item 心導管影像庫
+\item 心電圖題庫
+\item \textcolor{emergency_red}{CCU模擬訓練室}
+\end{itemize}
+
+\textbf{評量工具：}
+\begin{itemize}
+\item 數位評量平台
+\item 行動裝置App
+\item 即時回饋系統
+\item 學習歷程追蹤
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{支持系統：}
+\begin{itemize}
+\item Mentor制度
+\item 同儕學習小組
+\item 跨科際交流
+\item 國際經驗分享
+\item \textcolor{emergency_red}{急重症專家指導}
+\end{itemize}
+
+\textbf{品質保證：}
+\begin{itemize}
+\item 評量者訓練
+\item 標準化流程
+\item 定期校正會議
+\item 外部品質稽核
+\item \textcolor{emergency_red}{安全監控機制}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{預期效益}
+
+\begin{frame}{實施EPAs的預期效益}
+\begin{block}{教育品質提升}
+\begin{itemize}
+\item 學習目標更明確具體
+\item 評量方式更多元實用
+\item 個別化學習支持
+\item 能力認證更客觀
+\item \textcolor{emergency_red}{侵入性技能標準化}
+\end{itemize}
+\end{block}
+
+\begin{block}{臨床照護改善}
+\begin{itemize}
+\item 醫師能力標準化
+\item 病人安全保障
+\item 醫療品質提升
+\item 團隊協作強化
+\item \textcolor{emergency_red}{CCU處置安全性提升}
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{長期影響}
+建立以能力為導向的醫學教育文化，培養更優秀的心臟內科專科醫師，特別強化急重症處置能力。
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{成功實施的關鍵因素}
+\begin{center}
+\begin{tikzpicture}
+% 中心EPAs圓圈
+\node[circle, fill=emergency_blue, text=white, font=\Large\bfseries, minimum size=2.5cm] at (0,0) {EPAs\\成功實施};
+
+% 四個關鍵因素
+\node[rectangle, fill=emergency_red!20, text=black, minimum width=2.8cm, minimum height=1.2cm] at (-3.5,2) {
+\begin{tabular}{c}
+\textbf{領導支持} \\
+高層承諾 \\
+資源投入
+\end{tabular}
+};
+
+\node[rectangle, fill=emergency_red!20, text=black, minimum width=2.8cm, minimum height=1.2cm] at (3.5,2) {
+\begin{tabular}{c}
+\textbf{教師準備} \\
+培訓充分 \\
+共識建立
+\end{tabular}
+};
+
+\node[rectangle, fill=emergency_red!20, text=black, minimum width=2.8cm, minimum height=1.2cm] at (-3.5,-2) {
+\begin{tabular}{c}
+\textbf{系統整合} \\
+流程標準 \\
+技術支持
+\end{tabular}
+};
+
+\node[rectangle, fill=emergency_red!20, text=black, minimum width=2.8cm, minimum height=1.2cm] at (3.5,-2) {
+\begin{tabular}{c}
+\textbf{持續改善} \\
+定期檢討 \\
+動態調整
+\end{tabular}
+};
+
+% 連接線
+\foreach \angle in {45, 135, 225, 315} {
+  \draw[thick, emergency_blue] (0,0) -- (\angle:2.8cm);
+}
+
+% 特別標示EPA 11
+\node[below, text=emergency_red, font=\footnotesize] at (0,-3) {特別注重EPA 11的安全訓練與設備投資};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\section{討論與展望}
+
+\begin{frame}{討論議題}
+\begin{enumerate}
+\item 現有教學資源是否足夠支持EPAs實施（特別是EPA 11）？
+\item 評量者訓練的具體規劃與時程安排？
+\item 與現行住院醫師評量制度如何整合？
+\item 學習者接受度與適應性評估？
+\item 跨科EPAs的協調與統一標準？
+\item 國際認證與接軌的考量？
+\item \textcolor{emergency_red}{CCU侵入性處置的安全監控機制？}
+\item \textcolor{emergency_red}{急重症技能的標準化評估方式？}
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\Large{\textcolor{emergency_blue}{\textbf{歡迎提問與討論}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{未來展望}
+\begin{alertblock}{短期目標 (1年內)}
+\begin{itemize}
+\item 完成11個心臟內科EPAs的標準化設計
+\item 建立完整的評量工具與流程
+\item 訓練足夠的合格評量者
+\item 建置數位化學習與評量平台
+\item \textcolor{emergency_red}{建立CCU模擬訓練設施}
+\end{itemize}
+\end{alertblock}
+
+\begin{block}{中期目標 (2-3年)}
+\begin{itemize}
+\item 擴展到其他內科次專科
+\item 建立跨院校合作網絡
+\item 發展創新教學方法
+\item 進行教學成效研究
+\item \textcolor{emergency_red}{建立侵入性處置認證制度}
+\end{itemize}
+\end{block}
+
+\begin{exampleblock}{長期願景 (5年以上)}
+\begin{itemize}
+\item 成為國內醫學教育標竿
+\item 與國際標準接軌認證
+\item 推廣至其他醫學專科
+\item 建立持續改善機制
+\item \textcolor{emergency_red}{成為急重症處置教育典範}
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{結語}
+\begin{center}
+\Large{\textcolor{emergency_red}{\textbf{心臟內科EPAs}}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\large{不只是評量工具，更是教育革新的起點}
+\end{center}
+
+\vspace{1cm}
+
+\begin{itemize}
+\item 從知識傳授到能力培養
+\item 從標準化到個別化學習
+\item 從單向教學到互動發展
+\item 從孤立評估到整合成長
+\item \textcolor{emergency_red}{從基礎訓練到急重症專精}
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{\textcolor{emergency_blue}{讓我們攜手建立更優質的心臟內科教育！}}
+\end{center}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{center}
+\Huge{\textcolor{emergency_blue}{\textbf{謝謝聆聽}}}
+
+\vspace{1cm}
+
+\Large{\textcolor{emergency_gray}{Questions \& Discussion}}
+
+\vspace{1cm}
+
+\textcolor{emergency_red}{\textbf{內科部心臟科}}\\
+\textcolor{emergency_blue}{Cardiology Division, Department of Internal Medicine}
+
+\vspace{0.5cm}
+\textcolor{emergency_red}{\scriptsize 新增EPA 11: CCU侵入性處置操作與管理}
+\end{center}
+\end{frame}
+
+\end{document}

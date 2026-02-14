@@ -1,0 +1,768 @@
+% Setting up the document and importing necessary packages
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support packages
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% Other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{natbib} % For bibliography
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Page setup
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2cm,
+    right=2cm,
+    headheight=15pt
+}
+
+% Color definitions
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Title format settings
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Custom environment
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{內科部住院醫師教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{胸腔內科EPAs}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Date format
+\DTMsetstyle{yyyy-mm-dd}
+\newcommand{\mydate}{\DTMtoday}
+
+% Document start
+\begin{document}
+
+% Title page with table of contents
+\begin{titlepage}
+    \centering
+    {\LARGE\textcolor{emergency_red}{\textbf{內科部住院醫師教學文件}}\par}
+    \vspace{1cm}
+    {\huge\bfseries 胸腔內科可信賴專業活動EPAs\par}
+    \vspace{0.5cm}
+    {\Large\textcolor{emergency_blue}{\textit{Pulmonology Entrustable Professional Activities}}\par}
+    \vspace{1cm}
+    
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        width=0.8\textwidth,
+        arc=10pt,
+        boxrule=1pt
+    ]
+    \centering
+    {\large\textbf{目標對象}\par}
+    \vspace{0.3cm}
+    內科部住院醫師R1-R3\par
+    胸腔內科專科訓練醫師\par
+    \vspace{0.5cm}
+    {\large\textbf{文件版本}\par}
+    \vspace{0.3cm}
+    第2.0版（擴展至14個EPAs）\par
+    發布日期：\mydate\par
+    \end{tcolorbox}
+
+    \vfill
+    
+    {\large 溫岳峰 MD\\陳詩宇 MD \\謝慕揚 MD, PhD, FESC\\
+    適用於CCC評量系統\par}
+    
+    \vspace{0.5cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Main content
+\section{胸腔內科EPAs概述}
+
+\subsection{EPA定義}
+Entrustable Professional Activities (EPA) 是指可信賴委託給住院醫師執行的專業活動單元。胸腔內科EPAs涵蓋了呼吸系統疾病診斷、治療與照護的核心能力，是所有胸腔內科醫師必須精熟的專業技能。
+
+\vspace{0.5cm}
+\note{
+胸腔內科EPAs評量著重於能否安全、穩定地執行完整的呼吸系統疾病診療流程，並能整合資訊做出適當臨床決策。每個EPA都包含明確的里程碑發展階段，從初學者到專家的完整能力建構。本次更新將EPAs擴展至14個，新增結核病、非典型分枝桿菌感染、肺癌診療，以及間質性肺病管理等重要領域。
+}
+
+\subsection{學習目標}
+完成胸腔內科EPAs後，住院醫師應能夠：
+\begin{itemize}[nosep]
+    \item 熟練進行呼吸系統病史詢問與風險評估。
+    \item 準確執行胸部理學檢查。
+    \item 獨立判讀胸部X光與電腦斷層檢查。
+    \item 診斷與處理急性呼吸衰竭。
+    \item 管理各種氣道疾病。
+    \item 治療肺炎與感染性疾病。
+    \item 診斷與治療肺栓塞。
+    \item 執行胸腔穿刺術與胸管置放。
+    \item 操作支氣管內視鏡檢查。
+    \item 協調胸腔科病患整體照護。
+    \item \textcolor{emergency_red}{\textbf{診斷與治療結核病及其併發症。}}
+    \item \textcolor{emergency_red}{\textbf{管理非典型分枝桿菌感染。}}
+    \item \textcolor{emergency_red}{\textbf{執行肺癌診斷與分期評估。}}
+    \item \textcolor{emergency_red}{\textbf{診斷與治療間質性肺疾病。}}
+\end{itemize}
+
+\subsection{委託等級}
+\begin{table}[h]
+    \centering
+    \caption{EPA委託等級定義}
+    \begin{tabular}{p{2cm} p{3cm} p{9cm}}
+        \toprule
+        \textbf{等級} & \textbf{委託程度} & \textbf{描述} \\
+        \midrule
+        Level 1 & 觀察學習 & 僅能觀察他人執行，無法穩立操作 \\
+        Level 2 & 直接監督 & 可在主治醫師直接監督下執行 \\
+        Level 3 & 間接監督 & 可穩立執行，但需回報並接受指導 \\
+        Level 4 & 監督可得 & 可穩立執行，監督者隨時可得 \\
+        Level 5 & 完全穩立 & 可穩立執行並指導他人 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{胸腔內科14大EPAs詳述}
+
+\begin{longtable}{|p{1.2cm}|p{3.8cm}|p{8.5cm}|}
+\caption{胸腔內科EPAs完整架構（擴展版）} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- 接續上頁}} \\
+\hline
+\rowcolor{emergency_blue!20}
+\textbf{EPA} & \textbf{專業活動名稱} & \textbf{核心能力要素與里程碑} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接續下頁}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 1: 胸腔科病史詢問與風險評估}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立進行呼吸系統疾病相關的完整病史詢問，包括症狀評估、危險因子識別、職業史調查，並能初步評估呼吸系統風險。} \\
+\hline
+\textbf{核心能力} & 症狀評估 & 咳嗽、咳痰、呼吸困難、胸痛、喘鳴的詳細詢問 \\
+\cline{2-3}
+& 危險因子識別 & 吸菸史、職業暴露、家族史、環境因子 \\
+\cline{2-3}
+& 功能狀態評估 & mMRC分級、運動耐受度評估 \\
+\cline{2-3}
+& 藥物史 & 呼吸系統藥物使用史、過敏史、順從性評估 \\
+\cline{2-3}
+& 職業與環境史 & 石棉、矽塵、有機粉塵暴露史 \\
+\hline
+\textbf{Level 1} & Novice & 能詢問基本呼吸系統症狀，需要監導者引導完成詢問 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能系統性完成呼吸系統病史詢問，使用適當的症狀評估工具 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成複雜病史詢問，整合症狀與危險因子進行初步風險分層 \\
+\hline
+\textbf{Level 4} & Proficient & 能在困難情況下獲取準確病史，整合多重共病資訊 \\
+\hline
+\textbf{Level 5} & Expert & 能指導他人進行病史詢問，識別罕見症狀表現 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 2: 胸部理學檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠熟練且準確地進行胸部的完整理學檢查，包括胸部視診、觸診、叩診、聽診，並能正確解讀檢查發現。} \\
+\hline
+\textbf{核心能力} & 胸部視診 & 胸廓形狀、呼吸型態、皮膚變化觀察 \\
+\cline{2-3}
+& 胸部觸診 & 胸廓擴張、語言震顫、皮下氣腫檢查 \\
+\cline{2-3}
+& 胸部叩診 & 肺界變化、濁音區域識別 \\
+\cline{2-3}
+& 胸部聽診 & 正常與異常呼吸音、囉音分類 \\
+\cline{2-3}
+& 其他檢查 & 杵狀指、發紺、頸靜脈怒張 \\
+\hline
+\textbf{Level 1} & Novice & 能進行基本胸部聽診，識別正常呼吸音 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別常見異常呼吸音，進行系統性胸部檢查 \\
+\hline
+\textbf{Level 3} & Competent & 能區分各種異常囉音，準確評估胸腔積液程度，整合多項檢查發現 \\
+\hline
+\textbf{Level 4} & Proficient & 能識別複雜呼吸音特徵，檢查技術精準且有效率 \\
+\hline
+\textbf{Level 5} & Expert & 能偵測細微的異常發現，整合檢查發現與臨床表現 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 3: 胸部影像判讀與分析}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠獨立判讀胸部X光與胸部電腦斷層，識別正常與異常變化，包括肺部病變、胸膜疾病、縱膈腔異常等，並提出臨床相關性分析。} \\
+\hline
+\textbf{核心能力} & 胸部X光判讀 & 肺野、心影、橫膈、骨骼結構評估 \\
+\cline{2-3}
+& 胸部CT判讀 & 肺實質、支氣管、血管、淋巴結評估 \\
+\cline{2-3}
+& 病變識別 & 結節、腫塊、浸潤、纖維化變化 \\
+\cline{2-3}
+& 胸膜疾病 & 胸膜積液、氣胸、胸膜增厚評估 \\
+\cline{2-3}
+& 縱膈腔評估 & 淋巴結腫大、縱膈腔腫瘤識別 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本正常胸部X光結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能識別明顯異常病變，判讀基本胸部CT \\
+\hline
+\textbf{Level 3} & Competent & 能獨立判讀大部分胸部影像異常，整合影像與臨床症狀 \\
+\hline
+\textbf{Level 4} & Proficient & 能判讀複雜影像變化，識別細微的早期病變 \\
+\hline
+\textbf{Level 5} & Expert & 成為影像判讀的專家，能教導複雜影像判讀 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 4: 肺功能檢查操作與判讀}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠進行基礎肺功能檢查，包括肺量計操作、品質控制、基本測量與主要結果評估，並能識別重要的功能異常模式。} \\
+\hline
+\textbf{核心能力} & 檢查操作 & 肺量計操作、病患指導、品質確保 \\
+\cline{2-3}
+& 基本測量 & FVC、FEV1、FEV1/FVC比值測量 \\
+\cline{2-3}
+& 功能評估 & 阻塞性、限制性功能異常識別 \\
+\cline{2-3}
+& 支氣管擴張試驗 & 試驗執行與結果判讀 \\
+\cline{2-3}
+& 臨床關聯 & 功能異常與疾病嚴重度關聯 \\
+\hline
+\textbf{Level 1} & Novice & 能協助進行基本肺量計檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能獨立操作標準肺功能檢查，進行基本判讀 \\
+\hline
+\textbf{Level 3} & Competent & 能完成標準肺功能檢查，準確評估功能異常類型 \\
+\hline
+\textbf{Level 4} & Proficient & 能進行進階肺功能技術，準確定量評估 \\
+\hline
+\textbf{Level 5} & Expert & 成為肺功能技術專家，能教導複雜技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 5: 急性呼吸衰竭診斷與初步處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠快速識別急性呼吸衰竭，進行適當的診斷性檢查，評估嚴重度分級，並執行初步治療措施，包括氧氣治療與呼吸器支持決策。} \\
+\hline
+\textbf{核心能力} & 快速識別 & 急性呼吸窘迫症狀識別、高風險特徵 \\
+\cline{2-3}
+& 診斷策略 & 動脈血氣體、胸部影像、實驗室檢查安排 \\
+\cline{2-3}
+& 嚴重度分級 & P/F ratio、SOFA評分應用 \\
+\cline{2-3}
+& 氧氣治療 & 鼻導管、面罩、高流量氧氣選擇 \\
+\cline{2-3}
+& 呼吸器決策 & NIPPV適應症、插管時機、轉院必要性 \\
+\hline
+\textbf{Level 1} & Novice & 能識別典型呼吸窘迫症狀，知道基本檢查項目 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準診斷流程，進行基本嚴重度評估 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷急性呼吸衰竭，適當選擇治療策略 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜臨床情況，整合多重因子做決策 \\
+\hline
+\textbf{Level 5} & Expert & 成為急性呼吸衰竭專家，能指導複雜個案處理 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 6: 氣道疾病診斷與處理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種氣道疾病，評估氣流阻塞程度，選擇適當的治療方式，包括支氣管擴張劑、類固醇治療，或轉介進階治療。} \\
+\hline
+\textbf{核心能力} & 疾病識別 & 氣喘、COPD、支氣管擴張症分類 \\
+\cline{2-3}
+& 嚴重度評估 & 症狀控制、急性惡化評估 \\
+\cline{2-3}
+& 治療選擇 & 吸入型藥物vs全身性治療決策 \\
+\cline{2-3}
+& 急性處置 & 急性氣喘發作、COPD急性惡化處理 \\
+\cline{2-3}
+& 長期管理 & 控制型藥物、肺復健適應症 \\
+\hline
+\textbf{Level 1} & Novice & 能識別基本氣道阻塞症狀，知道緊急處置原則 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能處理穩定性氣道疾病，選擇基本吸入型藥物 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立處理大部分氣道疾病，做出急性惡化決定 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜氣道疾病，評估生物製劑適應症 \\
+\hline
+\textbf{Level 5} & Expert & 成為氣道疾病專家，能執行複雜治療程序 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 7: 肺炎與感染性疾病診斷與治療}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種肺炎與呼吸道感染，區分社區型與院內感染，制定個別化治療計畫，包括抗生素選擇與非藥物治療。} \\
+\hline
+\textbf{核心能力} & 診斷評估 & 症狀、徵象、嚴重度分級評估 \\
+\cline{2-3}
+& 病因識別 & 典型vs非典型病原菌區分 \\
+\cline{2-3}
+& 嚴重度評估 & CURB-65、PSI評分應用 \\
+\cline{2-3}
+& 抗生素治療 & 經驗性與標靶治療選擇 \\
+\cline{2-3}
+& 整合照護 & 住院指標、疫苗接種建議 \\
+\hline
+\textbf{Level 1} & Novice & 能識別肺炎症狀徵象，知道基本抗生素治療 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用標準治療指引，進行基本抗生素調整 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理穩定肺炎，調整複雜抗生素組合 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治性感染，評估進階治療選項 \\
+\hline
+\textbf{Level 5} & Expert & 成為感染疾病專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 8: 肺栓塞診斷與管理}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷肺栓塞，評估血栓栓塞風險，制定個別化抗凝血治療策略，監測治療效果與副作用，並提供預防性建議。} \\
+\hline
+\textbf{核心能力} & 臨床評估 & Wells評分、Geneva評分應用 \\
+\cline{2-3}
+& 診斷策略 & D-dimer、CTPA、V/Q scan選擇 \\
+\cline{2-3}
+& 風險分層 & 血流動力學影響評估 \\
+\cline{2-3}
+& 抗凝治療 & DOAC vs warfarin選擇 \\
+\cline{2-3}
+& 預防措施 & VTE預防、長期管理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別肺栓塞症狀，知道基本診斷流程 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能使用臨床評分工具，開始抗凝血治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷肺栓塞，選擇適當抗凝治療 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜肺栓塞，評估血栓溶解治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為血栓栓塞專家，發展個人化治療策略 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 9: 胸腔穿刺術與胸管置放}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行胸腔穿刺術與胸管置放術，包括適應症評估、解剖定位、無菌技術、併發症預防，並能處理術後照護與管理。} \\
+\hline
+\textbf{核心能力} & 適應症評估 & 診斷性vs治療性穿刺決策 \\
+\cline{2-3}
+& 解剖定位 & 超音波導引、解剖標誌識別 \\
+\cline{2-3}
+& 無菌技術 & 消毒、局部麻醉、穿刺技巧 \\
+\cline{2-3}
+& 併發症預防 & 氣胸、出血、感染預防 \\
+\cline{2-3}
+& 術後管理 & 胸管照護、移除時機 \\
+\hline
+\textbf{Level 1} & Novice & 能協助胸腔穿刺，了解基本解剖結構 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行診斷性胸腔穿刺 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行胸腔穿刺，處理一般併發症 \\
+\hline
+\textbf{Level 4} & Proficient & 能執行複雜胸腔手術，使用進階技術 \\
+\hline
+\textbf{Level 5} & Expert & 成為胸腔手術專家，能教導複雜技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textbf{EPA 10: 支氣管內視鏡檢查}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠執行基礎支氣管內視鏡檢查，包括設備操作、解剖識別、檢體取得、治療性處置，並能識別重要的病理發現。} \\
+\hline
+\textbf{核心能力} & 設備操作 & 支氣管鏡操作、影像調整 \\
+\cline{2-3}
+& 解剖識別 & 氣管支氣管樹解剖認知 \\
+\cline{2-3}
+& 檢體取得 & 沖洗液、刷檢、切片技術 \\
+\cline{2-3}
+& 病理識別 & 發炎、腫瘤、異物識別 \\
+\cline{2-3}
+& 治療處置 & 止血、異物移除、支架置放 \\
+\hline
+\textbf{Level 1} & Novice & 能協助支氣管鏡檢查，識別基本解剖 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能在監督下執行診斷性支氣管鏡 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立執行標準支氣管鏡，取得適當檢體 \\
+\hline
+\textbf{Level 4} & Proficient & 能執行治療性支氣管鏡，處理併發症 \\
+\hline
+\textbf{Level 5} & Expert & 成為支氣管鏡專家，執行進階技術 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textcolor{emergency_red}{\textbf{EPA 11: 結核病診斷與治療管理}}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各型結核病，評估傳染性與嚴重度，執行標準抗結核治療，監測治療反應與副作用，並處理抗藥性結核病及其併發症。} \\
+\hline
+\textbf{核心能力} & 診斷策略 & 痰液檢查、IGRA、分子診斷技術 \\
+\cline{2-3}
+& 影像評估 & 典型肺結核影像、粟粒性結核識別 \\
+\cline{2-3}
+& 治療方案 & 第一線抗結核藥物組合、療程規劃 \\
+\cline{2-3}
+& 副作用監測 & 肝毒性、視神經炎、皮疹監測 \\
+\cline{2-3}
+& 抗藥性處理 & MDR-TB識別、二線藥物應用 \\
+\cline{2-3}
+& 感染控制 & 隔離措施、接觸者追蹤 \\
+\cline{2-3}
+& 併發症處理 & 血胸、支氣管胸膜瘻、毀損肺 \\
+\hline
+\textbf{Level 1} & Novice & 能識別結核病症狀，知道基本診斷檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行標準診斷流程，開始第一線治療 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立管理典型肺結核，監測治療反應 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜結核病，評估抗藥性治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為結核病專家，管理MDR-TB與併發症 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textcolor{emergency_red}{\textbf{EPA 12: 非典型分枝桿菌感染診斷與管理}}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷非典型分枝桿菌感染，區分致病性與定植，執行適當的抗分枝桿菌治療，並管理治療相關併發症與抗藥性問題。} \\
+\hline
+\textbf{核心能力} & 菌種識別 & MAC、M. kansasii、快速生長菌分類 \\
+\cline{2-3}
+& 診斷標準 & ATS診斷標準應用、致病性判定 \\
+\cline{2-3}
+& 影像特徵 & 結節支氣管擴張型、空洞型識別 \\
+\cline{2-3}
+& 治療決策 & 治療指標、藥物選擇、療程規劃 \\
+\cline{2-3}
+& 藥敏試驗 & 體外藥敏結果判讀、臨床關聯性 \\
+\cline{2-3}
+& 外科評估 & 手術適應症、術前評估 \\
+\cline{2-3}
+& 追蹤監測 & 治療反應評估、復發監測 \\
+\hline
+\textbf{Level 1} & Novice & 能識別NTM可能性，了解基本檢查 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能應用診斷標準，區分致病性與定植 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷NTM感染，制定治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理難治NTM感染，整合內外科治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為NTM專家，處理複雜抗藥性個案 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textcolor{emergency_red}{\textbf{EPA 13: 肺癌診斷與分期評估}}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷肺癌，執行完整分期評估，協調多專科團隊照護，參與治療決策討論，並提供病患與家屬適當的衛教與支持。} \\
+\hline
+\textbf{核心能力} & 早期偵測 & 肺癌篩檢、危險因子評估 \\
+\cline{2-3}
+& 病理診斷 & 組織取得途徑、細胞型態分類 \\
+\cline{2-3}
+& 分期評估 & TNM分期、影像學評估、侵襲性檢查 \\
+\cline{2-3}
+& 分子檢測 & EGFR、ALK、PD-L1檢測判讀 \\
+\cline{2-3}
+& 功能評估 & 手術適應性、心肺功能評估 \\
+\cline{2-3}
+& 多科整合 & 腫瘤團隊討論參與、治療計畫制定 \\
+\cline{2-3}
+& 症狀緩解 & 呼吸困難、疼痛、惡病質處理 \\
+\hline
+\textbf{Level 1} & Novice & 能識別肺癌可疑症狀，知道基本檢查流程 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行分期檢查，參與團隊討論 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立完成肺癌分期，制定初步治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能整合複雜檢查結果，協調多科治療 \\
+\hline
+\textbf{Level 5} & Expert & 成為肺癌專家，領導多科團隊照護 \\
+\hline
+
+\rowcolor{emergency_red!10}
+\multicolumn{3}{|c|}{\textcolor{emergency_red}{\textbf{EPA 14: 間質性肺疾病診斷與治療}}} \\
+\hline
+\textbf{描述} & \multicolumn{2}{|p{12.5cm}|}{能夠診斷各種間質性肺疾病，執行系統性診斷評估，區分可治療與不可治療病因，制定個別化治療方案，並監測疾病進展。} \\
+\hline
+\textbf{核心能力} & 臨床評估 & 漸進性呼吸困難、乾咳、杵狀指評估 \\
+\cline{2-3}
+& 影像判讀 & HRCT型態識別、蜂窩肺、磨玻璃影 \\
+\cline{2-3}
+& 病因分析 & 藥物性、職業性、自體免疫相關ILD \\
+\cline{2-3}
+& 診斷程序 & 支氣管肺泡沖洗、肺切片適應症 \\
+\cline{2-3}
+& 功能監測 & DLCO、6分鐘走路測試、生活品質 \\
+\cline{2-3}
+& 治療策略 & 抗纖維化藥物、免疫抑制治療 \\
+\cline{2-3}
+& 進展評估 & 疾病惡化識別、肺移植評估 \\
+\hline
+\textbf{Level 1} & Novice & 能識別ILD可能性，了解基本影像特徵 \\
+\hline
+\textbf{Level 2} & Advanced Beginner & 能執行基本診斷評估，識別常見ILD類型 \\
+\hline
+\textbf{Level 3} & Competent & 能獨立診斷主要ILD類型，制定治療計畫 \\
+\hline
+\textbf{Level 4} & Proficient & 能處理複雜ILD個案，整合多學科討論 \\
+\hline
+\textbf{Level 5} & Expert & 成為ILD專家，處理罕見疾病與併發症 \\
+\hline
+
+\end{longtable}
+
+\newpage
+\section{評量方法與標準}
+
+\subsection{CCC評量架構}
+本胸腔內科EPAs採用Case-based Clinical Competency (CCC)評量方式：
+\begin{itemize}[nosep]
+    \item 真實臨床情境評量
+    \item 多次觀察與回饋
+    \item 漸進式委託決策
+    \item 360度回饋機制
+\end{itemize}
+
+\begin{importantbox}
+\textbf{特別提醒：} 胸腔內科EPAs的評量重點在於漸進式能力發展，而非單次完美表現。鼓勵從錯誤中學習，持續改進。每個EPA都需要在真實臨床情境中反復練習與評量。新增的4個EPAs（結核病、NTM、肺癌、間質性肺病）特別需要長期追蹤個案來建立臨床經驗。
+\end{importantbox}
+
+\subsection{評量工具對應表}
+\begin{table}[h]
+    \centering
+    \caption{各EPA推薦評量工具（更新版）}
+    \begin{tabular}{p{4.5cm} p{4cm} p{5.5cm}}
+        \toprule
+        \textbf{EPA類型} & \textbf{主要評量工具} & \textbf{輔助評量方法} \\
+        \midrule
+        技能操作類 & DOPS & 直接觀察、技能檢核表 \\
+        (EPA 4, 9, 10) & (Direct Observation of Procedural Skills) & 同儕評量、自我評量 \\
+        \midrule
+        臨床推理類 & Mini-CEX & 病例討論、口試 \\
+        (EPA 1, 3, 5, 6, 7, 8) & (Mini-Clinical Evaluation Exercise) & 病歷撰寫評量、模擬情境 \\
+        \midrule
+        理學檢查類 & DOPS & 標準化病人、技能測驗 \\
+        (EPA 2) & (Direct Observation of Procedural Skills) & 影片回顧、同儕觀察 \\
+        \midrule
+        \textcolor{emergency_red}{複雜疾病管理類} & \textcolor{emergency_red}{Portfolio-based} & \textcolor{emergency_red}{長期個案追蹤} \\
+        \textcolor{emergency_red}{(EPA 11, 12, 13, 14)} & \textcolor{emergency_red}{Assessment} & \textcolor{emergency_red}{多科團隊評量} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{評量頻率建議（更新版）}
+\begin{itemize}[nosep]
+    \item \textbf{每月評量}：選擇3-4個EPA重點評量（包括1個新增EPA）
+    \item \textbf{季度檢討}：全面檢視所有14個EPA進展
+    \item \textbf{年度認證}：EPA達標認證與進階規劃
+    \item \textbf{即時回饋}：發現學習需求時立即介入
+    \item \textbf{長期追蹤}：EPA 11-14需要至少6個月的個案追蹤
+\end{itemize}
+
+\vspace{0.5cm}
+\note{
+新增的4個EPAs（結核病、NTM、肺癌、間質性肺病）由於疾病複雜度高且治療週期長，建議採用Portfolio-based Assessment方式，要求學員至少完整追蹤3-5個相關個案，並定期進行多專科團隊討論。這些EPA的評量重點在於疾病管理的完整性與持續性，而非單一技能的熟練度。
+}
+
+\section{實施建議與學習資源（擴展版）}
+
+\subsection{月度晨會Mini-OSCE整合建議（更新版）}
+\begin{table}[h]
+    \centering
+    \caption{月度EPA評量主題安排（14個EPA版本）}
+    \begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+        \toprule
+        \textbf{月份} & \textbf{重點EPAs} & \textbf{評量重點} \\
+        \midrule
+        第1個月 & EPA 1, 2, 3 & 基礎評估技能建立 \\
+        第2個月 & EPA 4, 5, 6 & 診斷技術與急症處理 \\
+        第3個月 & EPA 7, 8 & 感染與血管疾病管理 \\
+        第4個月 & EPA 9, 10 & 進階技能與整合能力 \\
+        第5個月 & \textcolor{emergency_red}{EPA 11, 12} & \textcolor{emergency_red}{分枝桿菌感染診療} \\
+        第6個月 & \textcolor{emergency_red}{EPA 13, 14} & \textcolor{emergency_red}{肺癌與間質性肺病} \\
+        第7-12個月 & 綜合評量與進階訓練 & 複雜個案整合處理能力 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{推薦學習資源（擴展版）}
+學員可參考以下文獻深入學習：
+
+\textbf{基礎教科書：}
+\begin{itemize}
+    \item Murray \& Nadel's Textbook of Respiratory Medicine. 7th edition.
+    \item Fishman's Pulmonary Diseases and Disorders. 5th edition.
+\end{itemize}
+
+\textbf{臨床指引：}
+\begin{itemize}
+    \item GOLD Guidelines for COPD Management (2024 Update)
+    \item ATS/ERS Guidelines for Pulmonary Function Testing
+    \item BTS Guidelines for Management of Community Acquired Pneumonia
+    \item \textcolor{emergency_red}{WHO Guidelines for Treatment of Drug-Resistant Tuberculosis (2022)}
+    \item \textcolor{emergency_red}{ATS/ERS/ESCMID/IDSA Guidelines for NTM Disease (2020)}
+    \item \textcolor{emergency_red}{NCCN Guidelines for Non-Small Cell Lung Cancer (2024)}
+    \item \textcolor{emergency_red}{ATS/ERS/JRS/ALAT Guidelines for Idiopathic Pulmonary Fibrosis (2022)}
+\end{itemize}
+
+\subsection{新增EPA專業學習建議}
+\begin{table}[h]
+    \centering
+    \caption{新增4個EPA的專業學習重點}
+    \begin{tabular}{p{2cm} p{6cm} p{6cm}}
+        \toprule
+        \textbf{EPA} & \textbf{核心學習內容} & \textbf{實務經驗要求} \\
+        \midrule
+        EPA 11 (TB) & WHO治療指引、抗藥性檢測、DOTS & 完整追蹤至少5個TB個案 \\
+        EPA 12 (NTM) & ATS診斷標準、MAC治療、外科評估 & 管理至少3個NTM個案 \\
+        EPA 13 (肺癌) & 分子檢測、免疫治療、緩解照護 & 參與至少10個肺癌分期討論 \\
+        EPA 14 (ILD) & HRCT判讀、抗纖維化治療、肺移植 & 長期追蹤至少5個ILD個案 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{自我評估工具（更新版）}
+\begin{itemize}[nosep]
+    \item 定期記錄學習歷程與反思（包括新增EPA的個案紀錄）
+    \item 尋求多方回饋（主治醫師、護理師、病人、多科團隊）
+    \item 參與同儕學習與討論
+    \item 利用模擬教學工具練習
+    \item 建立個人學習檔案
+    \item \textcolor{emergency_red}{建立長期個案追蹤紀錄（特別針對EPA 11-14）}
+    \item \textcolor{emergency_red}{參與多專科團隊會議（腫瘤科、胸腔外科、感染科）}
+\end{itemize}
+
+\section{總結}
+
+胸腔內科EPAs現已擴展至14個，涵蓋了呼吸系統疾病診療的完整核心能力，從基礎的病史詢問與理學檢查，到複雜的結核病管理、肺癌診療，以及間質性肺疾病的長期照護。每個EPA都有清楚的能力描述與里程碑發展路徑，協助住院醫師循序漸進地建立專業能力。
+
+\begin{importantbox}
+\textbf{關鍵訊息：} 擴展版胸腔內科EPAs的核心在於「可委託性」與「完整性」。新增的4個EPAs（結核病、NTM、肺癌、間質性肺病）代表胸腔內科醫師必須具備的進階診療能力。這些疾病通常需要長期管理、多專科合作，以及個案追蹤經驗的累積。當您能夠安全、穩立地執行所有14項呼吸系統疾病診療活動，並做出合理的臨床決策時，就達到了相對應EPA的目標。記住，每一次的臨床實務都是學習的機會，透過持續的實作、反思與改進，並積極參與長期個案追蹤與多專科團隊討論，才能成為一位優秀的胸腔內科醫師。
+\end{importantbox}
+
+% References section
+\section{參考文獻（更新版）}
+\begin{thebibliography}{15}
+
+\bibitem{murray2022}
+Broaddus, V. C., Ernst, J. D., King Jr, T. E., Lazarus, S. C., Gotway, M. B., Sarmiento, K. F., \& Wolters, P. J. (2022). \textit{Murray \& Nadel's Textbook of Respiratory Medicine}. 7th edition. Elsevier.
+
+\bibitem{gold2024}
+Global Initiative for Chronic Obstructive Lung Disease. (2024). Global Strategy for the Diagnosis, Management, and Prevention of Chronic Obstructive Pulmonary Disease. \textit{GOLD Report}.
+
+\bibitem{olle2013}
+ten Cate, O. (2013). Nuts and bolts of entrustable professional activities. \textit{Journal of Graduate Medical Education}, 5(1), 157-158.
+
+\bibitem{ats2019}
+Graham, B. L., et al. (2019). Standardization of Spirometry 2019 Update. \textit{American Journal of Respiratory and Critical Care Medicine}, 200(8), e70-e88.
+
+\bibitem{bts2022}
+Lim, W. S., et al. (2022). BTS guidelines for the management of community acquired pneumonia in adults: update 2022. \textit{Thorax}, 77(8), 717-724.
+
+\bibitem{who2022}
+World Health Organization. (2022). WHO consolidated guidelines on tuberculosis. Module 4: treatment - drug-resistant tuberculosis treatment. Geneva: World Health Organization.
+
+\bibitem{ats2020ntm}
+Daley, C. L., et al. (2020). Treatment of nontuberculous mycobacterial pulmonary disease: an official ATS/ERS/ESCMID/IDSA clinical practice guideline. \textit{Clinical Infectious Diseases}, 71(4), e1-e36.
+
+\bibitem{nccn2024}
+National Comprehensive Cancer Network. (2024). NCCN Clinical Practice Guidelines in Oncology: Non-Small Cell Lung Cancer. Version 3.2024.
+
+\bibitem{ats2022ipf}
+Raghu, G., et al. (2022). Diagnosis and treatment of idiopathic pulmonary fibrosis. An official ATS/ERS/JRS/ALAT clinical practice guideline. \textit{American Journal of Respiratory and Critical Care Medicine}, 205(9), e18-e47.
+
+\bibitem{fishman2023}
+Grippi, M. A., et al. (2023). \textit{Fishman's Pulmonary Diseases and Disorders}. 5th edition. McGraw Hill.
+
+\end{thebibliography}
+
+\end{document}

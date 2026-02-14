@@ -1,0 +1,1088 @@
+\documentclass[12pt,a4paper]{article}
+
+% 這是一份latex 文件的 preamble
+% 請AI閱讀後,將附上的PDF整理,以latex code整理,儘量用longtable
+% 請注意我的名字: 謝慕揚, MD, PhD, FESC
+% 表格請注意換行,不該在cell內使用 \\
+% 表格請不要有垂直分隔線 |
+% 所有 longtable 中的儲存格內換行都改用 \newline, 不能直接用\\
+% 整理中若碰到藥物名稱,請使用英文,不要將藥物翻成中文。同樣,檢驗與檢查,請維持英文。
+
+
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{新竹台大分院}}
+\fancyhead[R]{\textcolor{emergency_blue}{實習醫學生訪視紀錄報告}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% 定義簡單的日期格式
+\newcommand{\mydate}{\today}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge\bfseries\color{emergency_red} 114學年度\par}
+    \vspace{0.5cm}
+    {\Huge\bfseries\color{emergency_red} 實習醫學生訪視紀錄報告\par}
+    \vspace{2cm}
+    
+    {\Large\color{emergency_blue} 國立台灣大學醫學院附設醫院\par}
+    {\Large\color{emergency_blue} 新竹台大分院\par}
+    \vspace{1cm}
+    
+    {\large 教學部製\par}
+    \vspace{2cm}
+    
+    \begin{importantbox}
+    \centering
+    {\large\bfseries 報告摘要}
+    \vspace{0.5cm}
+    
+    總訪視場次:14次 \\
+    總訪視學生數:42人次\\
+    參與科部數:9個科部 \\ 
+    參與學校數:6所學校 \\
+    \end{importantbox}
+    
+    \vfill
+    
+    {\large 訪視主持人:曾芬郁教授\par}
+    \vspace{0.5cm}
+    {\large 報告日期:\mydate\par}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{訪視總覽統計}
+
+本報告彙整114學年度實習醫學生訪視情況,訪視期間自2025年7月至2025年11月,共計進行14次訪視場次,訪視學生總計42人次,涵蓋9個臨床科部及6所醫學院校。
+
+\subsection{基本統計數據}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{6cm}>{\raggedleft\arraybackslash}p{4cm}}
+\toprule
+\textbf{統計項目} & \textbf{數量} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{統計項目} & \textbf{數量} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+總訪視場次 & 14次 \\
+總訪視學生數 & 42人次 \\
+參與科部數 & 9個科部 \\
+參與學校數 & 6所學校 \\
+訪視期間 & 2025年7月-11月 \\
+平均每場訪視學生數 & 3人次 \\
+
+\end{longtable}
+
+\subsection{科部參與統計}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{6cm}>{\raggedleft\arraybackslash}p{4cm}}
+\toprule
+\textbf{科部} & \textbf{學生人數(人次)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{科部} & \textbf{學生人數(人次)} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+內科部 & 11 \\
+急診醫學部 & 9 \\
+麻醉部 & 8 \\
+復健部 & 6 \\
+環境及職業醫學部 & 4 \\
+家庭醫學部 & 3 \\
+外科部 & 3 \\
+小兒部 & 2 \\
+神經部 & 2 \\
+
+\end{longtable}
+
+\subsection{學校參與統計}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{6cm}>{\raggedleft\arraybackslash}p{4cm}}
+\toprule
+\textbf{學校} & \textbf{學生人數(人次)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{學校} & \textbf{學生人數(人次)} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+國立台灣大學醫學院 & 30 \\
+台北醫學大學 & 4 \\
+馬偕醫學院 & 4 \\
+國立陽明交通大學 & 2 \\
+中山醫學大學 & 1 \\
+慈濟大學 & 1 \\
+
+\end{longtable}
+
+\newpage
+\section{詳細訪視記錄}
+
+\subsection{2025年7-8月訪視記錄}
+
+
+
+
+
+
+
+\subsubsection{7月9日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+07/09 & 趙柏儒 & 台大 & 復健部 & 楊恩醫師 & --- & e-Portfolio系統評估表單重複(已協助調整) \\
+07/09 & 黃以柔 & 北醫 & 外科部 & 陳博彥醫師 & --- & 課程規劃讓學生感受如何當住院醫師 \\
+07/09 & 潘勝全 & 台大 & 麻醉部 & 多位教師 & --- & 臨床技能訓練豐富,老師一對一教導插管 \\
+07/09 & 周承勳 & 台大 & 內科部 & 胡文皓醫師 & --- & 週一週五內視鏡檢查,週二門診,今天超音波 \\
+07/09 & 彭柏棣 & 台大 & 內科部 & 林振傑醫師 & --- & 跟林醫師做氣管鏡、抽胸水、放foley \\
+07/09 & 王冠勛 & 台大 & 內科部 & 陳長江醫師 & --- & 陳醫師正在教學,未深入訪談 \\
+07/09 & 胡項淵 & 台大 & 急診部 & 陳麒心醫師 & --- & 安排核心課程中 \\
+07/09 & 楊于絜 & 台大 & 急診部 & 陳麒心醫師 & --- & 安排核心課程中 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{復健部:} 醫五總院復健實習著重學術課程,新竹更多元團隊合作
+\item \textbf{外科部:} 課程讓學生貼近未來住院醫師工作
+\item \textbf{內科部:} 總院病人來源不同,新竹胸腔多肺炎,總院多肺癌
+\item \textbf{建議:} 提供外租宿舍或租金補助(說明院方規定與限制)
+\end{itemize}
+}
+
+\subsubsection{7月23日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+07/23 & 賴靖隆 & 北醫 & 內科部 & 胸腔內科\newline 教師 & --- & 訓練環境滿意,生活OK \\
+07/23 & 莊閔鈞 & 台大 & 內科部 & --- & --- & 多位學生一起座談 \\
+07/23 & 張耕維 & 台大 & 內科部 & --- & --- & 多位學生一起座談 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item 已建議提供外校實習醫學生宿舍,下學年度會提供
+\item 提醒學生觀察新竹教學軟實力
+\end{itemize}
+}
+
+
+\subsubsection{7月30日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+07/30 & 羅晴 & 台大 & 環職部 & 黃敬淳主任 & --- & 總院環職科僅4個缺額,看到新竹有開立刻填選 \\
+07/30 & 周承勳 & 台大 & 麻醉部 & 吳宗達醫師 & --- & 生醫麻醉術式較少CVC,比較多半身麻醉 \\
+07/30 & 朱昱蓁 & 台大 & 麻醉部 & 吳宗達醫師 & --- & 吳醫師比較積極,發現適合手術就讓學生參與 \\
+07/30 & 黃品元 & 台大 & 復健部 & 多位教師 & 9/10 & 參與多團隊合作,醫五總院沒有這樣安排 \\
+07/30 & 莊閔鈞 & 台大 & 內科部 & 林振傑醫師 & --- & 跟老師做氣管鏡、抽胸水、放foley \\
+07/30 & 彭柏棣 & 台大 & 內科部 & 林振傑醫師 & --- & 總院五年級還沒機會練習,新竹有機會做procedure \\
+07/30 & 張耕維 & 台大 & 內科部 & 林宣合醫師 & --- & 內科訓練扎實,夜間值班照顧3個病人 \\
+07/30 & 林羿辰 & 台大 & 急診部 & 多位教師 & --- & 教學都是老師一對一,非常認真滿意 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{環職部:} 之後下梯次還會來新竹實習麻醉科
+\item \textbf{內科部:} 內科訓練強度高於總院,老師直接指導
+\item \textbf{急診部:} 抽考「非預期急救」概念,提醒臨床觀察重要性
+\end{itemize}
+}
+
+\subsubsection{8月20日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+08/20 & 黃冠綸 & 台大 & 急診部 & 劉彥形醫師 & --- & 每位主治醫師教學熱忱高,有問題不厭其煩回答 \\
+08/20 & 蕭百修 & 台大 & 急診部 & 劉彥形醫師 & --- & 課程包含消防局到院前救護實習 \\
+08/20 & 陳龍泰 & 台大 & 復健部 & 多位教師 & 9/10 & 可看到更多元團隊照護,包含早療聯合評估 \\
+08/20 & 劉叡嶸 & 台大 & 環職部 & 施屏主任 & --- & 明天至竹南群聯電子臨場服務,須自行搭火車 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{急診部:} 因救護車出勤意外險問題,無法跟車出勤(已協調改善)
+\item \textbf{復健部:} 宿舍地板有頭髮及牆面斑駁脫落粉屑(已加強清潔)
+\item \textbf{環職部:} 課程豐富,提供職災整合服務團隊學習
+\end{itemize}
+}
+
+\newpage
+\subsection{2025年9月訪視記錄}
+
+
+
+
+
+
+
+
+
+\subsubsection{9月3日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+09/03 & 張宸禎 & 台大 & 急診部 & 多位教師 & 8-9/10 & 課程安排多元,核心課程豐富 \\
+09/03 & 葉侑哲 & 台大 & 急診部 & 多位教師 & 8-9/10 & 總院急診相對新竹忙碌,疾病樣態不同 \\
+09/03 & 楊雨築 & 北醫 & 急診部 & 多位教師 & --- & 新竹急診有區分內外科小兒,總院較無區分 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{急診部:} TRM急救團隊分工、POCUS超音波訓練內容豐富實用
+\item \textbf{北醫學生:} 課程安排多元但核心課程結束接近中午,臨床時間感覺較少
+\item \textbf{宿舍問題:} 浴室污垢髒亂,後來選擇外租(已改善清潔機制)
+\end{itemize}
+}
+
+\subsubsection{9月10日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+09/10 & 周煜珉 & 慈濟 & 內科部 & 陳長江、\newline 謝慕揚\newline 醫師 & 9/10 & 新竹心臟內科病患疾病樣態比慈濟更多元 \\
+09/10 & 邱墨林 & 台大 & 復健部 & 多位教師 & 9.5/10 & 可看到更多元團隊照護治療,包含早療評估 \\
+09/10 & 史昀鑫 & 台大 & 環職部 & 蔡瑞元主任 & --- & 跟主治醫師門診,至清大進行臨場服務實習 \\
+09/10 & 洪韻 & 北醫 & 小兒部 & 多位教師 & 9/10 & 新竹疾病類型較北醫多樣化,學習狀況很好 \\
+09/10 & 王韻筑 & 台大 & 內科部 & 詹傑凱醫師 & --- & 老師教學品質超好,比總院由老師直接指導 \\
+09/10 & 蔡承霖 & 台大 & 麻醉部 & 多位教師 & --- & Portal系統無法查閱總院病歷(符合隱私保護) \\
+09/10 & 羅晴 & 台大 & 麻醉部 & 多位教師 & --- & 宿舍環境算乾淨,房間清潔自行維護 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{內科部:} 住院醫師總複習課程規劃很好
+\item \textbf{復健部:} 扣0.5分為宿舍浴室需改善(已改善清潔機制)
+\item \textbf{環職部:} 難得可貴的學習經驗,跨領域團隊學習
+\item \textbf{宿舍問題:} 已與總務室溝通,每梯次離院時清潔,並規劃每週公共區域清潔
+\end{itemize}
+}
+
+\subsubsection{9月14日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+09/14 & 彭佑翔 & 馬偕 & 神經部 & 陳凱翔\newline 副主任 & --- & 課程規劃充實,每位教師都有教學熱忱 \\
+09/14 & 詹雅晴 & 馬偕 & 家醫部 & 張哲瑞醫師 & --- & 未事前收到課程表,週六安排課程影響規劃 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{神經部:} 核心課程讓學生認識神經相關疾病,第二週跟診和病房
+\item \textbf{家醫部:} 課程包含跟診、衛生所、生醫青少年門診、老年醫學門診
+\end{itemize}
+}
+
+\subsubsection{9月15日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+09/15 & 楊雨築 & 北醫 & 神經部 & 陳凱翔\newline 副主任 & --- & 課程安排充實,收益良多 \\
+
+\end{longtable}
+\subsubsection{9月30日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+09/30 & 洪唯康 & 台大 & 麻醉部 & 多位教師 & --- & 技能操作機會多,老師願意讓學生練習CVC和插管 \\
+09/30 & 黃柏誠 & 台大 & 麻醉部 & 多位教師 & --- & 教學熱忱高,生活照顧周到 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item 新竹麻醉選修第一個額滿,比總院更快
+\item \textbf{宿舍環境:} 公用洗衣機使用問題需改善
+\end{itemize}
+}
+
+\subsection{2025年10月訪視記錄}
+
+
+
+
+
+
+\subsubsection{10月1日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+10/01 & 莊閔鈞 & 台大 & 環職部 & 蔡瑞元主任 & --- & 參與臨場健康服務,學習職業傷害評估 \\
+10/01 & 張宸禎 & 台大 & 急診部 & 多位教師 & --- & 課程安排多元,包含TRM急救團隊訓練 \\
+10/01 & 楊鈞傑 & 台大 & 急診部 & 多位教師 & --- & 新竹教學團隊無界限,教學氣氛比總院好 \\
+10/01 & 張淵荏 & 台大 & 復健部 & 多位教師 & --- & 超音波教學豐富,與總院實習經驗不同 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{環職部:} 至工作現場學習職業傷害暴露危險因子評估
+\item \textbf{急診部:} 加入TRM急救復甦演練、POCUS超音波訓練等創新課程
+\item \textbf{復健部:} 在總院主治醫師完成超音波就結束,新竹會留時間教導
+\end{itemize}
+}
+
+\subsubsection{10月8日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+10/08 & 彭佑翔 & 馬偕 & 外科部 & 陳博彥醫師 & --- & 陳醫師願意安排一整天行程,讓學生觀摩不同領域手術 \\
+10/08 & 詹雅晴 & 馬偕 & 小兒部 & 賀紹茹醫師 & --- & 課程安排豐富,包含模擬訓練和小兒急診 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{外科:} 陳博彥醫師教學熱忱高,願意讓學生動手做,甚至使用昂貴的傷口凝膠
+\item \textbf{小兒部:} 核心課程安排多,相較台北馬偕教學更扎實
+\end{itemize}
+}
+
+
+\subsubsection{10月22日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+10/22 & 張耕維 & 台大 & 麻醉部 & 多位教師 & --- & 新竹操作實習機會多,CVC和插管練習豐富 \\
+10/22 & 劉育維 & 台大 & 麻醉部 & 多位教師 & --- & 麻醉科教師教學熱忱高,課程安排適中 \\
+10/22 & 張晏承 & 台大 & 復健部 & 徐書強醫師 & --- & 超音波教學印象深刻,復健治療學習豐富 \\
+10/22 & 廖威銓 & 陽明\newline 交大 & 家醫部 & 葉乃綸、\newline 張哲瑞、\newline 王牧群\newline 醫師等 & 10/10 & 課程包含衛生所、巡迴醫療、長照機構等,收穫良多 \\
+
+\end{longtable}
+
+\note{
+\textbf{重點回饋:}
+\begin{itemize}[leftmargin=*,topsep=3pt,itemsep=3pt]
+\item \textbf{麻醉部:} 新竹手術技能操作機會比總院多,教師願意放手讓學生練習
+\item \textbf{復健部:} 肌肉骨骼超音波教學豐富,老師一邊操作一邊解釋
+\item \textbf{家醫部:} 課程結合在地醫療、居家照護、社區營造,難得可貴
+\end{itemize}
+}
+
+\subsubsection{10月29日訪視}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+10/29 & 黃昱臻 & 中山 & 外科部 & 陳博彥醫師 & --- & 實習滿意度超出預期,主治醫師願意讓學生近距離觀摩 \\
+
+\end{longtable}
+\subsection{2025年11月訪視記錄}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{訪視\newline 日期} & \textbf{學生\newline 姓名} & \textbf{學校} & \textbf{科部} & \textbf{主要臨床\newline 教師} & \textbf{滿意度} & \textbf{主要回饋} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+11/03 & 吳妍玶 & 陽明\newline 交大 & 家醫部 & 多位教師 & 8/10 & 課程扎實,安排社區訓練、居家照護、健檢中心等多元課程。期待了解家醫科實務內容,課程安排豐富。扣2分原因:醫院附近飲食選擇較少。未來考慮選擇新竹台大PGY訓練,已報名11/15招生說明會。 \\
+
+\end{longtable}
+
+\section{綜合分析與建議}
+
+\subsection{教學優勢分析}
+
+本次訪視結果顯示,新竹台大分院在實習醫學生教學方面展現多項優勢:
+
+\subsubsection{教學品質優異}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{主治醫師教學熱忱高:} 訪視中多次提及主治醫師願意耐心指導,回答學生問題不厭其煩
+\item \textbf{一對一教學模式:} 相較於總院,新竹分院提供更多直接由主治醫師指導的機會
+\item \textbf{技能操作機會豐富:} 學生反映在CVC、插管、超音波等技能有充分練習機會
+\item \textbf{教學無界限:} 多位台大學生表示新竹教學團隊氣氛比總院更友善
+\end{itemize}
+
+\subsubsection{課程設計多元創新}
+
+各科部展現獨特教學特色:
+
+\begin{description}[leftmargin=2cm,style=nextline]
+\item[家庭醫學部] 整合社區訓練、衛生所實習、居家照護、長照機構參訪、健檢中心等多元課程,讓學生深入了解基層醫療實務
+
+\item[復健部] 強調跨專業團隊合作,包含物理治療、職能治療、語言治療等多團隊評估,並提供豐富的肌肉骨骼超音波教學
+
+\item[環境及職業醫學部] 提供至企業現場進行臨場健康服務的獨特學習機會,讓學生了解職業傷害評估與預防
+
+\item[急診醫學部] 創新課程包含TRM急救團隊訓練、POCUS超音波訓練、消防局到院前救護實習等
+
+\item[麻醉部] 選修名額第一個額滿,反映學生對教學品質的肯定,提供充分的CVC與插管練習機會
+
+\item[內科部] 住院醫師總複習課程規劃完整,夜間值班讓學生實際參與病患照護,procedure操作機會多
+
+\item[外科部] 主治醫師願意安排完整手術觀摩行程,讓學生動手操作,甚至使用昂貴耗材
+\end{description}
+
+\subsubsection{實務學習深入}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{臨床技能:} 學生有機會實際操作氣管鏡、抽胸水、放置導尿管等procedure
+\item \textbf{病患多樣性:} 疾病類型相較總院或其他醫學中心更多元,提供豐富學習經驗
+\item \textbf{核心課程:} 各科部均規劃完整核心課程,系統性建立學生臨床知識
+\item \textbf{值班制度:} 內科部提供夜間值班機會,讓學生實際參與病患照護
+\end{itemize}
+
+\subsection{問題發現與改善措施}
+
+\subsubsection{宿舍環境問題(已改善)}
+
+\textbf{發現問題:}
+\begin{itemize}[leftmargin=*]
+\item 9月初訪視發現浴室污垢、環境髒亂問題
+\item 公用洗衣機使用管理需要改善
+\item 部分學生反映地板有頭髮、牆面斑駁脫落粉屑
+\end{itemize}
+
+\textbf{改善措施:}
+\begin{itemize}[leftmargin=*]
+\item 已與總務室協調,規劃每梯次學生離院時進行全面清潔
+\item 建立每週公共區域定期清潔機制
+\item 後續訪視中學生反映宿舍環境已有明顯改善
+\end{itemize}
+
+\subsubsection{系統與行政問題(已解決)}
+
+\textbf{e-Portfolio系統:}
+\begin{itemize}[leftmargin=*]
+\item 7月9日訪視發現評估表單重複問題
+\item 已協助科部助理調整系統設定
+\end{itemize}
+
+\textbf{課程通知:}
+\begin{itemize}[leftmargin=*]
+\item 部分學生反映未事前收到課程表
+\item 週六安排課程應事先告知,以利學生規劃
+\end{itemize}
+
+\textbf{建議改善:}
+\begin{itemize}[leftmargin=*]
+\item 實習開始前一週提供完整課程表
+\item 特殊時間(週六、週日)安排課程應提早通知
+\end{itemize}
+
+\subsubsection{交通與保險議題}
+
+\textbf{交通補助:}
+\begin{itemize}[leftmargin=*]
+\item 環職部學生至企業臨場服務需自行搭車
+\item 院方依規定提供台北-新竹往返交通補助
+\item 企業臨場服務屬教學活動範圍內,交通自理
+\end{itemize}
+
+\textbf{保險問題:}
+\begin{itemize}[leftmargin=*]
+\item 急診部學生因救護車出勤意外險問題無法跟車實習
+\item 已與相關單位協調改善保險涵蓋範圍
+\end{itemize}
+
+\subsection{學生滿意度分析}
+
+\subsubsection{量化評分統計}
+
+在有提供滿意度評分的訪視中:
+\begin{itemize}[leftmargin=*]
+\item 最高分:10/10(家醫部,廖威銓同學)
+\item 平均分:約9/10
+\item 多數學生給予8-9.5分的高度評價
+\end{itemize}
+
+\subsubsection{質性回饋重點}
+
+\textbf{正面回饋:}
+\begin{itemize}[leftmargin=*]
+\item 教學品質超出預期
+\item 老師教學熱忱令人印象深刻
+\item 實習內容充實,收穫良多
+\item 技能操作機會比預期多
+\item 課程安排多元化
+\end{itemize}
+
+\textbf{改善空間:}
+\begin{itemize}[leftmargin=*]
+\item 醫院附近飲食選擇較少(-2分,家醫部吳妍玶同學)
+\item 宿舍浴室環境(-0.5分,復健部邱墨林同學,已改善)
+\item 核心課程時間安排(北醫學生反映上午課程較長,下午臨床時間較少)
+\end{itemize}
+
+\subsection{未來發展建議}
+
+\subsubsection{PGY訓練招生}
+
+\textbf{正面趨勢:}
+\begin{itemize}[leftmargin=*]
+\item 多位台大醫學生表示考慮選擇新竹台大PGY訓練
+\item 家醫部吳妍玶同學已報名11/15 PGY招生說明會
+\item 學生願意推薦學弟妹來新竹實習
+\item 環職部學生表示下梯次還會再來新竹實習
+\end{itemize}
+
+\textbf{發展策略:}
+\begin{itemize}[leftmargin=*]
+\item 持續維持高品質教學,建立口碑
+\item 加強與醫學院的合作關係
+\item 定期舉辦PGY招生說明會
+\item 邀請實習表現優異學生擔任見證分享
+\end{itemize}
+
+\subsubsection{擴大外校招生}
+
+\textbf{現況分析:}
+\begin{itemize}[leftmargin=*]
+\item 目前以台大學生為主(30人次,71\%)
+\item 已有北醫、馬偕、陽明交大、中山、慈濟學生參與
+\item 外校學生對教學品質評價良好
+\end{itemize}
+
+\textbf{擴展建議:}
+\begin{itemize}[leftmargin=*]
+\item 提供外校學生住宿(已規劃下學年度提供)
+\item 加強與各醫學院的合作關係
+\item 建立外校學生招募管道
+\item 提供充分的生活支援與照顧
+\end{itemize}
+
+\subsubsection{教學品質持續提升}
+
+\textbf{優勢維持:}
+\begin{itemize}[leftmargin=*]
+\item 保持主治醫師高度教學熱忱
+\item 維持充足的技能操作機會
+\item 持續創新課程內容
+\item 強化跨團隊合作教學
+\end{itemize}
+
+\textbf{精進方向:}
+\begin{itemize}[leftmargin=*]
+\item 定期檢討課程安排,平衡理論與實務
+\item 加強課程前溝通,提供完整課程表
+\item 建立標準化教學流程
+\item 定期蒐集學生回饋並及時改善
+\end{itemize}
+
+\subsubsection{軟實力發展}
+
+\textbf{特色教學:}
+\begin{itemize}[leftmargin=*]
+\item 環職部臨場健康服務(獨特性高)
+\item 家醫部社區醫療整合(完整性佳)
+\item 復健部多團隊合作(系統性強)
+\item 急診部創新訓練課程(實用性高)
+\end{itemize}
+
+\textbf{建議發展:}
+\begin{itemize}[leftmargin=*]
+\item 建立各科特色教學品牌
+\item 強化跨科整合教學
+\item 發展創新教學模式
+\item 建立教學成果評估機制
+\end{itemize}
+
+\newpage
+\section{結論與展望}
+
+\subsection{重要成果}
+
+114學年度實習醫學生訪視計畫順利完成,共進行14次訪視,訪視42人次學生,涵蓋9個臨床科部及6所醫學院校。訪視結果顯示新竹台大分院在實習醫學生教學方面展現卓越成效:
+
+\begin{importantbox}
+\textbf{四大核心優勢:}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{教學品質優異} -- 主治醫師教學熱忱高,一對一指導機會多
+\item \textbf{課程設計多元} -- 各科展現獨特教學特色,整合臨床與社區
+\item \textbf{技能訓練充分} -- 提供豐富的procedure與技能操作機會
+\item \textbf{環境持續改善} -- 積極回應學生回饋,解決宿舍與行政問題
+\end{enumerate}
+\end{importantbox}
+
+\subsection{學生回饋亮點}
+
+訪視過程中,學生普遍給予高度評價:
+
+\begin{itemize}[leftmargin=*]
+\item 平均滿意度達9/10分
+\item 多位學生表示「超出預期」、「收穫良多」
+\item 教學品質被評為「比總院更好」
+\item 願意推薦學弟妹來實習
+\item 考慮選擇新竹分院進行PGY訓練
+\end{itemize}
+
+特別值得一提的是,麻醉部選修名額第一個額滿,環職部學生表示還要再來新竹實習,家醫部學生已報名PGY招生說明會,顯示新竹分院教學品質已獲學生高度肯定。
+
+\subsection{持續改善項目}
+
+針對訪視中發現的問題,已採取以下改善措施:
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5cm}>{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\textbf{問題類別} & \textbf{發現問題} & \textbf{改善措施} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{c}{\tablename\ \thetable\ -- 續前頁} \\
+\toprule
+\textbf{問題類別} & \textbf{發現問題} & \textbf{改善措施} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r}{續下頁...} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+宿舍環境 & 浴室污垢、環境髒亂、公用洗衣機管理 & 每梯次離院全面清潔、每週公共區域定期清潔、改善洗衣機使用管理 \\
+
+系統問題 & e-Portfolio評估表單重複 & 協助科部助理調整系統設定 \\
+
+課程通知 & 未事前提供課程表、週六課程未告知 & 建立實習前一週提供完整課程表機制 \\
+
+保險問題 & 救護車跟車實習保險涵蓋不足 & 協調擴大保險涵蓋範圍 \\
+
+交通問題 & 臨場服務需自行搭車 & 說明院方交通補助規定 \\
+
+\end{longtable}
+
+\subsection{未來展望}
+
+基於本次訪視成果,建議未來發展方向:
+
+\subsubsection{短期目標(6個月內)}
+
+\begin{enumerate}[leftmargin=*]
+\item 完成下學年度外校學生住宿規劃
+\item 建立標準化課程前通知機制
+\item 持續監控宿舍環境品質
+\item 完成PGY招生說明會並追蹤成效
+\end{enumerate}
+
+\subsubsection{中期目標(1年內)}
+
+\begin{enumerate}[leftmargin=*]
+\item 擴大招收外校實習醫學生
+\item 建立各科特色教學品牌
+\item 發展跨科整合教學模式
+\item 建立教學成果評估機制
+\end{enumerate}
+
+\subsubsection{長期目標(2-3年)}
+
+\begin{enumerate}[leftmargin=*]
+\item 成為北部地區優質實習醫學生訓練基地
+\item 吸引優秀PGY學員選擇新竹訓練
+\item 建立完整的住院醫師訓練體系
+\item 發展特色醫學教育研究
+\end{enumerate}
+
+\subsection{感謝與致意}
+
+本次訪視計畫的順利完成,要特別感謝:
+
+\begin{itemize}[leftmargin=*]
+\item 各科部主治醫師的教學投入與熱忱
+\item 教學部同仁的行政支援與協調
+\item 總務室對宿舍環境改善的配合
+\item 所有參與訪視的實習醫學生的真誠回饋
+\end{itemize}
+
+新竹台大分院秉持「以學生為中心」的教學理念,持續提供高品質的臨床教學,培育未來優秀的醫療人才。我們將繼續努力,讓每一位來到新竹實習的醫學生都能獲得充實且難忘的學習經驗。
+
+\vspace{1cm}
+
+\begin{flushright}
+\textbf{訪視主持人:曾芬郁教授，廖佳怡}
+
+\textbf{報告完成日期:\mydate}
+\end{flushright}
+
+\end{document}

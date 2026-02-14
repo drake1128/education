@@ -1,0 +1,948 @@
+\documentclass[12pt,a4paper]{article}
+
+% 這是一份latex 文件的 preamble
+% 請AI閱讀後,將附上的PDF整理,以latex code整理,儘量用longtable
+% 請注意我的名字: 謝慕揚, MD, PhD, FESC
+% 表格請注意換行,不該在cell內使用 \\
+% 表格請不要有垂直分隔線 |
+% 所有 longtable 中的儲存格內換行都改用 \newline, 不能直接用\\
+% 整理中若碰到藥物名稱,請使用英文,不要將藥物翻成中文。同樣,檢驗與檢查,請維持英文。
+
+
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{新竹臺大分院內科部教學文件}}
+\fancyhead[R]{\textcolor{emergency_blue}{住院醫師專業素養與工作流程}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Defining custom date format for ISO 8601
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+\begin{document}
+
+\begin{center}
+{\Huge\textcolor{emergency_red}{\textbf{住院醫師專業素養}}} \\[10pt]
+{\Huge\textcolor{emergency_red}{\textbf{與工作流程規範}}} \\[15pt]
+{\Large\textcolor{emergency_blue}{新竹臺大分院內科部教學訓練}} \\[20pt]
+{\large 教學指導：謝慕揚, MD, PhD, FESC} \\[5pt]
+{\large 新竹臺大分院心血管中心} \\[5pt]
+{\large 教學部副主任} \\[20pt]
+{\normalsize 日期：\mydate}
+\end{center}
+
+\vspace{1cm}
+
+\begin{importantbox}
+\textbf{教學目標}
+
+本教學講義旨在建立住院醫師正確的專業態度與工作流程認知,確保病人照護品質與醫療團隊合作效能。所有內科住院醫師均應熟悉並落實本講義所述之規範。
+\end{importantbox}
+
+\newpage
+
+\section{住院醫師的專業素養核心概念}
+
+\subsection{何謂專業素養(Professionalism)?}
+
+專業素養是醫師職涯發展的基石,包含以下核心要素:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{病人優先(Patient-Centered Care):} 病人的安全與福祉永遠是第一優先
+\item \textbf{責任感(Accountability):} 對自己負責的病人承擔完整照護責任
+\item \textbf{主動學習(Active Learning):} 主動尋求學習機會,不僅被動等待指示
+\item \textbf{團隊合作(Teamwork):} 與護理師、其他醫師密切合作
+\item \textbf{溝通技巧(Communication):} 與病人、家屬、團隊成員保持良好溝通
+\item \textbf{時間管理(Time Management):} 有效率地完成工作,不影響團隊運作
+\item \textbf{終身學習(Lifelong Learning):} 持續精進醫學知識與臨床技能
+\end{itemize}
+
+\note{
+\textbf{重要觀念:}住院醫師不是「醫學生」,而是「正在接受訓練的醫師」。你們已經是醫療團隊的正式成員,需要承擔相應的責任與義務。
+}
+
+\subsection{常見的專業素養問題}
+
+以下是住院醫師訓練過程中常見的問題,請各位自我檢視:
+
+\begin{itemize}[leftmargin=*]
+\item 認為「下班時間」就可以不處理病人問題
+\item 只待在護理站,很少實際去看病人
+\item 等待主治醫師或資深醫師告知該做什麼,缺乏主動性
+\item 不熟悉自己負責的病人狀況
+\item 查房時站得很遠,不清楚主治醫師在詢問自己
+\item 對病房系統操作流程不熟悉,但不主動學習
+\end{itemize}
+
+\begin{importantbox}
+\textbf{態度決定高度}
+
+醫學知識可以慢慢學習,但專業態度必須從第一天就建立。如果基本態度有問題,再多的知識也無法成為一位好醫師。
+\end{importantbox}
+
+\newpage
+
+\section{住院醫師每日工作流程標準}
+
+\subsection{接新病人的標準流程}
+
+當你接到新病人時,必須完成以下步驟:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{第一時間親自看病人}
+\begin{itemize}
+\item 不是只在急診或病房護理站聽交班
+\item 必須親自到病人床邊進行身體檢查
+\item 與病人及家屬建立初步關係
+\item 確認病人的主訴與目前狀況
+\end{itemize}
+
+\item \textbf{仔細查看所有檢查報告}
+\begin{itemize}
+\item 不能只聽數值,要親自看影像與報告
+\item Lab data、X-ray、CT、心電圖等都要自己判讀
+\item 如有疑問,主動詢問資深醫師或放射科醫師
+\end{itemize}
+
+\item \textbf{建立完整病歷}
+\begin{itemize}
+\item History taking要詳細且有邏輯
+\item Physical examination要確實執行並記錄
+\item Assessment and Plan要有明確思路
+\end{itemize}
+
+\item \textbf{撰寫Admission Note}
+\begin{itemize}
+\item 必須在病人入院後24小時內完成
+\item 格式要完整:Chief Complaint, Present Illness, Past History, Physical Examination, Lab Data, Assessment, Plan
+\item 計畫要具體可執行,不能只寫「持續觀察」
+\end{itemize}
+
+\item \textbf{與主治醫師討論治療計畫}
+\begin{itemize}
+\item 主動向VS報告病人狀況
+\item 提出自己的評估與計畫
+\item 詢問不清楚的治療策略
+\end{itemize}
+\end{enumerate}
+
+\note{
+\textbf{關鍵概念:}接病人不是「交接資料」,而是「接手照護責任」。從你接手的那一刻起,這位病人的安危就與你密切相關。
+}
+
+\subsection{每日查房流程}
+
+每天早上的查房是住院醫師最重要的工作之一:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{查房前準備(晨會前)}
+\begin{itemize}
+\item 提早到病房,先看過夜班護理記錄
+\item 確認過夜有無特殊事件
+\item 查看當天的Lab results
+\item 準備好要向VS報告的內容
+\end{itemize}
+
+\item \textbf{查房時的定位}
+\begin{itemize}
+\item 站在病床旁邊,靠近VS的位置
+\item 保持警覺,注意VS何時要詢問你
+\item 準備好病人的最新資訊
+\item 不要只站在門口或走廊
+\end{itemize}
+
+\item \textbf{報告病人狀況}
+\begin{itemize}
+\item 簡潔扼要地說明病人昨天的變化
+\item 重要的檢驗數據要能立即回答
+\item 如果不清楚,誠實說不知道,但要主動查詢
+\item 提出今天的處置計畫
+\end{itemize}
+
+\item \textbf{執行VS的醫囑}
+\begin{itemize}
+\item 查房後立即開立醫囑或安排檢查
+\item 不能「等到下午有空再開」
+\item 如有疑問,立即詢問VS或資深住院醫師
+\end{itemize}
+
+\item \textbf{查房後追蹤}
+\begin{itemize}
+\item 與護理師確認醫囑執行狀況
+\item 追蹤檢查報告是否出來
+\item 評估病人對治療的反應
+\end{itemize}
+\end{enumerate}
+
+\begin{importantbox}
+\textbf{常見錯誤:}「我以為VS不是在問我」
+
+在教學醫院,VS提出問題時,預設就是在詢問負責該病人的住院醫師。即使你站得較遠,也應該保持注意力,隨時準備回應。
+\end{importantbox}
+
+\subsection{Progress Note 撰寫規範}
+
+Progress Note是記錄病人每日變化與治療決策的重要文件,也是法律文書。
+
+\subsubsection{Progress Note的基本格式}
+
+標準的Progress Note應包含以下要素:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{S (Subjective):}病人的主觀症狀
+\begin{itemize}
+\item 病人今天的感覺如何?
+\item 有無新的不適?
+\item 對治療的反應?
+\end{itemize}
+
+\item \textbf{O (Objective):}客觀的檢查數據
+\begin{itemize}
+\item Vital signs (最新的體溫、血壓、心跳、呼吸、血氧)
+\item Physical examination findings
+\item Lab data (需要列出今天重要的檢驗結果)
+\item Imaging studies results
+\end{itemize}
+
+\item \textbf{A (Assessment):}對病人狀況的評估
+\begin{itemize}
+\item 病人目前的問題列表
+\item 每個問題的嚴重程度與趨勢
+\item 治療效果的評估
+\end{itemize}
+
+\item \textbf{P (Plan):}今日的處置計畫
+\begin{itemize}
+\item 針對每個問題的具體處置
+\item 需要安排的檢查
+\item 藥物調整
+\item 預計的處置時程
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Progress Note的撰寫時機}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{每日查房後:}必須在查房後2-4小時內完成當日的Progress Note
+\item \textbf{病情變化時:}病人有重大變化時,應立即補充記錄
+\item \textbf{特殊處置後:}執行invasive procedure後需記錄過程與結果
+\item \textbf{會診後:}會診其他科別後應記錄會診建議與處置
+\end{itemize}
+
+\note{
+\textbf{系統操作:}如果對內部Progress Note系統不熟悉,應主動詢問資深醫師或資訊室。不能因為「不會用系統」而不寫Progress Note。
+}
+
+\subsubsection{Progress Note範例}
+
+以下是一個標準的Progress Note範例:
+
+\begin{mdframed}[linecolor=emergency_gray,linewidth=1pt]
+\textbf{2025-11-07, Hospital Day \#3}
+
+\textbf{S:}
+Patient reports improved chest pain compared to yesterday. No dyspnea at rest. Denies palpitation or dizziness.
+
+\textbf{O:}
+\begin{itemize}[nosep]
+\item Vital signs: T 36.8°C, BP 128/76 mmHg, HR 72 bpm, RR 16/min, SpO2 98\% on room air
+\item Physical examination: clear breath sounds, regular heart beat without murmur, no pedal edema
+\item Lab: Troponin-I 0.08 ng/mL (↓ from 2.45), CK-MB 3.2 ng/mL (↓ from 28.7), Creatinine 1.1 mg/dL
+\item ECG: sinus rhythm, ST segment normalized in leads V2-V4
+\end{itemize}
+
+\textbf{A:}
+\begin{enumerate}[nosep]
+\item Acute coronary syndrome, NSTEMI, post-PCI to LAD - improving
+\item Hypertension - controlled
+\item Type 2 diabetes mellitus - under control
+\end{enumerate}
+
+\textbf{P:}
+\begin{enumerate}[nosep]
+\item Continue DAPT (Aspirin 100mg + Ticagrelor 90mg bid)
+\item Continue statin (Atorvastatin 80mg qd)
+\item Schedule for cardiac rehabilitation
+\item Plan discharge tomorrow if condition remains stable
+\item Arrange outpatient follow-up in 1 week
+\end{enumerate}
+\end{mdframed}
+
+\newpage
+
+% PAP格式Progress Note範例 - Peptic Ulcer Bleeding
+% 可直接插入主文件中使用
+
+\subsection{PAP格式Progress Note範例}
+
+PAP (Problem-Assessment-Plan) 是另一種常用的Progress Note格式,特別適合用於有多個問題的病人。以下是消化性潰瘍出血的範例:
+
+\begin{mdframed}[linecolor=emergency_gray,linewidth=1pt]
+\textbf{2025-11-08, Hospital Day \#2}
+
+\textbf{Problem \#1: Upper gastrointestinal bleeding secondary to peptic ulcer}
+
+\textit{Assessment:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item 68-year-old male with history of chronic NSAID use
+\item Presented with melena for 3 days and one episode of coffee-ground vomitus
+\item Initial Hb 8.2 g/dL (baseline 13.5 g/dL), dropped to 7.1 g/dL
+\item Emergency EGD performed yesterday revealed a Forrest IIa ulcer (2.5 cm) at gastric antrum with visible vessel
+\item Endoscopic hemostasis achieved with hemoclip placement and epinephrine injection
+\item No active bleeding noted post-procedure
+\item Today: vital signs stable (BP 118/72 mmHg, HR 78 bpm), no further melena
+\item Post-transfusion Hb 9.8 g/dL (received 2 units PRBC)
+\item Nasogastric tube drainage: minimal blood-tinged fluid, no fresh blood
+\end{itemize}
+
+\textit{Plan:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Continue high-dose PPI: Pantoprazole 40 mg IV q12h for at least 72 hours
+\item NPO for now, may start clear liquid diet if no rebleeding for 24 hours
+\item Continue hemodynamic monitoring: vital signs q4h, watch for signs of rebleeding
+\item Follow-up Hb/Hct this afternoon
+\item Discontinue all NSAIDs permanently
+\item Target Hb >8 g/dL, transfuse if Hb <7 g/dL or symptomatic
+\item Plan for repeat EGD in 48-72 hours to assess healing
+\item Consult GI team if any signs of rebleeding
+\item H. pylori test pending (serology and biopsy), treat if positive
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Problem \#2: Hypertension - controlled}
+
+\textit{Assessment:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Currently on Amlodipine 5 mg daily
+\item BP readings stable: 118-132/68-78 mmHg over past 24 hours
+\item No hypertensive emergency
+\end{itemize}
+
+\textit{Plan:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Continue current antihypertensive regimen
+\item Monitor BP q4h during acute bleeding phase
+\item Resume oral medication when diet resumed
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Problem \#3: Chronic kidney disease, stage 3a}
+
+\textit{Assessment:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Baseline Creatinine 1.4-1.6 mg/dL (eGFR 45-52 mL/min/1.73m²)
+\item Current Creatinine 1.5 mg/dL (stable from admission)
+\item Adequate urine output (>50 mL/hr)
+\item No signs of acute kidney injury
+\item Pre-renal azotemia risk due to bleeding minimized by fluid resuscitation
+\end{itemize}
+
+\textit{Plan:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Continue IV hydration: Normal saline at 80 mL/hr
+\item Monitor daily renal function
+\item Avoid nephrotoxic agents
+\item Adjust medication doses according to renal function
+\item Ensure adequate intravascular volume
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Problem \#4: Anemia secondary to acute blood loss}
+
+\textit{Assessment:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Admission Hb 8.2 g/dL → dropped to 7.1 g/dL → post-transfusion 9.8 g/dL
+\item MCV 88 fL (normocytic), suggesting acute blood loss rather than chronic anemia
+\item No signs of ongoing hemolysis
+\item Reticulocyte count pending
+\item Clinically stable: no tachycardia, no orthostatic hypotension
+\end{itemize}
+
+\textit{Plan:}
+\begin{itemize}[nosep,leftmargin=15pt]
+\item Serial Hb/Hct monitoring: check this afternoon, then q12h
+\item Transfusion threshold: Hb <7 g/dL or symptomatic (chest pain, dyspnea, dizziness)
+\item Start oral iron supplementation when diet resumed: Ferrous sulfate 325 mg tid
+\item Monitor for signs of active bleeding: tachycardia, hypotension, melena, hematemesis
+\end{itemize}
+
+\end{mdframed}
+
+\note{
+\textbf{PAP格式的優點:}
+\begin{itemize}[nosep]
+\item 清楚區分每個問題,避免混淆
+\item 每個問題都有獨立的評估與計畫
+\item 適合複雜病人或多重問題的情況
+\item 便於團隊成員快速找到特定問題的處置
+\item 有助於確保所有問題都被適當處理
+\end{itemize}
+}
+
+\begin{importantbox}
+\textbf{撰寫PAP格式Progress Note的關鍵要點:}
+\begin{enumerate}
+\item \textbf{Problem列表要完整:}按照重要性或急迫性排序
+\item \textbf{Assessment要有邏輯:}包含相關的檢查數據、理學檢查發現、病程變化
+\item \textbf{Plan要具體可執行:}避免模糊的描述如「繼續觀察」
+\item \textbf{動態調整:}每天根據病人狀況更新Problem List
+\item \textbf{跨問題思考:}注意不同問題間的相互影響
+\end{enumerate}
+\end{importantbox}
+\section{病人照護責任與交班邏輯}
+
+\subsection{Primary Care Physician的概念}
+
+作為住院醫師,你是病人的Primary Care Physician (PCP),這代表:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{24小時責任制:}即使下班,你仍對病人負有責任
+\item \textbf{全面照護:}不只處理主要疾病,所有問題都要關注
+\item \textbf{協調角色:}需要協調各專科會診與護理照護
+\item \textbf{溝通橋樑:}與病人、家屬、團隊成員保持溝通
+\end{itemize}
+
+\begin{importantbox}
+\textbf{重要觀念:}「我已經下班了,不處理病人問題」這種想法是完全錯誤的。
+
+在醫院體制下,我們採用team-based care,但這不代表下班就可以完全不管。正確的做法是:
+\begin{enumerate}
+\item 下班前確實交班給on-call醫師
+\item 如果on-call醫師諮詢你的意見,你仍應提供協助
+\item 隔天早上要詢問過夜病人的狀況
+\item 如果是重症病人,即使下班也要保持關注
+\end{enumerate}
+\end{importantbox}
+
+\subsection{交班的標準流程}
+
+良好的交班是確保病人安全的關鍵:
+
+\subsubsection{日常交班(晨會)}
+
+每天早上的晨會是整個醫療團隊的資訊同步時間:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{報告格式}
+\begin{itemize}
+\item 病人基本資料:床號、姓名、年齡、診斷
+\item 入院日期與住院天數
+\item 目前主要問題與治療計畫
+\item 需要團隊協助或注意的事項
+\end{itemize}
+
+\item \textbf{報告重點}
+\begin{itemize}
+\item 簡潔扼要,不要冗長
+\item 突顯重要問題與變化
+\item 提出需要討論的議題
+\item 說明今日預計處置
+\end{itemize}
+
+\item \textbf{聆聽其他病人的報告}
+\begin{itemize}
+\item 即使不是你的病人,也要專心聽
+\item 了解整個病房的動態
+\item 學習其他病人的處置邏輯
+\item 準備好提供跨病人支援
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{下班交班(Hand-off)}
+
+下班前的交班要確保on-call醫師能順利接手:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{交班內容}
+\begin{itemize}
+\item 所有自己負責病人的最新狀況
+\item 今天已執行的處置與結果
+\item 尚未完成的工作項目
+\item 可能在夜間需要注意的問題
+\item 重要的聯絡方式(家屬電話等)
+\end{itemize}
+
+\item \textbf{交班時機}
+\begin{itemize}
+\item 不能在最後一分鐘才交班
+\item 預留足夠時間讓on-call醫師提問
+\item 確認對方了解重點
+\item 提供自己的聯絡方式以備諮詢
+\end{itemize}
+
+\item \textbf{交班工具}
+\begin{itemize}
+\item 使用標準化的交班表格或系統
+\item 不能只靠口頭交班
+\item 重要事項要寫下來
+\item 確保資訊完整且可追溯
+\end{itemize}
+\end{enumerate}
+
+\note{
+\textbf{交班不是卸責:}交班給on-call醫師不代表你就完全沒有責任了。如果on-call醫師有疑問打電話給你,你應該提供協助,而不是說「我已經下班了」。
+}
+
+\subsection{跨團隊合作}
+
+病房工作需要與多個團隊成員合作:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{護理師}
+\begin{itemize}
+\item 尊重護理師的專業判斷
+\item 主動詢問病人的護理狀況
+\item 及時回應護理師的諮詢
+\item 感謝護理師的辛勞
+\end{itemize}
+
+\item \textbf{其他住院醫師}
+\begin{itemize}
+\item 主動分享學習心得
+\item 互相支援臨床工作
+\item 不要只關心自己的病人
+\item 建立良好的同儕關係
+\end{itemize}
+
+\item \textbf{主治醫師}
+\begin{itemize}
+\item 主動報告病人狀況
+\item 虛心接受指導與建議
+\item 有問題立即詢問
+\item 不要隱瞞錯誤或疏失
+\end{itemize}
+
+\item \textbf{其他專科}
+\begin{itemize}
+\item 會診時提供完整資訊
+\item 尊重專科醫師的建議
+\item 追蹤會診結果
+\item 必要時進行跨科討論
+\end{itemize}
+\end{itemize}
+
+\newpage
+
+\section{內科住院醫師的核心技能}
+
+\subsection{病史詢問(History Taking)}
+
+完整且有邏輯的病史詢問是診斷的基礎:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Chief Complaint (CC)}
+\begin{itemize}
+\item 病人用自己的話描述主要症狀
+\item 記錄症狀的持續時間
+\item 一般只有1-2個主要症狀
+\end{itemize}
+
+\item \textbf{Present Illness (PI)}
+\begin{itemize}
+\item 症狀發生的時間序列
+\item 每個症狀的特性(OPQRST)
+\item Onset, Palliative/Provocative factors, Quality, Region/Radiation, Severity, Timing
+\item 已接受的檢查與治療
+\item 相關的positive與negative findings
+\end{itemize}
+
+\item \textbf{Past History}
+\begin{itemize}
+\item Past Medical History:重要的慢性疾病
+\item Past Surgical History:過去的手術史
+\item Medication History:目前使用的藥物
+\item Allergy History:藥物或食物過敏
+\end{itemize}
+
+\item \textbf{Family History}
+\begin{itemize}
+\item 家族中的重要疾病
+\item 特別注意遺傳性疾病
+\end{itemize}
+
+\item \textbf{Personal and Social History}
+\begin{itemize}
+\item 職業與工作環境
+\item 抽菸、喝酒、檳榔等習慣
+\item 居住環境與生活型態
+\end{itemize}
+\end{enumerate}
+
+\subsection{身體檢查(Physical Examination)}
+
+身體檢查要系統性且確實執行:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Vital Signs}
+\begin{itemize}
+\item 體溫(Temperature)
+\item 血壓(Blood Pressure)
+\item 心跳(Heart Rate)
+\item 呼吸速率(Respiratory Rate)
+\item 血氧飽和度(SpO2)
+\end{itemize}
+
+\item \textbf{General Appearance}
+\begin{itemize}
+\item 意識狀態
+\item 營養狀態
+\item 是否有急性病容
+\end{itemize}
+
+\item \textbf{HEENT (Head, Eyes, Ears, Nose, Throat)}
+\begin{itemize}
+\item 結膜蒼白或黃疸
+\item 頸靜脈充盈
+\item 甲狀腺腫大
+\end{itemize}
+
+\item \textbf{Chest}
+\begin{itemize}
+\item 呼吸音(breath sounds)
+\item 心音(heart sounds)
+\item 是否有雜音(murmur)或額外心音
+\end{itemize}
+
+\item \textbf{Abdomen}
+\begin{itemize}
+\item 視診、聽診、觸診、叩診
+\item 注意壓痛點與反彈痛
+\item 肝脾大小
+\item 腸音
+\end{itemize}
+
+\item \textbf{Extremities}
+\begin{itemize}
+\item 水腫(edema)
+\item 周邊脈搏
+\item 皮膚溫度與顏色
+\item 關節活動度
+\end{itemize}
+
+\item \textbf{Neurological Examination}(必要時)
+\begin{itemize}
+\item 意識程度與定向感
+\item 肌力與肌張力
+\item 深部肌腱反射
+\item 感覺與運動功能
+\end{itemize}
+\end{enumerate}
+
+\note{
+\textbf{重要提醒:}身體檢查不能只寫「unremarkable」或「within normal limits」。必須寫出你確實執行了哪些檢查,以及具體的發現。
+}
+
+\subsection{臨床推理(Clinical Reasoning)}
+
+好的臨床推理能力是成為優秀醫師的關鍵:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{建立Problem List}
+\begin{itemize}
+\item 列出病人所有的問題
+\item 區分急性與慢性問題
+\item 判斷問題的優先順序
+\end{itemize}
+
+\item \textbf{建立Differential Diagnosis}
+\begin{itemize}
+\item 對每個問題列出可能的診斷
+\item 按照可能性排序
+\item 考慮life-threatening的診斷
+\end{itemize}
+
+\item \textbf{安排檢查}
+\begin{itemize}
+\item 基於診斷假設安排適當檢查
+\item 不是「routine全套」檢查
+\item 考慮檢查的效益與風險
+\end{itemize}
+
+\item \textbf{判讀檢查結果}
+\begin{itemize}
+\item 親自判讀,不只看報告
+\item 結合臨床表現解讀數據
+\item 注意趨勢變化,不只看單次數值
+\end{itemize}
+
+\item \textbf{制定治療計畫}
+\begin{itemize}
+\item 基於實證醫學的治療
+\item 考慮病人的個別情況
+\item 設定明確的治療目標
+\item 規劃追蹤評估方式
+\end{itemize}
+\end{enumerate}
+
+\newpage
+
+\section{常見問題與解答(Q\&A)}
+
+\subsection{關於工作時間與責任}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Q1: 我下班後還需要管病人嗎?}
+
+A1: 在team-based照護模式下,下班後由on-call醫師負責,但你仍需要:
+\begin{enumerate}
+\item 確實交班給on-call醫師
+\item 如果on-call醫師有疑問,應提供協助
+\item 隔天上班後主動詢問病人過夜狀況
+\item 重症病人即使下班也要保持關注
+\end{enumerate}
+
+\item \textbf{Q2: 我不知道該做什麼,應該怎麼辦?}
+
+A2: 主動詢問!不知道不是問題,不問才是問題。你可以:
+\begin{enumerate}
+\item 詢問VS或主治醫師
+\item 請教資深住院醫師
+\item 查閱教科書或clinical guidelines
+\item 參加教學活動與討論
+\end{enumerate}
+
+\item \textbf{Q3: 我的時間不夠,無法完成所有工作怎麼辦?}
+
+A3: 時間管理是需要學習的技能:
+\begin{enumerate}
+\item 早上提早到病房準備
+\item 查房後立即處理重要事項
+\item 善用零碎時間
+\item 必要時請求同事支援
+\item 與VS討論優先順序
+\end{enumerate}
+\end{itemize}
+
+\subsection{關於系統操作}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Q4: Progress Note系統不會用怎麼辦?}
+
+A4: 立即學習!可以:
+\begin{enumerate}
+\item 請資深醫師或護理師示範
+\item 查閱系統操作手冊
+\item 聯絡資訊室求助
+\item 參加系統教育訓練
+\end{enumerate}
+不能因為「不會用系統」而不寫Progress Note。
+
+\item \textbf{Q5: 開立醫囑時不確定是否正確怎麼辦?}
+
+A5: 病人安全第一!
+\begin{enumerate}
+\item 開立前再次確認
+\item 不確定時詢問VS或資深醫師
+\item 查閱藥物手冊或系統資訊
+\item 與藥師討論
+\item 寧可多問,不要猜測
+\end{enumerate}
+\end{itemize}
+
+\subsection{關於學習與進步}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Q6: 我覺得自己進步很慢怎麼辦?}
+
+A6: 進步需要時間,但態度可以立刻改變:
+\begin{enumerate}
+\item 每天設定小目標
+\item 主動尋求feedback
+\item 從錯誤中學習
+\item 參考優秀同儕的做法
+\item 保持積極學習態度
+\end{enumerate}
+
+\item \textbf{Q7: 如何提升臨床能力?}
+
+A7: 系統性的學習方式:
+\begin{enumerate}
+\item 參加晨會與教學活動
+\item 認真準備每次報告
+\item 閱讀相關文獻與指引
+\item 參加臨床技能訓練
+\item 請教資深醫師經驗
+\item 反思每日的臨床決策
+\end{enumerate}
+\end{itemize}
+
+\newpage
+
+\section{自我檢核表}
+
+請誠實評估自己在以下各項的表現,並設定改善目標:
+
+\begin{longtable}{p{0.6\textwidth}p{0.15\textwidth}p{0.15\textwidth}}
+\toprule
+\textbf{項目} & \textbf{目前狀況} & \textbf{目標達成} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{項目} & \textbf{目前狀況} & \textbf{目標達成} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{續下頁}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+每天主動到病床看病人 & $\square$ 是 $\square$ 否 & $\square$ \\
+熟悉所有負責病人的狀況 & $\square$ 是 $\square$ 否 & $\square$ \\
+查房時專心聽講並積極回應 & $\square$ 是 $\square$ 否 & $\square$ \\
+當日完成Progress Note撰寫 & $\square$ 是 $\square$ 否 & $\square$ \\
+熟悉內部系統操作流程 & $\square$ 是 $\square$ 否 & $\square$ \\
+主動詢問不懂的問題 & $\square$ 是 $\square$ 否 & $\square$ \\
+確實執行交班流程 & $\square$ 是 $\square$ 否 & $\square$ \\
+與護理師保持良好溝通 & $\square$ 是 $\square$ 否 & $\square$ \\
+對病人照護保持責任感 & $\square$ 是 $\square$ 否 & $\square$ \\
+準時參加晨會與教學活動 & $\square$ 是 $\square$ 否 & $\square$ \\
+查房後立即開立醫囑 & $\square$ 是 $\square$ 否 & $\square$ \\
+追蹤檢查報告並判讀 & $\square$ 是 $\square$ 否 & $\square$ \\
+主動協助其他團隊成員 & $\square$ 是 $\square$ 否 & $\square$ \\
+接受建議並改進缺點 & $\square$ 是 $\square$ 否 & $\square$ \\
+保持積極學習態度 & $\square$ 是 $\square$ 否 & $\square$ \\
+\end{longtable}
+
+\section{結語與期許}
+
+住院醫師訓練是醫師生涯中最辛苦但也最重要的階段。這段時間建立的專業素養與工作習慣,將影響你一輩子的職業生涯。
+
+\begin{importantbox}
+\textbf{三個核心價值}
+\begin{enumerate}
+\item \textbf{病人優先:}永遠把病人的安全與福祉放在第一位
+\item \textbf{主動學習:}不要等待別人告訴你該做什麼,主動尋求學習機會
+\item \textbf{團隊合作:}醫療是團隊工作,尊重每一位團隊成員
+\end{enumerate}
+\end{importantbox}
+
+記住,成為一位好醫師的關鍵不只是醫學知識,更重要的是:
+
+\begin{itemize}[leftmargin=*]
+\item 對病人的同理心與關懷
+\item 對醫療工作的熱忱與責任感
+\item 終身學習的態度與習慣
+\item 與團隊合作的能力
+\item 面對挑戰的韌性與毅力
+\end{itemize}
+
+
+\vspace{2cm}
+
+\begin{center}
+\textcolor{emergency_blue}{--- 教學指導:謝慕揚 ---}\\[5pt]
+\textcolor{emergency_gray}{新竹臺大分院心血管中心}\\[5pt]
+\textcolor{emergency_gray}{教學部副主任}\\[5pt]
+\textcolor{emergency_gray}{MD, PhD, FESC}
+\end{center}
+
+\end{document}

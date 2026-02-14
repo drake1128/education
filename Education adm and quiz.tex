@@ -1,0 +1,805 @@
+\documentclass[aspectratio=169]{beamer}
+
+% 基本設定
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+
+\usepackage{tikz}
+
+
+% 中文支援
+% 中文支援套件
+\usepackage[CJKspace]{xeCJK}
+\usepackage{xpinyin}
+\setmainfont{Noto Serif Light}
+\setsansfont{Noto Sans}
+\setmonofont[Scale=MatchLowercase]{Noto Mono}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans Mono CJK TC}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% 標題資訊
+\title{教學部行政訓練\\與\\基本醫學教育理論測驗}
+\subtitle{醫院教學部行政人員適用}
+\author{教學部副主任\\謝慕揚}
+\date{\today}
+
+\begin{document}
+
+
+% 標題頁
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% 第一頁：什麼是Gmail延後功能
+\begin{frame}{Gmail延後功能：郵件時間管理的利器}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{block}{Gmail延後（Snooze）是什麼？}
+      讓郵件在指定的未來時間點重新出現在收件匣頂部的功能
+    \end{block}
+    
+    \begin{itemize}
+      \item \textbf{基本原理}：暫時將郵件從收件匣移除，在更適合處理的時間再次提醒
+      \item \textbf{核心價值}：減少收件匣干擾，確保重要郵件不被遺忘
+      \item \textbf{時間智能}：可選擇預設時間或自訂確切時間點
+    \end{itemize}
+    
+    \column{0.4\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \node[circle, draw, fill=blue!20, minimum size=2cm] (clock) at (0,0) {郵件};
+      \draw[->, thick] (clock) -- ++(0,1.5) node[above] {延後};
+      \draw[->, thick] (clock) -- ++(1.3,-0.7) node[right] {重要};
+      \draw[->, thick] (clock) -- ++(-1.3,-0.7) node[left] {控制};
+    \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% 第二頁：Gmail延後的使用方法
+\begin{frame}{如何使用Gmail延後功能？簡單三步驟}
+  
+  \begin{enumerate}
+    \item \textbf{選取需要延後的郵件}
+      \begin{itemize}
+        \item 將滑鼠移至郵件上方或點選郵件
+        \item 在郵件列表中可選擇多封郵件同時操作
+      \end{itemize}
+    
+    \item \textbf{啟動延後功能}
+      \begin{itemize}
+        \item 點擊工具列中的「延後」（鬧鐘）圖示
+        \item 或右鍵選單中選擇「延後」選項
+      \end{itemize}
+    
+    \item \textbf{選擇延後時間}
+      \begin{itemize}
+        \item 預設選項：今晚、明天、本週末、下週、下個月
+        \item 自訂選項：選擇精確的日期和時間
+        \item 重複延後：對定期需處理的郵件設定重複提醒
+      \end{itemize}
+  \end{enumerate}
+  
+  \begin{alertblock}{小提示}
+    被延後的郵件會移至「已延後」資料夾，但會在指定時間重新出現在收件匣頂部
+  \end{alertblock}
+\end{frame}
+
+% 第三頁：時間管理策略
+\begin{frame}{Gmail延後的時間管理策略}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \textbf{「2分鐘法則」結合延後功能}
+    \begin{itemize}
+      \item 若處理時間少於2分鐘：立即處理
+      \item 需要更多時間：延後到專注時段
+      \item 需要等待他人：延後到適當跟進時間
+    \end{itemize}
+    
+    \textbf{批次處理相似郵件}
+    \begin{itemize}
+      \item 將同類型郵件延後至同一時間
+      \item 創建專注處理時段，提高效率
+      \item 減少工作切換帶來的認知負擔
+    \end{itemize}
+    
+    \column{0.5\textwidth}
+    \textbf{建立郵件處理節奏}
+    \begin{itemize}
+      \item 每日固定「郵件處理時段」
+      \item 將非緊急郵件延後到處理時段
+      \item 避免全天候被郵件打斷工作
+    \end{itemize}
+    
+    \textbf{避免「永久延後」陷阱}
+    \begin{itemize}
+      \item 設定最多延後次數的個人規則
+      \item 對重複延後的郵件進行根本決策
+      \item 建立週期性郵件審核機制
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% 第四頁：實用情境與案例
+\begin{frame}{Gmail延後功能的實用情境}
+  \begin{block}{專業應用情境}
+    善用Gmail延後功能，讓每封郵件在「最佳時機」得到處理
+  \end{block}
+
+  \begin{itemize}
+    \item \textbf{追蹤等待回覆的重要郵件}
+      \begin{itemize}
+        \item 發出重要請求後，將原郵件延後2-3天提醒跟進
+        \item 沒收到回覆時，郵件會自動浮現提醒您跟進
+      \end{itemize}
+    
+    \item \textbf{準備會議與教學活動}
+      \begin{itemize}
+        \item 將相關郵件延後至會議前一天或當天早晨
+        \item 確保重要資訊在需要時立即可得
+      \end{itemize}
+    
+    \item \textbf{處理行政定期任務}
+      \begin{itemize}
+        \item 將月報、季報相關郵件延後至準備時間
+        \item 為重複性任務設定適當的延後模式
+      \end{itemize}
+    
+    \item \textbf{教學部門專屬應用}
+      \begin{itemize}
+        \item 將課程安排郵件延後至課前確認時間
+        \item 學員反饋追蹤與定期評估提醒
+        \item 教學資源更新與審查的時間管理
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+% 第一頁：LinkedIn介紹
+\begin{frame}{什麼是LinkedIn？專業人士的必備平台}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{itemize}
+      \item \textbf{全球最大的專業人脈網絡平台}
+        \begin{itemize}
+          \item 超過8.3億名用戶
+          \item 遍布200多個國家和地區
+          \item 各行各業的專業人士齊聚一堂
+        \end{itemize}
+      \item \textbf{醫療教育領域的價值}
+        \begin{itemize}
+          \item 專業醫學教育社群日益活躍
+          \item 國際醫學教育交流的重要平台
+          \item 醫學教育創新與資源分享
+        \end{itemize}
+    \end{itemize}
+    
+    \column{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/fig LinkedIn.png}
+  \end{columns}
+\end{frame}
+
+% 第二頁：為什麼教學部同仁需要LinkedIn
+\begin{frame}{為什麼教學部同仁需要LinkedIn？}
+  \begin{alertblock}{提升教學部的專業形象與可見度}
+    建立專業形象不只是個人需求，也是部門整體專業度的展現
+  \end{alertblock}
+  
+  \begin{itemize}
+    \item \textbf{專業知識與成就的展示平台}
+      \begin{itemize}
+        \item 展示教學成果、研究專案與專業證照
+        \item 分享醫學教育相關文章與觀點
+        \item 建立個人專業品牌，提升部門形象
+      \end{itemize}
+    \vspace{0.3cm}
+    \item \textbf{跨院校與跨國際的教學資源連結}
+      \begin{itemize}
+        \item 接觸最新醫學教育趨勢與方法
+        \item 參與國際醫學教育社群討論
+        \item 獲取難得的合作與發展機會
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% 第三頁：LinkedIn對教學品質的提升
+\begin{frame}{LinkedIn如何提升我們的教學品質？}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \textbf{持續學習與專業發展}
+    \begin{itemize}
+      \item 追蹤頂尖醫學教育機構
+      \item 參與線上研討會與課程
+      \item 獲取最新教學方法與工具
+    \end{itemize}
+    
+    \textbf{同儕交流與標竿學習}
+    \begin{itemize}
+      \item 觀摩其他教學機構的最佳實踐
+      \item 與國際教學專家連結互動
+      \item 解決共同面臨的教學挑戰
+    \end{itemize}
+    
+    \column{0.5\textwidth}
+    \textbf{教學資源的擴展}
+    \begin{itemize}
+      \item 教材與教案的分享與獲取
+      \item 醫學模擬與創新教學法交流
+      \item 跨專業教育合作機會
+    \end{itemize}
+    
+    \textbf{提升學員學習體驗}
+    \begin{itemize}
+      \item 引入國際視野與前沿知識
+      \item 連結實務工作與學術研究
+      \item 為學員創造更多發展機會
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% 第四頁：實際行動建議
+\begin{frame}{LinkedIn專業形象建立：實際行動建議}
+  \begin{block}{我們的目標}
+    每位教學部同仁都擁有活躍的LinkedIn專業形象，共同提升部門整體專業度
+  \end{block}
+
+  \begin{enumerate}
+    \item \textbf{建立完整專業檔案}
+      \begin{itemize}
+        \item 專業照片、醫學教育背景、專業成就
+        \item 強調教學專長與醫學教育技能
+        \item 展示教學認證與繼續教育
+      \end{itemize}
+    \item \textbf{積極參與專業社群}
+      \begin{itemize}
+        \item 加入醫學教育相關群組
+        \item 定期分享教學心得與研究成果
+        \item 與國內外教學專家建立連結
+      \end{itemize}
+    \item \textbf{部門協同策略}
+      \begin{itemize}
+        \item 相互連結，增強部門網絡影響力
+        \item 共同推廣部門教學活動與成果
+        \item 建立教學部專屬標籤(hashtag)
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+% 第一頁：什麼是 LaTeX
+\begin{frame}{什麼是 LaTeX？專業排版的黃金標準}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{block}{LaTeX 的定義}
+      一種基於 TeX 的高品質排版系統，專為製作科學和數學文獻而設計
+    \end{block}
+    
+    \begin{itemize}
+      \item \textbf{與文書處理軟體的不同}
+        \begin{itemize}
+          \item 注重內容與格式分離
+          \item 「所見即所得」vs.「所想即所得」
+        \end{itemize}
+      \item \textbf{主要優勢}
+        \begin{itemize}
+          \item 精確的數學公式排版
+          \item 參考文獻自動管理
+          \item 專業的文章結構與排版
+        \end{itemize}
+      \item \textbf{適用領域}
+        \begin{itemize}
+          \item 學術論文與研究報告
+          \item 教材與教科書
+          \item 投影片與海報
+        \end{itemize}
+    \end{itemize}
+    
+    \column{0.4\textwidth}
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{figure/fig latex.png}
+    \end{center}
+  \end{columns}
+\end{frame}
+
+% 第四頁：醫學教育中的應用
+\begin{frame}{LaTeX 在醫學教育中的應用}
+  \begin{block}{為何醫學教育工作者需要 LaTeX?}
+    從教材開發到研究發表，LaTeX 提供一致且專業的排版解決方案
+  \end{block}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \textbf{教學材料製作}
+    \begin{itemize}
+      \item 精確呈現醫學公式與化學式
+      \item 高品質解剖圖與醫學影像插入
+      \item 一致性的教材格式與風格
+      \item 大型講義與教科書管理
+    \end{itemize}
+    
+    \textbf{學術研究與發表}
+    \begin{itemize}
+      \item 符合期刊格式要求
+      \item 自動生成參考文獻與引用
+      \item 統計數據與表格精確排版
+      \item 融合多種來源的研究資料
+    \end{itemize}
+    
+    \column{0.5\textwidth}
+    \textbf{教學評估與測驗}
+    \begin{itemize}
+      \item 建立專業測驗題庫
+      \item 自動生成不同版本試卷
+      \item 試題難度與鑑別度分析
+      \item OSCE 評估表格製作
+    \end{itemize}
+    
+    \textbf{簡報與海報}
+    \begin{itemize}
+      \item 專業學術簡報 (Beamer)
+      \item 研討會與學術海報
+      \item 教學計畫書與評估報告
+      \item 跨平台一致性呈現
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[重要性]
+  \vspace{0.3cm}
+  \begin{alertblock}{教學部門特殊價值}
+    建立模板後，團隊可統一格式，提高工作效率並增強部門專業形象
+  \end{alertblock}
+\end{frame}
+
+% 第五頁：入門資源與工具
+\begin{frame}{LaTeX 入門資源與工具}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \textbf{推薦編輯環境}
+    \begin{itemize}
+      \item \textbf{Overleaf} - 線上協作平台
+        \begin{itemize}
+          \item 無需安裝，雲端協作
+          \item 豐富模板與即時預覽
+        \end{itemize}
+      \item \textbf{TeXstudio} - 跨平台編輯器
+        \begin{itemize}
+          \item 整合開發環境
+          \item 自動完成與語法檢查
+        \end{itemize}
+      \item \textbf{TeX Live} - 完整發行版
+        \begin{itemize}
+          \item 包含所有必要套件
+          \item 適合本地安裝使用
+        \end{itemize}
+    \end{itemize}
+    
+    \column{0.5\textwidth}
+    \textbf{學習資源}
+    \begin{itemize}
+      \item \textbf{線上教學}
+        \begin{itemize}
+          \item Overleaf 教學文檔
+          \item LaTeX Project 官方文檔
+          \item YouTube 教學影片
+        \end{itemize}
+      \item \textbf{中文資源}
+        \begin{itemize}
+          \item CTeX 論壇
+          \item LaTeX工作室
+          \item 臺灣大學 LaTeX 課程
+        \end{itemize}
+      \item \textbf{醫學專用模板}
+        \begin{itemize}
+          \item 醫學期刊 LaTeX 模板
+          \item 醫學簡報與海報模板
+          \item 醫學教育評估表格
+        \end{itemize}
+    \end{itemize}
+  \end{columns}
+  
+  \begin{block}{建議學習路徑}
+    1. 從 Overleaf 平台開始，使用現成模板 → 2. 學習基本語法與結構 → \\
+    3. 掌握常用功能（圖表、公式、參考文獻）→ 4. 建立部門專屬模板
+  \end{block}
+\end{frame}
+
+% 目錄頁
+\begin{frame}{目錄}
+  \tableofcontents
+\end{frame}
+
+\section{選擇題 (每題5分，共100分)}
+
+% 第1題
+\begin{frame}{問題 1}
+  \textbf{成人學習理論(Adult Learning Theory)的主要提倡者是：}
+  \begin{enumerate}[A.]
+    \item Benjamin Bloom
+    \item Malcolm Knowles
+    \item Jean Piaget
+    \item Abraham Maslow
+  \end{enumerate}
+\end{frame}
+
+% 第2題
+\begin{frame}{問題 2}
+  \textbf{下列哪一項評估方法最適合用來評估醫學生的臨床推理能力？}
+  \begin{enumerate}[A.]
+    \item 選擇題測驗
+    \item 客觀結構式臨床測驗(OSCE)
+    \item 案例討論評估(CbD)
+    \item 迷你臨床演練評量(Mini-CEX)
+  \end{enumerate}
+\end{frame}
+
+% 第3題
+\begin{frame}{問題 3}
+  \textbf{布魯姆(Bloom)的教育目標分類法中，認知領域由低到高的正確排序是：}
+  \begin{enumerate}[A.]
+    \item 知識、理解、應用、分析、評價、創造
+    \item 知識、理解、應用、分析、綜合、評價
+    \item 記憶、理解、應用、分析、評價、創造
+    \item 記憶、理解、應用、綜合、分析、評價
+  \end{enumerate}
+\end{frame}
+
+% 第4題
+\begin{frame}{問題 4}
+  \textbf{米勒(Miller)的能力評估金字塔模型從底部到頂部依序為：}
+  \begin{enumerate}[A.]
+    \item 知道、知道如何做、展示如何做、確實做到
+    \item 知道如何做、知道、展示如何做、確實做到
+    \item 知道、知道如何做、確實做到、展示如何做
+    \item 記憶、理解、應用、執行
+  \end{enumerate}
+\end{frame}
+
+% 第5題
+\begin{frame}{問題 5}
+  \textbf{下列哪一種教學方法最適合用於培養批判性思維和解決問題的能力？}
+  \begin{enumerate}[A.]
+    \item 傳統講授法
+    \item 問題導向學習(PBL)
+    \item 示範教學法
+    \item 標準化病人教學
+  \end{enumerate}
+\end{frame}
+
+% 第6題
+\begin{frame}{問題 6}
+  \textbf{繼續醫學教育(CME)的主要目的是：}
+  \begin{enumerate}[A.]
+    \item 為醫師專科證照考試做準備
+    \item 維持和更新專業知識與技能
+    \item 增加醫院收入來源
+    \item 提升醫師的學術地位
+  \end{enumerate}
+\end{frame}
+
+% 第7題
+\begin{frame}{問題 7}
+  \textbf{在醫學教育中，「形成性評量」(Formative Assessment)的主要目的是：}
+  \begin{enumerate}[A.]
+    \item 決定學生是否及格
+    \item 提供學習成效的最終判斷
+    \item 為學生提供回饋以改進學習
+    \item 評比學生間的相對表現
+  \end{enumerate}
+\end{frame}
+
+% 第8題
+\begin{frame}{問題 8}
+  \textbf{「標準化病人」(Standardized Patient)在醫學教育中的主要用途是：}
+  \begin{enumerate}[A.]
+    \item 用於基礎醫學研究
+    \item 取代真實病人進行臨床教學
+    \item 評估和訓練臨床與溝通技能
+    \item 降低醫學教育成本
+  \end{enumerate}
+\end{frame}
+
+% 第9題
+\begin{frame}{問題 9}
+  \textbf{下列哪一項是團隊導向學習(Team-Based Learning, TBL)的核心特徵？}
+  \begin{enumerate}[A.]
+    \item 由教師主導的小組討論
+    \item 學生自主選擇學習內容
+    \item 個人準備與團隊應用相結合
+    \item 純粹的問題解決活動
+  \end{enumerate}
+\end{frame}
+
+% 第10題
+\begin{frame}{問題 10}
+  \textbf{「情境學習理論」(Situated Learning Theory)強調：}
+  \begin{enumerate}[A.]
+    \item 知識傳授應從簡單到複雜
+    \item 學習應發生在真實環境或模擬的實踐社群中
+    \item 學習效果取決於個人智力水平
+    \item 學習過程應避免錯誤
+  \end{enumerate}
+\end{frame}
+
+% 第11題
+\begin{frame}{問題 11}
+  \textbf{建構主義學習理論(Constructivist Learning Theory)的核心觀點是：}
+  \begin{enumerate}[A.]
+    \item 學習是知識的被動接收過程
+    \item 學習者根據自身經驗主動建構知識
+    \item 學習主要受環境獎勵控制
+    \item 知識是客觀存在的並可完整傳授
+  \end{enumerate}
+\end{frame}
+
+% 第12題
+\begin{frame}{問題 12}
+  \textbf{醫學專業能力(Medical Competency)框架ACGME六大核心能力不包括：}
+  \begin{enumerate}[A.]
+    \item 醫療照護(Patient Care)
+    \item 醫學知識(Medical Knowledge)
+    \item 教學能力(Teaching Ability)
+    \item 專業素養(Professionalism)
+  \end{enumerate}
+\end{frame}
+
+% 第13題
+\begin{frame}{問題 13}
+  \textbf{在醫學教育中，「隱藏課程」(Hidden Curriculum)指的是：}
+  \begin{enumerate}[A.]
+    \item 學校未公開的考試題庫
+    \item 正式課程以外學生自主學習的內容
+    \item 非正式傳遞的價值觀、態度和行為規範
+    \item 僅提供給特定學生的高級課程
+  \end{enumerate}
+\end{frame}
+
+% 第14題
+\begin{frame}{問題 14}
+  \textbf{臨床能力評估中，Mini-CEX(迷你臨床演練評量)的主要特點是：}
+  \begin{enumerate}[A.]
+    \item 全面評估一整天的臨床工作表現
+    \item 短時間(15-20分鐘)觀察特定臨床技能並即時回饋
+    \item 由病人自行評估醫師表現
+    \item 僅適用於資深醫師的評估
+  \end{enumerate}
+\end{frame}
+
+% 第15題
+\begin{frame}{問題 15}
+  \textbf{醫學教育中的「同儕教學」(Peer Teaching)主要優點是：}
+  \begin{enumerate}[A.]
+    \item 減輕資深教師的教學負擔
+    \item 促進教學者和學習者雙方的學習
+    \item 完全取代傳統教師角色
+    \item 降低教學品質標準
+  \end{enumerate}
+\end{frame}
+
+% 第16題
+\begin{frame}{問題 16}
+  \textbf{醫學教育評估中的信度(Reliability)是指：}
+  \begin{enumerate}[A.]
+    \item 評估能夠準確測量其預期測量的內容
+    \item 評估結果具有一致性和穩定性
+    \item 評估內容對臨床實踐有實用價值
+    \item 評估能夠區分不同能力水平的學習者
+  \end{enumerate}
+\end{frame}
+
+% 第17題
+\begin{frame}{問題 17}
+  \textbf{「跨專業教育」(Interprofessional Education, IPE)的核心目標是：}
+  \begin{enumerate}[A.]
+    \item 減少各專業訓練的重複內容
+    \item 培養不同專業間的合作和溝通能力
+    \item 統一各醫療專業的培訓標準
+    \item 降低醫學教育的總體成本
+  \end{enumerate}
+\end{frame}
+
+% 第18題
+\begin{frame}{問題 18}
+  \textbf{醫學教育中的「直接觀察程序技能」(DOPS)評估方法主要適用於：}
+  \begin{enumerate}[A.]
+    \item 評估專業態度和溝通技能
+    \item 評估臨床推理能力
+    \item 評估特定醫療技術和操作技能
+    \item 評估醫學知識掌握程度
+  \end{enumerate}
+\end{frame}
+
+% 第19題
+\begin{frame}{問題 19}
+  \textbf{「全面型客觀結構式臨床測驗」(OSCE)的主要特點是：}
+  \begin{enumerate}[A.]
+    \item 以筆試形式評估臨床知識
+    \item 在實際病房進行長時間觀察
+    \item 通過多站點標準化情境評估臨床技能
+    \item 僅評估單一臨床能力
+  \end{enumerate}
+\end{frame}
+
+% 第20題
+\begin{frame}{問題 20}
+  \textbf{「反思實踐」(Reflective Practice)在醫學教育中的主要功能是：}
+  \begin{enumerate}[A.]
+    \item 增加醫學知識的學習量
+    \item 將理論知識轉化為實踐技能
+    \item 從經驗中學習並持續專業成長
+    \item 提高臨床操作速度和效率
+  \end{enumerate}
+\end{frame}
+
+\section{答案與解析}
+
+% 第1題答案
+\begin{frame}{問題 1 答案與解析}
+  \textbf{答案：B. Malcolm Knowles}
+  
+  \textbf{解析：} Malcolm Knowles是成人學習理論(Andragogy)的主要提倡者，他提出成人學習有別於兒童學習的特點，包括：自我導向、利用經驗作為學習資源、學習需求與生活或職業相關、問題導向而非內容導向，以及內在動機大於外在動機。這一理論對醫學教育中的繼續醫學教育和住院醫師訓練特別有影響。
+\end{frame}
+
+% 第2題答案
+\begin{frame}{問題 2 答案與解析}
+  \textbf{答案：C. 案例討論評估(CbD)}
+  
+  \textbf{解析：} 案例討論評估(Case-based Discussion, CbD)特別設計用來評估臨床推理能力，通過讓學習者闡述其診斷思路、解釋臨床決策過程，評估者可以深入了解學習者的臨床推理邏輯。選擇題測驗主要評估知識，OSCE評估臨床技能表現，Mini-CEX評估與病人互動的能力。
+\end{frame}
+
+% 第3題答案
+\begin{frame}{問題 3 答案與解析}
+  \textbf{答案：C. 記憶、理解、應用、分析、評價、創造}
+  
+  \textbf{解析：} 布魯姆的教育目標分類法在2001年修訂版中，認知領域由低階到高階依序為：記憶(Remembering)、理解(Understanding)、應用(Applying)、分析(Analyzing)、評價(Evaluating)和創造(Creating)。這一分類法幫助教育者設計漸進式的學習目標和評估方法。
+\end{frame}
+
+% 第4題答案
+\begin{frame}{問題 4 答案與解析}
+  \textbf{答案：A. 知道、知道如何做、展示如何做、確實做到}
+  
+  \textbf{解析：} 米勒的能力評估金字塔(Miller's Pyramid)自下而上依序為「知道(Knows)」、「知道如何做(Knows How)」、「展示如何做(Shows How)」和「確實做到(Does)」。這一模型用於指導醫學教育中的能力評估，從基礎知識到實際應用。
+\end{frame}
+
+% 第5題答案
+\begin{frame}{問題 5 答案與解析}
+  \textbf{答案：B. 問題導向學習(PBL)}
+  
+  \textbf{解析：} 問題導向學習(Problem-Based Learning, PBL)以真實或模擬的問題為中心，學習者通過小組合作來分析問題、提出假設、搜尋相關信息和知識，最終提出解決方案。這一過程特別強調批判性思維、分析能力和解決問題能力的培養。
+\end{frame}
+
+% 第6題答案
+\begin{frame}{問題 6 答案與解析}
+  \textbf{答案：B. 維持和更新專業知識與技能}
+  
+  \textbf{解析：} 繼續醫學教育(Continuing Medical Education, CME)的主要目的是協助執業醫師維持和更新其專業知識、技能和態度，以提供最佳的病人照護。醫學知識快速更新，CME確保醫療專業人員能夠跟上最新的醫療進展，並將這些知識應用於臨床實踐。
+\end{frame}
+
+% 第7題答案
+\begin{frame}{問題 7 答案與解析}
+  \textbf{答案：C. 為學生提供回饋以改進學習}
+  
+  \textbf{解析：} 形成性評量的主要目的是在學習過程中提供回饋，幫助學習者了解自己的學習進度、優勢和不足，從而調整學習方向和策略。它著重於學習改進而非最終判斷。相比之下，總結性評量才是用來決定是否及格或評定最終成績的方法。
+\end{frame}
+
+% 第8題答案
+\begin{frame}{問題 8 答案與解析}
+  \textbf{答案：C. 評估和訓練臨床與溝通技能}
+  
+  \textbf{解析：} 標準化病人是經過培訓的人員，能夠一致地模擬特定疾病或健康問題的情境。其主要用途是評估和訓練醫學生或醫師的臨床和溝通技能，特別是問診、身體檢查和病人溝通等方面。標準化病人能提供安全的學習環境，讓學習者在不傷害真實病人的情況下練習和接受評估。
+\end{frame}
+
+% 第9題答案
+\begin{frame}{問題 9 答案與解析}
+  \textbf{答案：C. 個人準備與團隊應用相結合}
+  
+  \textbf{解析：} 團隊導向學習(TBL)的核心特徵是將個人準備與團隊應用相結合。TBL通常包含三個階段：(1)課前個人準備學習；(2)課堂上進行個人和團隊準備度測驗；(3)團隊應用活動，解決真實問題。這種方法既強調個人對知識的掌握，又培養團隊合作解決問題的能力。
+\end{frame}
+
+% 第10題答案
+\begin{frame}{問題 10 答案與解析}
+  \textbf{答案：B. 學習應發生在真實環境或模擬的實踐社群中}
+  
+  \textbf{解析：} 情境學習理論強調學習是在特定情境和文化中發生的社會過程，學習者通過參與實踐社群從邊緣向中心逐步融入。這一理論特別適用於醫學教育，因為醫學學習往往發生在臨床環境中，學習者通過觀察、模仿和參與逐漸掌握專業技能和文化規範。
+\end{frame}
+
+% 第11題答案
+\begin{frame}{問題 11 答案與解析}
+  \textbf{答案：B. 學習者根據自身經驗主動建構知識}
+  
+  \textbf{解析：} 建構主義學習理論認為學習不是簡單的知識傳遞和接收過程，而是學習者根據自身先前經驗和認知結構主動建構知識的過程。在醫學教育中，建構主義體現在案例分析、反思學習和經驗學習等方法上，這些方法鼓勵學習者將新知識與既有知識連結。
+\end{frame}
+
+% 第12題答案
+\begin{frame}{問題 12 答案與解析}
+  \textbf{答案：C. 教學能力(Teaching Ability)}
+  
+  \textbf{解析：} 美國畢業後醫學教育認證委員會(ACGME)定義的六大核心能力包括：醫療照護、醫學知識、實踐為基礎的學習與改進、人際關係與溝通技能、專業素養和制度下的臨床工作。教學能力雖然重要，但不屬於這六大核心能力範疇。
+\end{frame}
+
+% 第13題答案
+\begin{frame}{問題 13 答案與解析}
+  \textbf{答案：C. 非正式傳遞的價值觀、態度和行為規範}
+  
+  \textbf{解析：} 隱藏課程指的是在正式課程之外，學習環境中非正式傳遞的價值觀、態度和行為規範。在醫學教育中，學生不僅學習正式課程中的知識和技能，還通過觀察教師和前輩的行為、機構文化和獎懲機制等，習得專業行為和態度。
+\end{frame}
+
+% 第14題答案
+\begin{frame}{問題 14 答案與解析}
+  \textbf{答案：B. 短時間(15-20分鐘)觀察特定臨床技能並即時回饋}
+  
+  \textbf{解析：} Mini-CEX是一種工作場所評估方法，特點是在真實臨床環境中進行短時間的觀察評估，針對特定臨床技能，由臨床教師即時提供具體回饋。它強調「多次、短暫、聚焦」的評估原則，適用於各級醫學生和住院醫師。
+\end{frame}
+
+% 第15題答案
+\begin{frame}{問題 15 答案與解析}
+  \textbf{答案：B. 促進教學者和學習者雙方的學習}
+  
+  \textbf{解析：} 同儕教學的主要優點是能夠促進教學者和學習者雙方的學習。教學相長是其核心理念，即教導他人是最有效的學習方式之一。對教學者而言，需要整合和澄清知識以備教學；對學習者而言，同儕教師更了解學習難點，能提供更貼近學習者需求的解釋。
+\end{frame}
+
+% 第16題答案
+\begin{frame}{問題 16 答案與解析}
+  \textbf{答案：B. 評估結果具有一致性和穩定性}
+  
+  \textbf{解析：} 信度是指評估工具產生一致和穩定結果的能力，即重複測量時得到相似結果的程度。高信度意味著評估結果受隨機誤差影響較小。信度的類型包括測試-重測信度、內部一致性、評分者間信度等。
+\end{frame}
+
+% 第17題答案
+\begin{frame}{問題 17 答案與解析}
+  \textbf{答案：B. 培養不同專業間的合作和溝通能力}
+  
+  \textbf{解析：} 跨專業教育的核心目標是培養不同醫療專業人員之間的合作和溝通能力。世界衛生組織將IPE定義為「當兩個或更多專業一起學習，相互學習，以及關於彼此的學習，以改進協作和照護品質」。跨專業教育旨在打破專業間的隔閡，培養團隊合作精神。
+\end{frame}
+
+% 第18題答案
+\begin{frame}{問題 18 答案與解析}
+  \textbf{答案：C. 評估特定醫療技術和操作技能}
+  
+  \textbf{解析：} 直接觀察程序技能(DOPS)是專門用於評估特定醫療技術和操作技能的工作場所評估方法。它通過在真實臨床環境中，由訓練有素的評估者直接觀察學習者執行特定醫療程序來評估操作技能。評估過程中會關注程序前準備、無菌技術、程序執行、病人安全考量等方面。
+\end{frame}
+
+% 第19題答案
+\begin{frame}{問題 19 答案與解析}
+  \textbf{答案：C. 通過多站點標準化情境評估臨床技能}
+  
+  \textbf{解析：} 客觀結構式臨床測驗(OSCE)的主要特點是通過多個標準化考站評估學習者的多種臨床技能。每個考站設計成標準化的臨床情境，時間一致，評分標準明確，學習者依序輪流通過各站接受評估。OSCE可以評估病史採集、身體檢查、溝通技巧、程序操作和臨床推理等多種能力。
+\end{frame}
+
+% 第20題答案
+\begin{frame}{問題 20 答案與解析}
+  \textbf{答案：C. 從經驗中學習並持續專業成長}
+  
+  \textbf{解析：} 反思實踐是指專業人員有意識地回顧、分析和評價自己的實踐經驗，從中提取學習並調整未來行動的過程。在醫學教育中，反思實踐幫助學習者從臨床經驗中學習，發展批判性思維，促進自我評估能力，培養終身學習習慣，並促進專業價值觀和身份認同的形成。
+\end{frame}
+
+% 評分標準
+\begin{frame}{測驗評分標準}
+  \begin{center}
+    \begin{tabular}{cc}
+      \toprule
+      \textbf{分數範圍} & \textbf{等級} \\
+      \midrule
+      90-100分 & 優秀 \\
+      80-89分 & 良好 \\
+      70-79分 & 及格 \\
+      69分以下 & 不及格 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  
+  \vspace{1cm}
+  \begin{center}
+    \Large{\textbf{每題5分，滿分100分}}
+  \end{center}
+\end{frame}
+
+\end{document}

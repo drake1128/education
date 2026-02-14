@@ -1,0 +1,351 @@
+% 這是一份latex 文件的 preamble
+% 請AI閱讀後，將附上的PDF整理，以latex code整理，儘量用longtable
+% 請注意我的名字: 謝慕揚, MD, PhD, FESC
+% 表格請注意換行，不該在cell內使用 \\
+% 表格請不要有垂直分隔線 |
+
+\documentclass{article}
+
+
+\usepackage{multirow}
+% Including essential packages for Chinese typesetting
+\usepackage{xeCJK}
+\usepackage{fontspec}
+% Configuring Chinese font with Noto Serif CJK TC, fallback to SimSun
+\IfFontExistsTF{Noto Serif CJK TC}{
+  \setCJKmainfont{Noto Serif CJK TC}
+  \setCJKsansfont{Noto Serif CJK TC}
+  \setCJKmonofont{Noto Serif CJK TC}
+}{\setCJKmainfont{SimSun}
+  \setCJKsansfont{SimSun}
+  \setCJKmonofont{SimSun}
+}
+
+% Including other necessary packages
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{datetime2}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=emergency_blue,
+    citecolor=emergency_blue,
+    urlcolor=emergency_blue,
+    pdfborder={0 0 0}
+}
+
+% Defining page geometry
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  headheight=25pt
+}
+
+% Adjusting topmargin to compensate for increased headheight
+\addtolength{\topmargin}{-10pt}
+
+% Defining colors
+\definecolor{emergency_red}{RGB}{186,24,27}
+\definecolor{emergency_blue}{RGB}{0,114,188}
+\definecolor{emergency_gray}{RGB}{120,120,120}
+\definecolor{highlight_yellow}{RGB}{255,250,205}
+
+% Setting title formats
+\titleformat{\section}[block]{\Large\bfseries\color{emergency_red}}{\thesection}{10pt}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{emergency_blue}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\color{emergency_gray}}{\thesubsubsection}{6pt}{}
+
+% Defining custom environment for important notes
+\newmdenv[
+    linecolor=emergency_red,
+    backgroundcolor=highlight_yellow,
+    linewidth=2pt,
+    topline=true,
+    bottomline=true,
+    leftline=true,
+    rightline=true,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]{importantbox}
+
+% Defining note command with tcolorbox
+\newcommand{\note}[1]{
+    \par
+    \noindent
+    \begin{tcolorbox}[
+        colback=emergency_blue!5!white,
+        colframe=emergency_blue,
+        title=\textbf{重點提醒},
+        fonttitle=\bfseries,
+        boxrule=0.5pt,
+        arc=3pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{emergency_red}{跨院跨領域討論會}}
+\fancyhead[R]{\textcolor{emergency_blue}{課前閱讀單}}
+\fancyfoot[C]{\textcolor{emergency_gray}{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{emergency_red}\leaders\hrule height \headrulewidth\hfill}}
+
+% Defining custom date format for ISO 8601
+\DTMnewdatestyle{iso}{
+  \renewcommand{\DTMdisplaydate}[4]{\number##1-\number##2-\number##3}
+  \renewcommand{\DTMDisplaydate}[4]{\number##1-\number##2-\number##3}
+}
+\DTMsetdatestyle{iso}
+\newcommand{\mydate}{\DTMtoday}
+
+\begin{document}
+
+\title{\textcolor{emergency_red}{跨院跨領域討論會\\會前閱讀單}}
+\author{\textcolor{emergency_blue}{謝慕揚, MD, PhD, FESC}}
+\date{\mydate}
+\maketitle
+
+\begin{importantbox}
+\textbf{閱讀目標：}本閱讀單旨在幫助與會人員在討論會前充分了解病例背景，掌握各專業領域的重點，並準備參與跨領域討論。請仔細閱讀各部分內容，並思考文末提出的討論問題。
+\end{importantbox}
+
+\section{病例基本資訊}
+
+\subsection{患者基本資料}
+\begin{longtable}{p{3cm} p{12cm}}
+\toprule
+\textbf{項目} & \textbf{內容} \\
+\midrule
+年齡性別 & 77歲男性 \\
+過去病史 & 高血壓 \\
+個人史 & 吸煙史：1 PPD × 50+年，於2023年8月戒煙 \\
+過敏史 & 藥物過敏(-)，異位性體質(-) \\
+家族史 & 肺癌(-)，結核病(-) \\
+職業 & 商人 \\
+\bottomrule
+\end{longtable}
+
+\subsection{疾病發展時序}
+\begin{longtable}{p{3cm} p{12cm}}
+\toprule
+\textbf{時間} & \textbf{重要事件} \\
+\midrule
+2023年9月 & 開始出現呼吸困難症狀，運動性呼吸困難持續一個月 \\
+2023年9月 & 胸部X光檢查，發現肺部異常 \\
+2023年10月 & 實驗室檢查：ANA 1:80，IgE 205 KU/l，ESR 58 mm/Hr \\
+2024年2月 & 開始使用OFEV（nintedanib）治療 \\
+2024年7月 & 改用Pirfenidone治療 \\
+2025年2月 & 開始使用Baktar \\
+2025年7月 & 因呼吸困難入院，使用HFNC支持 \\
+2025年8月 & 病情惡化，於8月18日過世 \\
+\bottomrule
+\end{longtable}
+
+\note{
+特別注意：這是一個從診斷到過世歷時約2年的IPF（特發性肺纖維化）病例，展現了疾病的進展性特徵和跨領域照護的複雜性。
+}
+
+\section{各專業領域重點整理}
+
+\begin{longtable}{p{3cm} p{4cm} p{8cm}}
+\toprule
+\textbf{專業領域} & \textbf{重點項目} & \textbf{具體內容} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{專業領域} & \textbf{重點項目} & \textbf{具體內容} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{續下頁...}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multirow{8}{3cm}{\textbf{內科醫師}} & 診斷流程 & 間質性肺病的鑑別診斷流程 \\
+ & & 特發性肺纖維化（IPF）的診斷標準 \\
+ & & 肺功能檢查結果解讀：FVC下降模式 \\
+ & & 高解析度電腦斷層（HRCT）影像特徵 \\
+ & 治療策略 & 抗纖維化藥物：Nintedanib vs Pirfenidone \\
+ & & 類固醇在IPF治療中的爭議性角色 \\
+ & & 急性惡化期的處理原則 \\
+ & & 症狀緩解與支持性治療 \\
+
+\multirow{4}{3cm}{\textbf{影像醫學}} & 影像學發現 & 胸部X光的漸進性變化（2023年9月至2025年8月） \\
+ & & HRCT典型的蜂窩肺表現 \\
+ & & 疾病進展的影像學監測 \\
+ & & 床邊攝影的技術考量與限制 \\
+
+\multirow{4}{3cm}{\textbf{呼吸治療}} & 呼吸支持治療 & 高流量鼻導管（HFNC）的生理效應與適應症 \\
+ & & HFNC參數設定的考量因素 \\
+ & & 呼吸衰竭的階段性處理 \\
+ & & 末期病患的舒適性照護 \\
+
+\multirow{4}{3cm}{\textbf{藥學}} & IPF藥物治療 & Nintedanib：多重受體酪胺酸激酶抑制劑 \\
+ & & Pirfenidone：TGF-β生產抑制，膠原蛋白合成抑制 \\
+ & & 副作用監測：肝功能、胃腸道症狀、光敏感 \\
+ & & 劑量調整策略與用藥安全 \\
+
+\multirow{4}{3cm}{\textbf{出院規劃}} & 照護連續性評估 & 家庭支持系統評估：照顧人力與能力 \\
+ & & 居家環境適宜性評估 \\
+ & & 經濟負擔：設備租用與照護費用 \\
+ & & 社會資源連結：長照機構與居家照護 \\
+\end{longtable}
+
+\subsection{IPF藥物治療比較表}
+\begin{longtable}{p{4cm} p{5cm} p{5cm}}
+\toprule
+\textbf{項目} & \textbf{Nintedanib} & \textbf{Pirfenidone} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{項目} & \textbf{Nintedanib} & \textbf{Pirfenidone} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{續下頁...}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+作用機轉 & 多重受體酪胺酸激酶抑制劑 & TGF-β生產抑制，膠原蛋白合成抑制 \\
+標準劑量 & 150 mg Q12H，最大日劑量300 mg & 第1-7天：267 mg TID，第8-14天：534 mg TID，第15天後：801 mg TID \\
+常見副作用 & 腹瀉，肝功能異常，出血風險 & 胃腸不適，光敏感，皮疹 \\
+劑量調整 & 肝毒性時可降至100mg BID & 需緩慢滴定，與食物併服 \\
+監測重點 & 肝功能，出血傾向 & 肝功能，光敏感反應 \\
+禁忌症 & 嚴重肝功能不全，活動性出血 & 嚴重肝功能不全，嚴重腎功能不全 \\
+藥物交互作用 & Pgp和CYP3A4誘導劑及抑制劑，抗凝血劑 & CYP1A2誘導劑及抑制劑，光敏感劑 \\
+\end{longtable}
+
+\section{跨領域討論重點}
+
+\begin{longtable}{p{3cm} p{6cm} p{6cm}}
+\toprule
+\textbf{專業別} & \textbf{可提供的協助} & \textbf{需要的協助} \\
+\midrule
+內科醫師 & 疾病診斷與治療方向，預後評估 & 多專業團隊早期介入時機 \\
+影像醫師 & 疾病進展監測，影像品質確保 & 設備移除配合，管線安全確認 \\
+呼吸治療師 & HFNC技術支持，參數調整建議 & 設備適應症評估，舒適性考量 \\
+藥師 & 藥物劑量建議，副作用監測 & 臨床症狀回饋，治療反應評估 \\
+出院規劃 & 照護資源連結，轉銜服務 & 治療目標確立，安寧介入時機 \\
+\bottomrule
+\end{longtable}
+
+\section{課前思考問題}
+
+\begin{longtable}{p{3.5cm} p{1cm} p{10.5cm}}
+\toprule
+\textbf{思考類別} & \textbf{題號} & \textbf{思考問題} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{思考類別} & \textbf{題號} & \textbf{思考問題} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{續下頁...}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multirow{3}{3.5cm}{\textbf{臨床決策思考}} & 1 & 在IPF的診斷過程中，如何平衡侵入性檢查（如肺切片）的必要性與風險？ \\
+ & 2 & 當Nintedanib出現副作用時，轉換至Pirfenidone的時機與策略為何？ \\
+ & 3 & 類固醇在IPF急性惡化期的使用，如何權衡利弊？ \\
+
+\multirow{3}{3.5cm}{\textbf{跨領域合作思考}} & 1 & 各專業如何在疾病早期階段就建立有效的溝通機制？ \\
+ & 2 & 當病患需要長期HFNC支持時，出院規劃應如何提前介入？ \\
+ & 3 & 在安寧緩和照護的轉換過程中，各專業的角色如何調整？ \\
+
+\multirow{3}{3.5cm}{\textbf{倫理與人文思考}} & 1 & 面對預後不良的進展性疾病，如何與病患及家屬進行有效溝通？ \\
+ & 2 & 在醫療資源有限的情況下，如何做出最符合病患利益的決策？ \\
+ & 3 & 當治療目標從治癒轉向症狀控制時，團隊共識的建立過程為何？ \\
+\end{longtable}
+
+\section{討論會參與準備}
+
+\begin{longtable}{p{4cm} p{11cm}}
+\toprule
+\textbf{準備類別} & \textbf{具體建議} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{準備類別} & \textbf{具體建議} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{續下頁...}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multirow{4}{4cm}{\textbf{建議準備方向}} & 複習IPF的最新診療指引 \\
+ & 了解HFNC在終末期疾病中的應用 \\
+ & 思考跨領域團隊照護的優化策略 \\
+ & 準備分享類似病例的處理經驗 \\
+
+\multirow{4}{4cm}{\textbf{討論重點預告}} & 疾病進展關鍵節點的決策分析 \\
+ & 各專業介入時機的最佳化 \\
+ & 照護品質指標的建立與監測 \\
+ & 類似病例的預防與早期介入策略 \\
+
+\multirow{5}{4cm}{\textbf{個人準備要求}} & 準備至少2-3個與自己專業相關的討論問題 \\
+ & 回顧近期處理的類似病例經驗 \\
+ & 思考本病例中可改善的照護環節 \\
+ & 預先考慮跨專業合作的具體建議 \\
+ & 準備提出創新的照護模式或解決方案 \\
+\end{longtable}
+
+\subsection{各專業重點準備建議}
+
+\begin{longtable}{p{3cm} p{12cm}}
+\toprule
+\textbf{專業別} & \textbf{重點準備內容} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{專業別} & \textbf{重點準備內容} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{續下頁...}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+內科醫師 & 最新IPF診療指引、抗纖維化藥物選擇策略、急性惡化處理原則、預後評估工具 \\
+影像醫師 & HRCT影像判讀標準、疾病進展評估指標、床邊攝影技術優化、影像品質管控 \\
+呼吸治療師 & HFNC適應症與參數設定、呼吸衰竭分級處理、設備安全管理、舒適性評估 \\
+藥師 & IPF藥物副作用管理、藥物交互作用、劑量調整原則、病患用藥教育 \\
+護理師 & 症狀評估與照護、病患教育、家屬溝通技巧、照護連續性確保 \\
+出院規劃師 & 長照資源評估、社會福利申請、設備租借流程、轉銜服務協調 \\
+社工師 & 家庭支持系統評估、經濟負擔評估、社會資源連結、心理支持服務 \\
+安寧團隊 & 症狀緩解技術、生活品質評估、家屬悲傷輔導、善終照護規劃 \\
+\end{longtable}
+
+
+\end{document}
