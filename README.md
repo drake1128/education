@@ -1,249 +1,133 @@
-# 內科部醫學教育資源庫
-# Internal Medicine Education Repository
+# 內科部 EPA 評核系統
 
-**機構 Institution**: 台大醫院新竹分院 NTUH Hsinchu Branch
-**負責人 Owner**: 謝慕揚 副主任
-**建立日期 Created**: 2025-11-08 | **更新 Updated**: 2026-02-14
+**機構**: 台大醫院新竹分院 NTUH Hsinchu Branch
+**負責人**: 謝慕揚 副主任（內科部 / 心臟內科）
+**網址**: https://drake1128.github.io/education/
 
 ---
 
-## 📋 系統總覽 | System Overview
+## 系統架構
 
-本資源庫整合內科部完整的醫學教育工具與教材：
+本系統整合三大評核管道：
 
-| 類型 | 內容 | 格式 |
+| 管道 | 用途 | 位置 |
 |------|------|------|
-| **線上評估工具** | EPA 評估表、OSCE 評核表 | HTML (GitHub Pages) |
-| **CCC 委員會** | 臨床能力委員會章程與會議 | LaTeX |
-| **EPA 教學講義** | 各次專科 EPA 評估指引 | LaTeX |
-| **教育計畫** | 教學方案、研習報告 | LaTeX |
+| **Quarto 網站** | 次專科 EPA 完整定義查詢（115+ 項目） | `docs/` → [線上版](https://drake1128.github.io/education/docs/) |
+| **HTML 表單** | 一般 EPA 直接觀察即時評核 | `html-forms/` → [入口頁](https://drake1128.github.io/education/) |
+| **REDCap Survey** | 正式半年度主治醫師評核 | 院內 REDCap 系統 |
 
 ---
 
-## 🌐 線上評估工具 | Online Assessment Tools
-
-### GitHub Pages 連結
-**網址**: `https://drake1128.github.io/education/`
-
-### 評估表清單 | Assessment Forms
-
-| 評估表 | 對象 | 連結 |
-|--------|------|------|
-| **EPA 評估表** | 見習醫師 (Clerk) | [EPA_見習醫師.html](EPA_見習醫師.html) |
-| **EPA 評估表** | PGY 醫師 | [EPA_PGY醫師.html](EPA_PGY醫師.html) |
-| **EPA 評估表** | 住院醫師 (Resident) | [EPA_住院醫師.html](EPA_住院醫師.html) |
-| **EPA 評估表** | NP 專科護理師 | [EPA_NP專科護理師.html](EPA_NP專科護理師.html) |
-| **OSCE 評核表** | 臨床技能測驗 | [OSCE評估表.html](OSCE評估表.html) |
-| **Troponin 動態** | 臨床輔助工具 | [troponin-kinetics.html](troponin-kinetics.html) |
-
-### 特色功能 | Features
-- ✅ 5 級信任量表評估 (Entrustment Scale)
-- ✅ 依學員層級差異化設計
-- ✅ OSCE 自動計算分數
-- ✅ 響應式設計，支援行動裝置
-- ✅ 列印友善格式
-
----
-
-## 📢 最新公告 | Announcements
-
-### CCC Workshop 報名通知 | CCC Workshop Registration
-
-**【重要】內科部 CCC Workshop 即將舉辦！**
-
-| 項目 | 內容 |
-|------|------|
-| **日期 Date** | 2026年3月29日 (週日) |
-| **時間 Time** | 09:10 - 12:30 |
-| **地點 Venue** | 生醫大樓 5F 第一會議室 |
-| **對象 Target** | 內科部全體講師 |
-
-**議程 Agenda**:
-1. CBME 與 EPA 概念介紹 (30 min)
-2. CCC 委員會章程說明 (30 min)
-3. 各次專科 EPA 講義導讀 (60 min)
-4. 討論與 Q&A (60 min)
-
----
-
-## 🏛️ CCC 委員會 | Clinical Competency Committee
-
-### 委員會宗旨 | Mission
-因應住院醫師納入勞基法後工時縮減的挑戰，建立以勝任能力為本 (CBME) 的系統性教學評量機制。
-
-### 核心文件 | Core Documents
-
-| 文件 | 檔案 |
-|------|------|
-| CCC 委員會章程 | `EPA 0 internal medicine CCC.tex` |
-| CCC 簡報 | `EPA 0 internal medicine CCC slide.tex` |
-| 會議紀錄 | `EPA 0 internal medicine CCC meeting 01.tex` |
-| EPA 概念介紹 | `EPA 0 slide introduction.tex` |
-
-### 評估對象 | Assessment Targets
-- 醫學系學生 (Medical Students / Clerks)
-- 畢業後一般醫學訓練醫師 (PGY)
-- 住院醫師 R1-R3 (Residents)
-
-### 六大核心能力 | Six Core Competencies (ACGME)
-1. 病患照護 (Patient Care)
-2. 醫學知識 (Medical Knowledge)
-3. 實務學習與改善 (Practice-based Learning)
-4. 人際關係與溝通技巧 (Communication Skills)
-5. 專業素養 (Professionalism)
-6. 制度下的實務 (Systems-based Practice)
-
-### 里程碑層級 | Milestone Levels
-| Level | 說明 | 監督程度 |
-|-------|------|----------|
-| 1 | 新手 Novice | 需直接監督 |
-| 2 | 進階初學者 | 需間接監督 |
-| 3 | 勝任者 | 可獨立執行 |
-| 4 | 熟練者 | 可指導他人 |
-| 5 | 專家 | 可擔任教學領導 |
-
----
-
-## 📚 次專科 EPA 講義 | Subspecialty EPA Handouts
-
-### EPA 清單 | EPA List
-
-| 次專科 | Subspecialty | EPA | 檔案 | 狀態 |
-|--------|--------------|-----|------|------|
-| 心臟科 | Cardiology (CV) | 10, 11 | `EPA CV 10 slide.tex`, `EPA CV 11.tex`, `EPA CV echo.tex` | ✅ |
-| 胸腔科 | Pulmonology | 10, 14 | `EPA Chest 10.tex`, `EPA Chest 14.tex` | ✅ |
-| 腸胃科 | GI | 11 | `EPA GI 11.tex` | ✅ |
-| 腎臟科 | Nephrology | 10 | `EPA Nephro 10.tex` | ✅ |
-| 感染科 | ID | 10 | `EPA ID 10.tex` | ✅ |
-| 內分泌科 | Endocrinology | 10 | `EPA Endocrine 10.tex` | ✅ |
-| 風濕免疫科 | Rheumatology | 10 | `EPA Rheuma 10.tex` | ✅ |
-| 血液科 | Hematology | 10 | `EPA Hema 10.tex` | ✅ |
-| 腫瘤科 | Oncology | 10 | `EPA Onco 10.tex` | ✅ |
-| 神經科 | Neurology | 7, 10 | `EPA Neuro 7 for IM.tex`, `EPA Neuro 10.tex` | ✅ |
-
-### EPA 核心概念 | EPA Core Concepts
-
-**EPA (Entrustable Professional Activities)** = 可信賴專業活動
-
-將傳統「以時間為本」的訓練模式轉變為「以能力為本」的個別化學習路徑。
-
-**Key Features**:
-- 可觀察 (Observable)
-- 可評估 (Assessable)
-- 可信賴 (Entrustable)
-- 整合性 (Integrative)
-
----
-
-## 📁 資料夾結構 | Folder Structure
+## 資料夾結構
 
 ```
 education/
-├── index.html                    # Web 入口頁面
-├── EPA_*.html                    # 線上 EPA 評估表
-├── OSCE評估表.html               # 線上 OSCE 評核表
-├── troponin-kinetics.html        # 臨床輔助工具
-├── README.md                     # 本文件
-├── .gitignore                    # Git 忽略設定
+├── index.html              # 入口頁面（GitHub Pages）
+├── README.md               # 本文件
+├── CHANGELOG.md            # 工作記錄
 │
-├── [CCC 核心文件]
-│   ├── EPA 0 internal medicine CCC*.tex
-│   └── EPA 0 slide introduction.tex
+├── docs/                   # Quarto 渲染輸出（GitHub Pages 部署用）
+│   ├── index.html          # Quarto 首頁
+│   ├── subspecialty/       # 12 個次專科 EPA 頁面
+│   ├── general/            # 4 個學員層級 EPA 頁面
+│   └── redcap/             # REDCap 流程與資料字典
 │
-├── [次專科 EPA - LaTeX]
-│   ├── EPA CV *.tex              # 心臟科
-│   ├── EPA Chest *.tex           # 胸腔科
-│   ├── EPA GI 11.tex             # 腸胃科
-│   ├── EPA Nephro 10.tex         # 腎臟科
-│   ├── EPA ID 10.tex             # 感染科
-│   ├── EPA Endocrine 10.tex      # 內分泌科
-│   ├── EPA Rheuma 10.tex         # 風濕免疫科
-│   ├── EPA Hema 10.tex           # 血液科
-│   ├── EPA Onco 10.tex           # 腫瘤科
-│   └── EPA Neuro *.tex           # 神經科
+├── epa-website/            # Quarto 原始碼
+│   ├── _quarto.yml         # 網站設定
+│   ├── styles.css          # 自訂樣式
+│   ├── subspecialty/       # 次專科 .qmd 檔
+│   ├── general/            # 一般 EPA .qmd 檔
+│   └── redcap/             # REDCap .qmd 檔
 │
-├── [教育計畫]
-│   ├── Education plan *.tex
-│   ├── Education AMEE *.tex      # AMEE 報告
-│   └── tutorial *.tex            # 教學教案
+├── html-forms/             # HTML 直接觀察評估表單
+│   ├── EPA_見習醫師.html
+│   ├── EPA_PGY醫師.html
+│   ├── EPA_住院醫師.html
+│   ├── EPA_NP專科護理師.html
+│   ├── OSCE評估表.html
+│   └── troponin-kinetics.html
 │
-├── [LaTeX 支援檔]
-│   ├── Drake_preamble.tex
-│   ├── tufte-book.cls
-│   ├── tufte-handout.cls
-│   ├── booksprint.sty
-│   ├── jabbrv.sty
-│   └── reference.bib
+├── planning/               # 規劃文件
+│   ├── EPA_DataDictionary_v2_2026-03-09.csv
+│   ├── EPA_排程規劃.xlsx
+│   └── EPA_HTML_CONVERSION_PLAN.md
 │
-├── figure/                       # 圖片資源
+├── latex/                  # LaTeX 教材原始檔
+│   ├── figure/             # 圖片資源
+│   ├── EPA *.tex           # 次專科 EPA（10 科）
+│   ├── EPA 0 *.tex         # CCC 委員會文件
+│   ├── Education *.tex     # 教育計畫與報告
+│   ├── reading *.tex       # NEJM / AMEE 文獻筆記
+│   ├── tutorial *.tex      # 教學教案
+│   └── *.cls, *.sty, *.bst # LaTeX 支援檔
 │
 └── 115 研究計畫 教學部 內科部 EPA and NEJM/
+    └── 研究計畫書與 REDCap 資料字典
 ```
 
 ---
 
-## 🛠️ 使用指引 | Usage Guide
+## 次專科 EPA 總覽
 
-### LaTeX 編譯 | LaTeX Compilation
+| 次專科 | EPA 數 | Quarto 頁面 | LaTeX 來源 |
+|--------|:------:|-------------|------------|
+| 心臟科 Cardiology | 11 | `subspecialty/cv.qmd` | `EPA CV 11.tex` |
+| 心臟超音波 Echo | 10 | `subspecialty/cv-echo.qmd` | `EPA CV echo.tex` |
+| 胸腔科 Pulmonology | 14 | `subspecialty/chest.qmd` | `EPA Chest 14.tex` |
+| 腸胃科 GI | 11 | `subspecialty/gi.qmd` | `EPA GI 11.tex` |
+| 內分泌科 Endocrinology | 10 | `subspecialty/endocrine.qmd` | `EPA Endocrine 10.tex` |
+| 血液科 Hematology | 10 | `subspecialty/hema.qmd` | `EPA Hema 10.tex` |
+| 感染科 ID | 10 | `subspecialty/id.qmd` | `EPA ID 10.tex` |
+| 腎臟科 Nephrology | 10 | `subspecialty/nephro.qmd` | `EPA Nephro 10.tex` |
+| 神經科 Neurology | 10 + 7 | `subspecialty/neuro.qmd`, `neuro-im.qmd` | `EPA Neuro 10.tex`, `EPA Neuro 7 for IM.tex` |
+| 腫瘤科 Oncology | 10 | `subspecialty/onco.qmd` | `EPA Onco 10.tex` |
+| 風濕免疫科 Rheumatology | 10 | `subspecialty/rheuma.qmd` | `EPA Rheuma 10.tex` |
 
-**必要套件**:
-- `xeCJK` - 中文支援
-- `fontspec` - 字型設定
-- `tikz` - 圖形繪製
-- `tcolorbox` - 文字框
-- `beamer` - 簡報製作
+---
 
-**字型需求**:
-- Noto Serif CJK TC
-- Noto Sans CJK TC
+## 學員適用層級
 
-**編譯指令**:
+| 學員 | 次專科 EPA 範圍 | 一般 EPA |
+|------|:--------------:|:--------:|
+| 見習醫師 Clerk | EPA 1–3 | 5 項 |
+| PGY 醫師 | EPA 1–5 | 6 項 |
+| NP 專科護理師 | EPA 1–5 | 7 項 |
+| 住院醫師 Resident | 全部 | 7 項 |
+| 總醫師 Chief | 全部 | — |
+
+---
+
+## 重要時程 2026
+
+| 時間 | 里程碑 |
+|------|--------|
+| **2026/03/29** | CCC Workshop — 內科部講師訓練 |
+| 2026 Q2 | 試行階段 — 2–3 次專科試行 EPA |
+| 2026 Q3 | 擴展階段 — 全面推廣 |
+| **2026/10** | 正式實施 — EPA 評核制度上線 |
+
+---
+
+## 技術備註
+
+### Quarto 渲染
+
+因工作目錄含中文路徑，Quarto Sass 編譯會失敗。需使用以下 workaround：
+
 ```bash
-xelatex filename.tex
+cp -r epa-website/* /c/tmp/epa-render/
+cd /c/tmp/epa-render && quarto render
+cp -r _site/* "<原始路徑>/docs/"
 ```
 
-### HTML 客製化修改 | Customizing HTML
+### LaTeX 編譯
 
-所有HTML檔案可直接用文字編輯器修改：
-- 修改配色：搜尋 `background: linear-gradient`
-- 增減項目：複製貼上評估項目區塊
-- 調整文字：直接修改中文內容
-- 新增科別：在下拉選單中添加選項
+所有 `.tex` 檔案保持在 `latex/` 目錄的平面結構，以相容 `\input{Drake_preamble.tex}` 和 `figure/` 等相對路徑。
 
----
-
-## 📅 重要時程 | Timeline 2026
-
-| 時間 | 里程碑 | 說明 |
-|------|--------|------|
-| **2026/03/29** | CCC Workshop | 內科部講師訓練 |
-| 2026 Q2 | 試行階段 | 2-3 次專科試行 EPA |
-| 2026 Q3 | 擴展階段 | 全面推廣 |
-| **2026/10** | 正式實施 | EPA 評核制度上線 |
+```bash
+cd latex && xelatex "EPA CV 11.tex"
+```
 
 ---
 
-## 🔗 相關連結 | Related Links
-
-- [ACGME Milestones](https://www.acgme.org/what-we-do/accreditation/milestones/)
-- [醫策會 JCTM](https://www.jct.org.tw/)
-
----
-
-## 📞 聯絡資訊 | Contact
-
-**負責人**: 謝慕揚 副主任
-**單位**: 內科部 / 心臟內科
-**機構**: 新竹台大分院
-
----
-
-## 📄 授權 | License
-
-© 2025-2026 台大醫院新竹分院 教學部
-本系統僅供醫療教育使用
-
----
-
-*本資源庫由 Claude Code 協助建立 | Repository created with assistance from Claude Code*
-*版本 Version: 2.0 | 更新 Updated: 2026-02-14*
+© 2025–2026 台大醫院新竹分院 教學部 | 本系統僅供醫療教育使用
