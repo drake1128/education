@@ -1,0 +1,206 @@
+---
+title: "風濕免疫科 EPA"
+subtitle: "Rheumatology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：風濕免疫疾病病史詢問與風險評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行風濕免疫疾病相關的完整病史詢問,包括症狀評估、家族史調查、藥物史,並能初步評估疾病活性與風險。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本關節症狀,需要監導者引導完成詢問 |
+| Level 2 | 直接監督 | 能系統性完成風濕病史詢問,使用適當的症狀評估工具 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問,整合症狀與家族史進行初步風險分層 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史,整合多重共病資訊 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問,識別罕見症狀表現 |
+
+## EPA 2：關節系統理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠熟練且準確地進行全身關節系統的完整理學檢查,包括關節腫脹、壓痛、活動度評估,並能正確解讀檢查發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能進行基本關節觸診,識別明顯腫脹 |
+| Level 2 | 直接監督 | 能識別常見異常理學發現,進行系統性關節檢查 |
+| Level 3 | 間接監督 | 能區分各種異常理學發現,準確計數關節,整合多項檢查發現 |
+| Level 4 | 監督可得 | 能識別複雜理學發現特徵,檢查技術精準且有效率 |
+| Level 5 | 完全獨立 | 能偵測細微的異常發現,整合檢查發現與臨床表現 |
+
+## EPA 3：風濕免疫疾病影像判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀風濕免疫疾病相關影像檢查,包括關節X光、超音波、MRI,識別正常與異常變化,並提出臨床相關性分析。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本正常關節X光結構 |
+| Level 2 | 直接監督 | 能識別明顯異常病變,判讀基本超音波影像 |
+| Level 3 | 間接監督 | 能獨立判讀大部分影像異常,整合影像與臨床症狀 |
+| Level 4 | 監督可得 | 能判讀複雜影像變化,識別細微的早期病變 |
+| Level 5 | 完全獨立 | 成為影像判讀的專家,能教導複雜影像判讀 |
+
+## EPA 4：關節穿刺術與關節液分析
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行關節穿刺術,包括適應症評估、解剖定位、無菌技術,並能正確分析關節液檢查結果。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助關節穿刺,了解基本解剖結構 |
+| Level 2 | 直接監督 | 能在監督下執行大關節穿刺 |
+| Level 3 | 間接監督 | 能獨立執行關節穿刺,判讀關節液結果 |
+| Level 4 | 監督可得 | 能執行困難關節穿刺,使用超音波導引 |
+| Level 5 | 完全獨立 | 成為關節穿刺專家,能教導複雜技術 |
+
+## EPA 5：自體免疫抗體與免疫學檢驗判讀
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀自體免疫抗體與免疫學檢驗報告,包括ANA、ENA、RF、ACPA等,識別正常與異常變化,並提出臨床相關性分析。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別明顯陽性抗體,知道基本正常範圍 |
+| Level 2 | 直接監督 | 能判讀常見自體抗體,使用系統性判讀流程 |
+| Level 3 | 間接監督 | 能獨立判讀複雜抗體組合,整合臨床表現 |
+| Level 4 | 監督可得 | 能判讀罕見抗體型態,準確評估臨床意義 |
+| Level 5 | 完全獨立 | 成為免疫檢驗判讀專家,能教導複雜判讀 |
+
+## EPA 6：類風濕性關節炎診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷類風濕性關節炎,評估疾病活性與嚴重度,制定個別化治療計畫,包括DMARDs與生物製劑選擇,並監測治療效果。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別RA症狀徵象,知道基本診斷標準 |
+| Level 2 | 直接監督 | 能使用標準治療指引,進行基本藥物調整 |
+| Level 3 | 間接監督 | 能獨立管理穩定RA,調整藥物治療 |
+| Level 4 | 監督可得 | 能處理複雜RA,評估進階治療選項 |
+| Level 5 | 完全獨立 | 成為RA專家,發展個人化治療策略 |
+
+## EPA 7：全身性紅斑狼瘡與結締組織疾病管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷全身性紅斑狼瘡與其他結締組織疾病,評估器官侵犯程度,制定個別化治療方案,並監測疾病活性與藥物副作用。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別SLE可能性,了解基本檢查 |
+| Level 2 | 直接監督 | 能執行基本評估,安排初步檢查 |
+| Level 3 | 間接監督 | 能獨立診斷SLE,制定治療計畫 |
+| Level 4 | 監督可得 | 能處理複雜SLE,整合內外科治療 |
+| Level 5 | 完全獨立 | 成為SLE專家,處理罕見疾病與併發症 |
+
+## EPA 8：痛風與結晶性關節炎診斷與處置
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷痛風與其他結晶性關節炎,執行急性發作處置,制定長期降尿酸治療計畫,並監測治療效果與副作用。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別典型痛風症狀,知道基本治療 |
+| Level 2 | 直接監督 | 能診斷與治療單純性痛風 |
+| Level 3 | 間接監督 | 能獨立管理痛風,執行降尿酸治療 |
+| Level 4 | 監督可得 | 能處理難治性痛風,整合多重因素 |
+| Level 5 | 完全獨立 | 成為痛風專家,發展個人化治療策略 |
+
+## EPA 9：免疫調節藥物使用與監測
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠合理選用免疫調節藥物,包括傳統DMARDs與生物製劑,了解其作用機轉、副作用,並執行適當監測與調整。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解常用免疫藥物,知道基本副作用 |
+| Level 2 | 直接監督 | 能使用基本DMARDs,執行標準監測 |
+| Level 3 | 間接監督 | 能獨立使用免疫藥物,調整劑量與監測 |
+| Level 4 | 監督可得 | 能使用生物製劑,處理複雜副作用 |
+| Level 5 | 完全獨立 | 成為免疫藥物專家,制定個人化用藥策略 |
+
+## EPA 10：風濕免疫疾病跨科部整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調風濕免疫疾病患者的整體照護,包括跨科部會診、多專科團隊合作、復健安排,並能有效溝通與教育病患及家屬。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護,了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診,參與團隊討論 |
+| Level 3 | 間接監督 | 能獨立協調病患照護,制定整合計畫 |
+| Level 4 | 監督可得 | 能整合複雜多科照護,領導團隊討論 |
+| Level 5 | 完全獨立 | 成為照護協調專家,改善照護品質 |

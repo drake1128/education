@@ -1,0 +1,122 @@
+---
+title: "CCC 臨床能力委員會"
+subtitle: "Clinical Competency Committee"
+---
+
+## 委員會宗旨
+
+因應住院醫師納入勞基法後工時縮減的挑戰，建立以**勝任能力為本（CBME, Competency-Based Medical Education）**的系統性教學評量機制，確保受訓醫師達到專業標準，同時維護醫療品質與病人安全。
+
+::: {.callout-note}
+## 核心理念
+將傳統「以時間為本」的訓練模式轉變為「以能力為本」的個別化學習路徑。
+:::
+
+---
+
+## 六大核心能力（ACGME）
+
+| # | 核心能力 | 英文 | 說明 |
+|:-:|----------|------|------|
+| 1 | 病患照護 | Patient Care | 以病人為中心的臨床照護能力 |
+| 2 | 醫學知識 | Medical Knowledge | 基礎與臨床醫學知識的掌握與應用 |
+| 3 | 實務學習與改善 | Practice-based Learning | 自我評估、持續學習與品質改善 |
+| 4 | 人際關係與溝通技巧 | Communication Skills | 與病人、家屬及團隊的有效溝通 |
+| 5 | 專業素養 | Professionalism | 倫理、責任、同理心與專業態度 |
+| 6 | 制度下的實務 | Systems-based Practice | 醫療體系運作與資源利用 |
+
+---
+
+## 里程碑層級 Milestone Levels
+
+| Level | 中文 | 英文 | 監督程度 | 訓練階段期望 |
+|:-----:|------|------|----------|-------------|
+| 1 | 新手 | Novice | 需直接監督 | M5-M6 |
+| 2 | 進階初學者 | Advanced Beginner | 需間接監督 | PGY |
+| 3 | 勝任者 | Competent | 可獨立執行 | R1-R2 |
+| 4 | 熟練者 | Proficient | 可指導他人 | R3（畢業標準） |
+| 5 | 專家 | Expert | 可擔任教學領導 | 主治醫師 |
+
+::: {.callout-important}
+## 畢業標準
+住院醫師訓練結束時，應達到 **Level 4 以上**。
+:::
+
+---
+
+## 委員會組織
+
+### 組成
+- 委員會主席：內科部副主任
+- 委員：各次專科資深主治醫師代表
+- 教學部代表
+- 住院醫師代表（列席）
+
+### 會議頻率
+
+| 評估對象 | 頻率 |
+|----------|------|
+| 醫學生 Clerk | 每週 |
+| PGY 醫師 | 每季 |
+| 住院醫師 R1-R3 | 每半年 |
+
+---
+
+## 評估工具
+
+| 工具 | 英文 | 適用情境 |
+|------|------|----------|
+| Mini-CEX | Mini-Clinical Evaluation Exercise | 臨床看診直接觀察 |
+| DOPS | Direct Observation of Procedural Skills | 臨床技術操作觀察 |
+| CbD | Case-based Discussion | 個案討論 |
+| 360度評量 | Multi-Source Feedback | 多面向回饋 |
+| Portfolio | 學習歷程檔案 | 綜合學習紀錄 |
+| 模擬測驗 | Simulation-based Testing | 模擬情境評量 |
+| QI 專案 | Quality Improvement Project | 品質改善計畫 |
+
+---
+
+## 決策標準
+
+| 決議 | 條件 |
+|------|------|
+| **通過** | ≥ 2/3 委員同意，且反對 < 1/4 |
+| **有條件通過** | 1/2 ~ 2/3 委員同意 |
+| **不通過** | < 1/2 委員同意 |
+| **延後決議** | 資料不足，需補充後再議 |
+
+---
+
+## CCC Workshop
+
+| 項目 | 內容 |
+|------|------|
+| **日期** | 2026年3月29日（週日） |
+| **時間** | 09:10 - 12:30 |
+| **地點** | 生醫大樓 5F 第一會議室 |
+| **對象** | 內科部全體講師 |
+
+### 議程
+
+1. CBME 與 EPA 概念介紹（30 min）
+2. CCC 委員會章程說明（30 min）
+3. 各次專科 EPA 講義導讀（60 min）
+4. 討論與 Q&A（60 min）
+
+---
+
+## 核心文件
+
+| 文件 | 檔案 |
+|------|------|
+| CCC 委員會章程 | `EPA 0 internal medicine CCC.tex` |
+| CCC 簡報 | `EPA 0 internal medicine CCC slide.tex` |
+| 會議紀錄 | `EPA 0 internal medicine CCC meeting 01.tex` |
+| EPA 概念介紹 | `EPA 0 slide introduction.tex` |
+
+---
+
+## 相關連結
+
+- [ACGME Milestones](https://www.acgme.org/what-we-do/accreditation/milestones/)
+- [醫策會 JCTM](https://www.jct.org.tw/)

@@ -1,0 +1,135 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "內科部 EPA 評核系統 | 台大醫院新竹分院"
+  site-url: "https://drake1128.github.io/education/"
+  repo-url: "https://github.com/drake1128/education"
+  repo-actions: [issue]
+
+  search:
+    location: sidebar
+    type: textbox
+
+  navbar:
+    background: "#4a148c"
+    foreground: "#ffffff"
+    left:
+      - text: "首頁"
+        href: index.qmd
+      - text: "一般 EPA"
+        menu:
+          - text: "總覽"
+            href: general/index.qmd
+          - text: "---"
+          - text: "見習醫師 Clerk"
+            href: general/clerk.qmd
+          - text: "PGY 醫師"
+            href: general/pgy.qmd
+          - text: "住院醫師 Resident"
+            href: general/resident.qmd
+          - text: "專科護理師 NP"
+            href: general/np.qmd
+      - text: "次專科 EPA"
+        menu:
+          - text: "總覽"
+            href: subspecialty/index.qmd
+          - text: "---"
+          - text: "心臟科 Cardiology"
+            href: subspecialty/cv.qmd
+          - text: "心臟超音波 Echo"
+            href: subspecialty/cv-echo.qmd
+          - text: "胸腔科 Pulmonology"
+            href: subspecialty/chest.qmd
+          - text: "腸胃科 GI"
+            href: subspecialty/gi.qmd
+          - text: "內分泌科 Endocrinology"
+            href: subspecialty/endocrine.qmd
+          - text: "血液科 Hematology"
+            href: subspecialty/hema.qmd
+          - text: "感染科 ID"
+            href: subspecialty/id.qmd
+          - text: "腎臟科 Nephrology"
+            href: subspecialty/nephro.qmd
+          - text: "神經科 Neurology"
+            href: subspecialty/neuro.qmd
+          - text: "神經科（內科版）"
+            href: subspecialty/neuro-im.qmd
+          - text: "腫瘤科 Oncology"
+            href: subspecialty/onco.qmd
+          - text: "風濕免疫科 Rheumatology"
+            href: subspecialty/rheuma.qmd
+      - text: "REDCap"
+        menu:
+          - text: "問卷流程說明"
+            href: redcap/index.qmd
+          - text: "Data Dictionary"
+            href: redcap/data-dictionary.qmd
+      - text: "CCC 委員會"
+        href: about.qmd
+      - text: "評估工具"
+        menu:
+          - text: "臨床技能對照表"
+            href: clinical-skills.qmd
+          - text: "EPA 排程"
+            href: schedule.qmd
+
+  sidebar:
+    - id: subspecialty
+      title: "次專科 EPA"
+      style: floating
+      contents:
+        - subspecialty/index.qmd
+        - section: "心臟科系"
+          contents:
+            - subspecialty/cv.qmd
+            - subspecialty/cv-echo.qmd
+        - section: "胸腔科"
+          contents:
+            - subspecialty/chest.qmd
+        - section: "消化科系"
+          contents:
+            - subspecialty/gi.qmd
+        - section: "代謝內分泌"
+          contents:
+            - subspecialty/endocrine.qmd
+        - section: "血液腫瘤"
+          contents:
+            - subspecialty/hema.qmd
+            - subspecialty/onco.qmd
+        - section: "感染科"
+          contents:
+            - subspecialty/id.qmd
+        - section: "腎臟科"
+          contents:
+            - subspecialty/nephro.qmd
+        - section: "神經科"
+          contents:
+            - subspecialty/neuro.qmd
+            - subspecialty/neuro-im.qmd
+        - section: "風濕免疫科"
+          contents:
+            - subspecialty/rheuma.qmd
+
+    - id: general
+      title: "一般 EPA"
+      style: floating
+      contents:
+        - general/index.qmd
+        - general/clerk.qmd
+        - general/pgy.qmd
+        - general/resident.qmd
+        - general/np.qmd
+
+  page-footer:
+    center: "© 2025-2026 台大醫院新竹分院 教學部 | 內科部 EPA 評核系統"
+
+format:
+  html:
+    theme: default
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    lang: zh-TW

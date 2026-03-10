@@ -1,0 +1,225 @@
+---
+title: "腸胃內科 EPA"
+subtitle: "Gastroenterology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：消化系統病史詢問與風險評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行消化系統疾病相關的完整病史詢問，包括症狀評估、危險因子識別、飲食史調查，並能初步評估消化系統風險。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本消化系統症狀，需要監導者引導完成詢問 |
+| Level 2 | 直接監督 | 能系統性完成消化系統病史詢問，使用適當的症狀評估工具 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問，整合症狀與危險因子進行初步風險分層 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史，整合多重共病資訊 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問，識別罕見症狀表現 |
+
+## EPA 2：腹部理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠熟練且準確地進行腹部的完整理學檢查，包括腹部視診、觸診、叩診、聽診，並能正確解讀檢查發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能進行基本腹部觸診，識別明顯腫大器官 |
+| Level 2 | 直接監督 | 能識別常見異常理學發現，進行系統性腹部檢查 |
+| Level 3 | 間接監督 | 能區分各種異常理學發現，準確評估腹部積水程度，整合多項檢查發現 |
+| Level 4 | 監督可得 | 能識別複雜理學發現特徵，檢查技術精準且有效率 |
+| Level 5 | 完全獨立 | 能偵測細微的異常發現，整合檢查發現與臨床表現 |
+
+## EPA 3：腹部影像判讀與分析
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀腹部X光與腹部電腦斷層，識別正常與異常變化，包括腸道疾病、肝膽胰異常等，並提出臨床相關性分析。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本正常腹部X光結構 |
+| Level 2 | 直接監督 | 能識別明顯異常病變，判讀基本腹部CT |
+| Level 3 | 間接監督 | 能獨立判讀大部分腹部影像異常，整合影像與臨床症狀 |
+| Level 4 | 監督可得 | 能判讀複雜影像變化，識別細微的早期病變 |
+| Level 5 | 完全獨立 | 成為影像判讀的專家，能教導複雜影像判讀 |
+
+## EPA 4：腹部超音波操作與判讀
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠進行基礎腹部超音波檢查，包括設備操作、解剖定位、基本測量與主要結果評估，並能識別重要的功能異常模式。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助進行基本超音波檢查 |
+| Level 2 | 直接監督 | 能獨立操作標準腹部超音波檢查，進行基本判讀 |
+| Level 3 | 間接監督 | 能完成標準腹部超音波檢查，準確評估功能異常類型 |
+| Level 4 | 監督可得 | 能進行進階超音波技術，準確定量評估 |
+| Level 5 | 完全獨立 | 成為超音波技術專家，能教導複雜技術 |
+
+## EPA 5：內視鏡檢查報告判讀
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠判讀常見內視鏡檢查報告，包括上消化道內視鏡、大腸鏡檢查結果，識別重要病變，並能整合報告結果與臨床表現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別內視鏡基本術語，理解報告格式 |
+| Level 2 | 直接監督 | 能判讀常見內視鏡發現，識別重要病變 |
+| Level 3 | 間接監督 | 能獨立判讀內視鏡報告，整合臨床表現 |
+| Level 4 | 監督可得 | 能判讀複雜內視鏡發現，評估病變嚴重度 |
+| Level 5 | 完全獨立 | 成為內視鏡判讀專家，能教導複雜判讀技巧 |
+
+## EPA 6：急性腹痛診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別急性腹痛，進行適當的診斷性檢查，評估嚴重度分級，並執行初步治療措施，包括疼痛控制與手術決策。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別典型急性腹痛症狀，知道基本檢查項目 |
+| Level 2 | 直接監督 | 能使用標準診斷流程，進行基本嚴重度評估 |
+| Level 3 | 間接監督 | 能獨立診斷急性腹痛，適當選擇治療策略 |
+| Level 4 | 監督可得 | 能處理複雜臨床情況，整合多重因子做決策 |
+| Level 5 | 完全獨立 | 成為急性腹痛專家，能指導複雜個案處理 |
+
+## EPA 7：肝炎診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各種肝炎，評估肝功能損傷程度，制定個別化治療計畫，包括抗病毒治療與非藥物治療。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別肝炎症狀徵象，知道基本檢查 |
+| Level 2 | 直接監督 | 能使用標準治療指引，進行基本抗病毒治療 |
+| Level 3 | 間接監督 | 能獨立管理穩定肝炎，調整藥物治療 |
+| Level 4 | 監督可得 | 能處理複雜肝炎，評估進階治療選項 |
+| Level 5 | 完全獨立 | 成為肝炎專家，發展個人化治療策略 |
+
+## EPA 8：消化道出血診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷消化道出血，評估出血嚴重度，制定緊急處置策略，監測治療效果與副作用，並提供內視鏡治療評估。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別消化道出血症狀，知道基本診斷流程 |
+| Level 2 | 直接監督 | 能使用臨床評分工具，開始緊急處置 |
+| Level 3 | 間接監督 | 能獨立診斷消化道出血，選擇適當處置 |
+| Level 4 | 監督可得 | 能處理複雜出血情況，評估內視鏡治療 |
+| Level 5 | 完全獨立 | 成為消化道出血專家，發展個人化治療策略 |
+
+## EPA 9：膽胰系統疾病診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷膽囊炎、胰臟炎等膽胰系統疾病，執行系統性診斷評估，區分急性與慢性病因，制定個別化治療方案，並監測疾病進展。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別膽胰疾病可能性，了解基本檢查 |
+| Level 2 | 直接監督 | 能執行基本診斷評估，區分急性與慢性 |
+| Level 3 | 間接監督 | 能獨立診斷膽胰疾病，制定治療計畫 |
+| Level 4 | 監督可得 | 能處理複雜膽胰疾病，整合內外科治療 |
+| Level 5 | 完全獨立 | 成為膽胰疾病專家，處理罕見疾病與併發症 |
+
+## EPA 10：腹腔穿刺引流術
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行腹腔穿刺引流術，包括適應症評估、解剖定位、無菌技術、併發症預防，並能處理術後照護與管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助腹腔穿刺，了解基本解剖結構 |
+| Level 2 | 直接監督 | 能在監督下執行診斷性腹腔穿刺 |
+| Level 3 | 間接監督 | 能獨立執行腹腔穿刺，處理一般併發症 |
+| Level 4 | 監督可得 | 能執行複雜腹腔手術，使用進階技術 |
+| Level 5 | 完全獨立 | 成為腹腔手術專家，能教導複雜技術 |
+
+## EPA 11：消化科病患跨科部協調與整體照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調消化科病患的整體照護，包括跨科部會診、多專科團隊合作、出院計畫制定，並能有效溝通與教育病患及家屬。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護，了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診，參與團隊討論 |
+| Level 3 | 間接監督 | 能獨立協調病患照護，制定出院計畫 |
+| Level 4 | 監督可得 | 能整合複雜多科照護，領導團隊討論 |
+| Level 5 | 完全獨立 | 成為照護協調專家，改善照護品質 |

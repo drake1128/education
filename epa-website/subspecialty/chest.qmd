@@ -1,0 +1,282 @@
+---
+title: "胸腔內科 EPA"
+subtitle: "Pulmonology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：胸腔科病史詢問與風險評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+<span class="badge-np">NP</span>
+</div>
+
+能夠獨立進行呼吸系統疾病相關的完整病史詢問，包括症狀評估、危險因子識別、職業史調查，並能初步評估呼吸系統風險。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本呼吸系統症狀，需要監導者引導完成詢問 |
+| Level 2 | 直接監督 | 能系統性完成呼吸系統病史詢問，使用適當的症狀評估工具 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問，整合症狀與危險因子進行初步風險分層 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史，整合多重共病資訊 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問，識別罕見症狀表現 |
+
+## EPA 2：胸部理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+<span class="badge-np">NP</span>
+</div>
+
+能夠熟練且準確地進行胸部的完整理學檢查，包括胸部視診、觸診、叩診、聽診，並能正確解讀檢查發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能進行基本胸部聽診，識別正常呼吸音 |
+| Level 2 | 直接監督 | 能識別常見異常呼吸音，進行系統性胸部檢查 |
+| Level 3 | 間接監督 | 能區分各種異常囉音，準確評估胸腔積液程度，整合多項檢查發現 |
+| Level 4 | 監督可得 | 能識別複雜呼吸音特徵，檢查技術精準且有效率 |
+| Level 5 | 完全獨立 | 能偵測細微的異常發現，整合檢查發現與臨床表現 |
+
+## EPA 3：胸部影像判讀與分析
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+<span class="badge-np">NP</span>
+</div>
+
+能夠獨立判讀胸部X光與胸部電腦斷層，識別正常與異常變化，包括肺部病變、胸膜疾病、縱膈腔異常等，並提出臨床相關性分析。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本正常胸部X光結構 |
+| Level 2 | 直接監督 | 能識別明顯異常病變，判讀基本胸部CT |
+| Level 3 | 間接監督 | 能獨立判讀大部分胸部影像異常，整合影像與臨床症狀 |
+| Level 4 | 監督可得 | 能判讀複雜影像變化，識別細微的早期病變 |
+| Level 5 | 完全獨立 | 成為影像判讀的專家，能教導複雜影像判讀 |
+
+## EPA 4：肺功能檢查操作與判讀
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+<span class="badge-np">NP</span>
+</div>
+
+能夠進行基礎肺功能檢查，包括肺量計操作、品質控制、基本測量與主要結果評估，並能識別重要的功能異常模式。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助進行基本肺量計檢查 |
+| Level 2 | 直接監督 | 能獨立操作標準肺功能檢查，進行基本判讀 |
+| Level 3 | 間接監督 | 能完成標準肺功能檢查，準確評估功能異常類型 |
+| Level 4 | 監督可得 | 能進行進階肺功能技術，準確定量評估 |
+| Level 5 | 完全獨立 | 成為肺功能技術專家，能教導複雜技術 |
+
+## EPA 5：急性呼吸衰竭診斷與初步處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+<span class="badge-np">NP</span>
+</div>
+
+能夠快速識別急性呼吸衰竭，進行適當的診斷性檢查，評估嚴重度分級，並執行初步治療措施，包括氧氣治療與呼吸器支持決策。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別典型呼吸窘迫症狀，知道基本檢查項目 |
+| Level 2 | 直接監督 | 能使用標準診斷流程，進行基本嚴重度評估 |
+| Level 3 | 間接監督 | 能獨立診斷急性呼吸衰竭，適當選擇治療策略 |
+| Level 4 | 監督可得 | 能處理複雜臨床情況，整合多重因子做決策 |
+| Level 5 | 完全獨立 | 成為急性呼吸衰竭專家，能指導複雜個案處理 |
+
+## EPA 6：氣道疾病診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各種氣道疾病，評估氣流阻塞程度，選擇適當的治療方式，包括支氣管擴張劑、類固醇治療，或轉介進階治療。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本氣道阻塞症狀，知道緊急處置原則 |
+| Level 2 | 直接監督 | 能處理穩定性氣道疾病，選擇基本吸入型藥物 |
+| Level 3 | 間接監督 | 能獨立處理大部分氣道疾病，做出急性惡化決定 |
+| Level 4 | 監督可得 | 能處理複雜氣道疾病，評估生物製劑適應症 |
+| Level 5 | 完全獨立 | 成為氣道疾病專家，能執行複雜治療程序 |
+
+## EPA 7：肺炎與感染性疾病診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各種肺炎與呼吸道感染，區分社區型與院內感染，制定個別化治療計畫，包括抗生素選擇與非藥物治療。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別肺炎症狀徵象，知道基本抗生素治療 |
+| Level 2 | 直接監督 | 能使用標準治療指引，進行基本抗生素調整 |
+| Level 3 | 間接監督 | 能獨立管理穩定肺炎，調整複雜抗生素組合 |
+| Level 4 | 監督可得 | 能處理難治性感染，評估進階治療選項 |
+| Level 5 | 完全獨立 | 成為感染疾病專家，發展個人化治療策略 |
+
+## EPA 8：肺栓塞診斷與管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷肺栓塞，評估血栓栓塞風險，制定個別化抗凝血治療策略，監測治療效果與副作用，並提供預防性建議。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別肺栓塞症狀，知道基本診斷流程 |
+| Level 2 | 直接監督 | 能使用臨床評分工具，開始抗凝血治療 |
+| Level 3 | 間接監督 | 能獨立診斷肺栓塞，選擇適當抗凝治療 |
+| Level 4 | 監督可得 | 能處理複雜肺栓塞，評估血栓溶解治療 |
+| Level 5 | 完全獨立 | 成為血栓栓塞專家，發展個人化治療策略 |
+
+## EPA 9：胸腔穿刺術與胸管置放
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行胸腔穿刺術與胸管置放術，包括適應症評估、解剖定位、無菌技術、併發症預防，並能處理術後照護與管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助胸腔穿刺，了解基本解剖結構 |
+| Level 2 | 直接監督 | 能在監督下執行診斷性胸腔穿刺 |
+| Level 3 | 間接監督 | 能獨立執行胸腔穿刺，處理一般併發症 |
+| Level 4 | 監督可得 | 能執行複雜胸腔手術，使用進階技術 |
+| Level 5 | 完全獨立 | 成為胸腔手術專家，能教導複雜技術 |
+
+## EPA 10：支氣管內視鏡檢查
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行基礎支氣管內視鏡檢查，包括設備操作、解剖識別、檢體取得、治療性處置，並能識別重要的病理發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助支氣管鏡檢查，識別基本解剖 |
+| Level 2 | 直接監督 | 能在監督下執行診斷性支氣管鏡 |
+| Level 3 | 間接監督 | 能獨立執行標準支氣管鏡，取得適當檢體 |
+| Level 4 | 監督可得 | 能執行治療性支氣管鏡，處理併發症 |
+| Level 5 | 完全獨立 | 成為支氣管鏡專家，執行進階技術 |
+
+## EPA 11：結核病診斷與治療管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各型結核病，評估傳染性與嚴重度，執行標準抗結核治療，監測治療反應與副作用，並處理抗藥性結核病及其併發症。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別結核病症狀，知道基本診斷檢查 |
+| Level 2 | 直接監督 | 能執行標準診斷流程，開始第一線治療 |
+| Level 3 | 間接監督 | 能獨立管理典型肺結核，監測治療反應 |
+| Level 4 | 監督可得 | 能處理複雜結核病，評估抗藥性治療 |
+| Level 5 | 完全獨立 | 成為結核病專家，管理MDR-TB與併發症 |
+
+## EPA 12：非典型分枝桿菌感染診斷與管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷非典型分枝桿菌感染，區分致病性與定植，執行適當的抗分枝桿菌治療，並管理治療相關併發症與抗藥性問題。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別NTM可能性，了解基本檢查 |
+| Level 2 | 直接監督 | 能應用診斷標準，區分致病性與定植 |
+| Level 3 | 間接監督 | 能獨立診斷NTM感染，制定治療計畫 |
+| Level 4 | 監督可得 | 能處理難治NTM感染，整合內外科治療 |
+| Level 5 | 完全獨立 | 成為NTM專家，處理複雜抗藥性個案 |
+
+## EPA 13：肺癌診斷與分期評估
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷肺癌，執行完整分期評估，協調多專科團隊照護，參與治療決策討論，並提供病患與家屬適當的衛教與支持。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別肺癌可疑症狀，知道基本檢查流程 |
+| Level 2 | 直接監督 | 能執行分期檢查，參與團隊討論 |
+| Level 3 | 間接監督 | 能獨立完成肺癌分期，制定初步治療計畫 |
+| Level 4 | 監督可得 | 能整合複雜檢查結果，協調多科治療 |
+| Level 5 | 完全獨立 | 成為肺癌專家，領導多科團隊照護 |
+
+## EPA 14：間質性肺疾病診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各種間質性肺疾病，執行系統性診斷評估，區分可治療與不可治療病因，制定個別化治療方案，並監測疾病進展。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別ILD可能性，了解基本影像特徵 |
+| Level 2 | 直接監督 | 能執行基本診斷評估，識別常見ILD類型 |
+| Level 3 | 間接監督 | 能獨立診斷主要ILD類型，制定治療計畫 |
+| Level 4 | 監督可得 | 能處理複雜ILD個案，整合多學科討論 |
+| Level 5 | 完全獨立 | 成為ILD專家，處理罕見疾病與併發症 |

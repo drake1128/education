@@ -1,0 +1,98 @@
+---
+title: "臨床技能評核對照表"
+subtitle: "Internal Medicine Clinical Skills Supervision Levels"
+---
+
+## 監督等級說明
+
+| 等級 | 說明 | 英文 |
+|:----:|------|------|
+| **1** | 獨立操作 | Independent operation |
+| **2** | 主治醫師可聯繫 | Supervisor available |
+| **3** | 主治醫師直接監督 | Supervisor direct supervision |
+| **4** | 觀察者 | Observer |
+
+---
+
+## 臨床技術監督等級表
+
+### 基本照護技術
+
+| 技能名稱 | M5 | M6 | PGY1 | PGY2 | R1 | R2 | R3 |
+|----------|:--:|:--:|:----:|:----:|:--:|:--:|:--:|
+| 導尿管置放術 Foley insertion | 4 | 2 | **1** | **1** | **1** | **1** | **1** |
+| 鼻胃管置放術 NG tube | 4 | 2 | **1** | **1** | **1** | **1** | **1** |
+| 抽血 Blood Drawing | 4 | 2 | **1** | **1** | **1** | **1** | **1** |
+
+### 血管通路技術
+
+| 技能名稱 | M5 | M6 | PGY1 | PGY2 | R1 | R2 | R3 |
+|----------|:--:|:--:|:----:|:----:|:--:|:--:|:--:|
+| 中心靜脈導管放置 CVC placement | 4 | 4 | 4 | 3 | 2 | **1** | **1** |
+| 雙腔靜脈導管 Double lumen catheter | 4 | 4 | 4 | 4 | 3 | 2 | **1** |
+| 動脈出血控制 Control of bleeding (Arterial) | 4 | 4 | 3 | 3 | 2 | **1** | **1** |
+
+### 急救技術
+
+| 技能名稱 | M5 | M6 | PGY1 | PGY2 | R1 | R2 | R3 |
+|----------|:--:|:--:|:----:|:----:|:--:|:--:|:--:|
+| 心肺腦復甦術 CPCR | 4 | 4 | 3 | 3 | 2 | 2 | **1** |
+| 氣管內管更換 Endotracheal tube change | 4 | 4 | 4 | 4 | 3 | 2 | **1** |
+| 胃食道球置入 S-B tube | 4 | 4 | 4 | 4 | 3 | 2 | **1** |
+
+### 診斷性穿刺技術
+
+| 技能名稱 | M5 | M6 | PGY1 | PGY2 | R1 | R2 | R3 |
+|----------|:--:|:--:|:----:|:----:|:--:|:--:|:--:|
+| 腹水引流術 Paracentesis | 4 | 4 | 3 | 3 | 2 | **1** | **1** |
+| 胸腔穿刺術 Thoracentesis | 4 | 4 | 4 | 3 | 3 | 2 | **1** |
+| 關節腔液抽吸 Synovial fluid aspiration | 4 | 4 | 4 | 4 | 4 | 3 | 2 |
+| 腰椎穿刺 Lumbar puncture | 4 | 4 | 4 | 4 | 3 | 2 | **1** |
+
+::: {.callout-note}
+粗體 **1** 表示該階段可獨立操作。
+:::
+
+---
+
+## 各訓練階段可獨立操作技能統計
+
+| 訓練階段 | 可獨立操作技能數 |
+|----------|:---------------:|
+| M5 | 0 項 |
+| M6 | 0 項 |
+| PGY1 | 3 項 |
+| PGY2 | 3 項 |
+| R1 | 3 項 |
+| R2 | 6 項 |
+| R3 | 12 項 |
+
+---
+
+## 技能難度分層
+
+### 初階技能（PGY1 即可獨立操作）
+1. 導尿管置放術 (Foley insertion)
+2. 鼻胃管置放術 (NG tube)
+3. 抽血 (Blood Drawing)
+
+### 中階技能（R2 可獨立操作）
+1. 中心靜脈導管放置 (CVC placement)
+2. 動脈出血控制 (Control of bleeding - Arterial)
+3. 腹水引流術 (Paracentesis)
+
+### 進階技能（R3 才可獨立操作）
+1. 雙腔靜脈導管 (Double lumen catheter)
+2. 心肺腦復甦術 (CPCR)
+3. 氣管內管更換 (Endotracheal tube change)
+4. 胃食道球置入 (S-B tube)
+5. 胸腔穿刺術 (Thoracentesis)
+6. 腰椎穿刺 (Lumbar puncture)
+
+::: {.callout-tip}
+關節腔液抽吸為唯一至 R3 仍需監督（Level 2）的技能，通常由風濕免疫科專科醫師執行。
+:::
+
+---
+
+*資料來源：醫療科部 Invasive skills checklist 教學部彙整（修訂日期：2022/12/13）*

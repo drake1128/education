@@ -1,0 +1,206 @@
+---
+title: "腫瘤科 EPA"
+subtitle: "Oncology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：腫瘤學病史詢問與理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行癌症相關的完整病史詢問與理學檢查,包括B症狀評估、腫瘤家族史、環境暴露史,並能初步評估疾病範圍與功能狀態。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本腫瘤症狀,需要監導者引導完成 |
+| Level 2 | 直接監督 | 能系統性完成腫瘤病史詢問,執行基本理學檢查 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問,整合症狀進行初步診斷 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史,識別罕見癌症表現 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問,建立系統性評估流程 |
+
+## EPA 2：病理報告與分子標記判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀病理報告,理解組織型態、分化程度、侵犯範圍,並能判讀分子標記,整合資訊提出治療建議。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能閱讀基本病理報告,理解診斷名稱 |
+| Level 2 | 直接監督 | 能判讀常見病理資訊,理解分級意義 |
+| Level 3 | 間接監督 | 能獨立判讀病理報告,整合分子標記 |
+| Level 4 | 監督可得 | 能判讀複雜病理,評估預後與治療意義 |
+| Level 5 | 完全獨立 | 成為病理判讀專家,能教導複雜判讀 |
+
+## EPA 3：癌症分期與預後評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行癌症分期評估,選擇適當檢查,判讀分期影像,應用TNM系統,並能評估預後因子與制定治療策略。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能理解基本TNM概念,知道常見檢查 |
+| Level 2 | 直接監督 | 能執行標準分期評估,應用TNM分期 |
+| Level 3 | 間接監督 | 能獨立完成分期評估,制定檢查計畫 |
+| Level 4 | 監督可得 | 能處理複雜分期,整合多重預後因子 |
+| Level 5 | 完全獨立 | 成為分期專家,領導MDT討論 |
+
+## EPA 4：化學治療方案選擇與執行
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠依據癌症類型、分期、病人狀況選擇適當化療方案,計算劑量,執行前評估,並監測治療反應。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解化療基本概念,知道常見方案 |
+| Level 2 | 直接監督 | 能執行標準化療方案,計算基本劑量 |
+| Level 3 | 間接監督 | 能獨立選擇與執行化療,監測反應 |
+| Level 4 | 監督可得 | 能處理複雜情況,調整化療策略 |
+| Level 5 | 完全獨立 | 成為化療專家,設計個人化方案 |
+
+## EPA 5：標靶治療與免疫治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估標靶治療與免疫治療適應症,選擇適當藥物,監測療效與特殊副作用,並能處理免疫相關不良反應。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解標靶與免疫治療基本概念 |
+| Level 2 | 直接監督 | 能執行標準標靶治療,識別常見irAE |
+| Level 3 | 間接監督 | 能獨立使用標靶與免疫治療 |
+| Level 4 | 監督可得 | 能處理複雜irAE,選擇後線治療 |
+| Level 5 | 完全獨立 | 成為標靶免疫專家,參與臨床試驗 |
+
+## EPA 6：放射治療適應症評估與協調
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估放射治療適應症,與放射腫瘤科協調治療計畫,理解放療技術,監測急慢性副作用。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解放療基本適應症 |
+| Level 2 | 直接監督 | 能評估基本放療需求,協調會診 |
+| Level 3 | 間接監督 | 能獨立評估放療適應症,管理副作用 |
+| Level 4 | 監督可得 | 能協調複雜放化療,處理嚴重副作用 |
+| Level 5 | 完全獨立 | 成為放療協調專家,整合多模式治療 |
+
+## EPA 7：腫瘤急症診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別腫瘤急症,執行緊急評估與處置,包括SVCS、脊髓壓迫、高血鈣、TLS等,並能協調多科照護。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別腫瘤急症症狀,知道基本處理 |
+| Level 2 | 直接監督 | 能執行初步評估,開始緊急處置 |
+| Level 3 | 間接監督 | 能獨立處理腫瘤急症,協調多科照護 |
+| Level 4 | 監督可得 | 能處理複雜急症,快速決策與執行 |
+| Level 5 | 完全獨立 | 成為腫瘤急症專家,建立處理流程 |
+
+## EPA 8：化療副作用管理與支持性照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠預測、監測與處理化療副作用,執行支持性照護,包括止吐、G-CSF使用、黏膜炎處理、營養支持。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別常見化療副作用 |
+| Level 2 | 直接監督 | 能處理常見副作用,執行支持治療 |
+| Level 3 | 間接監督 | 能獨立管理化療副作用,預防性處置 |
+| Level 4 | 監督可得 | 能處理嚴重副作用,整合支持照護 |
+| Level 5 | 完全獨立 | 成為支持照護專家,改善副作用管理 |
+
+## EPA 9：癌症疼痛控制與緩和醫療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估癌症疼痛,使用WHO三階梯止痛,處理難治性疼痛,執行症狀控制,並能提供全人緩和照護。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能評估基本疼痛,了解WHO階梯 |
+| Level 2 | 直接監督 | 能使用鴉片類藥物,處理常見副作用 |
+| Level 3 | 間接監督 | 能獨立管理癌症疼痛,執行症狀控制 |
+| Level 4 | 監督可得 | 能處理難治性疼痛,提供全人照護 |
+| Level 5 | 完全獨立 | 成為緩和醫療專家,領導團隊照護 |
+
+## EPA 10：腫瘤病患跨科部整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調腫瘤病患的整體照護,包括MDT討論、跨科會診、臨床試驗評估、存活者照護,並能有效溝通與共同決策。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護,了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診,參與MDT討論 |
+| Level 3 | 間接監督 | 能獨立協調病患照護,進行有效溝通 |
+| Level 4 | 監督可得 | 能領導MDT討論,執行共同決策 |
+| Level 5 | 完全獨立 | 成為照護協調專家,改善照護品質 |

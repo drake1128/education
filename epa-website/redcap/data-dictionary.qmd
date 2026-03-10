@@ -1,0 +1,291 @@
+---
+title: "REDCap Data Dictionary 欄位對照"
+subtitle: "EPA_DataDictionary_v2_2026-03-09"
+---
+
+::: {.callout-note}
+## 版本資訊
+- **檔案名稱**：`EPA_DataDictionary_v2_2026-03-09.csv`
+- **更新日期**：2026-03-09
+- **適用系統**：REDCap（Research Electronic Data Capture）
+:::
+
+---
+
+## 總覽
+
+| 項目 | 數量 |
+|------|:----:|
+| Instruments（問卷表單） | 11 |
+| 次專科 EPA 表單 | 10 |
+| 總欄位數 | 338 |
+| EPA 評估項目欄位 | 115 |
+
+---
+
+## Instruments 列表
+
+| # | Form Name | 中文名稱 | EPA 數 | 欄位前綴 |
+|:-:|-----------|----------|:------:|----------|
+| 0 | `participant_enrollment` | 學員基本資料 | — | — |
+| 1 | `chest_epa` | 胸腔內科 | 14 | `chest_` / `epa_chest_` |
+| 2 | `cv_epa` | 心臟內科 | 11 | `cv_` / `epa_cv_` |
+| 3 | `gi_epa` | 腸胃內科 | 11 | `gi_` / `epa_gi_epa_` |
+| 4 | `nephro_epa` | 腎臟內科 | 10 | `nephro_` / `epa_nephro_` |
+| 5 | `endocrine_epa` | 內分泌科 | 10 | `endocrine_` / `epa_endocrine_` |
+| 6 | `hema_epa` | 血液科 | 10 | `hema_` / `epa_hema_` |
+| 7 | `id_epa` | 感染科 | 10 | `id_` / `epa_id_epa_` |
+| 8 | `onco_epa` | 腫瘤科 | 10 | `onco_` / `epa_onco_epa_` |
+| 9 | `rheuma_epa` | 風濕免疫科 | 10 | `rheuma_` / `epa_rheuma_epa_` |
+| 10 | `neuro_epa` | 神經科 | 7 | `neuro_` / `epa_neuro_epa_` |
+
+---
+
+## 共用欄位結構
+
+每個次專科表單都包含以下結構：
+
+### 基本資料區（Section: 基本資料）
+
+| 欄位名稱 | 類型 | 說明 | 必填 | 驗證 |
+|----------|------|------|:----:|------|
+| `{prefix}_eval_date` | text | 評核日期 | Y | date_ymd |
+| `{prefix}_assessor_name` | text | 評核教師姓名 | Y | — |
+| `{prefix}_assessor_email` | text | 評核教師電子信箱 | Y | email, @CHARLIMIT=100 |
+| `{prefix}_assessor_title` | dropdown | 評核教師職稱 | — | 1=主治醫師, 2=總醫師, 3=其他 |
+
+### 被評核學員區（Section: 被評核學員）
+
+| 欄位名稱 | 類型 | 說明 | 必填 | 驗證 |
+|----------|------|------|:----:|------|
+| `{prefix}_evaluated_id` | text | 學號/員工編號 | Y | @CHARLIMIT=20 |
+| `{prefix}_evaluated_name` | text | 被評核學員姓名 | Y | @CHARLIMIT=50 |
+| `{prefix}_evaluated_type` | dropdown | 學員類別 | Y | 1=醫學生, 2=PGY, 3=住院醫師, 4=NP |
+| `{prefix}_trainee_type` | dropdown | 受評者類型 | Y | 同上 |
+| `{prefix}_trainee_name` | text | 受評者姓名 | Y | — |
+| `{prefix}_dept` | text | 評核科別 | — | @DEFAULT, @READONLY |
+
+### EPA 評估項目區（Section: EPA評估項目）
+
+| 欄位名稱 | 類型 | 說明 |
+|----------|------|------|
+| `{prefix}_section_epa` | descriptive | 評分標準說明（不收集資料） |
+| `epa_{prefix}_{1~N}` | dropdown | 各 EPA 項目評分 |
+
+**EPA 評分選項（所有 EPA 統一）：**
+
+| 值 | 描述 |
+|:--:|------|
+| 0 | 未評估 |
+| 1 | Level 1 - 新手：僅能觀察他人執行，需督導引導 |
+| 2 | Level 2 - 進階初學者：可在直接監督下執行 |
+| 3 | Level 3 - 勝任：可獨立執行但需回報 |
+| 4 | Level 4 - 精通：可獨立執行，監督者隨時可得 |
+| 5 | Level 5 - 專家：可獨立執行並指導他人 |
+
+::: {.callout-tip}
+每個 EPA 選項都包含該科特定的行為指標描述（Field Note 欄位記錄核心能力）。
+:::
+
+### 整體評語區（Section: 整體評語）
+
+| 欄位名稱 | 類型 | 說明 |
+|----------|------|------|
+| `{prefix}_section_comments` | descriptive | 回饋說明文字 |
+| `{prefix}_overall_comments` | notes | 整體質性評語（建議語音輸入） |
+| `{prefix}_strengths` | notes | 優點與具體表現 |
+| `{prefix}_areas_improvement` | notes | 需改進之處與學習建議 |
+| `{prefix}_recommendation` | dropdown | 是否建議進入下階段 |
+
+**建議選項：**
+
+| 值 | 描述 |
+|:--:|------|
+| 1 | 是 — 可進入下階段 |
+| 2 | 尚可 — 需持續觀察 |
+| 3 | 保留 — 需加強訓練 |
+
+### 隱藏中繼資料欄位（@HIDDEN-SURVEY）
+
+| 欄位名稱 | 說明 |
+|----------|------|
+| `uuid_{N}` | 系統唯一識別碼 |
+| `startdate_{N}` | 開始日期 |
+| `enddate_{N}` | 結束日期 |
+| `scheduledate_{N}` | 排程日期 |
+| `status_{N}` | 狀態（0=Deleted, 1=Completed, 2=Incomplete） |
+| `supplementaldata_{N}` | 補充資料（JSON） |
+| `serializedresult_{N}` | 序列化結果（檔案） |
+
+---
+
+## 各次專科 EPA 項目對照
+
+### 胸腔內科 `chest_epa`（14 EPAs）
+
+| 欄位 | EPA 項目 | 核心能力 |
+|------|----------|----------|
+| `epa_chest_1` | 胸腔科病史詢問與風險評估 | 症狀評估/危險因子/功能評估/職業環境史 |
+| `epa_chest_2` | 胸部理學檢查 | 視診/觸診/叩診/聽診/杵狀指發紺 |
+| `epa_chest_3` | 胸部影像判讀與分析 | X光/CT判讀/病變識別/胸膜疾病/縱膈評估 |
+| `epa_chest_4` | 肺功能檢查操作與判讀 | 肺量計/FVC FEV1/阻塞限制識別/支氣管擴張試驗 |
+| `epa_chest_5` | 急性呼吸衰竭診斷與初步處理 | 快速識別/血氣影像/嚴重度分級/氧氣治療/呼吸器決策 |
+| `epa_chest_6` | 氣道疾病診斷與處理 | 氣喘COPD支擴/嚴重度評估/治療選擇/急性處置/長期管理 |
+| `epa_chest_7` | 肺炎與感染性疾病診斷與治療 | CURB65 PSI/病因識別/抗生素治療/整合照護 |
+| `epa_chest_8` | 肺栓塞診斷與管理 | Wells Geneva/D-dimer CTPA VQ/風險分層/DOAC warfarin |
+| `epa_chest_9` | 胸腔穿刺術與胸管置放 | 適應症評估/超音波定位/無菌技術/併發症預防 |
+| `epa_chest_10` | 支氣管內視鏡檢查 | 設備操作/解剖識別/檢體取得/病理識別/治療處置 |
+| `epa_chest_11` | 結核病診斷與治療管理 | 痰液IGRA分子診斷/抗TB藥物/副作用/抗藥性/感染控制 |
+| `epa_chest_12` | 非典型分枝桿菌感染診斷與管理 | MAC M.kansasii/ATS標準/影像特徵/治療決策/外科評估 |
+| `epa_chest_13` | 肺癌診斷與分期評估 | 早期偵測/病理/TNM/EGFR ALK PDL1/多科整合 |
+| `epa_chest_14` | 間質性肺疾病診斷與治療 | HRCT判讀/病因分析/BAL/抗纖維化/移植評估 |
+
+### 心臟內科 `cv_epa`（11 EPAs）
+
+| 欄位 | EPA 項目 | 核心能力 |
+|------|----------|----------|
+| `epa_cv_1` | 心臟科病史詢問與風險評估 | 胸痛呼吸困難心悸暈厥水腫/NYHA分級/藥物家族史 |
+| `epa_cv_2` | 心臟血管系統理學檢查 | 四聽診區心音雜音/頸動脈周邊動脈/血壓/水腫 |
+| `epa_cv_3` | 心電圖判讀與分析 | PR QRS QT間期/心律不整/ST-T變化/傳導阻滯 |
+| `epa_cv_4` | 心臟超音波基礎操作與判讀 | 標準切面/左心室功能/瓣膜型態/都卜勒血流 |
+| `epa_cv_5` | 急性冠心症診斷與初步處理 | TIMI GRACE評分/心電圖心肌酵素/PCI適應症 |
+| `epa_cv_6` | 心律不整診斷與處理 | 分類/血壓意識灌流評估/藥物非藥物/導管消融 |
+| `epa_cv_7` | 心衰竭診斷與治療 | 功能分級/射血分率/ACE利尿劑beta阻斷劑 |
+| `epa_cv_8` | 高血壓診斷與管理 | 血壓監測/次發性篩檢/心血管風險/藥物 |
+| `epa_cv_9` | 心導管檢查結果判讀 | 冠狀動脈分支/狹窄程度/PCI vs CABG |
+| `epa_cv_10` | 心臟科病患照護協調與溝通 | 團隊溝通/病患衛教/病情預後/出院準備 |
+| `epa_cv_11` | CCU侵入性處置操作與管理 | 氣管插管/動脈導管/心包膜穿刺/胸腔穿刺 |
+
+### 腸胃內科 `gi_epa`（11 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_gi_epa_1` | 腸胃科病史詢問與風險評估 |
+| `epa_gi_epa_2` | 腹部理學檢查 |
+| `epa_gi_epa_3` | 腹部影像判讀與分析 |
+| `epa_gi_epa_4` | 肝功能檢驗報告判讀 |
+| `epa_gi_epa_5` | 內視鏡報告判讀 |
+| `epa_gi_epa_6` | 急性腹痛診斷與處理 |
+| `epa_gi_epa_7` | 肝炎診斷與治療 |
+| `epa_gi_epa_8` | 消化道出血診斷與處理 |
+| `epa_gi_epa_9` | 膽胰系統疾病診斷與治療 |
+| `epa_gi_epa_10` | 腹腔穿刺術與引流 |
+| `epa_gi_epa_11` | 腸胃科病患照護協調與溝通 |
+
+### 腎臟內科 `nephro_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_nephro_1` | 腎臟疾病病史詢問與風險評估 |
+| `epa_nephro_2` | 腎臟泌尿系統身體檢查 |
+| `epa_nephro_3` | 腎臟超音波基礎操作與判讀 |
+| `epa_nephro_4` | 酸鹼及電解質檢驗報告判讀 |
+| `epa_nephro_5` | 急性腎損傷診斷與處置 |
+| `epa_nephro_6` | 慢性腎臟疾病診斷與管理 |
+| `epa_nephro_7` | 體液及電解質不平衡處置 |
+| `epa_nephro_8` | 腎臟替代療法認識與評估 |
+| `epa_nephro_9` | 腎臟切片檢查適應症及風險評估 |
+| `epa_nephro_10` | 末期腎病患者跨科部整合照護協調 |
+
+### 內分泌科 `endocrine_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_endocrine_1` | 糖尿病診斷與藥物治療 |
+| `epa_endocrine_2` | 糖尿病併發症評估與管理 |
+| `epa_endocrine_3` | 糖尿病急症診斷與處理 |
+| `epa_endocrine_4` | 甲狀腺疾病診斷與治療 |
+| `epa_endocrine_5` | 腎上腺疾病診斷與處置 |
+| `epa_endocrine_6` | 腦下垂體疾病診斷與處置 |
+| `epa_endocrine_7` | 內分泌急症識別與處理 |
+| `epa_endocrine_8` | 肥胖與代謝症候群整合照護 |
+| `epa_endocrine_9` | 血脂異常評估與治療 |
+| `epa_endocrine_10` | 高低血鈣異常診斷與處理 |
+
+### 血液科 `hema_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_hema_1` | 血液疾病病史詢問與理學檢查 |
+| `epa_hema_2` | 周邊血液抹片與骨髓抹片判讀 |
+| `epa_hema_3` | 貧血診斷與處理 |
+| `epa_hema_4` | 出血性疾病與凝血異常管理 |
+| `epa_hema_5` | 血栓性疾病診斷與處理 |
+| `epa_hema_6` | 骨髓穿刺與切片檢查 |
+| `epa_hema_7` | 急性白血病診斷與治療 |
+| `epa_hema_8` | 淋巴瘤與骨髓瘤診斷管理 |
+| `epa_hema_9` | 輸血醫學與成分輸血 |
+| `epa_hema_10` | 血液疾病患者跨科部整合照護協調 |
+
+### 感染科 `id_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_id_epa_1` | 感染症病史詢問與系統性理學檢查 |
+| `epa_id_epa_2` | 社區感染症診斷與治療 |
+| `epa_id_epa_3` | 院內感染症診斷與治療 |
+| `epa_id_epa_4` | 微生物檢體採檢送檢與報告判讀 |
+| `epa_id_epa_5` | 抗生素合理使用與管理 |
+| `epa_id_epa_6` | 不明熱評估與處理 |
+| `epa_id_epa_7` | 免疫不全患者感染管理 |
+| `epa_id_epa_8` | 敗血症及敗血性休克處理 |
+| `epa_id_epa_9` | 感染管制規範執行 |
+| `epa_id_epa_10` | 法定傳染病通報與處理 |
+
+### 腫瘤科 `onco_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_onco_epa_1` | 腫瘤學病史詢問與理學檢查 |
+| `epa_onco_epa_2` | 病理報告與分子標記判讀 |
+| `epa_onco_epa_3` | 癌症分期與預後評估 |
+| `epa_onco_epa_4` | 化學治療方案選擇與執行 |
+| `epa_onco_epa_5` | 標靶治療與免疫治療 |
+| `epa_onco_epa_6` | 放射治療適應症評估與協調 |
+| `epa_onco_epa_7` | 腫瘤急症診斷與處理 |
+| `epa_onco_epa_8` | 化療副作用與支持性照護 |
+| `epa_onco_epa_9` | 癌症疼痛控制與緩和醫療 |
+| `epa_onco_epa_10` | 腫瘤病患跨科部整合照護協調 |
+
+### 風濕免疫科 `rheuma_epa`（10 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_rheuma_epa_1` | 風濕免疫疾病病史詢問與風險評估 |
+| `epa_rheuma_epa_2` | 關節系統理學檢查 |
+| `epa_rheuma_epa_3` | 風濕免疫疾病影像判讀 |
+| `epa_rheuma_epa_4` | 關節穿刺術與關節液分析 |
+| `epa_rheuma_epa_5` | 自體免疫抗體與免疫學檢驗判讀 |
+| `epa_rheuma_epa_6` | 類風濕性關節炎診斷與治療 |
+| `epa_rheuma_epa_7` | 全身性紅斑狼瘡與結締組織疾病管理 |
+| `epa_rheuma_epa_8` | 痛風與結晶性關節炎處置 |
+| `epa_rheuma_epa_9` | 免疫調節藥物使用與監測 |
+| `epa_rheuma_epa_10` | 風濕免疫疾病患者跨科部整合照護 |
+
+### 神經科 `neuro_epa`（7 EPAs）
+
+| 欄位 | EPA 項目 |
+|------|----------|
+| `epa_neuro_epa_1` | 神經學病史詢問與神經學檢查 |
+| `epa_neuro_epa_2` | 腦血管疾病診斷與處理 |
+| `epa_neuro_epa_3` | 癲癇診斷與治療 |
+| `epa_neuro_epa_4` | 頭痛與眩暈評估 |
+| `epa_neuro_epa_5` | 意識障礙與昏迷評估 |
+| `epa_neuro_epa_6` | 腰椎穿刺術與腦脊髓液分析 |
+| `epa_neuro_epa_7` | 神經影像判讀 CT MRI |
+
+::: {.callout-note}
+REDCap 中的神經科目前為 7 項 EPA（內科住院醫師版），對應 `EPA Neuro 7 for IM.tex`。完整 10 項 EPA 版本見 [神經科 EPA](../subspecialty/neuro.qmd) 頁面。
+:::
+
+---
+
+## 匯入說明
+
+1. 下載 `EPA_DataDictionary_v2_2026-03-09.csv`
+2. 至 REDCap → **Designer → Data Dictionary → Upload**
+3. 選擇 CSV 檔案 → **Upload**
+4. 確認欄位數量與各 instrument 無誤
+5. 啟用各 instrument 的 Survey 功能
+
+詳細操作流程請參考 [REDCap 問卷流程說明](index.qmd)。

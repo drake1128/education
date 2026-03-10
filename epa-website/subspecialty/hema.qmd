@@ -1,0 +1,206 @@
+---
+title: "血液科 EPA"
+subtitle: "Hematology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：血液疾病病史詢問與理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行血液疾病相關的完整病史詢問與理學檢查,包括出血傾向、貧血症狀、淋巴結腫大評估,並能初步評估疾病嚴重度。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本血液症狀,需要監導者引導完成 |
+| Level 2 | 直接監督 | 能系統性完成血液病史詢問,執行基本理學檢查 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問,整合症狀進行初步診斷 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史,識別罕見症狀 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問,建立系統性評估流程 |
+
+## EPA 2：周邊血液抹片與骨髓抹片判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀周邊血液抹片與骨髓抹片,識別正常與異常血球型態,並能整合臨床資訊提出診斷建議。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本正常血球型態 |
+| Level 2 | 直接監督 | 能識別常見異常血球,進行基本分類 |
+| Level 3 | 間接監督 | 能獨立判讀大部分抹片,整合臨床診斷 |
+| Level 4 | 監督可得 | 能判讀複雜抹片,識別罕見血球異常 |
+| Level 5 | 完全獨立 | 成為抹片判讀專家,能教導複雜判讀技巧 |
+
+## EPA 3：貧血診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各類型貧血,執行系統性診斷評估,制定個別化治療計畫,並監測治療效果與副作用。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別貧血,知道基本分類 |
+| Level 2 | 直接監督 | 能診斷常見貧血,執行基本治療 |
+| Level 3 | 間接監督 | 能獨立診斷與治療各類貧血 |
+| Level 4 | 監督可得 | 能處理複雜貧血,整合多重病因 |
+| Level 5 | 完全獨立 | 成為貧血診斷專家,處理罕見病因 |
+
+## EPA 4：出血性疾病與凝血異常診斷處理
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷出血性疾病與凝血異常,執行凝血功能檢查判讀,制定止血治療策略,並處理急性出血事件。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別出血症狀,了解基本檢查 |
+| Level 2 | 直接監督 | 能判讀凝血檢查,處理簡單出血 |
+| Level 3 | 間接監督 | 能獨立診斷凝血異常,制定治療計畫 |
+| Level 4 | 監督可得 | 能處理複雜出血事件,整合多重因素 |
+| Level 5 | 完全獨立 | 成為凝血專家,處理罕見凝血疾病 |
+
+## EPA 5：血栓性疾病診斷與抗凝治療
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷血栓性疾病,評估血栓風險,選擇適當抗凝藥物,監測治療效果,並處理抗凝相關併發症。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別血栓症狀,了解基本抗凝藥物 |
+| Level 2 | 直接監督 | 能診斷DVT/PE,開始抗凝治療 |
+| Level 3 | 間接監督 | 能獨立管理抗凝治療,監測與調整 |
+| Level 4 | 監督可得 | 能處理複雜血栓,評估血栓傾向 |
+| Level 5 | 完全獨立 | 成為血栓專家,制定個人化抗凝策略 |
+
+## EPA 6：骨髓穿刺與切片檢查
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行骨髓穿刺與切片檢查,包括適應症評估、解剖定位、無菌技術、標本處理,並能初步判讀結果。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助骨髓檢查,了解基本解剖 |
+| Level 2 | 直接監督 | 能在監督下執行骨髓穿刺 |
+| Level 3 | 間接監督 | 能獨立執行骨髓檢查,處理標本 |
+| Level 4 | 監督可得 | 能執行困難穿刺,使用進階技術 |
+| Level 5 | 完全獨立 | 成為骨髓檢查專家,能教導複雜技術 |
+
+## EPA 7：急性白血病診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷急性白血病,執行分類與風險分層,制定化療計畫,處理化療併發症,並監測治療反應。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別白血病可能性,了解基本分類 |
+| Level 2 | 直接監督 | 能執行初步評估,協助化療管理 |
+| Level 3 | 間接監督 | 能獨立診斷白血病,執行化療計畫 |
+| Level 4 | 監督可得 | 能處理複雜併發症,調整治療策略 |
+| Level 5 | 完全獨立 | 成為白血病專家,發展個人化治療 |
+
+## EPA 8：淋巴瘤與骨髓瘤診斷管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷淋巴瘤與多發性骨髓瘤,執行分期評估,制定治療計畫,監測治療反應與疾病進展。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別淋巴瘤可能性,了解基本分型 |
+| Level 2 | 直接監督 | 能執行初步分期,協助化療管理 |
+| Level 3 | 間接監督 | 能獨立診斷與治療淋巴瘤、骨髓瘤 |
+| Level 4 | 監督可得 | 能處理複雜病例,評估移植適應症 |
+| Level 5 | 完全獨立 | 成為淋巴瘤專家,參與臨床試驗 |
+
+## EPA 9：輸血醫學與成分輸血
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估輸血適應症,選擇適當血品,執行輸血前檢查,監測輸血反應,並處理輸血相關併發症。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解輸血基本原則,執行輸血醫囑 |
+| Level 2 | 直接監督 | 能評估輸血適應症,處理常規輸血 |
+| Level 3 | 間接監督 | 能獨立管理輸血,識別輸血反應 |
+| Level 4 | 監督可得 | 能處理大量輸血,管理複雜輸血反應 |
+| Level 5 | 完全獨立 | 成為輸血專家,制定輸血策略 |
+
+## EPA 10：血液疾病跨科部整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調血液疾病患者的整體照護,包括跨科部會診、造血幹細胞移植評估、緩和照護,並能有效溝通與教育病患及家屬。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護,了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診,參與團隊討論 |
+| Level 3 | 間接監督 | 能獨立協調病患照護,制定整合計畫 |
+| Level 4 | 監督可得 | 能整合複雜多科照護,領導團隊討論 |
+| Level 5 | 完全獨立 | 成為照護協調專家,改善照護品質 |

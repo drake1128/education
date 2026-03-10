@@ -1,0 +1,159 @@
+---
+title: "神經科 EPA（內科住院醫師版）"
+subtitle: "Essential Neurology for Internal Medicine Residents"
+sidebar: subspecialty
+---
+
+## EPA 1：完整神經學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立執行完整且系統性的神經學檢查,包括意識狀態、腦神經、運動系統、感覺系統、反射、協調與步態,並能記錄檢查發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能在指導下執行部分神經學檢查 |
+| Level 2 | 直接監督 | 能系統性完成神經學檢查,識別明顯異常 |
+| Level 3 | 間接監督 | 能獨立完成完整神經學檢查並正確記錄 |
+| Level 4 | 監督可得 | 能精確執行神經學檢查,識別細微異常 |
+| Level 5 | 完全獨立 | 能指導他人執行神經學檢查 |
+
+## EPA 2：NIHSS評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠正確且快速地執行美國國家衛生研究院中風量表(NIHSS)評估,用於急性中風嚴重度評估與追蹤。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 了解NIHSS基本概念 |
+| Level 2 | 直接監督 | 能在監督下完成NIHSS評估 |
+| Level 3 | 間接監督 | 能獨立正確執行NIHSS評估並記錄 |
+| Level 4 | 監督可得 | 能快速準確執行NIHSS,應用於臨床決策 |
+| Level 5 | 完全獨立 | 能指導他人NIHSS評估技巧 |
+
+## EPA 3：急性腦中風初步處置
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別急性腦中風,執行初步評估與穩定,了解靜脈溶栓時間窗,並立即會診神經部進行專科處置。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別中風症狀,知道需要緊急處理 |
+| Level 2 | 直接監督 | 能執行初步評估,安排緊急影像 |
+| Level 3 | 間接監督 | 能獨立執行中風初步處置並及時會診 |
+| Level 4 | 監督可得 | 能快速評估並協調中風團隊 |
+| Level 5 | 完全獨立 | 能領導中風初期處置流程 |
+
+## EPA 4：癲癇發作辨識與初步處置
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠辨識癲癇發作,與暈厥等其他狀況鑑別,執行急性期處置,給予初步抗癲癇藥物,並會診神經部進行後續管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別癲癇發作,了解基本處理 |
+| Level 2 | 直接監督 | 能執行急性期處置,給予初步藥物 |
+| Level 3 | 間接監督 | 能獨立處理癲癇發作並及時會診 |
+| Level 4 | 監督可得 | 能處理癲癇重積,快速決策與執行 |
+| Level 5 | 完全獨立 | 能領導癲癇急性處置 |
+
+## EPA 5：意識障礙評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠系統性評估意識障礙患者,使用GCS評分,執行鑑別診斷,安排適當檢查,並識別需要緊急處置的狀況。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能執行GCS評估,識別意識障礙 |
+| Level 2 | 直接監督 | 能系統性評估,安排基本檢查 |
+| Level 3 | 間接監督 | 能獨立評估意識障礙並初步鑑別診斷 |
+| Level 4 | 監督可得 | 能快速鑑別並執行緊急處置 |
+| Level 5 | 完全獨立 | 能領導意識障礙評估流程 |
+
+## EPA 6：頭痛評估與危險訊號識別
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估頭痛患者,識別需要緊急處理的危險訊號,區分原發性與次發性頭痛,並適時安排影像檢查與會診。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問頭痛病史,識別明顯危險訊號 |
+| Level 2 | 直接監督 | 能系統性評估頭痛,安排適當檢查 |
+| Level 3 | 間接監督 | 能獨立評估頭痛並識別需緊急處理者 |
+| Level 4 | 監督可得 | 能快速鑑別危險頭痛並執行處置 |
+| Level 5 | 完全獨立 | 能指導頭痛評估流程 |
+
+## EPA 7：基本神經影像判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠判讀腦部電腦斷層(CT),識別出血、明顯梗塞、腫塊效應、中線偏移等重要發現,並能判斷是否需要緊急處置。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別明顯出血 |
+| Level 2 | 直接監督 | 能判讀出血與明顯梗塞 |
+| Level 3 | 間接監督 | 能獨立判讀腦部CT常見異常 |
+| Level 4 | 監督可得 | 能識別細微異常與早期梗塞徵象 |
+| Level 5 | 完全獨立 | 能指導影像判讀技巧 |

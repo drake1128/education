@@ -1,0 +1,206 @@
+---
+title: "腎臟內科 EPA"
+subtitle: "Nephrology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：腎臟疾病病史詢問與風險評估
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行腎臟疾病相關的完整病史詢問,包括症狀評估、危險因子識別、用藥史調查,並能初步評估腎臟疾病風險。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本腎臟疾病症狀,需要監導者引導完成詢問 |
+| Level 2 | 直接監督 | 能系統性完成腎臟病史詢問,使用適當的症狀評估工具 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問,整合症狀與危險因子進行初步風險分層 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史,整合多重共病資訊 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問,識別罕見症狀表現 |
+
+## EPA 2：腎臟泌尿系統身體檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠熟練且準確地進行腎臟泌尿系統的完整身體檢查,包括腎臟觸診、膀胱檢查、水腫評估,並能正確解讀檢查發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能進行基本腎臟觸診,識別明顯水腫 |
+| Level 2 | 直接監督 | 能識別常見異常身體發現,進行系統性腎臟檢查 |
+| Level 3 | 間接監督 | 能區分各種異常身體發現,準確評估體液狀態,整合多項檢查發現 |
+| Level 4 | 監督可得 | 能識別複雜身體發現特徵,檢查技術精準且有效率 |
+| Level 5 | 完全獨立 | 能偵測細微的異常發現,整合檢查發現與臨床表現 |
+
+## EPA 3：腎臟超音波基礎操作與判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠進行基礎腎臟超音波檢查,包括設備操作、解剖定位、基本測量與主要結構評估,並能識別重要的病理發現。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助進行基本超音波檢查,了解基本解剖結構 |
+| Level 2 | 直接監督 | 能獨立操作標準腎臟超音波檢查,進行基本判讀 |
+| Level 3 | 間接監督 | 能完成標準腎臟超音波檢查,準確識別常見病變 |
+| Level 4 | 監督可得 | 能進行進階超音波技術,準確定量評估 |
+| Level 5 | 完全獨立 | 成為超音波技術專家,能教導複雜技術 |
+
+## EPA 4：酸鹼及電解質檢驗報告判讀
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀酸鹼及電解質檢驗報告,包括動脈血液氣體分析、血清電解質,識別正常與異常變化,並提出臨床相關性分析。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別明顯異常數值,知道基本正常範圍 |
+| Level 2 | 直接監督 | 能判讀常見酸鹼電解質異常,使用系統性判讀流程 |
+| Level 3 | 間接監督 | 能獨立判讀複雜酸鹼電解質異常,整合臨床表現 |
+| Level 4 | 監督可得 | 能判讀複雜混合性酸鹼異常,準確推理病因 |
+| Level 5 | 完全獨立 | 成為酸鹼電解質判讀專家,能教導複雜判讀 |
+
+## EPA 5：急性腎損傷診斷與處置
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別急性腎損傷,進行適當的診斷性檢查,評估嚴重度分級,並執行初步治療措施,包括體液管理與腎毒性藥物調整。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別典型AKI症狀,知道基本檢查項目 |
+| Level 2 | 直接監督 | 能使用標準診斷流程,進行基本嚴重度評估 |
+| Level 3 | 間接監督 | 能獨立診斷AKI,適當選擇治療策略 |
+| Level 4 | 監督可得 | 能處理複雜AKI情況,整合多重因素做決策 |
+| Level 5 | 完全獨立 | 成為AKI專家,能指導複雜個案處理 |
+
+## EPA 6：慢性腎臟疾病診斷與管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷慢性腎臟疾病,評估腎功能損傷程度,制定個別化治療計畫,包括藥物調整與非藥物治療,並監測疾病進展。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別CKD症狀徵象,知道基本分期 |
+| Level 2 | 直接監督 | 能使用標準治療指引,進行基本藥物調整 |
+| Level 3 | 間接監督 | 能獨立管理穩定CKD,調整藥物治療 |
+| Level 4 | 監督可得 | 能處理複雜CKD,評估進階治療選項 |
+| Level 5 | 完全獨立 | 成為CKD專家,發展個人化治療策略 |
+
+## EPA 7：體液及電解質不平衡處置
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷各種體液及電解質不平衡,評估嚴重度,制定矯正策略,監測治療效果與副作用,並提供適當的體液電解質管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別明顯體液電解質異常,知道基本處理原則 |
+| Level 2 | 直接監督 | 能處理常見體液電解質異常,使用標準矯正公式 |
+| Level 3 | 間接監督 | 能獨立處理大部分體液電解質異常,制定矯正計畫 |
+| Level 4 | 監督可得 | 能處理複雜混合性異常,整合多重因素 |
+| Level 5 | 完全獨立 | 成為體液電解質專家,發展個人化處置策略 |
+
+## EPA 8：腎臟替代療法認識與評估
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠認識各種腎臟替代療法,包括血液透析、腹膜透析、腎臟移植,評估適應症,提供病患諮詢,並協助治療模式選擇。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解RRT基本概念,識別透析適應症 |
+| Level 2 | 直接監督 | 能評估RRT需求,提供基本病患諮詢 |
+| Level 3 | 間接監督 | 能獨立評估RRT適應症,協助模式選擇 |
+| Level 4 | 監督可得 | 能處理複雜RRT評估,整合多重考量因素 |
+| Level 5 | 完全獨立 | 成為RRT專家,提供個人化治療建議 |
+
+## EPA 9：腎臟切片檢查適應症及風險評估
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估腎臟切片檢查適應症,識別禁忌症,進行風險評估,提供病患諮詢,並了解檢查前後的管理原則。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解腎切片基本適應症,識別常見禁忌症 |
+| Level 2 | 直接監督 | 能評估基本適應症,進行初步風險評估 |
+| Level 3 | 間接監督 | 能獨立評估腎切片適應症,完整風險評估 |
+| Level 4 | 監督可得 | 能處理複雜評估情況,整合多重風險因素 |
+| Level 5 | 完全獨立 | 成為腎切片評估專家,處理高風險個案 |
+
+## EPA 10：末期腎病病人跨科部整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調末期腎病病人的整體照護,包括跨科部會診、多專科團隊合作、透析安排,並能有效溝通與教育病患及家屬。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護,了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診,參與團隊討論 |
+| Level 3 | 間接監督 | 能獨立協調病患照護,制定整合計畫 |
+| Level 4 | 監督可得 | 能整合複雜多科照護,領導團隊討論 |
+| Level 5 | 完全獨立 | 成為照護協調專家,改善照護品質 |

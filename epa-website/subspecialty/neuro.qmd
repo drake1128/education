@@ -1,0 +1,206 @@
+---
+title: "神經科 EPA"
+subtitle: "Neurology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：神經學病史詢問與完整神經學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行神經疾病相關的完整病史詢問與系統性神經學檢查,包括意識、腦神經、運動、感覺、協調、步態評估,並能定位病灶。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本神經症狀,執行簡單神經檢查 |
+| Level 2 | 直接監督 | 能系統性完成神經學檢查,識別明顯異常 |
+| Level 3 | 間接監督 | 能獨立完成完整神經學檢查,進行初步定位 |
+| Level 4 | 監督可得 | 能精確執行神經學檢查,準確病灶定位 |
+| Level 5 | 完全獨立 | 成為神經學檢查專家,能教導複雜技巧 |
+
+## EPA 2：神經影像學判讀
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立判讀腦部CT與MRI影像,識別正常解剖結構,辨識常見病變,包括出血、梗塞、腫瘤,並整合臨床資訊。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別基本腦部CT結構 |
+| Level 2 | 直接監督 | 能識別明顯出血與梗塞,判讀基本MRI |
+| Level 3 | 間接監督 | 能獨立判讀常見神經影像異常 |
+| Level 4 | 監督可得 | 能判讀複雜影像,識別早期與細微病變 |
+| Level 5 | 完全獨立 | 成為神經影像專家,能教導進階判讀 |
+
+## EPA 3：急性缺血性腦中風診斷與處置
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別急性缺血性腦中風,執行NIHSS評估,評估靜脈溶栓與動脈取栓適應症,並協調急性處置與後續照護。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別中風症狀,了解基本處置流程 |
+| Level 2 | 直接監督 | 能執行NIHSS,評估溶栓適應症 |
+| Level 3 | 間接監督 | 能獨立處理急性中風,協調治療團隊 |
+| Level 4 | 監督可得 | 能處理複雜中風,快速決策與執行 |
+| Level 5 | 完全獨立 | 成為中風專家,領導中風團隊 |
+
+## EPA 4：癲癇發作診斷與管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷癲癇發作,區分癲癇與非癲癇性事件,選擇適當抗癲癇藥物,監測藥物濃度,並處理癲癇重積狀態。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別癲癇發作,了解基本AED |
+| Level 2 | 直接監督 | 能分類癲癇,開始單一AED治療 |
+| Level 3 | 間接監督 | 能獨立管理癲癇,調整藥物治療 |
+| Level 4 | 監督可得 | 能處理難治性癲癇,多重藥物管理 |
+| Level 5 | 完全獨立 | 成為癲癇專家,評估手術適應症 |
+
+## EPA 5：頭痛疾患評估與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-np">NP</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠系統性評估頭痛,區分原發性與次發性頭痛,識別危險訊號,診斷偏頭痛與緊張型頭痛,並制定治療計畫。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問頭痛病史,識別危險訊號 |
+| Level 2 | 直接監督 | 能診斷常見原發性頭痛,開始治療 |
+| Level 3 | 間接監督 | 能獨立評估與治療頭痛,區分次發性 |
+| Level 4 | 監督可得 | 能處理複雜頭痛,整合預防治療 |
+| Level 5 | 完全獨立 | 成為頭痛專家,管理難治性頭痛 |
+
+## EPA 6：腰椎穿刺與腦脊髓液分析
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠執行腰椎穿刺術,包括適應症評估、解剖定位、無菌技術、壓力測量,並能判讀腦脊髓液檢查結果。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能協助腰椎穿刺,了解基本解剖 |
+| Level 2 | 直接監督 | 能在監督下執行腰椎穿刺 |
+| Level 3 | 間接監督 | 能獨立執行腰椎穿刺,判讀CSF |
+| Level 4 | 監督可得 | 能執行困難穿刺,處理併發症 |
+| Level 5 | 完全獨立 | 成為腰椎穿刺專家,能教導技術 |
+
+## EPA 7：神經電生理檢查判讀
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠判讀神經電生理檢查,包括肌電圖(EMG)、神經傳導(NCV)、腦波(EEG),並整合臨床資訊提出診斷。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解電生理基本概念 |
+| Level 2 | 直接監督 | 能判讀基本NCV/EMG異常 |
+| Level 3 | 間接監督 | 能獨立判讀電生理,整合臨床診斷 |
+| Level 4 | 監督可得 | 能判讀複雜電生理,精確病變定位 |
+| Level 5 | 完全獨立 | 成為電生理專家,能教導判讀 |
+
+## EPA 8：神經肌肉疾病診斷與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷神經肌肉疾病,包括周邊神經病變、肌無力、肌病,執行系統性評估,並制定治療計畫。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別神經肌肉疾病可能性 |
+| Level 2 | 直接監督 | 能診斷常見神經肌肉疾病 |
+| Level 3 | 間接監督 | 能獨立評估與治療神經肌肉疾病 |
+| Level 4 | 監督可得 | 能處理複雜病例,整合多項檢查 |
+| Level 5 | 完全獨立 | 成為神經肌肉專家,診斷罕見疾病 |
+
+## EPA 9：神經重症與意識障礙管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠管理神經重症,包括意識障礙評估、顱內壓監測、癲癇重積處理、神經重症照護,並協調ICU團隊。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別神經重症,了解基本處理 |
+| Level 2 | 直接監督 | 能執行意識評估,協助重症照護 |
+| Level 3 | 間接監督 | 能獨立管理神經重症,協調ICU團隊 |
+| Level 4 | 監督可得 | 能處理複雜重症,快速決策與調整 |
+| Level 5 | 完全獨立 | 成為神經重症專家,領導團隊照護 |
+
+## EPA 10：神經疾病跨科部整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠協調神經疾病患者的整體照護,包括復健安排、長期照護規劃、跨科會診,並能有效溝通與教育病患及家屬。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能參與基本病患照護,了解團隊角色 |
+| Level 2 | 直接監督 | 能執行基本會診,安排復健治療 |
+| Level 3 | 間接監督 | 能獨立協調病患照護,制定長期計畫 |
+| Level 4 | 監督可得 | 能整合複雜多科照護,領導團隊討論 |
+| Level 5 | 完全獨立 | 成為照護協調專家,改善照護品質 |

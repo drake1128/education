@@ -1,0 +1,118 @@
+---
+title: "次專科 EPA 總覽"
+subtitle: "Internal Medicine Subspecialty EPA Overview"
+sidebar: subspecialty
+---
+
+## 10 個內科次專科 EPA
+
+本院內科部已建立 10 個次專科的完整 EPA 評核架構，涵蓋超過 **115 項** 可信賴專業活動。
+
+<div class="subspec-grid">
+
+<a href="cv.qmd" class="subspec-card card-cv">
+<h3>心臟內科 Cardiology</h3>
+<p>11 EPAs</p>
+</a>
+
+<a href="cv-echo.qmd" class="subspec-card card-echo">
+<h3>心臟超音波 Echo</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="chest.qmd" class="subspec-card card-chest">
+<h3>胸腔內科 Pulmonology</h3>
+<p>14 EPAs</p>
+</a>
+
+<a href="gi.qmd" class="subspec-card card-gi">
+<h3>腸胃內科 GI</h3>
+<p>11 EPAs</p>
+</a>
+
+<a href="endocrine.qmd" class="subspec-card card-endocrine">
+<h3>內分泌科 Endocrinology</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="hema.qmd" class="subspec-card card-hema">
+<h3>血液科 Hematology</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="id.qmd" class="subspec-card card-id">
+<h3>感染科 ID</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="nephro.qmd" class="subspec-card card-nephro">
+<h3>腎臟內科 Nephrology</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="neuro.qmd" class="subspec-card card-neuro">
+<h3>神經科 Neurology</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="neuro-im.qmd" class="subspec-card card-neuro">
+<h3>神經科（內科版）</h3>
+<p>7 EPAs</p>
+</a>
+
+<a href="onco.qmd" class="subspec-card card-onco">
+<h3>腫瘤科 Oncology</h3>
+<p>10 EPAs</p>
+</a>
+
+<a href="rheuma.qmd" class="subspec-card card-rheuma">
+<h3>風濕免疫科 Rheumatology</h3>
+<p>10 EPAs</p>
+</a>
+
+</div>
+
+---
+
+## EPA 項目數量比較
+
+| 次專科 | EPA 數 | 涵蓋範圍 |
+|--------|:------:|----------|
+| 心臟內科 | 11 | 病史→心電圖→超音波→冠心症→心律不整→心衰竭→高血壓→心導管→照護協調→CCU處置 |
+| 心臟超音波 | 10 | 標準視窗→結構測量→都卜勒→左心室→右心→瓣膜→FOCUS→心包大血管→報告→品質 |
+| 胸腔內科 | 14 | 病史→理學檢查→影像→肺功能→呼吸衰竭→氣道→肺炎→肺栓塞→穿刺→支氣管鏡→結核→NTM→肺癌→ILD |
+| 腸胃內科 | 11 | 病史→腹部檢查→影像→超音波→內視鏡→急性腹痛→肝炎→出血→膽胰→穿刺→照護 |
+| 內分泌科 | 10 | 糖尿病→用藥→急症→甲狀腺→腎上腺→腦下垂體→內分泌急症→代謝症候群→高血脂→血鈣 |
+| 血液科 | 10 | 病史PE→抹片→貧血→凝血→血栓→骨髓穿刺→白血病→淋巴瘤→輸血→整合照護 |
+| 感染科 | 10 | 病史PE→致病原→抗生素→微生物→社區感染→院內感染→不明熱→免疫不全→敗血症→感管 |
+| 腎臟內科 | 10 | 病史→PE→超音波→酸鹼電解質→AKI→CKD→體液電解質→RRT→腎切片→ESRD照護 |
+| 神經科 | 10 | 神經學檢查→影像→中風→癲癇→頭痛→腰椎穿刺→電生理→神經肌肉→重症→照護 |
+| 神經科（內科版） | 7 | 神經學檢查→NIHSS→中風→癲癇→意識障礙→頭痛→神經影像 |
+| 腫瘤科 | 10 | 病史PE→病理→分期→化療→標靶免疫→放療→急症→副作用→安寧→照護 |
+| 風濕免疫科 | 10 | 病史→關節PE→影像→穿刺→抗體→RA→SLE→痛風→藥物→照護 |
+
+---
+
+## 學員適用範圍
+
+每個 EPA 頁面都有標示適用的學員層級：
+
+- [見習醫師]{.badge-clerk}：各科 EPA 1-3（基礎項目）
+- [PGY]{.badge-pgy}：各科 EPA 1-5
+- [住院醫師]{.badge-resident}：主訓科全部 EPA
+- [NP]{.badge-np}：所屬科別 EPA 1-5
+- [總醫師]{.badge-chief}：全部 EPA
+
+---
+
+## 共同評分標準
+
+所有次專科 EPA 採用統一 5 級信任量表：
+
+| Level | 描述 | 監督程度 |
+|:-----:|------|----------|
+| 1 | 觀察學習 | 僅能旁觀 |
+| 2 | 直接監督 | 指導者直接監督下執行 |
+| 3 | 間接監督 | 可獨立執行，指導者需可介入 |
+| 4 | 監督可得 | 可獨立執行，必要時聯繫指導者 |
+| 5 | 完全獨立 | 完全獨立並可指導他人 |

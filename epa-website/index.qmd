@@ -1,0 +1,171 @@
+---
+title: "內科部 EPA 評核系統"
+subtitle: "台大醫院新竹分院 教學部"
+page-layout: full
+---
+
+<div class="hero-section">
+<h1>內科部 EPA 評核系統</h1>
+<p>Entrustable Professional Activities Assessment System</p>
+<p>台大醫院新竹分院 ｜ NTUH Hsinchu Branch</p>
+</div>
+
+## 系統簡介
+
+本系統整合內科部完整的 **可信賴專業活動（EPA）** 評核架構，涵蓋：
+
+- **一般 EPA**：適用於見習醫師、PGY、住院醫師、專科護理師的通用臨床能力評核
+- **次專科 EPA**：10 個內科次專科的專業能力評核，供總醫師及次專科訓練使用
+- **REDCap 問卷系統**：透過 REDCap 進行電子化評核調查與追蹤
+
+::: {.callout-note}
+## 評核流程
+次專科 EPA 的正式評核透過 **REDCap survey** 進行——由教學部發送問卷連結給主治醫師，針對受評學員填寫。本網站提供所有 EPA 定義與評量標準的完整查詢。
+:::
+
+---
+
+## 一般 EPA｜依學員層級
+
+<div class="subspec-grid">
+
+<a href="general/clerk.qmd" class="subspec-card" style="background: linear-gradient(135deg, #7b1fa2, #ab47bc);">
+<h3>見習醫師 Clerk</h3>
+<p>5 EPAs：病史詢問、理學檢查、鑑別診斷、病患溝通、病歷紀錄</p>
+</a>
+
+<a href="general/pgy.qmd" class="subspec-card" style="background: linear-gradient(135deg, #388e3c, #66bb6a);">
+<h3>PGY 醫師</h3>
+<p>6 EPAs：急性評估、BLS/ACLS、臨床處置、交班溝通、檢驗判讀、團隊合作</p>
+</a>
+
+<a href="general/resident.qmd" class="subspec-card" style="background: linear-gradient(135deg, #d32f2f, #ef5350);">
+<h3>住院醫師 Resident</h3>
+<p>7 EPAs：複雜病患、專科處置、重症管理、實證醫學、教學指導、品質改善、專業素養</p>
+</a>
+
+<a href="general/np.qmd" class="subspec-card" style="background: linear-gradient(135deg, #1565c0, #42a5f5);">
+<h3>專科護理師 NP</h3>
+<p>7 EPAs：進階評估、臨床決策、藥物處方、專科處置、衛教、團隊合作、實證實踐</p>
+</a>
+
+</div>
+
+---
+
+## 次專科 EPA｜10 個內科次專科
+
+<div class="subspec-grid">
+
+<a href="subspecialty/cv.qmd" class="subspec-card card-cv">
+<h3>心臟內科</h3>
+<p>11 EPAs：病史、心臟檢查、心電圖、超音波、冠心症、心律不整、心衰竭、高血壓、心導管、照護協調、CCU 處置</p>
+</a>
+
+<a href="subspecialty/cv-echo.qmd" class="subspec-card card-echo">
+<h3>心臟超音波</h3>
+<p>10 EPAs：標準視窗、結構測量、都卜勒、左心室功能、右心系統、瓣膜疾病、床邊 FOCUS、心包大血管、報告撰寫、品質保證</p>
+</a>
+
+<a href="subspecialty/chest.qmd" class="subspec-card card-chest">
+<h3>胸腔內科</h3>
+<p>14 EPAs：病史、理學檢查、影像、肺功能、呼吸衰竭、氣道疾病、肺炎、肺栓塞、胸腔穿刺、支氣管鏡、結核、非典型分枝桿菌、肺癌、間質性肺疾病</p>
+</a>
+
+<a href="subspecialty/gi.qmd" class="subspec-card card-gi">
+<h3>腸胃內科</h3>
+<p>11 EPAs：病史、腹部檢查、影像、超音波、內視鏡、急性腹痛、肝炎、消化道出血、膽胰系統、腹腔穿刺、照護協調</p>
+</a>
+
+<a href="subspecialty/endocrine.qmd" class="subspec-card card-endocrine">
+<h3>內分泌科</h3>
+<p>10 EPAs：糖尿病、用藥、高低血糖急症、甲狀腺、腎上腺、腦下垂體、內分泌急症、代謝症候群、高血脂、血鈣異常</p>
+</a>
+
+<a href="subspecialty/hema.qmd" class="subspec-card card-hema">
+<h3>血液科</h3>
+<p>10 EPAs：病史理學檢查、血液抹片、貧血、出血凝血異常、血栓、骨髓穿刺、急性白血病、淋巴瘤骨髓瘤、輸血醫學、整合照護</p>
+</a>
+
+<a href="subspecialty/id.qmd" class="subspec-card card-id">
+<h3>感染科</h3>
+<p>10 EPAs：病史理學檢查、致病原識別、抗生素使用、微生物檢驗、社區感染、院內感染、不明熱、免疫不全感染、敗血症、感染管制</p>
+</a>
+
+<a href="subspecialty/nephro.qmd" class="subspec-card card-nephro">
+<h3>腎臟內科</h3>
+<p>10 EPAs：病史、泌尿理學檢查、腎臟超音波、酸鹼電解質、急性腎損傷、慢性腎病、體液電解質、腎替代療法、腎臟切片、末期腎病整合照護</p>
+</a>
+
+<a href="subspecialty/neuro.qmd" class="subspec-card card-neuro">
+<h3>神經科</h3>
+<p>10 EPAs：病史神經學檢查、神經影像、缺血性腦中風、癲癇、頭痛、腰椎穿刺、神經電生理、神經肌肉疾病、神經重症、跨科照護</p>
+</a>
+
+<a href="subspecialty/neuro-im.qmd" class="subspec-card card-neuro">
+<h3>神經科（內科版）</h3>
+<p>7 EPAs：神經學檢查、NIHSS、急性腦中風、癲癇、意識障礙、頭痛、基礎神經影像——內科住院醫師精簡版</p>
+</a>
+
+<a href="subspecialty/onco.qmd" class="subspec-card card-onco">
+<h3>腫瘤科</h3>
+<p>10 EPAs：病史理學檢查、病理分子標記、分期預後、化學治療、標靶免疫治療、放射治療、腫瘤急症、化療副作用、疼痛安寧、跨科照護</p>
+</a>
+
+<a href="subspecialty/rheuma.qmd" class="subspec-card card-rheuma">
+<h3>風濕免疫科</h3>
+<p>10 EPAs：病史、關節檢查、影像、關節穿刺、自體抗體、類風濕關節炎、SLE 結締組織病、痛風、免疫調節藥物、跨科照護</p>
+</a>
+
+</div>
+
+---
+
+## 信任等級量表
+
+所有 EPA 使用統一的 5 級信任量表（Entrustment Scale）：
+
+| 等級 | 中文描述 | 英文 | 監督程度 |
+|:----:|----------|------|----------|
+| **Level 1** | 觀察學習 | Observation only | 僅能旁觀，不可執行 |
+| **Level 2** | 直接監督 | Direct supervision | 需在指導者直接監督下執行 |
+| **Level 3** | 間接監督 | Indirect supervision | 可獨立執行，指導者需隨時可介入 |
+| **Level 4** | 監督可得 | Supervision available | 可獨立執行，必要時可聯繫指導者 |
+| **Level 5** | 完全獨立 | Full independence | 可完全獨立執行並指導他人 |
+
+---
+
+## 學員適用對照
+
+| 學員層級 | 一般 EPA | 次專科 EPA | 評核方式 |
+|----------|---------|-----------|---------|
+| 見習醫師 Clerk | 5 項 | 輪訓科 EPA 1-3（基礎項目） | 現場直接觀察 |
+| PGY 醫師 | 6 項 | 輪訓科 EPA 1-5 | 現場直接觀察 |
+| 住院醫師 Resident | 7 項 | 主訓科全部 EPA | REDCap survey |
+| 專科護理師 NP | 7 項 | 所屬科別 EPA 1-5 | REDCap survey |
+| 總醫師 Chief Resident | — | 全部次專科 EPA | REDCap survey |
+
+---
+
+## 重要時程 2026
+
+| 時間 | 里程碑 | 說明 |
+|------|--------|------|
+| **2026/03/29** | CCC Workshop | 內科部講師訓練 |
+| 2026 Q2 | 試行階段 | 2-3 次專科試行 EPA |
+| 2026 Q3 | 擴展階段 | 全面推廣 |
+| **2026/10** | 正式實施 | EPA 評核制度上線 |
+
+---
+
+::: {.callout-tip}
+## 快速導覽
+- 查詢某個次專科的 EPA 定義？→ 上方導覽列「次專科 EPA」
+- 查詢特定學員層級的通用 EPA？→「一般 EPA」
+- 了解 REDCap 問卷流程？→「REDCap」
+- 了解 CCC 委員會？→「CCC 委員會」
+:::
+
+<p style="text-align: center; color: #666; margin-top: 2em;">
+© 2025-2026 台大醫院新竹分院 教學部｜負責人：謝慕揚 副主任
+</p>

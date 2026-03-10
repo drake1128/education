@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>REDCap EPA Survey 發送流程 – 內科部 EPA 評核系統 | 台大醫院新竹分院</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-95151b68f335c1255f8e728b51459073.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">內科部 EPA 評核系統 | 台大醫院新竹分院</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">首頁</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">一般 EPA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-epa">    
+        <li>
+    <a class="dropdown-item" href="../general/index.html">
+ <span class="dropdown-text">總覽</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../general/clerk.html">
+ <span class="dropdown-text">見習醫師 Clerk</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../general/pgy.html">
+ <span class="dropdown-text">PGY 醫師</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../general/resident.html">
+ <span class="dropdown-text">住院醫師 Resident</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../general/np.html">
+ <span class="dropdown-text">專科護理師 NP</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epa-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">次專科 EPA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-epa-1">    
+        <li>
+    <a class="dropdown-item" href="../subspecialty/index.html">
+ <span class="dropdown-text">總覽</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../subspecialty/cv.html">
+ <span class="dropdown-text">心臟科 Cardiology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/cv-echo.html">
+ <span class="dropdown-text">心臟超音波 Echo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/chest.html">
+ <span class="dropdown-text">胸腔科 Pulmonology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/gi.html">
+ <span class="dropdown-text">腸胃科 GI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/endocrine.html">
+ <span class="dropdown-text">內分泌科 Endocrinology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/hema.html">
+ <span class="dropdown-text">血液科 Hematology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/id.html">
+ <span class="dropdown-text">感染科 ID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/nephro.html">
+ <span class="dropdown-text">腎臟科 Nephrology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/neuro.html">
+ <span class="dropdown-text">神經科 Neurology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/neuro-im.html">
+ <span class="dropdown-text">神經科（內科版）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/onco.html">
+ <span class="dropdown-text">腫瘤科 Oncology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../subspecialty/rheuma.html">
+ <span class="dropdown-text">風濕免疫科 Rheumatology</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-redcap" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">REDCap</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-redcap">    
+        <li>
+    <a class="dropdown-item" href="../redcap/index.html">
+ <span class="dropdown-text">問卷流程說明</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../redcap/data-dictionary.html">
+ <span class="dropdown-text">Data Dictionary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">CCC 委員會</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">評估工具</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../clinical-skills.html">
+ <span class="dropdown-text">臨床技能對照表</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../schedule.html">
+ <span class="dropdown-text">EPA 排程</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">本頁目錄</h2>
+   
+  <ul>
+  <li><a href="#前置確認" id="toc-前置確認" class="nav-link active" data-scroll-target="#前置確認">前置確認</a></li>
+  <li><a href="#step-1取得評核配對名單" id="toc-step-1取得評核配對名單" class="nav-link" data-scroll-target="#step-1取得評核配對名單">Step 1｜取得評核配對名單</a></li>
+  <li><a href="#step-2轉換成-redcap-import-csv" id="toc-step-2轉換成-redcap-import-csv" class="nav-link" data-scroll-target="#step-2轉換成-redcap-import-csv">Step 2｜轉換成 REDCap Import CSV</a></li>
+  <li><a href="#step-3匯入-records-至-redcap" id="toc-step-3匯入-records-至-redcap" class="nav-link" data-scroll-target="#step-3匯入-records-至-redcap">Step 3｜匯入 Records 至 REDCap</a></li>
+  <li><a href="#step-4設定各-form-為-survey" id="toc-step-4設定各-form-為-survey" class="nav-link" data-scroll-target="#step-4設定各-form-為-survey">Step 4｜設定各 Form 為 Survey</a></li>
+  <li><a href="#step-5設定-participant-list-並批次寄送" id="toc-step-5設定-participant-list-並批次寄送" class="nav-link" data-scroll-target="#step-5設定-participant-list-並批次寄送">Step 5｜設定 Participant List 並批次寄送</a>
+  <ul class="collapse">
+  <li><a href="#信件範本" id="toc-信件範本" class="nav-link" data-scroll-target="#信件範本">信件範本</a></li>
+  </ul></li>
+  <li><a href="#step-6設定自動提醒reminder" id="toc-step-6設定自動提醒reminder" class="nav-link" data-scroll-target="#step-6設定自動提醒reminder">Step 6｜設定自動提醒（Reminder）</a></li>
+  <li><a href="#step-7追蹤回覆狀況" id="toc-step-7追蹤回覆狀況" class="nav-link" data-scroll-target="#step-7追蹤回覆狀況">Step 7｜追蹤回覆狀況</a>
+  <ul class="collapse">
+  <li><a href="#participant-list-狀態說明" id="toc-participant-list-狀態說明" class="nav-link" data-scroll-target="#participant-list-狀態說明">Participant List 狀態說明</a></li>
+  <li><a href="#查看整體完成率" id="toc-查看整體完成率" class="nav-link" data-scroll-target="#查看整體完成率">查看整體完成率</a></li>
+  </ul></li>
+  <li><a href="#step-8匯出資料分析" id="toc-step-8匯出資料分析" class="nav-link" data-scroll-target="#step-8匯出資料分析">Step 8｜匯出資料分析</a></li>
+  <li><a href="#次專科-form-對照表" id="toc-次專科-form-對照表" class="nav-link" data-scroll-target="#次專科-form-對照表">次專科 Form 對照表</a></li>
+  <li><a href="#注意事項" id="toc-注意事項" class="nav-link" data-scroll-target="#注意事項">注意事項</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/drake1128/education/issues/new" class="toc-action"><i class="bi bi-github"></i>回報問題</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">REDCap EPA Survey 發送流程</h1>
+<p class="subtitle lead">REDCap Survey Distribution Workflow</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">註釋</span>適用情境
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>多位評核醫師 × 多位被評核學員（多對多）。一筆 record = 一個「評核醫師 × 被評核學員」配對。</p>
+</div>
+</div>
+<hr>
+<section id="前置確認" class="level2">
+<h2 class="anchored" data-anchor-id="前置確認">前置確認</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">REDCap 專案已啟用 <strong>Use surveys in this project?</strong></label></li>
+<li><label><input type="checkbox">Data Dictionary（<code>EPA_DataDictionary_v2_2026-03-09.csv</code>）已匯入</label></li>
+<li><label><input type="checkbox">各次專科 instrument 已在 <strong>Designer → Enable</strong> 開啟 Survey 功能</label></li>
+<li><label><input type="checkbox">Survey Settings 各 form 設為 <strong>By Invitation Only</strong></label></li>
+</ul>
+<hr>
+</section>
+<section id="step-1取得評核配對名單" class="level2">
+<h2 class="anchored" data-anchor-id="step-1取得評核配對名單">Step 1｜取得評核配對名單</h2>
+<p>向助理索取 Excel 或 CSV，需包含以下欄位：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>欄位</th>
+<th>說明</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>assessor_name</code></td>
+<td>評核醫師姓名</td>
+<td>王大明</td>
+</tr>
+<tr class="even">
+<td><code>assessor_email</code></td>
+<td>評核醫師 email</td>
+<td>wang@ntuh.gov.tw</td>
+</tr>
+<tr class="odd">
+<td><code>assessor_title</code></td>
+<td>職稱代碼</td>
+<td><code>1</code>＝主治醫師、<code>2</code>＝總醫師、<code>3</code>＝其他</td>
+</tr>
+<tr class="even">
+<td><code>evaluated_name</code></td>
+<td>被評核學員姓名</td>
+<td>李小芬</td>
+</tr>
+<tr class="odd">
+<td><code>evaluated_id</code></td>
+<td>學員學號/員工編號</td>
+<td>N001234</td>
+</tr>
+<tr class="even">
+<td><code>form_name</code></td>
+<td>要填的次專科 form</td>
+<td><code>cv_epa</code>、<code>chest_epa</code> …</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>一位醫師評 N 位學員 → 該醫師的 email 出現 N 次，對應不同學員。</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="step-2轉換成-redcap-import-csv" class="level2">
+<h2 class="anchored" data-anchor-id="step-2轉換成-redcap-import-csv">Step 2｜轉換成 REDCap Import CSV</h2>
+<p>將配對名單轉成每列一筆 record 的格式：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>record_id</th>
+<th>{prefix}_assessor_name</th>
+<th>{prefix}_assessor_email</th>
+<th>{prefix}_evaluated_name</th>
+<th>{prefix}_evaluated_id</th>
+<th>{prefix}_evaluated_type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>王大明</td>
+<td>wang@ntuh.gov.tw</td>
+<td>李小芬</td>
+<td>N001234</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>王大明</td>
+<td>wang@ntuh.gov.tw</td>
+<td>陳美玲</td>
+<td>N005678</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>張志偉</td>
+<td>chang@ntuh.gov.tw</td>
+<td>李小芬</td>
+<td>N001234</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><code>{prefix}</code> 依次專科替換（如 <code>cv</code>、<code>chest</code>、<code>gi</code>）。</p>
+<p><code>evaluated_type</code> 代碼：<code>1</code>＝醫學生、<code>2</code>＝PGY、<code>3</code>＝住院醫師、<code>4</code>＝專科護理師</p>
+<hr>
+</section>
+<section id="step-3匯入-records-至-redcap" class="level2">
+<h2 class="anchored" data-anchor-id="step-3匯入-records-至-redcap">Step 3｜匯入 Records 至 REDCap</h2>
+<ol type="1">
+<li>左側選單 → <strong>Data Import Tool</strong></li>
+<li>上傳 Step 2 產出的 CSV</li>
+<li>選擇 <strong>Import Action: Insert new records</strong></li>
+<li>確認預覽無誤 → <strong>Import Data</strong></li>
+<li>至 <strong>Record Status Dashboard</strong> 確認所有 record 已建立</li>
+</ol>
+<hr>
+</section>
+<section id="step-4設定各-form-為-survey" class="level2">
+<h2 class="anchored" data-anchor-id="step-4設定各-form-為-survey">Step 4｜設定各 Form 為 Survey</h2>
+<p>針對每個次專科 form（<code>chest_epa</code>、<code>cv_epa</code>、<code>gi_epa</code> …）：</p>
+<ol type="1">
+<li><strong>Designer</strong> → 找到該 instrument → 點 <strong>Enable</strong>（Survey 欄）</li>
+<li>進入 <strong>Survey Settings</strong>：
+<ul>
+<li>Survey Title：例如「心臟內科 EPA 評核問卷」</li>
+<li><strong>Survey Access</strong>：<code>By Invitation Only</code></li>
+<li>Survey Expiration：視需求設定截止日</li>
+</ul></li>
+<li><strong>Save Survey Settings</strong></li>
+</ol>
+<hr>
+</section>
+<section id="step-5設定-participant-list-並批次寄送" class="level2">
+<h2 class="anchored" data-anchor-id="step-5設定-participant-list-並批次寄送">Step 5｜設定 Participant List 並批次寄送</h2>
+<ol type="1">
+<li>左側 → <strong>Survey Distribution Tools → Participant List</strong></li>
+<li>選擇要發送的 instrument（次專科 form）</li>
+<li>點 <strong>Add participants from existing records</strong>
+<ul>
+<li>REDCap 自動抓取該 record 對應的 <code>{prefix}_assessor_email</code></li>
+</ul></li>
+<li>選取全部 participants → <strong>Compose Invitations</strong></li>
+<li>設定信件內容（參考下方範本）</li>
+<li>設定寄送時間：立即 or 排程</li>
+<li><strong>Send Invitations</strong></li>
+</ol>
+<section id="信件範本" class="level3">
+<h3 class="anchored" data-anchor-id="信件範本">信件範本</h3>
+<pre><code>主旨：【EPA 評核問卷】請填寫您負責評核的學員問卷
+
+王醫師 您好，
+
+請您針對 [evaluated_name]（員工編號：[evaluated_id]）
+填寫本次 EPA 評核問卷：
+
+[survey-url]
+
+若有任何問題請聯繫教學部。感謝您的協助。
+
+臺大新竹分院 教學部</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>[survey-url]</code> 為 REDCap 自動帶入的個人化連結，每封不同。</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="step-6設定自動提醒reminder" class="level2">
+<h2 class="anchored" data-anchor-id="step-6設定自動提醒reminder">Step 6｜設定自動提醒（Reminder）</h2>
+<ol type="1">
+<li><strong>Survey Distribution Tools → Reminders</strong></li>
+<li>建議設定：
+<ul>
+<li>第一次提醒：寄出後 <strong>3 天</strong>（未完成者）</li>
+<li>第二次提醒：截止前 <strong>2 天</strong></li>
+</ul></li>
+<li>可自訂提醒信件內容</li>
+</ol>
+<hr>
+</section>
+<section id="step-7追蹤回覆狀況" class="level2">
+<h2 class="anchored" data-anchor-id="step-7追蹤回覆狀況">Step 7｜追蹤回覆狀況</h2>
+<section id="participant-list-狀態說明" class="level3">
+<h3 class="anchored" data-anchor-id="participant-list-狀態說明">Participant List 狀態說明</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>狀態</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Not yet sent</code></td>
+<td>尚未寄出邀請</td>
+</tr>
+<tr class="even">
+<td><code>Invited</code></td>
+<td>已寄出，尚未填寫</td>
+</tr>
+<tr class="odd">
+<td><code>Reminder sent</code></td>
+<td>已寄出提醒</td>
+</tr>
+<tr class="even">
+<td><code>Completed</code></td>
+<td>已完成填寫</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="查看整體完成率" class="level3">
+<h3 class="anchored" data-anchor-id="查看整體完成率">查看整體完成率</h3>
+<ul>
+<li><strong>Record Status Dashboard</strong> → 各 form 完成狀況一覽</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="step-8匯出資料分析" class="level2">
+<h2 class="anchored" data-anchor-id="step-8匯出資料分析">Step 8｜匯出資料分析</h2>
+<ol type="1">
+<li>左側 → <strong>Data Exports, Reports, and Stats</strong></li>
+<li>選擇格式：Excel / CSV / SPSS / R / STATA</li>
+<li>建議依 <code>{prefix}_evaluated_name</code> 分組，計算各學員的 EPA 平均等級</li>
+<li>可在 <strong>Reports</strong> 先建立篩選條件：
+<ul>
+<li>僅匯出已完成的 records</li>
+<li>依次專科分別匯出</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="次專科-form-對照表" class="level2">
+<h2 class="anchored" data-anchor-id="次專科-form-對照表">次專科 Form 對照表</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>次專科</th>
+<th>Form Name</th>
+<th>Email 欄位</th>
+<th>科別預設值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>胸腔內科</td>
+<td><code>chest_epa</code></td>
+<td><code>chest_assessor_email</code></td>
+<td>胸腔內科</td>
+</tr>
+<tr class="even">
+<td>心臟內科</td>
+<td><code>cv_epa</code></td>
+<td><code>cv_assessor_email</code></td>
+<td>心臟內科</td>
+</tr>
+<tr class="odd">
+<td>腸胃內科</td>
+<td><code>gi_epa</code></td>
+<td><code>gi_assessor_email</code></td>
+<td>腸胃內科</td>
+</tr>
+<tr class="even">
+<td>腎臟內科</td>
+<td><code>nephro_epa</code></td>
+<td><code>nephro_assessor_email</code></td>
+<td>腎臟內科</td>
+</tr>
+<tr class="odd">
+<td>內分泌科</td>
+<td><code>endocrine_epa</code></td>
+<td><code>endocrine_assessor_email</code></td>
+<td>內分泌科</td>
+</tr>
+<tr class="even">
+<td>血液科</td>
+<td><code>hema_epa</code></td>
+<td><code>hema_assessor_email</code></td>
+<td>血液科</td>
+</tr>
+<tr class="odd">
+<td>感染科</td>
+<td><code>id_epa</code></td>
+<td><code>id_assessor_email</code></td>
+<td>感染科</td>
+</tr>
+<tr class="even">
+<td>腫瘤科</td>
+<td><code>onco_epa</code></td>
+<td><code>onco_assessor_email</code></td>
+<td>腫瘤科</td>
+</tr>
+<tr class="odd">
+<td>風濕免疫科</td>
+<td><code>rheuma_epa</code></td>
+<td><code>rheuma_assessor_email</code></td>
+<td>風濕免疫科</td>
+</tr>
+<tr class="even">
+<td>神經科</td>
+<td><code>neuro_epa</code></td>
+<td><code>neuro_assessor_email</code></td>
+<td>神經科</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="注意事項" class="level2">
+<h2 class="anchored" data-anchor-id="注意事項">注意事項</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>一筆 record = 一個「評核醫師 × 被評核學員」配對</strong>，不可混用</li>
+<li>Record ID 為系統自動產生，不需手動填寫</li>
+<li>若評核醫師跨多個次專科，各次專科需分別建立 record 並發送不同 form</li>
+<li>Survey 連結為一次性個人連結，請勿轉發</li>
+<li>匯入前請先備份原始配對名單 Excel</li>
+</ul>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已複製");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已複製");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/drake1128\.github\.io\/education\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2025-2026 台大醫院新竹分院 教學部 | 內科部 EPA 評核系統</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/drake1128/education/issues/new" class="toc-action"><i class="bi bi-github"></i>回報問題</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

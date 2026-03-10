@@ -1,0 +1,126 @@
+/* EPA Website Custom Styles */
+
+/* Color palette */
+:root {
+  --epa-purple: #4a148c;
+  --epa-purple-light: #7c43bd;
+  --epa-blue: #1565c0;
+  --epa-green: #2e7d32;
+  --epa-orange: #e65100;
+  --epa-red: #b71c1c;
+  --epa-teal: #00695c;
+}
+
+/* Level badge colors */
+.badge-level1 { background-color: #e53935; color: white; }
+.badge-level2 { background-color: #fb8c00; color: white; }
+.badge-level3 { background-color: #fdd835; color: #333; }
+.badge-level4 { background-color: #43a047; color: white; }
+.badge-level5 { background-color: #1565c0; color: white; }
+
+/* Trainee type badges */
+.badge-clerk { background-color: #7b1fa2; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+.badge-pgy { background-color: #388e3c; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+.badge-resident { background-color: #d32f2f; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+.badge-np { background-color: #1976d2; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+.badge-chief { background-color: #e65100; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+
+/* EPA card styling */
+.epa-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.2em;
+  margin-bottom: 1.5em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s;
+}
+.epa-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Level description table */
+.level-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.level-table th {
+  background-color: var(--epa-purple);
+  color: white;
+  padding: 8px 12px;
+  text-align: left;
+}
+.level-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+.level-table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* Subspecialty overview cards */
+.subspec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2em;
+  margin: 1.5em 0;
+}
+
+.subspec-card {
+  border-radius: 12px;
+  padding: 1.5em;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.subspec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.subspec-card h3 { color: white; margin-top: 0; }
+.subspec-card p { color: rgba(255,255,255,0.9); }
+
+.card-cv { background: linear-gradient(135deg, #c62828, #e53935); }
+.card-echo { background: linear-gradient(135deg, #ad1457, #e91e63); }
+.card-chest { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+.card-gi { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
+.card-endocrine { background: linear-gradient(135deg, #e65100, #ff9800); }
+.card-hema { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+.card-id { background: linear-gradient(135deg, #00695c, #26a69a); }
+.card-nephro { background: linear-gradient(135deg, #0d47a1, #1976d2); }
+.card-neuro { background: linear-gradient(135deg, #37474f, #78909c); }
+.card-onco { background: linear-gradient(135deg, #880e4f, #c2185b); }
+.card-rheuma { background: linear-gradient(135deg, #4527a0, #7e57c2); }
+
+/* Homepage hero */
+.hero-section {
+  background: linear-gradient(135deg, #4a148c, #7c43bd);
+  color: white;
+  padding: 3em 2em;
+  border-radius: 16px;
+  margin-bottom: 2em;
+  text-align: center;
+}
+.hero-section h1 { color: white; font-size: 2.2em; }
+.hero-section p { color: rgba(255,255,255,0.9); font-size: 1.1em; }
+
+/* Applicable trainee indicators */
+.applicable-trainees {
+  margin: 0.5em 0;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Callout customization */
+.callout-note { border-left-color: var(--epa-blue) !important; }
+.callout-tip { border-left-color: var(--epa-green) !important; }
+.callout-warning { border-left-color: var(--epa-orange) !important; }
+.callout-important { border-left-color: var(--epa-red) !important; }
+
+/* Print styles */
+@media print {
+  .navbar, .sidebar, .page-footer { display: none; }
+  .epa-card { break-inside: avoid; box-shadow: none; border: 1px solid #999; }
+}

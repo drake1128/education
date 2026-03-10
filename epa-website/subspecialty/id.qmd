@@ -1,0 +1,206 @@
+---
+title: "感染科 EPA"
+subtitle: "Infectious Diseases Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：感染症病史詢問及系統性理學檢查
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立進行感染症相關的完整病史詢問及系統性理學檢查,包括感染症狀評估、暴露史調查、免疫狀態評估,並能初步判斷感染部位及嚴重度。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能詢問基本感染症狀,需要監導者引導完成詢問 |
+| Level 2 | 直接監督 | 能系統性完成感染症病史詢問,進行基本理學檢查 |
+| Level 3 | 間接監督 | 能獨立完成複雜病史詢問,整合症狀與暴露史進行初步診斷 |
+| Level 4 | 監督可得 | 能在困難情況下獲取準確病史,識別罕見感染症候群 |
+| Level 5 | 完全獨立 | 能指導他人進行病史詢問,識別不典型感染表現 |
+
+## EPA 2：常見社區及院內感染致病原識別
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠根據臨床表現、流行病學資料及微生物學證據,正確識別常見社區及院內感染之致病原,並了解其抗藥性型態。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別最常見的社區感染致病原 |
+| Level 2 | 直接監督 | 能區分社區與院內感染常見致病原 |
+| Level 3 | 間接監督 | 能獨立識別多重抗藥性菌株,了解抗藥性型態 |
+| Level 4 | 監督可得 | 能識別罕見致病原,整合流行病學資料 |
+| Level 5 | 完全獨立 | 成為致病原識別專家,能預測新興抗藥性 |
+
+## EPA 3：抗生素適應症、副作用及使用時機
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠根據感染部位、致病原、病患狀況及抗藥性型態,合理選用抗生素,了解其作用機轉、副作用,並掌握使用時機及療程。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別常用抗生素名稱及基本適應症 |
+| Level 2 | 直接監督 | 能選擇常見感染之經驗性抗生素 |
+| Level 3 | 間接監督 | 能獨立執行抗生素治療,依培養結果調整 |
+| Level 4 | 監督可得 | 能處理複雜感染,執行抗生素降階治療 |
+| Level 5 | 完全獨立 | 成為抗生素使用專家,制定抗生素管理策略 |
+
+## EPA 4：微生物檢驗工具之採檢、使用時機及判讀
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠正確選擇及執行微生物檢驗,包括檢體採集、送檢流程、結果判讀,並整合臨床表現做出診斷。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能執行基本檢體採集,了解送檢流程 |
+| Level 2 | 直接監督 | 能正確採集各種檢體,判讀培養報告 |
+| Level 3 | 間接監督 | 能獨立執行檢驗,整合報告與臨床表現 |
+| Level 4 | 監督可得 | 能使用分子診斷工具,判斷污染與真正感染 |
+| Level 5 | 完全獨立 | 成為微生物診斷專家,指導複雜檢驗判讀 |
+
+## EPA 5：常見社區感染之診斷、治療及預防
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷與治療常見社區感染症,包括呼吸道、泌尿道、腸胃道、皮膚軟組織感染,並提供預防建議。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別常見社區感染症狀,知道基本治療 |
+| Level 2 | 直接監督 | 能診斷與治療單純性社區感染 |
+| Level 3 | 間接監督 | 能獨立管理複雜社區感染,提供預防建議 |
+| Level 4 | 監督可得 | 能處理難治性社區感染,整合多重因素 |
+| Level 5 | 完全獨立 | 成為社區感染專家,制定預防策略 |
+
+## EPA 6：院內感染之診斷、治療及預防
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷與治療院內感染,包括導管相關感染、手術部位感染、呼吸器相關肺炎,並執行預防措施。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別院內感染定義,了解預防原則 |
+| Level 2 | 直接監督 | 能診斷常見院內感染,執行基本預防措施 |
+| Level 3 | 間接監督 | 能獨立管理院內感染,執行bundle care |
+| Level 4 | 監督可得 | 能處理複雜院內感染,制定預防策略 |
+| Level 5 | 完全獨立 | 成為院內感染專家,改善感染管制品質 |
+
+## EPA 7：不明熱之診斷流程及處置
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠系統性評估不明熱病患,執行診斷流程,鑑別感染性、非感染性及惡性腫瘤相關發燒,並制定適當處置策略。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能了解不明熱定義,知道基本鑑別診斷 |
+| Level 2 | 直接監督 | 能執行基本不明熱評估,安排初步檢查 |
+| Level 3 | 間接監督 | 能獨立評估不明熱,執行系統性診斷流程 |
+| Level 4 | 監督可得 | 能處理複雜不明熱,做出治療決策 |
+| Level 5 | 完全獨立 | 成為不明熱診斷專家,處理罕見病因 |
+
+## EPA 8：免疫不全疾病及伺機性感染之診斷、治療及個案管理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估免疫不全病患,診斷與治療伺機性感染,包括愛滋病毒感染相關感染症,並提供長期個案管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別免疫不全狀態,了解常見伺機性感染 |
+| Level 2 | 直接監督 | 能評估免疫狀態,診斷常見伺機性感染 |
+| Level 3 | 間接監督 | 能獨立管理HIV感染,治療伺機性感染 |
+| Level 4 | 監督可得 | 能處理複雜免疫不全感染,提供個案管理 |
+| Level 5 | 完全獨立 | 成為免疫不全感染專家,制定管理策略 |
+
+## EPA 9：敗血症之診斷及處置
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別敗血症及敗血性休克,執行早期目標導向治療,進行感染源控制,並監測治療反應。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別敗血症症狀,知道基本處置原則 |
+| Level 2 | 直接監督 | 能執行1小時bundle,給予初步治療 |
+| Level 3 | 間接監督 | 能獨立處理敗血症,執行感染源控制 |
+| Level 4 | 監督可得 | 能處理敗血性休克,調整升壓劑與輸液 |
+| Level 5 | 完全獨立 | 成為敗血症專家,處理難治性休克 |
+
+## EPA 10：感染管制規範執行及法定傳染病通報
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠正確執行感染管制規範,包括手部衛生、隔離措施、無菌操作,並能及時通報法定傳染病。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能執行基本手部衛生,了解隔離原則 |
+| Level 2 | 直接監督 | 能正確執行隔離措施,進行無菌操作 |
+| Level 3 | 間接監督 | 能獨立執行感染管制,及時通報法定傳染病 |
+| Level 4 | 監督可得 | 能處理群聚事件,指導感染管制執行 |
+| Level 5 | 完全獨立 | 成為感染管制專家,改善管制品質 |

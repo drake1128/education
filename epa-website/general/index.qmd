@@ -1,0 +1,28 @@
+---
+title: "一般 EPA 總覽"
+subtitle: "General EPA Overview by Trainee Level"
+sidebar: general
+---
+
+本頁彙整各層級學員之一般 EPA（Entrustable Professional Activities，可委託專業活動）評估項目。EPA 評估旨在評量學員是否能獨立執行特定臨床工作，依據學員的實際表現選擇適當的信任等級（Level 1--5）。
+
+請選擇您要查看的訓練層級：
+
+<div class="subspec-grid">
+<a href="clerk.qmd" class="subspec-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+<h3>見習醫師 Clerk</h3>
+<p>5 EPAs：完整收集病史、執行身體檢查、提出鑑別診斷、醫病溝通與衛教、撰寫病歷紀錄</p>
+</a>
+<a href="pgy.qmd" class="subspec-card" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+<h3>PGY 醫師 Post-Graduate Year</h3>
+<p>6 EPAs：急性病患評估與初步處置、基本生命救治術、臨床處置技能、病患交班與溝通、檢驗檢查判讀與臨床決策、團隊合作與跨專業溝通</p>
+</a>
+<a href="resident.qmd" class="subspec-card" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+<h3>住院醫師 Resident</h3>
+<p>7 EPAs：複雜病患的獨立照護、專科特定處置與技術、急重症處理與危機管理、實證醫學與臨床研究、教學與督導能力、病人安全與品質改善、專業素養與倫理決策</p>
+</a>
+<a href="np.qmd" class="subspec-card" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+<h3>專科護理師 Nurse Practitioner</h3>
+<p>7 EPAs：進階健康評估、診斷推理與臨床決策、藥物處方與管理、專科護理處置技能、病患及家屬衛教、跨專業團隊協作、實證護理與品質改善</p>
+</a>
+</div>

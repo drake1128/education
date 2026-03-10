@@ -1,0 +1,206 @@
+---
+title: "內分泌科 EPA"
+subtitle: "Endocrinology Entrustable Professional Activities"
+sidebar: subspecialty
+---
+
+## EPA 1：糖尿病診斷與治療
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠獨立診斷糖尿病及前期糖尿病，制定個別化治療計畫，包括飲食運動處方、口服降糖藥物與胰島素治療，並進行長期追蹤管理。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別糖尿病症狀，知道診斷標準 |
+| Level 2 | 直接監督 | 能診斷糖尿病，開始基本降糖治療 |
+| Level 3 | 間接監督 | 能獨立管理糖尿病，設定治療目標，安排併發症篩檢 |
+| Level 4 | 監督可得 | 能處理複雜糖尿病，調整複雜藥物組合 |
+| Level 5 | 完全獨立 | 成為糖尿病專家，制定個人化治療策略 |
+
+## EPA 2：糖尿病相關用藥認識與使用
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠熟悉各類降糖藥物之作用機轉、適應症、禁忌症、副作用，並能根據病患狀況合理選用與調整藥物。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別常用降糖藥物名稱及基本作用 |
+| Level 2 | 直接監督 | 能開立基本降糖藥物處方 |
+| Level 3 | 間接監督 | 能獨立選用與調整降糖藥物，執行胰島素起始治療 |
+| Level 4 | 監督可得 | 能制定複雜藥物組合，調整胰島素多次注射 |
+| Level 5 | 完全獨立 | 成為降糖藥物專家，處理難治性糖尿病 |
+
+## EPA 3：高血糖與低血糖急症處理
+
+<div class="applicable-trainees">
+<span class="badge-clerk">見習醫師</span>
+<span class="badge-pgy">PGY</span>
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別高血糖急症（DKA、HHS）及低血糖症，執行緊急處置，進行輸液與胰島素治療，並監測電解質與血糖變化。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別高低血糖症狀，知道緊急處置原則 |
+| Level 2 | 直接監督 | 能處理輕度低血糖，協助DKA治療 |
+| Level 3 | 間接監督 | 能獨立處理DKA與低血糖急症 |
+| Level 4 | 監督可得 | 能處理複雜高低血糖急症，預防併發症 |
+| Level 5 | 完全獨立 | 成為糖尿病急症專家，處理危急情況 |
+
+## EPA 4：甲狀腺功能異常判讀與處理
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠判讀甲狀腺功能檢查報告，診斷甲狀腺功能亢進、低下及其他甲狀腺疾病，並制定適當治療計畫。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能判讀基本甲狀腺功能檢查 |
+| Level 2 | 直接監督 | 能診斷明顯甲狀腺功能異常 |
+| Level 3 | 間接監督 | 能獨立診斷與治療甲狀腺疾病 |
+| Level 4 | 監督可得 | 能處理複雜甲狀腺疾病，評估結節 |
+| Level 5 | 完全獨立 | 成為甲狀腺專家，處理罕見疾病 |
+
+## EPA 5：常見腎上腺疾病診斷與處置
+
+<div class="applicable-trainees">
+<span class="badge-np">NP</span>
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷與處置常見腎上腺疾病，包括庫欣氏症候群、原發性醛固酮增多症、嗜鉻細胞瘤、腎上腺功能不全等。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別腎上腺疾病可能性，知道基本檢查 |
+| Level 2 | 直接監督 | 能執行腎上腺疾病篩檢，判讀基本檢查 |
+| Level 3 | 間接監督 | 能獨立診斷常見腎上腺疾病，執行確認試驗 |
+| Level 4 | 監督可得 | 能處理複雜腎上腺疾病，進行病因鑑別 |
+| Level 5 | 完全獨立 | 成為腎上腺疾病專家，處理罕見病例 |
+
+## EPA 6：常見腦下垂體疾病診斷與處置
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠診斷與處置常見腦下垂體疾病，包括泌乳激素瘤、肢端肥大症、庫欣病、腦下垂體功能低下等。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別腦下垂體疾病可能性 |
+| Level 2 | 直接監督 | 能執行基本腦下垂體功能評估 |
+| Level 3 | 間接監督 | 能獨立診斷常見腦下垂體疾病 |
+| Level 4 | 監督可得 | 能處理複雜腦下垂體疾病，評估手術適應症 |
+| Level 5 | 完全獨立 | 成為腦下垂體疾病專家，長期追蹤管理 |
+
+## EPA 7：內分泌相關急症識別與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠快速識別內分泌相關急症，包括甲狀腺風暴、黏液水腫昏迷、腎上腺危象等，並執行緊急處置。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別內分泌急症可能性 |
+| Level 2 | 直接監督 | 能協助處理內分泌急症 |
+| Level 3 | 間接監督 | 能獨立處理常見內分泌急症 |
+| Level 4 | 監督可得 | 能處理複雜危急情況，整合多重因素 |
+| Level 5 | 完全獨立 | 成為內分泌急症專家，指導危急處置 |
+
+## EPA 8：肥胖與代謝症候群病人整合照護
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估與管理肥胖及代謝症候群病人，提供整合性照護，包括生活型態介入、藥物治療、減重手術評估。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別肥胖與代謝症候群 |
+| Level 2 | 直接監督 | 能提供基本生活型態建議 |
+| Level 3 | 間接監督 | 能獨立管理肥胖與代謝症候群，提供整合照護 |
+| Level 4 | 監督可得 | 能處理複雜肥胖病例，評估減重手術 |
+| Level 5 | 完全獨立 | 成為肥胖醫學專家，制定整合治療策略 |
+
+## EPA 9：高血脂評估與處理
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠評估血脂異常，計算心血管風險，制定降脂治療策略，包括生活型態介入與藥物治療，並監測療效與副作用。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能判讀血脂檢查，識別異常 |
+| Level 2 | 直接監督 | 能開立基本降脂藥物，提供生活建議 |
+| Level 3 | 間接監督 | 能獨立評估與治療血脂異常，設定LDL-C目標 |
+| Level 4 | 監督可得 | 能處理難治性高血脂，使用進階降脂藥物 |
+| Level 5 | 完全獨立 | 成為血脂專家，制定個人化治療策略 |
+
+## EPA 10：高低血鈣原因與數值判讀
+
+<div class="applicable-trainees">
+<span class="badge-resident">住院醫師</span>
+<span class="badge-chief">總醫師</span>
+</div>
+
+能夠判讀血鈣與相關檢查數值，診斷高血鈣與低血鈣病因，包括副甲狀腺功能異常，並制定適當治療策略。
+
+### 信任等級 Entrustment Levels
+
+| 等級 | 描述 | 行為指標 |
+|:----:|------|----------|
+| Level 1 | 觀察學習 | 能識別異常血鈣數值 |
+| Level 2 | 直接監督 | 能判讀血鈣相關檢查，進行初步鑑別 |
+| Level 3 | 間接監督 | 能獨立診斷高低血鈣病因，執行治療 |
+| Level 4 | 監督可得 | 能處理複雜血鈣異常，整合多重病因 |
+| Level 5 | 完全獨立 | 成為鈣代謝專家，處理罕見病因 |
