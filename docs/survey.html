@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>流動NP評核媒合調查 | 內科部 EPA</title>
+<style>
+  :root {
+    --primary: #4a148c;
+    --primary-light: #7c43bd;
+    --primary-dark: #2c0057;
+    --accent: #00bfa5;
+    --accent-light: #5df2d6;
+    --bg: #fafafa;
+    --card: #ffffff;
+    --text: #212121;
+    --text-secondary: #757575;
+    --border: #e0e0e0;
+    --success: #43a047;
+    --warning: #fb8c00;
+    --error: #e53935;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .hero h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .hero p { font-size: 0.95rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 1.5rem; }
+
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--primary);
+  }
+  .card-header .step {
+    background: var(--primary);
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .card-header h2 { font-size: 1.1rem; font-weight: 600; }
+
+  label { display: block; font-weight: 500; margin-bottom: 0.4rem; font-size: 0.95rem; }
+  .required::after { content: " *"; color: var(--error); }
+
+  input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(74,20,140,0.1);
+  }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .field-group { margin-bottom: 1rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
+
+  .hint { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+  /* NP Section */
+  .specialty-section {
+    margin-bottom: 1.5rem;
+    display: none;
+  }
+  .specialty-section.visible { display: block; }
+  .specialty-section.all-visible { display: block; }
+
+  .specialty-tag {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .tag-cv { background: #fce4ec; color: #c62828; }
+  .tag-chest { background: #e3f2fd; color: #1565c0; }
+  .tag-gi { background: #e8f5e9; color: #2e7d32; }
+  .tag-endo { background: #fff3e0; color: #e65100; }
+  .tag-nephro { background: #e0f7fa; color: #00695c; }
+  .tag-id { background: #f3e5f5; color: #6a1b9a; }
+  .tag-onco { background: #fbe9e7; color: #bf360c; }
+  .tag-rheuma { background: #ede7f6; color: #4527a0; }
+
+  .np-item {
+    background: #f8f9fa;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .np-item.selected {
+    border-color: var(--accent);
+    background: #e0f2f1;
+  }
+
+  .np-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+  .np-header input[type="checkbox"] {
+    width: 20px; height: 20px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .np-name { font-weight: 600; font-size: 1rem; }
+  .np-dept {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .np-detail {
+    display: none;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--border);
+  }
+  .np-item.selected .np-detail { display: block; }
+
+  .radio-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+  }
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .radio-option input[type="radio"] {
+    accent-color: var(--primary);
+    cursor: pointer;
+  }
+
+  /* Result */
+  .result-area {
+    display: none;
+    margin-top: 1.5rem;
+  }
+  .result-area.show { display: block; }
+
+  .result-box {
+    background: #f5f5f5;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .btn-accent {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-accent:hover { background: #00897b; transform: translateY(-1px); }
+  .btn-outline {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+  .btn-outline:hover { background: rgba(74,20,140,0.05); }
+
+  .btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #333;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 100;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .info-box {
+    background: #e8eaf6;
+    border-left: 4px solid var(--primary);
+    padding: 0.8rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>流動NP評核媒合調查</h1>
+  <p>請各位主治醫師協助確認：過去 6-12 個月內，您是否曾帶過以下流動性質的專科護理師？</p>
+  <div class="badge">台大醫院新竹分院 內科部 EPA 評核系統</div>
+</div>
+
+<div class="container">
+
+  <!-- Step 1: VS Info -->
+  <div class="card">
+    <div class="card-header">
+      <div class="step">1</div>
+      <h2>您的基本資料</h2>
+    </div>
+    <div class="field-row">
+      <div class="field-group">
+        <label class="required" for="vsName">姓名</label>
+        <input type="text" id="vsName" placeholder="例：王大明">
+      </div>
+      <div class="field-group">
+        <label class="required" for="vsSpecialty">次專科</label>
+        <select id="vsSpecialty">
+          <option value="">── 請選擇 ──</option>
+          <option value="心臟內科">心臟內科</option>
+          <option value="胸腔內科">胸腔內科</option>
+          <option value="腸胃內科">腸胃內科</option>
+          <option value="內分泌科">內分泌科</option>
+          <option value="腎臟內科">腎臟內科</option>
+          <option value="感染科">感染科</option>
+          <option value="血液腫瘤科">血液腫瘤科</option>
+          <option value="風溼免疫科">風溼免疫科</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-group">
+      <label for="vsEmail">電子信箱（選填）</label>
+      <input type="email" id="vsEmail" placeholder="例：wang@ntuh.gov.tw">
+    </div>
+  </div>
+
+  <!-- Step 2: NP Selection -->
+  <div class="card">
+    <div class="card-header">
+      <div class="step">2</div>
+      <h2>請勾選您曾帶過的流動NP <span id="selectedCount" class="counter">0 位已選</span></h2>
+    </div>
+
+    <div class="info-box">
+      選擇次專科後，會自動顯示該科相關的流動NP名單。跨科NP會出現在所有相關科別中。
+    </div>
+
+    <div id="npListContainer">
+
+      <!-- 心臟內科 -->
+      <div class="specialty-section" data-specialty="心臟內科">
+        <span class="specialty-tag tag-cv">心臟內科</span>
+        <div class="np-item" data-np="張惠婷">
+          <div class="np-header">
+            <input type="checkbox" id="np_張惠婷_cv" onchange="toggleNP(this)">
+            <label class="np-name" for="np_張惠婷_cv">張惠婷</label>
+            <span class="np-dept">流動</span>
+          </div>
+          <div class="np-detail">
+            <div class="field-group">
+              <label>合作時間長度</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="dur_張惠婷_cv" value="< 1個月"> &lt; 1個月</label>
+                <label class="radio-option"><input type="radio" name="dur_張惠婷_cv" value="1-3個月"> 1-3個月</label>
+                <label class="radio-option"><input type="radio" name="dur_張惠婷_cv" value="3-6個月"> 3-6個月</label>
+                <label class="radio-option"><input type="radio" name="dur_張惠婷_cv" value="> 6個月"> &gt; 6個月</label>
+              </div>
+            </div>
+            <div class="field-group">
+              <label>您是否願意擔任她的 EPA 評分醫師？</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="will_張惠婷_cv" value="願意"> 願意</label>
+                <label class="radio-option"><input type="radio" name="will_張惠婷_cv" value="視情況"> 視情況</label>
+                <label class="radio-option"><input type="radio" name="will_張惠婷_cv" value="不方便"> 不方便</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 胸腔內科 -->
+      <div class="specialty-section" data-specialty="胸腔內科">
+        <span class="specialty-tag tag-chest">胸腔內科</span>
+      </div>
+
+      <!-- 腸胃內科 -->
+      <div class="specialty-section" data-specialty="腸胃內科">
+        <span class="specialty-tag tag-gi">腸胃內科</span>
+      </div>
+
+      <!-- 內分泌科 -->
+      <div class="specialty-section" data-specialty="內分泌科">
+        <span class="specialty-tag tag-endo">內分泌科</span>
+      </div>
+
+      <!-- 腎臟內科 -->
+      <div class="specialty-section" data-specialty="腎臟內科">
+        <span class="specialty-tag tag-nephro">腎臟內科</span>
+      </div>
+
+      <!-- 感染科 -->
+      <div class="specialty-section" data-specialty="感染科">
+        <span class="specialty-tag tag-id">感染科</span>
+      </div>
+
+      <!-- 血液腫瘤科 -->
+      <div class="specialty-section" data-specialty="血液腫瘤科">
+        <span class="specialty-tag tag-onco">血液腫瘤科</span>
+      </div>
+
+      <!-- 風溼免疫科 -->
+      <div class="specialty-section" data-specialty="風溼免疫科">
+        <span class="specialty-tag tag-rheuma">風溼免疫科</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Step 3: Additional -->
+  <div class="card">
+    <div class="card-header">
+      <div class="step">3</div>
+      <h2>補充說明（選填）</h2>
+    </div>
+    <div class="field-group">
+      <label for="comments">如有其他想補充的資訊，請填寫於此</label>
+      <textarea id="comments" placeholder="例：我也曾帶過其他科的NP、某位NP目前已離職等"></textarea>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="generateResult()">產生調查結果</button>
+    <button class="btn btn-accent" onclick="copyResult()">複製結果</button>
+    <button class="btn btn-outline" onclick="sendEmail()">以 Email 寄出</button>
+  </div>
+
+  <!-- Result -->
+  <div class="result-area" id="resultArea">
+    <div class="card">
+      <div class="card-header">
+        <div class="step" style="background:var(--success)">✓</div>
+        <h2>調查結果預覽</h2>
+      </div>
+      <div class="result-box" id="resultBox"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  台大醫院新竹分院 教學部 | 內科部 EPA 評核系統<br>
+  本問卷僅供 EPA 評核媒合使用 | 2026
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Mobile NP data grouped by specialty they rotate through
+const mobileNPs = {
+  '心臟內科': [
+    { name: '張惠婷', type: '流動', cross: false },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '胸腔內科': [
+    { name: '吳惠如', type: '流動', cross: false },
+    { name: '李雅丞', type: '流動', cross: false },
+    { name: '林子甯', type: '流動', cross: false },
+    { name: '陳品志', type: '流動（訓練中）', cross: false },
+    { name: '劉妤珊', type: '流動', cross: false },
+    { name: '洪韻新', type: '跨科（腸胃+胸腔）', cross: true },
+    { name: '許依穎', type: '跨科（血腫+感染+胸腔）', cross: true },
+    { name: '許家晟', type: '跨科（血腫+腎臟+胸腔）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '腸胃內科': [
+    { name: '蔡佳辰', type: '流動', cross: false },
+    { name: '洪韻新', type: '跨科（腸胃+胸腔）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '內分泌科': [
+    { name: '陳逵蓉', type: '流動', cross: false },
+    { name: '廖筱芸', type: '流動', cross: false },
+    { name: '紀怡如', type: '跨科（血腫+內分泌）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '腎臟內科': [
+    { name: '許家晟', type: '跨科（血腫+腎臟+胸腔）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '感染科': [
+    { name: '孔令潔', type: '跨科（感染+血腫）', cross: true },
+    { name: '許依穎', type: '跨科（血腫+感染+胸腔）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '血液腫瘤科': [
+    { name: '陳秀如', type: '流動', cross: false },
+    { name: '張月梅', type: '流動', cross: false },
+    { name: '羅彩鳳', type: '流動', cross: false },
+    { name: '林文茹', type: '流動', cross: false },
+    { name: '孔令潔', type: '跨科（感染+血腫）', cross: true },
+    { name: '紀怡如', type: '跨科（血腫+內分泌）', cross: true },
+    { name: '許依穎', type: '跨科（血腫+感染+胸腔）', cross: true },
+    { name: '許家晟', type: '跨科（血腫+腎臟+胸腔）', cross: true },
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ],
+  '風溼免疫科': [
+    { name: '陳宏鈞', type: '包小夜（跨科輪班）', cross: true }
+  ]
+};
+
+const tagClasses = {
+  '心臟內科': 'tag-cv',
+  '胸腔內科': 'tag-chest',
+  '腸胃內科': 'tag-gi',
+  '內分泌科': 'tag-endo',
+  '腎臟內科': 'tag-nephro',
+  '感染科': 'tag-id',
+  '血液腫瘤科': 'tag-onco',
+  '風溼免疫科': 'tag-rheuma'
+};
+
+// Build NP items dynamically
+function buildNPItems() {
+  for (const [specialty, nps] of Object.entries(mobileNPs)) {
+    const section = document.querySelector(`.specialty-section[data-specialty="${specialty}"]`);
+    if (!section) continue;
+
+    for (const np of nps) {
+      const key = `${np.name}_${specialty.replace(/[^\w\u4e00-\u9fff]/g,'')}`;
+      const crossBadge = np.cross ? ' <span style="color:var(--warning);font-size:0.8rem;">跨科</span>' : '';
+
+      const item = document.createElement('div');
+      item.className = 'np-item';
+      item.dataset.np = np.name;
+      item.innerHTML = `
+        <div class="np-header">
+          <input type="checkbox" id="np_${key}" onchange="toggleNP(this)">
+          <label class="np-name" for="np_${key}">${np.name}${crossBadge}</label>
+          <span class="np-dept">${np.type}</span>
+        </div>
+        <div class="np-detail">
+          <div class="field-group">
+            <label>合作時間長度</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="dur_${key}" value="< 1個月"> &lt; 1個月</label>
+              <label class="radio-option"><input type="radio" name="dur_${key}" value="1-3個月"> 1-3個月</label>
+              <label class="radio-option"><input type="radio" name="dur_${key}" value="3-6個月"> 3-6個月</label>
+              <label class="radio-option"><input type="radio" name="dur_${key}" value="> 6個月"> &gt; 6個月</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>您是否願意擔任此NP的 EPA 評分醫師？</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="will_${key}" value="願意"> 願意</label>
+              <label class="radio-option"><input type="radio" name="will_${key}" value="視情況"> 視情況</label>
+              <label class="radio-option"><input type="radio" name="will_${key}" value="不方便"> 不方便</label>
+            </div>
+          </div>
+        </div>
+      `;
+      section.appendChild(item);
+    }
+  }
+
+  // Remove the manually created 張惠婷 item (already in data)
+  const manualItem = document.querySelector('.specialty-section[data-specialty="心臟內科"] > .np-item');
+  if (manualItem) manualItem.remove();
+}
+
+// Filter NP list by selected specialty
+document.getElementById('vsSpecialty').addEventListener('change', function() {
+  const selected = this.value;
+  document.querySelectorAll('.specialty-section').forEach(s => {
+    if (!selected) {
+      s.classList.remove('visible');
+    } else if (s.dataset.specialty === selected) {
+      s.classList.add('visible');
+    } else {
+      // Also show cross-specialty NPs from other sections
+      s.classList.remove('visible');
+    }
+  });
+
+  // Always show all sections that contain NPs relevant to the selected specialty
+  // Show the VS's own specialty + any section that has cross-specialty NPs mentioning their specialty
+  if (selected) {
+    // Show own specialty
+    const ownSection = document.querySelector(`.specialty-section[data-specialty="${selected}"]`);
+    if (ownSection) ownSection.classList.add('visible');
+  }
+});
+
+function toggleNP(checkbox) {
+  const item = checkbox.closest('.np-item');
+  item.classList.toggle('selected', checkbox.checked);
+  updateCount();
+}
+
+function updateCount() {
+  const count = document.querySelectorAll('.np-item.selected').length;
+  document.getElementById('selectedCount').textContent = `${count} 位已選`;
+}
+
+function generateResult() {
+  const name = document.getElementById('vsName').value.trim();
+  const specialty = document.getElementById('vsSpecialty').value;
+  const email = document.getElementById('vsEmail').value.trim();
+  const comments = document.getElementById('comments').value.trim();
+
+  if (!name || !specialty) {
+    showToast('請先填寫姓名和次專科');
+    return;
+  }
+
+  let result = `=== 流動NP評核媒合調查結果 ===\n`;
+  result += `填寫日期：${new Date().toLocaleDateString('zh-TW')}\n`;
+  result += `主治醫師：${name}\n`;
+  result += `次專科：${specialty}\n`;
+  if (email) result += `Email：${email}\n`;
+  result += `\n--- 曾帶過的流動NP ---\n`;
+
+  const selected = document.querySelectorAll('.np-item.selected');
+  if (selected.length === 0) {
+    result += '（無勾選任何流動NP）\n';
+  } else {
+    selected.forEach((item, i) => {
+      const npName = item.querySelector('.np-name').textContent.replace(/跨科/g, '').trim();
+      const npType = item.querySelector('.np-dept').textContent;
+      const section = item.closest('.specialty-section');
+      const npSpecialty = section ? section.dataset.specialty : '';
+
+      const key = `${npName}_${npSpecialty.replace(/[^\w\u4e00-\u9fff]/g,'')}`;
+      const durRadio = document.querySelector(`input[name="dur_${key}"]:checked`);
+      const willRadio = document.querySelector(`input[name="will_${key}"]:checked`);
+
+      result += `\n${i+1}. ${npName}（${npSpecialty}，${npType}）\n`;
+      result += `   合作時間：${durRadio ? durRadio.value : '未填'}\n`;
+      result += `   願意評分：${willRadio ? willRadio.value : '未填'}\n`;
+    });
+  }
+
+  if (comments) {
+    result += `\n--- 補充說明 ---\n${comments}\n`;
+  }
+
+  result += `\n============================\n`;
+
+  document.getElementById('resultBox').textContent = result;
+  document.getElementById('resultArea').classList.add('show');
+  document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyResult() {
+  const text = document.getElementById('resultBox').textContent;
+  if (!text) {
+    showToast('請先產生調查結果');
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('已複製到剪貼簿！');
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('已複製到剪貼簿！');
+  });
+}
+
+function sendEmail() {
+  const text = document.getElementById('resultBox').textContent;
+  if (!text) {
+    showToast('請先產生調查結果');
+    return;
+  }
+  const name = document.getElementById('vsName').value.trim();
+  const subject = encodeURIComponent(`【EPA 流動NP調查】${name} 填答結果`);
+  const body = encodeURIComponent(text);
+  const mailto = `mailto:drake1128@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = mailto;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Init
+buildNPItems();
+</script>
+
+</body>
+</html>
