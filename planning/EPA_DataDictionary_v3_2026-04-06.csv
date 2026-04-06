@@ -1,0 +1,338 @@
+﻿Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+record_id,participant_enrollment,,text,Record ID,,,,,,,,,,,,,@HIDDEN-SURVEY @DEFAULT='[record-auto-number]'
+user_name,participant_enrollment,,text,評核人員姓名,,,,,,,,,,,,,
+trainee_email,participant_enrollment,,text,學員電子信箱,,用於發送 survey 邀請,email,,,y,,y,,,,,@CHARLIMIT=100
+enrollment_date,participant_enrollment,,text,註冊日期,,,date_ymd,,,,,,,,,,
+chest_eval_date,chest_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+chest_assessor_name,chest_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+chest_assessor_email,chest_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+chest_assessor_title,chest_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+chest_evaluated_id,chest_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+chest_evaluated_name,chest_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+chest_evaluated_type,chest_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+chest_trainee_type,chest_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+chest_trainee_name,chest_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+chest_dept,chest_epa,,text,評核科別,,預設：胸腔內科,,,,,,,,,,,@DEFAULT='胸腔內科' @READONLY @HIDDEN-SURVEY
+chest_section_epa,chest_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_chest_1,chest_epa,,dropdown,EPA 1: 胸腔科病史詢問與風險評估,"1, Level 1 - 能詢問基本呼吸系統症狀需督導引導 | 2, Level 2 - 能系統性完成病史詢問使用評估工具 | 3, Level 3 - 能獨立完成複雜病史詢問整合風險分層 | 4, Level 4 - 能在困難情況獲取準確病史 | 5, Level 5 - 能指導他人識別罕見症狀 | 0, 未評估",核心能力: 症狀評估/危險因子識別/功能評估/職業環境史,,,,,,y,,,,,
+epa_chest_2,chest_epa,,dropdown,EPA 2: 胸部理學檢查,"1, Level 1 - 能基本胸部聽診識別正常呼吸音 | 2, Level 2 - 能識別常見異常呼吸音系統性檢查 | 3, Level 3 - 能區分異常囉音準確評估積液整合發現 | 4, Level 4 - 能識別複雜呼吸音技術精準有效率 | 5, Level 5 - 能偵測細微異常整合臨床表現 | 0, 未評估",核心能力: 視診/觸診/叩診/聽診/杵狀指發紺,,,,,,y,,,,,
+epa_chest_3,chest_epa,,dropdown,EPA 3: 胸部影像判讀與分析,"1, Level 1 - 能識別基本正常胸部X光結構 | 2, Level 2 - 能識別明顯異常病變判讀基本CT | 3, Level 3 - 能獨立判讀大部分影像異常整合症狀 | 4, Level 4 - 能判讀複雜影像識別早期病變 | 5, Level 5 - 成為影像專家能教導複雜判讀 | 0, 未評估",核心能力: X光判讀/CT判讀/病變識別/胸膜疾病/縱膈評估,,,,,,y,,,,,
+epa_chest_4,chest_epa,,dropdown,EPA 4: 肺功能檢查操作與判讀,"1, Level 1 - 能協助基本肺量計檢查 | 2, Level 2 - 能獨立操作標準檢查基本判讀 | 3, Level 3 - 能完成標準檢查準確評估異常類型 | 4, Level 4 - 能進階技術準確定量評估 | 5, Level 5 - 成為肺功能專家教導複雜技術 | 0, 未評估",核心能力: 肺量計操作/FVC FEV1測量/阻塞限制識別/支氣管擴張試驗,,,,,,y,,,,,
+epa_chest_5,chest_epa,,dropdown,EPA 5: 急性呼吸衰竭診斷與初步處理,"1, Level 1 - 能識別典型窘迫症狀知基本檢查 | 2, Level 2 - 能使用診斷流程基本嚴重度評估 | 3, Level 3 - 能獨立診斷呼吸衰竭適當治療策略 | 4, Level 4 - 能處理複雜情況整合多因子決策 | 5, Level 5 - 成為急性衰竭專家指導複雜個案 | 0, 未評估",核心能力: 快速識別/血氣影像檢查/嚴重度分級/氧氣治療/呼吸器決策,,,,,,y,,,,,
+epa_chest_6,chest_epa,,dropdown,EPA 6: 氣道疾病診斷與處理,"1, Level 1 - 能識別基本阻塞症狀知緊急原則 | 2, Level 2 - 能處理穩定氣道選基本藥物 | 3, Level 3 - 能獨立處理大部分疾病急性決定 | 4, Level 4 - 能處理複雜疾病評估生物製劑 | 5, Level 5 - 成為氣道專家執行複雜程序 | 0, 未評估",核心能力: 氣喘COPD支擴識別/嚴重度評估/治療選擇/急性處置/長期管理,,,,,,y,,,,,
+epa_chest_7,chest_epa,,dropdown,EPA 7: 肺炎與感染性疾病診斷與治療,"1, Level 1 - 能識別肺炎症狀知基本抗生素 | 2, Level 2 - 能使用治療指引基本調整 | 3, Level 3 - 能獨立管理穩定肺炎調整組合 | 4, Level 4 - 能處理難治感染評估進階選項 | 5, Level 5 - 成為感染專家發展個人化策略 | 0, 未評估",核心能力: 診斷評估/病因識別/CURB65 PSI/抗生素治療/整合照護,,,,,,y,,,,,
+epa_chest_8,chest_epa,,dropdown,EPA 8: 肺栓塞診斷與管理,"1, Level 1 - 能識別PE症狀知基本診斷流程 | 2, Level 2 - 能使用評分工具開始抗凝治療 | 3, Level 3 - 能獨立診斷PE選適當抗凝 | 4, Level 4 - 能處理複雜PE評估溶栓治療 | 5, Level 5 - 成為血栓專家發展個人化策略 | 0, 未評估",核心能力: Wells Geneva評分/Ddimer CTPA VQ/風險分層/DOAC warfarin/預防措施,,,,,,y,,,,,
+epa_chest_9,chest_epa,,dropdown,EPA 9: 胸腔穿刺術與胸管置放,"1, Level 1 - 能協助穿刺了解基本解剖 | 2, Level 2 - 能監督下執行診斷性穿刺 | 3, Level 3 - 能獨立執行穿刺處理併發症 | 4, Level 4 - 能執行複雜手術使用進階技術 | 5, Level 5 - 成為手術專家教導複雜技術 | 0, 未評估",核心能力: 適應症評估/超音波定位/無菌技術/併發症預防/術後管理,,,,,,y,,,,,
+epa_chest_10,chest_epa,,dropdown,EPA 10: 支氣管內視鏡檢查,"1, Level 1 - 能協助支氣管鏡識別基本解剖 | 2, Level 2 - 能監督下執行診斷性支氣管鏡 | 3, Level 3 - 能獨立執行標準鏡檢取得檢體 | 4, Level 4 - 能執行治療性鏡檢處理併發症 | 5, Level 5 - 成為鏡檢專家執行進階技術 | 0, 未評估",核心能力: 設備操作/解剖識別/檢體取得/病理識別/治療處置,,,,,,y,,,,,
+epa_chest_11,chest_epa,,dropdown,EPA 11: 結核病診斷與治療管理,"1, Level 1 - 能識別TB症狀知基本檢查 | 2, Level 2 - 能執行診斷流程開始一線治療 | 3, Level 3 - 能獨立管理典型TB監測反應 | 4, Level 4 - 能處理複雜TB評估抗藥治療 | 5, Level 5 - 成為TB專家管理MDR併發症 | 0, 未評估",核心能力: 痰液IGRA分子診斷/影像評估/抗TB藥物/副作用監測/抗藥性處理/感染控制,,,,,,y,,,,,
+epa_chest_12,chest_epa,,dropdown,EPA 12: 非典型分枝桿菌感染診斷與管理,"1, Level 1 - 能識別NTM可能性了解基本檢查 | 2, Level 2 - 能應用診斷標準區分致病定植 | 3, Level 3 - 能獨立診斷NTM制定治療計畫 | 4, Level 4 - 能處理難治NTM整合內外科 | 5, Level 5 - 成為NTM專家處理抗藥個案 | 0, 未評估",核心能力: MAC Mkansasii菌種識別/ATS診斷標準/影像特徵/治療決策/外科評估,,,,,,y,,,,,
+epa_chest_13,chest_epa,,dropdown,EPA 13: 肺癌診斷與分期評估,"1, Level 1 - 能識別肺癌可疑症狀知基本流程 | 2, Level 2 - 能執行分期檢查參與團隊討論 | 3, Level 3 - 能獨立完成分期制定初步計畫 | 4, Level 4 - 能整合複雜結果協調多科治療 | 5, Level 5 - 成為肺癌專家領導團隊照護 | 0, 未評估",核心能力: 早期偵測/病理診斷/TNM分期/EGFR ALK PDL1/功能評估/多科整合/症狀緩解,,,,,,y,,,,,
+epa_chest_14,chest_epa,,dropdown,EPA 14: 間質性肺疾病診斷與治療,"1, Level 1 - 能識別ILD可能性知基本檢查 | 2, Level 2 - 能執行基本評估識別HRCT型態 | 3, Level 3 - 能獨立診斷ILD制定治療計畫 | 4, Level 4 - 能處理複雜ILD評估移植適應症 | 5, Level 5 - 成為ILD專家領導MDT討論 | 0, 未評估",核心能力: 臨床評估/HRCT判讀/病因分析/BAL肺切片/抗纖維化治療/移植評估,,,,,,y,,,,,
+chest_section_comments,chest_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+chest_overall_comments,chest_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,,
+chest_strengths,chest_epa,,notes,優點與具體表現,,,,,,,,,,,,,
+chest_areas_improvement,chest_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,,
+chest_recommendation,chest_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_3,chest_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_3,chest_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_3,chest_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_3,chest_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_3,chest_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_3,chest_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_3,chest_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+cv_eval_date,cv_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+cv_assessor_name,cv_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+cv_assessor_email,cv_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+cv_assessor_title,cv_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+cv_evaluated_id,cv_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+cv_evaluated_name,cv_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+cv_evaluated_type,cv_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+cv_trainee_type,cv_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+cv_trainee_name,cv_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+cv_dept,cv_epa,,text,評核科別,,預設：心臟內科,,,,,,,,,,,@DEFAULT='心臟內科' @READONLY @HIDDEN-SURVEY
+cv_section_epa,cv_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_cv_1,cv_epa,,dropdown,EPA 1: 心臟科病史詢問與風險評估,"1, Level 1 - 能詢問基本心血管症狀需督導引導 | 2, Level 2 - 能系統性完成病史詢問使用疼痛評估工具 | 3, Level 3 - 能獨立完成複雜病史詢問整合風險分層 | 4, Level 4 - 能在困難情況獲取準確病史 | 5, Level 5 - 能指導他人識別罕見症狀 | 0, 未評估",核心能力: 胸痛呼吸困難心悸暈厥水腫/高血壓糖尿病血脂異常/NYHA分級/藥物史/家族史,,,,,,y,,,,,
+epa_cv_2,cv_epa,,dropdown,EPA 2: 心臟血管系統理學檢查,"1, Level 1 - 能基本心臟聽診識別正常心音測血壓正確 | 2, Level 2 - 能識別常見心雜音系統性血管檢查評估水腫 | 3, Level 3 - 能區分收縮舒張期雜音準確評估頸靜脈壓整合發現 | 4, Level 4 - 能識別複雜雜音特徵技術精準有效率 | 5, Level 5 - 能偵測細微異常整合臨床表現 | 0, 未評估",核心能力: 四聽診區心音雜音/頸動脈周邊動脈搏動/血壓測量/水腫分級/發紺杵狀指,,,,,,y,,,,,
+epa_cv_3,cv_epa,,dropdown,EPA 3: 心電圖判讀與分析,"1, Level 1 - 能測基本間期心律識別正常心電圖 | 2, Level 2 - 能識別常見心律不整判讀明顯ST變化 | 3, Level 3 - 能獨立判讀大部分異常整合臨床症狀 | 4, Level 4 - 能判讀複雜心律識別細微缺血變化 | 5, Level 5 - 成為心電圖專家教導複雜判讀 | 0, 未評估",核心能力: PR QRS QT間期/房性結性心室性心律不整/ST-T變化/房室束支傳導阻滯/肥大電解質異常,,,,,,y,,,,,
+epa_cv_4,cv_epa,,dropdown,EPA 4: 心臟超音波基礎操作與判讀,"1, Level 1 - 能獲取基本標準切面簡單線性測量 | 2, Level 2 - 能獨立獲取大部分切面基本功能評估 | 3, Level 3 - 能完成標準超音波準確評估左心室功能 | 4, Level 4 - 能進階超音波技術準確定量評估 | 5, Level 5 - 成為超音波專家教導複雜技術 | 0, 未評估",核心能力: 胸骨旁心尖胸骨下切面/左心室功能心房心室大小壁厚/瓣膜型態開關功能逆流/都卜勒血流壓力梯度,,,,,,y,,,,,
+epa_cv_5,cv_epa,,dropdown,EPA 5: 急性冠心症診斷與初步處理,"1, Level 1 - 能識別典型胸痛知基本檢查項目 | 2, Level 2 - 能使用診斷流程基本風險評估 | 3, Level 3 - 能獨立診斷急性冠心症適當治療策略 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為急性冠心症專家指導複雜個案 | 0, 未評估",核心能力: 典型非典型症狀高風險特徵/心電圖心肌酵素影像/TIMI GRACE評分/抗血小板抗凝降血脂/PCI適應症轉院時機,,,,,,y,,,,,
+epa_cv_6,cv_epa,,dropdown,EPA 6: 心律不整診斷與處理,"1, Level 1 - 能識別基本心律不整知緊急原則 | 2, Level 2 - 能處理穩定性心律選基本藥物 | 3, Level 3 - 能獨立處理大部分心律做電擊決定 | 4, Level 4 - 能處理複雜心律評估導管消融 | 5, Level 5 - 成為心律專家執行複雜程序 | 0, 未評估",核心能力: 上心室心室性心律分類/血壓意識灌流評估/藥物非藥物治療/不穩定急救/抗凝導管消融,,,,,,y,,,,,
+epa_cv_7,cv_epa,,dropdown,EPA 7: 心衰竭診斷與治療,"1, Level 1 - 能識別心衰竭症狀知基本藥物 | 2, Level 2 - 能使用治療指引基本藥物調整 | 3, Level 3 - 能獨立管理穩定心衰竭調整藥物組合 | 4, Level 4 - 能處理難治性心衰竭評估進階選項 | 5, Level 5 - 成為心衰竭專家發展個人化策略 | 0, 未評估",核心能力: 症狀徵象功能分級/缺血非缺血心肌病變/射血分率舒張功能/ACE利尿劑beta阻斷劑/復健營養疫苗,,,,,,y,,,,,
+epa_cv_8,cv_epa,,dropdown,EPA 8: 高血壓診斷與管理,"1, Level 1 - 能正確測血壓知診斷標準 | 2, Level 2 - 能開始一線藥物提供基本生活建議 | 3, Level 3 - 能獨立管理單純高血壓調整劑量組合 | 4, Level 4 - 能處理難控制高血壓評估次發性 | 5, Level 5 - 成為高血壓專家發展個人化策略 | 0, 未評估",核心能力: 診間居家24小時血壓監測/次發性高血壓篩檢/心血管風險分層/單一複方藥物/飲食運動體重控制,,,,,,y,,,,,
+epa_cv_9,cv_epa,,dropdown,EPA 9: 心導管檢查結果判讀,"1, Level 1 - 能識別主要冠狀動脈判斷明顯狹窄 | 2, Level 2 - 能判讀標準心導管評估狹窄程度 | 3, Level 3 - 能獨立判讀大部分心導管整合臨床影像 | 4, Level 4 - 能判讀複雜冠狀動脈病變評估手術適應症 | 5, Level 5 - 成為心導管專家指導複雜個案 | 0, 未評估",核心能力: 冠狀動脈主要分支變異/血管狹窄程度重要性/左心室功能壁運動/PCI vs CABG適應症/手術風險預後,,,,,,y,,,,,
+epa_cv_10,cv_epa,,dropdown,EPA 10: 心臟科病患照護協調與溝通,"1, Level 1 - 能基本病情說明提供標準衛教 | 2, Level 2 - 能與團隊有效溝通個別化病患衛教 | 3, Level 3 - 能獨立協調複雜照護困難病情討論 | 4, Level 4 - 能領導跨團隊照護複雜醫療決策溝通 | 5, Level 5 - 成為溝通協調專家處理最複雜情況 | 0, 未評估",核心能力: 與護理藥師復健師溝通/疾病藥物生活指導/病情預後決策支持/出院準備居家照護/壞消息告知糾紛處理,,,,,,y,,,,,
+epa_cv_11,cv_epa,,dropdown,EPA 11: CCU侵入性處置操作與管理,"1, Level 1 - 能觀察執行了解適應症禁忌症協助準備 | 2, Level 2 - 能直接監督下執行簡單動脈導管基本胸腔穿刺 | 3, Level 3 - 能獨立執行大部分處置正確評估適應症處理併發症 | 4, Level 4 - 能熟練執行所有CCU處置處理複雜情況指導初學者 | 5, Level 5 - 成為侵入性處置專家處理最困難情況建立標準程序 | 0, 未評估",核心能力: 氣管插管動脈導管心包膜穿刺胸腔穿刺/適應症評估設備準備無菌技術/併發症識別處理/術後監測照護,,,,,,y,,,,,
+cv_section_comments,cv_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+cv_overall_comments,cv_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,,
+cv_strengths,cv_epa,,notes,優點與具體表現,,,,,,,,,,,,,
+cv_areas_improvement,cv_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,,
+cv_recommendation,cv_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid,cv_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate,cv_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate,cv_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate,cv_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status,cv_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata,cv_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult,cv_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+gi_eval_date,gi_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+gi_assessor_name,gi_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+gi_assessor_email,gi_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+gi_assessor_title,gi_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+gi_evaluated_id,gi_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+gi_evaluated_name,gi_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+gi_evaluated_type,gi_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+gi_trainee_type,gi_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+gi_trainee_name,gi_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+gi_dept,gi_epa,,text,評核科別,,預設：腸胃內科,,,,,,,,,,,@DEFAULT='腸胃內科' @READONLY @HIDDEN-SURVEY
+gi_section_epa,gi_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_gi_epa_1,gi_epa,,dropdown,EPA 1: 腸胃科病史詢問與風險評估,"1, Level 1 - 能詢問基本消化系統症狀需督導引導 | 2, Level 2 - 能系統性完成病史詢問使用評估工具 | 3, Level 3 - 能獨立完成複雜病史詢問整合風險 | 4, Level 4 - 能在困難情況獲取準確病史 | 5, Level 5 - 能指導他人識別罕見症狀 | 0, 未評估",核心能力: 症狀評估/危險因子/功能狀態/藥物史/家族史,,,,,,y,,,,,
+epa_gi_epa_2,gi_epa,,dropdown,EPA 2: 腹部理學檢查,"1, Level 1 - 能基本腹部觸診聽診 | 2, Level 2 - 能系統性腹部檢查識別異常 | 3, Level 3 - 能區分各種腹部發現準確評估 | 4, Level 4 - 能識別細微異常技術精準 | 5, Level 5 - 能偵測複雜異常整合表現 | 0, 未評估",核心能力: 視診/觸診/叩診/聽診/腹水評估,,,,,,y,,,,,
+epa_gi_epa_3,gi_epa,,dropdown,EPA 3: 腹部影像判讀與分析,"1, Level 1 - 能識別基本正常腹部影像 | 2, Level 2 - 能識別明顯異常判讀基本CT | 3, Level 3 - 能獨立判讀大部分異常整合症狀 | 4, Level 4 - 能判讀複雜影像識別早期病變 | 5, Level 5 - 成為影像專家教導複雜判讀 | 0, 未評估",核心能力: X光/CT/MRI判讀/病變識別/腹水評估,,,,,,y,,,,,
+epa_gi_epa_4,gi_epa,,dropdown,EPA 4: 肝功能檢驗報告判讀,"1, Level 1 - 能識別明顯異常數值 | 2, Level 2 - 能判讀常見肝功能異常 | 3, Level 3 - 能獨立判讀複雜異常整合臨床 | 4, Level 4 - 能判讀複雜肝功能準確推理病因 | 5, Level 5 - 成為肝功能判讀專家 | 0, 未評估",核心能力: GOT GPT/黃疸/肝炎標記/肝硬化指標,,,,,,y,,,,,
+epa_gi_epa_5,gi_epa,,dropdown,EPA 5: 內視鏡報告判讀,"1, Level 1 - 能識別基本術語理解報告 | 2, Level 2 - 能判讀常見內視鏡發現 | 3, Level 3 - 能獨立判讀報告整合臨床 | 4, Level 4 - 能判讀複雜發現評估病變嚴重度 | 5, Level 5 - 成為內視鏡判讀專家 | 0, 未評估",核心能力: 胃鏡大腸鏡報告/病變識別/切片建議,,,,,,y,,,,,
+epa_gi_epa_6,gi_epa,,dropdown,EPA 6: 急性腹痛診斷與處理,"1, Level 1 - 能識別典型腹痛知基本檢查 | 2, Level 2 - 能使用診斷流程基本評估 | 3, Level 3 - 能獨立診斷腹痛適當策略 | 4, Level 4 - 能處理複雜情況整合決策 | 5, Level 5 - 成為急性腹痛專家指導個案 | 0, 未評估",核心能力: 快速識別/診斷策略/嚴重度分級/疼痛控制/手術決策,,,,,,y,,,,,
+epa_gi_epa_7,gi_epa,,dropdown,EPA 7: 肝炎診斷與治療,"1, Level 1 - 能識別肝炎症狀知基本檢查 | 2, Level 2 - 能使用治療指引基本抗病毒 | 3, Level 3 - 能獨立管理穩定肝炎調整治療 | 4, Level 4 - 能處理複雜肝炎評估進階選項 | 5, Level 5 - 成為肝炎專家發展個人化策略 | 0, 未評估",核心能力: 診斷評估/病因識別/ChildPugh MELD/抗病毒治療,,,,,,y,,,,,
+epa_gi_epa_8,gi_epa,,dropdown,EPA 8: 消化道出血診斷與處理,"1, Level 1 - 能識別消化道出血知基本流程 | 2, Level 2 - 能使用評分工具開始緊急處置 | 3, Level 3 - 能獨立診斷出血選適當處置 | 4, Level 4 - 能處理複雜出血評估內視鏡治療 | 5, Level 5 - 成為消化道出血專家發展策略 | 0, 未評估",核心能力: Rockall GlasgowBlatchford評分/診斷策略/嚴重度評估/緊急處置/內視鏡評估,,,,,,y,,,,,
+epa_gi_epa_9,gi_epa,,dropdown,EPA 9: 膽胰系統疾病診斷與治療,"1, Level 1 - 能識別膽胰疾病了解基本檢查 | 2, Level 2 - 能執行基本診斷區分急慢性 | 3, Level 3 - 能獨立診斷膽胰疾病制定計畫 | 4, Level 4 - 能處理複雜疾病整合內外科 | 5, Level 5 - 成為膽胰專家處理複雜個案 | 0, 未評估",核心能力: 臨床評估/影像判讀/病因分析/治療決策/功能監測/外科評估,,,,,,y,,,,,
+epa_gi_epa_10,gi_epa,,dropdown,EPA 10: 腹腔穿刺術與引流,"1, Level 1 - 能協助穿刺了解基本解剖 | 2, Level 2 - 能監督下執行診斷性穿刺 | 3, Level 3 - 能獨立執行穿刺處理併發症 | 4, Level 4 - 能執行複雜手術使用進階技術 | 5, Level 5 - 成為穿刺專家教導複雜技術 | 0, 未評估",核心能力: 適應症評估/超音波定位/無菌技術/併發症預防/術後管理,,,,,,y,,,,,
+epa_gi_epa_11,gi_epa,,dropdown,EPA 11: 腸胃科病患照護協調與溝通,"1, Level 1 - 能基本病情說明標準衛教 | 2, Level 2 - 能與團隊溝通個別化衛教 | 3, Level 3 - 能獨立協調複雜照護困難討論 | 4, Level 4 - 能領導跨團隊照護複雜溝通 | 5, Level 5 - 成為溝通協調專家處理複雜情況 | 0, 未評估",核心能力: 團隊溝通/病患衛教/家屬溝通/照護協調/困難溝通,,,,,,y,,,,,
+gi_section_comments,gi_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+gi_overall_comments,gi_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+gi_strengths,gi_epa,,notes,優點與具體表現,,,,,,,,,,,,,
+gi_areas_improvement,gi_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,,
+gi_recommendation,gi_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_2,gi_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_2,gi_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_2,gi_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_2,gi_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_2,gi_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_2,gi_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_2,gi_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+nephro_eval_date,nephro_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+nephro_assessor_name,nephro_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+nephro_assessor_email,nephro_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+nephro_assessor_title,nephro_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+nephro_evaluated_id,nephro_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+nephro_evaluated_name,nephro_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+nephro_evaluated_type,nephro_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+nephro_trainee_type,nephro_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+nephro_trainee_name,nephro_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+nephro_dept,nephro_epa,,text,評核科別,,預設：腎臟內科,,,,,,,,,,,@DEFAULT='腎臟內科' @READONLY @HIDDEN-SURVEY
+nephro_section_epa,nephro_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_nephro_1,nephro_epa,,dropdown,EPA 1: 腎臟疾病病史詢問與風險評估,"1, Level 1 - 能詢問基本腎臟症狀需督導引導 | 2, Level 2 - 能系統性完成腎臟病史詢問使用評估工具 | 3, Level 3 - 能獨立完成複雜病史詢問整合風險分層 | 4, Level 4 - 能在困難情況獲取準確病史 | 5, Level 5 - 能指導他人識別罕見症狀 | 0, 未評估",核心能力: 尿量變化水腫血尿泡沫尿腰痛/高血壓糖尿病自體免疫藥物史/尿毒症狀體液平衡/腎毒性藥物/多囊腎遺傳性腎病腎結石家族史,,,,,,y,,,,,
+epa_nephro_2,nephro_epa,,dropdown,EPA 2: 腎臟泌尿系統身體檢查,"1, Level 1 - 能基本腎臟觸診識別明顯水腫 | 2, Level 2 - 能識別常見異常系統性腎臟檢查 | 3, Level 3 - 能區分異常發現準確評估體液狀態整合發現 | 4, Level 4 - 能識別複雜發現技術精準有效率 | 5, Level 5 - 能偵測細微異常整合臨床表現 | 0, 未評估",核心能力: 腎臟大小壓痛多囊腎觸診/下肢水腫腹水肺水腫/血壓測量/脫水體液過多徵象/肋脊角壓痛膀胱叩診,,,,,,y,,,,,
+epa_nephro_3,nephro_epa,,dropdown,EPA 3: 腎臟超音波基礎操作與判讀,"1, Level 1 - 能協助基本超音波了解基本解剖 | 2, Level 2 - 能獨立操作標準檢查基本判讀 | 3, Level 3 - 能完成標準檢查準確識別常見病變 | 4, Level 4 - 能進階超音波技術準確定量評估 | 5, Level 5 - 成為超音波專家教導複雜技術 | 0, 未評估",核心能力: 超音波操作品質確保/腎臟大小皮質厚度輸尿管擴張/腎實質集尿系統血流/囊腫結石水腎實質病變,,,,,,y,,,,,
+epa_nephro_4,nephro_epa,,dropdown,EPA 4: 酸鹼及電解質檢驗報告判讀,"1, Level 1 - 能識別明顯異常數值知正常範圍 | 2, Level 2 - 能判讀常見異常使用系統性流程 | 3, Level 3 - 能獨立判讀複雜異常整合臨床表現 | 4, Level 4 - 能判讀複雜混合性異常準確推理病因 | 5, Level 5 - 成為酸鹼電解質判讀專家教導複雜判讀 | 0, 未評估",核心能力: pH HCO3 PaCO2解讀代償機轉/鈉鉀鈣磷鎂異常識別/病因推理/嚴重度評估/矯正策略,,,,,,y,,,,,
+epa_nephro_5,nephro_epa,,dropdown,EPA 5: 急性腎損傷診斷與處置,"1, Level 1 - 能識別AKI定義知基本分期 | 2, Level 2 - 能使用診斷流程基本嚴重度評估 | 3, Level 3 - 能獨立診斷AKI適當選擇治療策略 | 4, Level 4 - 能處理複雜情況整合多因子決策 | 5, Level 5 - 成為AKI專家指導複雜個案 | 0, 未評估",核心能力: AKI定義KDIGO分期/腎前腎性腎後性AKI區分/RIFLE AKIN KDIGO/容積狀態液體復甦/腎毒性藥物調整,,,,,,y,,,,,
+epa_nephro_6,nephro_epa,,dropdown,EPA 6: 慢性腎臟疾病診斷與管理,"1, Level 1 - 能識別CKD症狀知基本診斷標準 | 2, Level 2 - 能使用標準治療指引基本管理 | 3, Level 3 - 能獨立管理穩定CKD調整治療計畫 | 4, Level 4 - 能處理進展性CKD評估進階治療 | 5, Level 5 - 成為CKD專家發展個人化策略 | 0, 未評估",核心能力: KDIGO分期eGFR計算/蛋白尿評估血尿/血壓控制貧血管理/鈣磷平衡骨病變/腎保護藥物營養諮詢,,,,,,y,,,,,
+epa_nephro_7,nephro_epa,,dropdown,EPA 7: 體液及電解質不平衡處置,"1, Level 1 - 能識別明顯體液電解質異常 | 2, Level 2 - 能執行基本矯正治療監測反應 | 3, Level 3 - 能獨立處理大部分異常制定矯正計畫 | 4, Level 4 - 能處理複雜混合性異常整合多因素 | 5, Level 5 - 成為體液電解質專家發展個人化策略 | 0, 未評估",核心能力: 低高鈉血症處理/低高鉀血症緊急處置/低高鈣血症/代謝性酸中毒/容積狀態評估液體治療,,,,,,y,,,,,
+epa_nephro_8,nephro_epa,,dropdown,EPA 8: 腎臟替代療法認識與評估,"1, Level 1 - 能了解RRT基本概念識別透析適應症 | 2, Level 2 - 能評估RRT需求提供基本諮詢 | 3, Level 3 - 能獨立評估RRT適應症協助模式選擇 | 4, Level 4 - 能處理複雜RRT評估整合多考量因素 | 5, Level 5 - 成為RRT專家提供個人化治療建議 | 0, 未評估",核心能力: 血液透析腹膜透析腎臟移植認識/RRT啟動時機緊急透析/動靜脈瘻管導管腹膜透析導管/治療選項說明/透析相關併發症,,,,,,y,,,,,
+epa_nephro_9,nephro_epa,,dropdown,EPA 9: 腎臟切片檢查適應症及風險評估,"1, Level 1 - 能了解腎切片基本適應症識別常見禁忌症 | 2, Level 2 - 能評估基本適應症初步風險評估 | 3, Level 3 - 能獨立評估腎切片適應症完整風險評估 | 4, Level 4 - 能處理複雜評估整合多風險因素 | 5, Level 5 - 成為腎切片評估專家處理高風險個案 | 0, 未評估",核心能力: 診斷性治療性切片決策/絕對相對禁忌症判斷/出血感染風險/檢查必要性風險說明同意書/併發症監測病理報告解讀,,,,,,y,,,,,
+epa_nephro_10,nephro_epa,,dropdown,EPA 10: 末期腎病患者跨科部整合照護協調,"1, Level 1 - 能識別ESRD基本照護需求 | 2, Level 2 - 能執行基本照護協調提供標準衛教 | 3, Level 3 - 能獨立協調複雜照護整合多團隊 | 4, Level 4 - 能領導跨科照護處理複雜情況 | 5, Level 5 - 成為整合照護專家建立標準流程 | 0, 未評估",核心能力: 透析團隊協調/營養師藥師衛教/併發症管理/安寧緩和評估/移植評估轉介/家屬支持社會資源,,,,,,y,,,,,
+nephro_section_comments,nephro_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+nephro_overall_comments,nephro_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,,
+nephro_strengths,nephro_epa,,notes,優點與具體表現,,,,,,,,,,,,,
+nephro_areas_improvement,nephro_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,,
+nephro_recommendation,nephro_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_4,nephro_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_4,nephro_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_4,nephro_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_4,nephro_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_4,nephro_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_4,nephro_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_4,nephro_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+endocrine_eval_date,endocrine_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+endocrine_assessor_name,endocrine_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+endocrine_assessor_email,endocrine_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+endocrine_assessor_title,endocrine_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+endocrine_evaluated_id,endocrine_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+endocrine_evaluated_name,endocrine_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+endocrine_evaluated_type,endocrine_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+endocrine_trainee_type,endocrine_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+endocrine_trainee_name,endocrine_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+endocrine_dept,endocrine_epa,,text,評核科別,,預設：新陳代謝內分泌科,,,,,,,,,,,@DEFAULT='新陳代謝內分泌科' @READONLY @HIDDEN-SURVEY
+endocrine_section_epa,endocrine_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_endocrine_1,endocrine_epa,,dropdown,EPA 1: 糖尿病診斷與藥物治療,"1, Level 1 - 能識別糖尿病症狀知基本診斷標準 | 2, Level 2 - 能執行標準治療指引開始基本藥物 | 3, Level 3 - 能獨立診斷管理調整藥物組合 | 4, Level 4 - 能處理複雜糖尿病評估進階治療 | 5, Level 5 - 成為糖尿病專家發展個人化策略 | 0, 未評估",核心能力: HbA1c空腹血糖OGTT/第一型第二型鑑別/口服藥物胰島素/低血糖高血糖處理/血糖監測目標設定,,,,,,y,,,,,
+epa_endocrine_2,endocrine_epa,,dropdown,EPA 2: 糖尿病併發症評估與管理,"1, Level 1 - 能識別基本併發症知篩檢項目 | 2, Level 2 - 能執行標準篩檢基本管理 | 3, Level 3 - 能獨立評估併發症制定管理計畫 | 4, Level 4 - 能處理複雜併發症整合多科治療 | 5, Level 5 - 成為併發症專家發展預防策略 | 0, 未評估",核心能力: 視網膜病變腎病變神經病變/足部檢查潰瘍預防/心血管風險評估/血壓血脂控制/多科團隊協調,,,,,,y,,,,,
+epa_endocrine_3,endocrine_epa,,dropdown,EPA 3: 糖尿病急症診斷與處理,"1, Level 1 - 能識別糖尿病急症知基本處理原則 | 2, Level 2 - 能執行標準處置監測反應 | 3, Level 3 - 能獨立診斷處理急症適當液體電解質治療 | 4, Level 4 - 能處理複雜急症併發症整合加護治療 | 5, Level 5 - 成為急症專家建立處理流程 | 0, 未評估",核心能力: DKA診斷處理/HHS識別治療/嚴重低血糖處理/液體電解質胰島素治療/併發症監測預防,,,,,,y,,,,,
+epa_endocrine_4,endocrine_epa,,dropdown,EPA 4: 甲狀腺疾病診斷與治療,"1, Level 1 - 能識別甲狀腺症狀知基本檢查 | 2, Level 2 - 能判讀甲狀腺功能執行基本治療 | 3, Level 3 - 能獨立診斷管理調整藥物劑量 | 4, Level 4 - 能處理複雜甲狀腺疾病評估手術放射碘 | 5, Level 5 - 成為甲狀腺專家處理罕見疾病 | 0, 未評估",核心能力: TSH T4 T3判讀/甲亢甲低診斷治療/甲狀腺結節評估/抗甲狀腺藥物/甲狀腺風暴處理,,,,,,y,,,,,
+epa_endocrine_5,endocrine_epa,,dropdown,EPA 5: 腎上腺疾病診斷與處置,"1, Level 1 - 能識別腎上腺症狀知基本檢查 | 2, Level 2 - 能執行標準診斷流程基本治療 | 3, Level 3 - 能獨立診斷腎上腺疾病制定治療計畫 | 4, Level 4 - 能處理複雜腎上腺疾病評估手術適應症 | 5, Level 5 - 成為腎上腺專家處理罕見疾病 | 0, 未評估",核心能力: 庫欣症候群診斷/原發性醛固酮增多症/嗜鉻細胞瘤/腎上腺功能不全/皮質醇壓抑試驗,,,,,,y,,,,,
+epa_endocrine_6,endocrine_epa,,dropdown,EPA 6: 腦下垂體疾病診斷與處置,"1, Level 1 - 能識別腦下垂體症狀知基本檢查 | 2, Level 2 - 能執行標準診斷流程基本激素評估 | 3, Level 3 - 能獨立診斷腦下垂體疾病制定治療 | 4, Level 4 - 能處理複雜腦下垂體疾病評估手術 | 5, Level 5 - 成為腦下垂體專家處理罕見疾病 | 0, 未評估",核心能力: 泌乳激素瘤/生長激素過多/尿崩症/腦下垂體功能不全/激素刺激試驗/MRI判讀,,,,,,y,,,,,
+epa_endocrine_7,endocrine_epa,,dropdown,EPA 7: 內分泌急症識別與處理,"1, Level 1 - 能識別常見內分泌急症知基本處理 | 2, Level 2 - 能執行標準緊急處置監測反應 | 3, Level 3 - 能獨立診斷處理內分泌急症 | 4, Level 4 - 能處理複雜急症多重器官衰竭 | 5, Level 5 - 成為內分泌急症專家建立處理流程 | 0, 未評估",核心能力: 甲狀腺風暴/腎上腺危象/高血鈣危象/低血糖昏迷/DKA HHS/緊急激素補充,,,,,,y,,,,,
+epa_endocrine_8,endocrine_epa,,dropdown,EPA 8: 肥胖與代謝症候群整合照護,"1, Level 1 - 能識別肥胖代謝症候群知基本評估 | 2, Level 2 - 能執行標準評估提供基本建議 | 3, Level 3 - 能獨立管理肥胖制定個別化計畫 | 4, Level 4 - 能處理複雜肥胖評估減重手術 | 5, Level 5 - 成為肥胖專家建立整合照護模式 | 0, 未評估",核心能力: BMI體脂肪評估/代謝症候群診斷/生活型態介入/減重藥物/多科團隊協調/減重手術評估,,,,,,y,,,,,
+epa_endocrine_9,endocrine_epa,,dropdown,EPA 9: 血脂異常評估與治療,"1, Level 1 - 能識別血脂異常知基本檢查 | 2, Level 2 - 能執行標準評估開始降血脂藥物 | 3, Level 3 - 能獨立管理血脂異常調整治療目標 | 4, Level 4 - 能處理難治性血脂異常評估進階治療 | 5, Level 5 - 成為血脂專家發展個人化策略 | 0, 未評估",核心能力: TC LDL HDL TG判讀/心血管風險評估/史他汀纖維酸衍生物/飲食運動建議/家族性高膽固醇血症,,,,,,y,,,,,
+epa_endocrine_10,endocrine_epa,,dropdown,EPA 10: 高低血鈣異常診斷與處理,"1, Level 1 - 能識別血鈣異常症狀知基本檢查 | 2, Level 2 - 能執行標準診斷流程基本治療 | 3, Level 3 - 能獨立診斷血鈣異常制定治療計畫 | 4, Level 4 - 能處理複雜血鈣異常評估副甲狀腺手術 | 5, Level 5 - 成為血鈣專家處理罕見疾病 | 0, 未評估",核心能力: 副甲狀腺功能/維生素D評估/高血鈣危象處理/低血鈣急性治療/鈣磷代謝/骨質疏鬆評估,,,,,,y,,,,,
+endocrine_section_comments,endocrine_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+endocrine_overall_comments,endocrine_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,,
+endocrine_strengths,endocrine_epa,,notes,優點與具體表現,,,,,,,,,,,,,
+endocrine_areas_improvement,endocrine_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,,
+endocrine_recommendation,endocrine_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_5,endocrine_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_5,endocrine_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_5,endocrine_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_5,endocrine_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_5,endocrine_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_5,endocrine_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_5,endocrine_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+hema_eval_date,hema_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+hema_assessor_name,hema_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+hema_assessor_email,hema_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+hema_assessor_title,hema_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+hema_evaluated_id,hema_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+hema_evaluated_name,hema_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+hema_evaluated_type,hema_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+hema_trainee_type,hema_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+hema_trainee_name,hema_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+hema_dept,hema_epa,,text,評核科別,,預設：血液科,,,,,,,,,,,@DEFAULT='血液科' @READONLY @HIDDEN-SURVEY
+hema_section_epa,hema_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_hema_1,hema_epa,,dropdown,EPA 1: 血液疾病病史詢問與理學檢查,"1, Level 1 - 能詢問基本血液症狀需督導引導 | 2, Level 2 - 能系統性完成血液病史詢問執行基本理學檢查 | 3, Level 3 - 能獨立完成複雜病史詢問整合症狀初步診斷 | 4, Level 4 - 能在困難情況獲取準確病史識別罕見症狀 | 5, Level 5 - 能指導他人進行病史詢問建立系統性評估流程 | 0, 未評估",核心能力: 瘀青紫斑牙齦出血鼻出血月經過多/疲倦暈眩心悸呼吸困難/反覆感染發燒/血友病地中海貧血血栓家族史/蒼白黃疸淋巴結肝脾腫大瘀斑,,,,,,y,,,,,
+epa_hema_2,hema_epa,,dropdown,EPA 2: 周邊血液抹片與骨髓抹片判讀,"1, Level 1 - 能識別基本正常血球型態 | 2, Level 2 - 能識別常見異常血球基本分類 | 3, Level 3 - 能獨立判讀大部分抹片整合臨床診斷 | 4, Level 4 - 能判讀複雜抹片識別罕見血球異常 | 5, Level 5 - 成為抹片判讀專家教導複雜判讀技巧 | 0, 未評估",核心能力: 紅血球大小形狀內含物/白血球五分類異常白血球/血小板數量大小型態/骨髓ME ratio成熟度異常細胞/鐵染色PAS MPO,,,,,,y,,,,,
+epa_hema_3,hema_epa,,dropdown,EPA 3: 貧血診斷與處理,"1, Level 1 - 能識別貧血症狀知基本檢查 | 2, Level 2 - 能執行標準診斷流程基本貧血分類 | 3, Level 3 - 能獨立診斷常見貧血制定治療計畫 | 4, Level 4 - 能處理複雜貧血評估進階治療 | 5, Level 5 - 成為貧血專家發展個人化策略 | 0, 未評估",核心能力: MCV分類缺鐵貧血B12葉酸缺乏/溶血性貧血地中海貧血/再生不良性貧血/鐵劑B12葉酸補充/輸血適應症,,,,,,y,,,,,
+epa_hema_4,hema_epa,,dropdown,EPA 4: 出血性疾病與凝血異常管理,"1, Level 1 - 能識別出血症狀知基本凝血檢查 | 2, Level 2 - 能執行標準診斷流程基本治療 | 3, Level 3 - 能獨立診斷出血疾病制定治療 | 4, Level 4 - 能處理複雜凝血異常評估進階治療 | 5, Level 5 - 成為凝血專家處理罕見疾病 | 0, 未評估",核心能力: 血小板低下ITP TTP HUS/凝血因子缺乏血友病/VWD/PT APTT纖維蛋白原/血小板輸注凝血因子補充,,,,,,y,,,,,
+epa_hema_5,hema_epa,,dropdown,EPA 5: 血栓性疾病診斷與處理,"1, Level 1 - 能識別血栓症狀知基本檢查 | 2, Level 2 - 能執行標準診斷流程開始抗凝治療 | 3, Level 3 - 能獨立診斷血栓疾病制定治療計畫 | 4, Level 4 - 能處理複雜血栓評估長期抗凝 | 5, Level 5 - 成為血栓專家發展個人化策略 | 0, 未評估",核心能力: DVT PE診斷/抗磷脂症候群/遺傳性血栓傾向/抗凝血治療監測/華法林DOAC使用,,,,,,y,,,,,
+epa_hema_6,hema_epa,,dropdown,EPA 6: 骨髓穿刺與切片檢查,"1, Level 1 - 能協助骨髓穿刺了解基本解剖 | 2, Level 2 - 能監督下執行診斷性骨髓穿刺 | 3, Level 3 - 能獨立執行骨髓穿刺取得適當檢體 | 4, Level 4 - 能執行複雜骨髓穿刺處理併發症 | 5, Level 5 - 成為骨髓穿刺專家教導複雜技術 | 0, 未評估",核心能力: 適應症評估/髂骨胸骨穿刺技術/無菌操作/骨髓抽吸切片/併發症預防處理,,,,,,y,,,,,
+epa_hema_7,hema_epa,,dropdown,EPA 7: 急性白血病診斷與治療,"1, Level 1 - 能識別白血病可能性了解基本分類 | 2, Level 2 - 能執行初步評估協助化療管理 | 3, Level 3 - 能獨立診斷白血病執行化療計畫 | 4, Level 4 - 能處理複雜併發症調整治療策略 | 5, Level 5 - 成為白血病專家發展個人化治療 | 0, 未評估",核心能力: AML ALL分類/細胞遺傳學分子標記/化療方案選擇/支持性照護/造血幹細胞移植評估/反應評估MRD,,,,,,y,,,,,
+epa_hema_8,hema_epa,,dropdown,EPA 8: 淋巴瘤與骨髓瘤診斷管理,"1, Level 1 - 能識別淋巴瘤可能性了解基本分型 | 2, Level 2 - 能執行初步分期協助化療管理 | 3, Level 3 - 能獨立診斷與治療淋巴瘤骨髓瘤 | 4, Level 4 - 能處理複雜病例評估移植適應症 | 5, Level 5 - 成為淋巴瘤專家參與臨床試驗 | 0, 未評估",核心能力: HL NHL病理分型免疫組化/Ann Arbor分期PET-CT IPI score/RCHOP ABVD方案/CRAB準則ISS分期/誘導鞏固維持治療,,,,,,y,,,,,
+epa_hema_9,hema_epa,,dropdown,EPA 9: 輸血醫學與成分輸血,"1, Level 1 - 能了解輸血基本原則執行輸血醫囑 | 2, Level 2 - 能評估輸血適應症選擇血品 | 3, Level 3 - 能獨立執行輸血監測反應處理併發症 | 4, Level 4 - 能處理複雜輸血評估特殊輸血 | 5, Level 5 - 成為輸血專家建立輸血策略 | 0, 未評估",核心能力: 紅血球血小板血漿輸注指標/ABO Rh血型交叉試驗/PRBC PC FFP Cryo/大量輸血緊急輸血/急性溶血TRALI TACO,,,,,,y,,,,,
+epa_hema_10,hema_epa,,dropdown,EPA 10: 血液疾病患者跨科部整合照護協調,"1, Level 1 - 能識別基本照護需求提供標準衛教 | 2, Level 2 - 能執行基本照護協調與團隊溝通 | 3, Level 3 - 能獨立協調複雜照護整合多團隊 | 4, Level 4 - 能領導跨科照護處理複雜情況 | 5, Level 5 - 成為整合照護專家建立標準流程 | 0, 未評估",核心能力: 化療團隊協調/感染科會診/營養師藥師衛教/支持性照護安寧緩和/家屬溝通社會資源/臨床試驗轉介,,,,,,y,,,,,
+hema_section_comments,hema_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+hema_overall_comments,hema_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+hema_strengths,hema_epa,,notes,優點與具體表現,,,,,,,,,,,,, @MAXCHOICE=3000
+hema_areas_improvement,hema_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,, @MAXCHOICE=3000
+hema_recommendation,hema_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_6,hema_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_6,hema_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_6,hema_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_6,hema_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_6,hema_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_6,hema_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_6,hema_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+id_eval_date,id_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+id_assessor_name,id_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+id_assessor_email,id_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+id_assessor_title,id_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+id_evaluated_id,id_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+id_evaluated_name,id_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+id_evaluated_type,id_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+id_trainee_type,id_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+id_trainee_name,id_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+id_dept,id_epa,,text,評核科別,,預設：感染症內科,,,,,,,,,,,@DEFAULT='感染症內科' @READONLY @HIDDEN-SURVEY
+id_section_epa,id_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_id_epa_1,id_epa,,dropdown,EPA 1: 感染症病史詢問與系統性理學檢查,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 發燒型態旅遊史接觸史疫苗史/淋巴結肝脾皮疹傷口檢查/菌血症敗血症識別,,,,,,y,,,,,
+epa_id_epa_2,id_epa,,dropdown,EPA 2: 社區感染症診斷與治療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 上下呼吸道感染/泌尿道感染/蜂窩組織炎/腸胃道感染/經驗性抗生素選擇,,,,,,y,,,,,
+epa_id_epa_3,id_epa,,dropdown,EPA 3: 院內感染症診斷與治療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 導管相關感染/呼吸器相關肺炎/手術部位感染/CDI/MDRO管理,,,,,,y,,,,,
+epa_id_epa_4,id_epa,,dropdown,EPA 4: 微生物檢體採檢送檢與報告判讀,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 血液培養痰液尿液檢體/革蘭氏染色培養/藥敏試驗MIC判讀/快速檢驗分子診斷,,,,,,y,,,,,
+epa_id_epa_5,id_epa,,dropdown,EPA 5: 抗生素合理使用與管理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 抗生素分類機轉/廣窄譜選擇/劑量調整/抗生素升降階/AMS原則,,,,,,y,,,,,
+epa_id_epa_6,id_epa,,dropdown,EPA 6: 不明熱評估與處理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: FUO定義鑑別診斷/感染腫瘤自體免疫藥物熱/系統性檢查安排/診斷性治療,,,,,,y,,,,,
+epa_id_epa_7,id_epa,,dropdown,EPA 7: 免疫不全患者感染管理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 嗜中性白血球低下發燒/HIV伺機性感染/器官移植感染/化療感染預防,,,,,,y,,,,,
+epa_id_epa_8,id_epa,,dropdown,EPA 8: 敗血症及敗血性休克處理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: Sepsis3定義qSOFA/血流動力學評估/Bundle照護/抗生素升階/器官支持,,,,,,y,,,,,
+epa_id_epa_9,id_epa,,dropdown,EPA 9: 感染管制規範執行,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 標準預防接觸飛沫空氣傳播/手部衛生/隔離措施/針扎處理/PPE使用,,,,,,y,,,,,
+epa_id_epa_10,id_epa,,dropdown,EPA 10: 法定傳染病通報與處理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 第一二三四類傳染病/疫調通報流程/接觸者追蹤/公衛協調/隔離措施,,,,,,y,,,,,
+id_section_comments,id_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+id_overall_comments,id_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+id_strengths,id_epa,,notes,優點與具體表現,,,,,,,,,,,,, @MAXCHOICE=3000
+id_areas_improvement,id_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,, @MAXCHOICE=3000
+id_recommendation,id_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_7,id_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_7,id_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_7,id_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_7,id_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_7,id_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_7,id_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_7,id_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+onco_eval_date,onco_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+onco_assessor_name,onco_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+onco_assessor_email,onco_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+onco_assessor_title,onco_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+onco_evaluated_id,onco_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+onco_evaluated_name,onco_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+onco_evaluated_type,onco_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+onco_trainee_type,onco_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+onco_trainee_name,onco_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+onco_dept,onco_epa,,text,評核科別,,預設：腫瘤科,,,,,,,,,,,@DEFAULT='腫瘤科' @READONLY @HIDDEN-SURVEY
+onco_section_epa,onco_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_onco_epa_1,onco_epa,,dropdown,EPA 1: 腫瘤學病史詢問與理學檢查,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 體重減輕不明發燒盜汗腫塊出血/器官特定症狀/遺傳性癌症家族史/環境暴露/淋巴結肝脾神經學檢查/ECOG PS,,,,,,y,,,,,
+epa_onco_epa_2,onco_epa,,dropdown,EPA 2: 病理報告與分子標記判讀,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 組織型態分化程度特殊染色/WHO Gleason Nottingham分級/血管淋巴侵犯切緣/ER PR HER2 PDL1 Ki67/EGFR ALK KRAS MSI TMB,,,,,,y,,,,,
+epa_onco_epa_3,onco_epa,,dropdown,EPA 3: 癌症分期與預後評估,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: AJCC TNM分期系統/CT MRI PET-CT應用/分期檢查組合/預後因子整合/MDT討論/治療策略,,,,,,y,,,,,
+epa_onco_epa_4,onco_epa,,dropdown,EPA 4: 化學治療方案選擇與執行,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 依癌別分期選擇方案/BSA劑量計算器官調整/血球肝腎心肺評估/藥物順序時間水化/RECIST療效評估/劑量調整中止,,,,,,y,,,,,
+epa_onco_epa_5,onco_epa,,dropdown,EPA 5: 標靶治療與免疫治療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: EGFR-TKI ALK-i HER2-i/PD1 PDL1 CTLA4抑制劑/生物標記檢測/irAE識別處理/抗藥性後線治療,,,,,,y,,,,,
+epa_onco_epa_6,onco_epa,,dropdown,EPA 6: 放射治療適應症評估與協調,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 根治輔助緩和放療/IMRT SBRT質子治療/同步序列放化療/放腫科溝通/急慢性副作用管理,,,,,,y,,,,,
+epa_onco_epa_7,onco_epa,,dropdown,EPA 7: 腫瘤急症診斷與處理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: SVCS快速診斷放療支架/脊髓壓迫MRI類固醇放療手術/高血鈣水化雙磷酸鹽/TLS預防Rasburicase/嗜中性白血球低下發燒,,,,,,y,,,,,
+epa_onco_epa_8,onco_epa,,dropdown,EPA 8: 化療副作用與支持性照護,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 噁心嘔吐腹瀉黏膜炎/骨髓抑制發燒預防/周邊神經毒性/腎毒性心毒性/營養支持,,,,,,y,,,,,
+epa_onco_epa_9,onco_epa,,dropdown,EPA 9: 癌症疼痛控制與緩和醫療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: WHO三階梯止痛/嗎啡類藥物滴定/神經病變痛/突發痛處理/症狀控制預立醫療/安寧照會,,,,,,y,,,,,
+epa_onco_epa_10,onco_epa,,dropdown,EPA 10: 腫瘤病患跨科部整合照護協調,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: MDT討論分期會議/放腫外科協調/支持性照護團隊/營養復健/安寧緩和/家屬溝通臨床試驗,,,,,,y,,,,,
+onco_section_comments,onco_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+onco_overall_comments,onco_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+onco_strengths,onco_epa,,notes,優點與具體表現,,,,,,,,,,,,, @MAXCHOICE=3000
+onco_areas_improvement,onco_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,, @MAXCHOICE=3000
+onco_recommendation,onco_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_8,onco_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_8,onco_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_8,onco_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_8,onco_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_8,onco_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_8,onco_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_8,onco_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+rheuma_eval_date,rheuma_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+rheuma_assessor_name,rheuma_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+rheuma_assessor_email,rheuma_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+rheuma_assessor_title,rheuma_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+rheuma_evaluated_id,rheuma_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+rheuma_evaluated_name,rheuma_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+rheuma_evaluated_type,rheuma_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+rheuma_trainee_type,rheuma_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+rheuma_trainee_name,rheuma_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+rheuma_dept,rheuma_epa,,text,評核科別,,預設：風濕免疫科,,,,,,,,,,,@DEFAULT='風濕免疫科' @READONLY @HIDDEN-SURVEY
+rheuma_section_epa,rheuma_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_rheuma_epa_1,rheuma_epa,,dropdown,EPA 1: 風濕免疫疾病病史詢問與風險評估,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 關節痛晨間僵硬肌肉無力皮疹口腔潰瘍/發燒體重減輕疲倦雷諾氏/自體免疫疾病家族史/NSAIDs類固醇免疫抑制劑/HAQ RAPID3功能評估/DAS28 SLEDAI,,,,,,y,,,,,
+epa_rheuma_epa_2,rheuma_epa,,dropdown,EPA 2: 關節系統理學檢查,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 對稱性腫脹壓痛溫度積液/主動被動活動度疼痛弧/擠壓骶髂脊椎活動度/皮疹結節指甲黏膜/腫脹壓痛關節計數66 68/握力行走Schober,,,,,,y,,,,,
+epa_rheuma_epa_3,rheuma_epa,,dropdown,EPA 3: 風濕免疫疾病影像判讀,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: X光侵蝕狹窄骨質疏鬆/超音波滑膜增生血流/MRI骨髓水腫侵蝕/DEXA骨密度T-score/影像分期評估,,,,,,y,,,,,
+epa_rheuma_epa_4,rheuma_epa,,dropdown,EPA 4: 關節穿刺術與關節液分析,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 膝肩肘踝穿刺技術/無菌操作超音波導引/WBC分類結晶偏光/培養革蘭氏染色/痛風假性痛風敗血性關節炎,,,,,,y,,,,,
+epa_rheuma_epa_5,rheuma_epa,,dropdown,EPA 5: 自體免疫抗體與免疫學檢驗判讀,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: ANA效價型態speckled homogeneous/Anti-dsDNA Sm RNP Ro La/RF ACPA類風濕因子/C3 C4 CH50補體/ESR CRP發炎指標,,,,,,y,,,,,
+epa_rheuma_epa_6,rheuma_epa,,dropdown,EPA 6: 類風濕性關節炎診斷與治療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 2010 ACR EULAR分類標準/DAS28 SDAI CDAI活性評估/侵蝕性關節外表現/Treat-to-target策略/MTX HCQ SSZ DMARDs/關節變形併發症,,,,,,y,,,,,
+epa_rheuma_epa_7,rheuma_epa,,dropdown,EPA 7: 全身性紅斑狼瘡與結締組織疾病管理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: SLICC ACR EULAR 2019標準/腎肺心神經血液器官侵犯/SLEDAI疾病活性/類固醇免疫抑制劑/抗磷脂症候群乾燥症硬皮症多肌炎,,,,,,y,,,,,
+epa_rheuma_epa_8,rheuma_epa,,dropdown,EPA 8: 痛風與結晶性關節炎處置,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: MSU CPPD結晶偏光鑑定/急性痛風NSAIDs秋水仙素類固醇/降尿酸Allopurinol Febuxostat/飲食控制併發症/假性痛風CPPD,,,,,,y,,,,,
+epa_rheuma_epa_9,rheuma_epa,,dropdown,EPA 9: 免疫調節藥物使用與監測DMARDs生物製劑,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: MTX HCQ SSZ Leflunomide使用/肝腎功能血球監測/Anti-TNF IL-6 JAK抑制劑/感染結核篩檢預防/藥物副作用處理,,,,,,y,,,,,
+epa_rheuma_epa_10,rheuma_epa,,dropdown,EPA 10: 風濕免疫疾病患者跨科部整合照護,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 腎臟肺臟心臟會診/復健職能治療/營養藥師衛教/懷孕哺乳用藥/家屬溝通社會資源/臨床試驗,,,,,,y,,,,,
+rheuma_section_comments,rheuma_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+rheuma_overall_comments,rheuma_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+rheuma_strengths,rheuma_epa,,notes,優點與具體表現,,,,,,,,,,,,, @MAXCHOICE=3000
+rheuma_areas_improvement,rheuma_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,, @MAXCHOICE=3000
+rheuma_recommendation,rheuma_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_9,rheuma_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_9,rheuma_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_9,rheuma_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_9,rheuma_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_9,rheuma_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_9,rheuma_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_9,rheuma_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
+neuro_eval_date,neuro_epa,基本資料,text,評核日期,,請輸入格式 YYYY-MM-DD,date_ymd,,,,,,,,,,
+neuro_assessor_name,neuro_epa,,text,評核教師姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+neuro_assessor_email,neuro_epa,,text,評核教師電子信箱,,用於發送 EPA survey 邀請,email,,,y,,,,,,,@CHARLIMIT=100 @HIDDEN-SURVEY
+neuro_assessor_title,neuro_epa,,dropdown,評核教師職稱,"1, 主治醫師 | 2, 總醫師 | 3, 其他",,,,,,,,,,,,@HIDDEN-SURVEY
+neuro_evaluated_id,neuro_epa,被評核學員,text,被評核學員學號/員工編號,,請填入受評學員的學號或員工編號,,,,,,,,,,,@CHARLIMIT=20 @HIDDEN-SURVEY
+neuro_evaluated_name,neuro_epa,,text,被評核學員姓名,,,,,,,,y,,,,,@CHARLIMIT=50 @READONLY
+neuro_evaluated_type,neuro_epa,,dropdown,被評核學員類別,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+neuro_trainee_type,neuro_epa,,dropdown,受評者類型,"1, 醫學生 | 2, PGY醫師 | 3, 住院醫師 | 4, 專科護理師",,,,,,,,,,,,@HIDDEN-SURVEY
+neuro_trainee_name,neuro_epa,,text,受評者姓名,,,,,,,,,,,,,@HIDDEN-SURVEY
+neuro_dept,neuro_epa,,text,評核科別,,預設：神經科,,,,,,,,,,,@DEFAULT='神經科' @READONLY @HIDDEN-SURVEY
+neuro_section_epa,neuro_epa,EPA評估項目,descriptive,評分標準說明: Level 1 新手 - 僅能觀察他人執行需督導引導; Level 2 進階初學者 - 可在直接監督下執行; Level 3 勝任 - 可獨立執行但需回報; Level 4 精通 - 可獨立執行監督者隨時可得; Level 5 專家 - 可獨立執行並指導他人,,,,,,,,,,,,,
+epa_neuro_epa_1,neuro_epa,,dropdown,EPA 1: 神經學病史詢問與神經學檢查,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 意識狀態語言認知/顱神經運動感覺反射步態/GCS NIHSS評估,,,,,,y,,,,,
+epa_neuro_epa_2,neuro_epa,,dropdown,EPA 2: 腦血管疾病診斷與處理,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 缺血性中風TIA出血性中風/NIHSS CHA2DS2-VASc/CT MRI CTA MRA/tPA取栓抗血小板抗凝/危險因子控制復健,,,,,,y,,,,,
+epa_neuro_epa_3,neuro_epa,,dropdown,EPA 3: 癲癇診斷與治療,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 發作型態分類/EEG判讀/抗癲癇藥物選擇劑量/癲癇重積處理/懷孕用藥調整,,,,,,y,,,,,
+epa_neuro_epa_4,neuro_epa,,dropdown,EPA 4: 頭痛與眩暈評估,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 偏頭痛叢發緊縮型/紅旗症狀排除/急性預防用藥/周邊中樞性眩暈/BPPV處置,,,,,,y,,,,,
+epa_neuro_epa_5,neuro_epa,,dropdown,EPA 5: 意識障礙與昏迷評估,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: GCS評估腦幹反射/代謝中毒腦病變鑑別/CT MRI EEG/腦壓監測/預後評估,,,,,,y,,,,,
+epa_neuro_epa_6,neuro_epa,,dropdown,EPA 6: 腰椎穿刺術與腦脊髓液分析,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 禁忌症評估影像檢查/腰椎穿刺技術/壓力測量/細胞蛋白糖生化/感染出血腫瘤鑑別,,,,,,y,,,,,
+epa_neuro_epa_7,neuro_epa,,dropdown,EPA 7: 神經影像判讀CT MRI,"1, Level 1 - 能識別基本症狀知基本檢查 | 2, Level 2 - 能執行標準流程基本評估治療 | 3, Level 3 - 能獨立診斷處理制定治療計畫 | 4, Level 4 - 能處理複雜情況整合多因素決策 | 5, Level 5 - 成為專家教導複雜個案建立流程 | 0, 未評估",核心能力: 急性中風出血腫瘤/白質病變/血管影像CTA MRA/DWI FLAIR T1 T2序列,,,,,,y,,,,,
+neuro_section_comments,neuro_epa,整體評語,descriptive,請針對此次評核提供整體質性回饋: 優點與具體表現/需改進之處與學習建議/是否建議進入下階段訓練。提示: 您可使用手機語音輸入功能,,,,,,,,,,,,,
+neuro_overall_comments,neuro_epa,,notes,整體質性評語,,建議使用語音輸入功能,,,,,,,,,,, @MAXCHOICE=10000
+neuro_strengths,neuro_epa,,notes,優點與具體表現,,,,,,,,,,,,, @MAXCHOICE=3000
+neuro_areas_improvement,neuro_epa,,notes,需改進之處與學習建議,,,,,,,,,,,,, @MAXCHOICE=3000
+neuro_recommendation,neuro_epa,,dropdown,是否建議進入下階段訓練,"1, 是-可進入下階段 | 2, 尚可-需持續觀察 | 3, 保留-需加強訓練",,,,,,,y,,,,,
+uuid_10,neuro_epa,,text,UUID,,,,,,,,,,,,, @MC-TASK-UUID @HIDDEN-SURVEY
+startdate_10,neuro_epa,,text,Start Date,,,,,,,,,,,,, @MC-TASK-STARTDATE @HIDDEN-SURVEY
+enddate_10,neuro_epa,,text,End Date,,,,,,,,,,,,, @MC-TASK-ENDDATE @HIDDEN-SURVEY
+scheduledate_10,neuro_epa,,text,Schedule Date,,,,,,,,,,,,, @MC-TASK-SCHEDULEDATE @HIDDEN-SURVEY
+status_10,neuro_epa,,dropdown,Status,"0, Deleted | 1, Completed | 2, Incomplete",,,,,,,,,,,, @MC-TASK-STATUS @HIDDEN-SURVEY
+supplementaldata_10,neuro_epa,,notes,Supplemental Data (JSON),,,,,,,,,,,,, @MC-TASK-SUPPLEMENTALDATA @HIDDEN-SURVEY
+serializedresult_10,neuro_epa,,file,Serialized Result,,,,,,,,,,,,, @MC-TASK-SERIALIZEDRESULT @HIDDEN-SURVEY
