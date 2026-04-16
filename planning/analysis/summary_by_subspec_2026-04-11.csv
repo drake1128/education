@@ -1,0 +1,9 @@
+﻿instrument,subspec,n_records_total,n_records_completed,n_vs_total,n_vs_completed,n_np,level_mean,level_median
+Cv Epa,心臟內科,27,3,9,1,3,2.55,3.0
+Nephro Epa,腎臟內科,12,3,4,1,3,1.6,1.0
+Gi Epa,腸胃內科,16,2,8,1,2,3.09,3.0
+Chest Epa,胸腔內科,14,2,8,1,2,1.54,1.0
+Id Epa,感染科,4,2,2,1,2,1.75,2.0
+Endocrine Epa,內分泌科,12,0,4,0,0,,
+Hema Epa,血液科,16,0,4,0,0,,
+Onco Epa,腫瘤科,16,0,4,0,0,,
