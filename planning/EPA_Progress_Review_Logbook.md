@@ -16,6 +16,24 @@
 
 ---
 
+### 2026-04-18（週六）— Wave 2 匯入發送
+
+- **Wave 2 REDCap Import CSV 產生並匯入** (`planning/REDCap_Import_EPA_Wave2_2026-04-18.csv`)
+  - 120 筆 records (record_id 102–221)，132 列 CSV（血腫自動展成 hema+onco）
+  - 產生腳本：`planning/generate_redcap_csv_wave2.py`
+- **NP 第二評核者（呂菁，2 筆）**：
+  - 王心妍 ← 呂菁（endocrine_epa；原吳常瑋 chest_epa 維持）
+  - 陳逵蓉 ← 呂菁（endocrine_epa；原李宜鴻維持）
+  - 邱玉婷 Wave 1 已配呂菁，Wave 2 不重複
+- **PGY 評核（118 筆，7 位 PGY）**：
+  - 媒合邏輯：**PGY 實際輪訓的次專科，該科全體 VS 都評**（心臟/風濕/神經科 VS 無任何 PGY 評核 = 0 筆）
+  - 王閎毅（血腫+感染+腸胃）、藍子宸（腸胃+血腫+胸腔）、陳擎（胸腔+腎臟+血腫）、陳昱安（感染+腸胃+腎臟）、李治蘊（腎臟+胸腔+感染）、李宗翰（腎臟+腸胃+胸腔）、吳定衡（胸腔+腎臟+腸胃）
+  - 李宗翰、吳定衡為 115年5–7月輪訓，records 一併建立一次寄發
+- **本波 VS 負荷**：血腫 4 VS 各 +6、胸腔/腸胃/腎臟共 20 VS 各 +5、感染 2 VS 各 +3、呂菁 +2
+- 已於 REDCap **Data Import Tool** 匯入，並透過各 instrument 的 **Participant List** 發送
+
+---
+
 ### 2026-04-14（週一）
 
 - **流動 NP 調查結果整理**（來自 VS 回信）
